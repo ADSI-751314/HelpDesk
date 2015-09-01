@@ -22,26 +22,44 @@ class conexion_class {
     /* Se crea metodo para establecer la conexion con la base de datos */
 
     public function conexion() {
-        
+
         // se valida sin existe una conexion.
         if (!isset($this->conexion)) {
-            
+
             // se valida si sucede un error al establecer la conexion, de ser asi se retorna el error dentro del catch.
             try {
-                
+
                 // se usar las constantes definidas en constants.php para establecer la conexion
                 $this->conexion = (mysql_connect(HOST, USER, PASSWORD, PORT)) or die(mysql_error());
                 mysql_select_db(DATABASE, $this->conexion) or die(mysql_error());
-                
-                
+
+
                 // se retorna la conexion
                 return $this->conexion;
-                
-            // si ocurre un error en la conexion se retorna el mensaje de error.    
+
+                // si ocurre un error en la conexion se retorna el mensaje de error.    
             } catch (Exception $e) {
-                
+
                 return $e->getMessage();
             }
+        }
+    }
+
+    // Metodo para insertar, actualizar, borrar datos en la DB.
+    public function ejecutarQuery($sql) {
+
+        // se valida si sucede un error al procesar la informacion
+        try {
+            
+            $resultado = mysql_query($sql, $this->conexion);
+            if (!$resultado) {
+                echo 'MySQL Error: ' . mysql_error();
+                exit;
+            }
+            return $resultado;
+        } catch (Exception $e) {
+            
+            return $e->getMessage();
         }
     }
 
