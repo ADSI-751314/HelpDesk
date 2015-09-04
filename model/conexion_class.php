@@ -48,9 +48,9 @@ class conexion_class {
     // Metodo para insertar, actualizar, borrar datos en la DB.
     public function ejecutarQuery($sql) {
 
-        // se valida si sucede un error al procesar la informacion
+        // se valida si sucede un error al procesar la peticion
         try {
-            
+
             $resultado = mysql_query($sql, $this->conexion);
             if (!$resultado) {
                 echo 'MySQL Error: ' . mysql_error();
@@ -58,7 +58,37 @@ class conexion_class {
             }
             return $resultado;
         } catch (Exception $e) {
+
+            return $e->getMessage();
+        }
+    }
+
+    // Metodo para obtener los resultados de una consulta en la DB.
+    public function consultarQuery($sql) {
+
+        // se valida si sucede un error al procesar la peticion
+        try {
+           
+            // se ejecuta la consulta en la base de datos
+            $consulta = mysql_query($sql, $this->conexion);
             
+            // se valida si ocurre un error en la consulta
+            if (!$consulta) {
+
+                // se retorna el error que ocurrio al realizar la consulta
+                return $error = "MYSQL Error:" . mysql_error();
+               
+            } else {
+                
+                // se almacenan todos los datos en un array para ser retornados.
+                while ($row = mysql_fetch_array($consulta)){
+                    
+                    $array[] = $row;
+                }
+                
+                return $array;            
+            }
+        } catch (Exception $e) {
             return $e->getMessage();
         }
     }
