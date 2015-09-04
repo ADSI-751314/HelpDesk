@@ -1,8 +1,7 @@
 $(document).ready(function(){
-    $(".menu  a").click(function (){
+    $(".menu li a").click(function (){
        var href = $(this).attr("href");
-       console.log(href);
+       console.log(href + typeof(href));
        $(".content").load(href);
-       
     });
 });

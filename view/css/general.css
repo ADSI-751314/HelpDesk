@@ -6,13 +6,12 @@
 body{
     margin: 0px;
     font-family: roboto;
-    background-color: #eee;
 }
 header{
     float: left;
     width: 100%;
     height: 80px;
-    background-color: #B71C1C;
+    background-color: #037A74;
     z-index: 2;
     -webkit-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
     -moz-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
@@ -22,7 +21,6 @@ header{
 .app-logo{
     float: left;
     display: inline-block;
-    background-image:url(../img/cloud-question-mark.png);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 6em;
@@ -35,13 +33,37 @@ Muestra el logo de la compañía*/
     top: 0px;
     right: 0px;  
     float: right;
-    background-color: white;
     display: inline-block;
     width: 20em;
     height: inherit;
+    transition: all .5s ease;
 }
-.user#usr-photo{
-    
+.user:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
+#usr-photo{
+    width: 5em;
+    height: inherit;
+    float: right;
+    background-image: url('../img/male.png');
+    background-repeat: no-repeat;
+    background-size: 80px 80px;
+    border-radius: 50%;
+}
+#usr-name{
+    width: 15em;
+    height: inherit;
+    float: left;
+}
+#usr-name > p{
+    text-align: right;
+    width: inherit;
+    max-width: 200px;
+    display: inline-block;
+    margin: 0px;
+    padding: 30px 0 25px 0;
 }
 /*Div anidado en header, contiene etiqueta h1*/
 .title-box{
@@ -51,54 +73,64 @@ Muestra el logo de la compañía*/
 }
 /*Etiqueta h1 anidada en .title-box que contiene el titulo*/
 .title-box > h1{
+    color: white;
     margin: 0px;
     padding: 20px 0px 0px 10px;
     display: inline-block;
     font-size: 1.5rem;
-    width: 95%;
 }
 nav{
     position: absolute;
     top: 80px;
     bottom: 0px;
-    background-color: #FF8A80;
+    background-color: rgba(3,122,116,0.5);
     width: 20%;
     z-index: -1;
 }
 /*Etiqueta ul anidada en nav*/
-.menu{
+.side-menu{
     list-style: none;
     margin: 0px;
-    padding: 0px;
+    padding: 20px 0px 20px 0px;
     width: 100%;
 }
-.menu li{
+.side-menu li{
+    width: 100%;
     margin-bottom: 2px;
     padding: 0px;
     background-color: rgba(0,0,0,0.2);
 }
-.menu li > a{
+.side-menu li > a{
     display: block;
-    padding: 10px 10px 10px 40px;
+    padding: 10px 10px 10px 20px;
     text-decoration: none;
     color: black;
     -webkit-transition: all .25s ease;
     -moz-transition:  all .25s  ease;
-    -ms-transition:  all .25s  ease;
-    -o-transition:  all .25s  ease;
     transition:  all .25s  ease;
 }
-.menu li > a:hover{
+.side-menu li > a:hover{
     border-left: 4px solid #B71C1C;
-    background-color: rgba(0,0,0,0.4);
     box-shadow: inset 0 5px 10px black;
+    color: white;
+}
+/*Etiquete img que contiene los iconos*/
+.side-mnu-icon{
+    float: left;
+    width: 2em;
+    height: 2.5em;
+}
+.side-mnu-text{
+    margin: 0px;
+    padding: 10px;
+    width: 70%;
+    display: inline-block;
 }
 .content{
     position: absolute;
     top: 80px;
     right: 0px;
     bottom: 0px;
-    background-color: lightgrey;
     width: 80%;
     text-align: center;
     z-index: -1;
