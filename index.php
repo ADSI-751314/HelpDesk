@@ -20,16 +20,21 @@
             <div class="menu">
                 <nav>
                     <ul>
-                        <li><a href="">Reportes</a></li>
-                        <li><a href="">Inventarios</a></li>
-                        <li><a href="">Ticket</a></li>
+                        <li><a href="view/forms/frm_reportes.php">Reportes</a></li>
+                        <li><a href="view/forms/frm_garantias.php">Garantias</a></li>
+                        <li><a href="view/forms/frm_inventario_tecnologico.php">Inventario</a></li>
+                        <li><a href="view/forms/frm_base_conocimiento.php">Base Conocimiento</a></li>
                     </ul>
                 </nav>
 
             </div>
-            <h1>Contenido del proyecto</h1>
+            <h1>Contenido del proyecto</h1>        
+            <?php
+            // mensaje de prueba para visualizar la vinculacion con la base de datos
+            require_once 'model/conexion_class.php';
+            $conexion = new conexion_class();
+            $conexion->conexion();
+            ?>
         </div>    
-        <?php
-        ?>
     </body>
 </html>
