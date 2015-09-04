@@ -1,9 +1,3 @@
-<!--/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
--->
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,16 +10,17 @@
     </head>
     <body>
         <header>
-            <div class="logo"></div>
-            <h2 class="titulo">Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3</h2>
+            <div class="app-logo"></div>
+            <div class="title-box"><h1>Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3</h1></div>
+            <div class="company-logo" title="Espacio para el logo de la compañía"></div>
         </header>
         
-        <nav class="menu">
-            <ul>
+        <nav>
+            <ul class="menu">
                 <li><a href="/HelpDesk/view/forms/frm_reportes.php">Reportes</a></li>
-                <li><a href="forms/frm_garantias.php">Garantias</a></li>
-                <li><a href="forms/frm_inventario_tecnologico.php">Inventario</a></li>
-                <li><a href="forms/frm_base_conocimiento.php">Base Conocimiento</a></li>
+                <li><a href="/HelpDesk/view/forms/frm_garantias.php">Garantias</a></li>
+                <li><a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php">Inventario</a></li>
+                <li><a href="/HelpDesk/view/forms/frm_base_conocimiento.php">Base Conocimiento</a></li>
             </ul>
         </nav>
         
