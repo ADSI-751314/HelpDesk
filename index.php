@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Mesa de Ayuda</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="view/css/general.css">
-        <script type="application/javascript" language="javascript" src="view/js/jquery.js"></script>
-        <script type="text/javascript" src="view/js/general.js"></script>
-    </head>
+<?php include 'view/forms/head.php';?>
     <body>
         <header>
             <div class="app-logo"></div>
             <div class="title-box"><h1>Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3</h1></div>
-            <div class="company-logo" title="Espacio para el logo de la compañía"></div>
+            <div class="user">
+                <div id="usr-photo"></div>
+                <div id="usr-name"></div>
+            </div>
         </header>
         
         <nav>
