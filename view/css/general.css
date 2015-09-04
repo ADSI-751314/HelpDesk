@@ -1,0 +1,73 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31-ago-2015, 19:43:19
+    Author     : Juan-Buitrago
+*/
+@font-face{
+	font-family: roboto;
+	src: url(../fonts/Roboto-Condensed.ttf);
+}
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: #0D47A1;
+}
+.logo{
+    display: inline-block;
+    background-image:url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100px;
+    height: 80px;
+}
+.titulo{
+    display: inline-block;
+    font-family: roboto;
+}
+.menu ul{
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    bottom: 0px;
+    background-color: cadetblue;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 20%;
+}
+.menu ul > li{
+    margin: 0px;
+    padding: 0px;
+}
+.menu ul li > a{
+    text-decoration: none;
+}
+.menu nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+        
+}
+.menu nav ul li a:hover{
+    background-color: aqua;
+}
+
+.content{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    top: 80px;
+    background-color: aliceblue;
+    width: 80%;
+    text-align: center;
+}
+
+

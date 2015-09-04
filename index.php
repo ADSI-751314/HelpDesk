@@ -10,24 +10,26 @@
         <title>Mesa de Ayuda</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="view/css/layout.css">
+        <link rel="stylesheet" type="text/css" href="view/css/general.css">
         <script type="application/javascript" language="javascript" src="view/js/jquery.js"></script>
+        <script type="text/javascript" src="view/js/general.js"></script>
     </head>
     <body>
-        <div class="logo"></div>
-
+        <header>
+            <div class="logo"></div>
+            <h2 class="titulo">Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3</h2>
+        </header>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="/HelpDesk/view/forms/frm_reportes.php">Reportes</a></li>
+                <li><a href="forms/frm_garantias.php">Garantias</a></li>
+                <li><a href="forms/frm_inventario_tecnologico.php">Inventario</a></li>
+                <li><a href="forms/frm_base_conocimiento.php">Base Conocimiento</a></li>
+            </ul>
+        </nav>
+        
         <div class="content">
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="view/forms/frm_reportes.php">Reportes</a></li>
-                        <li><a href="view/forms/frm_garantias.php">Garantias</a></li>
-                        <li><a href="view/forms/frm_inventario_tecnologico.php">Inventario</a></li>
-                        <li><a href="view/forms/frm_base_conocimiento.php">Base Conocimiento</a></li>
-                    </ul>
-                </nav>
-
-            </div>
             <h1>Contenido del proyecto</h1>        
             <?php
             // mensaje de prueba para visualizar la vinculacion con la base de datos
