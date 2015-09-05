@@ -2,7 +2,7 @@
 <head>
 <title>BASE DE CONOCIMIENTO</title>
 <link rel="stylesheet" href="body2.css">
-<script type="text/javascript"> 
+<script type="text/javascript"></script> 
  
 </head>
 <body bgColor="#FA8072">
