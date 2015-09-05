@@ -199,3 +199,8 @@ CREATE TABLE IF NOT EXISTS FICHAS_TECNICAS(
     primary key(pk_fic_codigo),
     foreign key(fk_equ_codigo) references equipos(pk_equ_codigo)
 );
+
+insert into `dependencias` (`pk_dep_codigo`, `dep_nombre`, `dep_extension`) values('1','Administrador','123');
+insert into `permisos` (`pk_per_codigo`, `per_tipo`, `per_descripcion`) values('1','Administrador','Administrador del sistema');
+insert into `roles` (`pk_rol_codigo`, `rol_descripcion`, `fk_per_codigo`) values('1','Administrador','1');
+insert into `usuarios` (`pk_usu_codigo`, `usu_primer_nombre`, `usu_segundo_nombre`, `usu_primer_apellido`, `usu_segundo_apellido`, `usu_extension`, `usu_cargo`, `usu_correo`, `usu_username`, `usu_password`, `usu_fecha_creacion`, `usu_fecha_modificacion`, `fk_rol_codigo`, `fk_dep_codigo`) values('1','Administrador','Administrador','Administrador','admin','123','Administrador','admin@mail.com','admin','admin','2015-09-05 13:27:19',NULL,'1','1');
