@@ -12,25 +12,25 @@
         <nav>
             <ul class="side-menu">
                 <li>
-                    <a href="/HelpDesk/view/forms/frm_reportes.php">
+                    <a href="/HelpDesk/view/forms/frm_reportes.php" class="loadfrm">
                         <img src="view/img/reports.png" class="side-mnu-icon">
                         <p class="side-mnu-text">Reportes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/HelpDesk/view/forms/frm_garantias.php">
+                    <a href="/HelpDesk/view/forms/frm_garantias.php" class="loadfrm">
                         <img src="view/img/warranty.png" class="side-mnu-icon">
                         <p class="side-mnu-text">Garantias</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php">
+                    <a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php" class="loadfrm">
                         <img src="view/img/inventory.png" class="side-mnu-icon">
                         <p class="side-mnu-text">Inventario</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/HelpDesk/view/forms/frm_base_conocimiento.php">
+                    <a href="/HelpDesk/view/forms/frm_base_conocimiento.php" class="loadfrm">
                         <img src="view/img/knowledge.png" class="side-mnu-icon">
                         <p class="side-mnu-text">Base Conocimiento</p>
                     </a>
