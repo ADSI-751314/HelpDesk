@@ -8,4 +8,5 @@
         <link rel="shortcut icon" href="view/img/favicon.png">
         <script type="application/javascript" language="javascript" src="view/js/jquery.js"></script>
         <script type="text/javascript" src="view/js/general.js"></script>
+        <link rel="stylesheet" href="view/css/font-awesome.min.css">
     </head>

@@ -8,9 +8,25 @@
                 <div id="usr-name"><p>Nombre del usuario</p></div>
             </div>
         </header>
+        <div class="usr-options">
+            <ul class="list">
+                <li>
+                    <a>
+                        <i class="fa fa-cog fa-lg"></i>
+                        <p>Configuración</p>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="fa fa-power-off fa-lg"></i>
+                        <p>Salir</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
         
         <nav>
-            <ul class="side-menu">
+            <ul class="list side-menu">
                 <li>
                     <a href="/HelpDesk/view/forms/frm_reportes.php" class="loadfrm">
                         <img src="view/img/reports.png" class="side-mnu-icon">

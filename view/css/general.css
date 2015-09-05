@@ -1,7 +1,20 @@
+/*Estilos generales para la maquetación y diseño del sitio principal*/
+/*Color naranja = (236,113,45)
+  Color verde = (4,123,117)*/
 @charset "UTF-8";
 @font-face{
 	font-family: roboto;
 	src: url(../fonts/Roboto-Condensed.ttf);
+}
+.list{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.list li{
+    width: 100%;
+    margin-bottom: 2px;
+    padding: 0px;
 }
 body{
     margin: 0px;
@@ -11,7 +24,7 @@ header{
     float: left;
     width: 100%;
     height: 80px;
-    background-color: #037A74;
+    background-color: rgb(4,123,117);
     z-index: 2;
     -webkit-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
     -moz-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
@@ -43,6 +56,10 @@ Muestra el logo de la compañía*/
     background-color: rgba(0,0,0,0.5);
     color: white;
 }
+.active-usr{
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
 #usr-photo{
     width: 5em;
     height: inherit;
@@ -64,6 +81,36 @@ Muestra el logo de la compañía*/
     display: inline-block;
     margin: 0px;
     padding: 30px 0 25px 0;
+}
+.usr-options{
+    display: none;
+    color: white;
+    width: 20em;
+    float: right;
+    background-color: rgba(0,0,0,0.8);
+}
+.usr-options .fa{
+    transition: all .25s ease-out;
+    color: rgb(236,113,45);
+}
+.usr-options ul{
+    padding: 20px 0 5px 0;
+}
+.usr-options a{
+    padding: 20px 0 20px 20px;
+    display: block;
+    transition: all .35s ease;
+}
+.usr-options a:hover{
+    cursor: pointer;
+    background-color: rgb(236,113,45);
+}
+.usr-options a:hover .fa{
+    color: black;
+}
+.usr-options a p{
+    margin-left: 5px;
+    display: inline;
 }
 /*Div anidado en header, contiene etiqueta h1*/
 .title-box{
@@ -89,15 +136,9 @@ nav{
 }
 /*Etiqueta ul anidada en nav*/
 .side-menu{
-    list-style: none;
-    margin: 0px;
     padding: 20px 0px 20px 0px;
-    width: 100%;
 }
 .side-menu li{
-    width: 100%;
-    margin-bottom: 2px;
-    padding: 0px;
     background-color: rgba(0,0,0,0.2);
 }
 .side-menu li > a{
@@ -110,7 +151,7 @@ nav{
     transition:  all .25s  ease;
 }
 .side-menu li > a:hover{
-    border-left: 4px solid #B71C1C;
+    border-left: 4px solid rgb(236,113,45);
     box-shadow: inset 0 5px 10px black;
     color: white;
 }
