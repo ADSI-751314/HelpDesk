@@ -1,67 +1,36 @@
-<?php include 'view/forms/head.php';?>
-    <body>
-        <header>
-            <div class="app-logo"></div>
-            <div class="title-box"><h1><!---Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3--></h1></div>
-            <div class="user">
-                <div id="usr-photo"></div>
-                <div id="usr-name"><p>Nombre del usuario</p></div>
-            </div>
-        </header>
-        <div class="usr-options">
-            <ul class="list">
-                <li>
-                    <a>
-                        <i class="fa fa-cog fa-lg"></i>
-                        <p>Configuración</p>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="fa fa-power-off fa-lg"></i>
-                        <p>Salir</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        
-        <nav>
-            <ul class="list side-menu">
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_reportes.php" class="loadfrm">
-                        <img src="view/img/reports.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Reportes</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_garantias.php" class="loadfrm">
-                        <img src="view/img/warranty.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Garantias</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php" class="loadfrm">
-                        <img src="view/img/inventory.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Inventario</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_base_conocimiento.php" class="loadfrm">
-                        <img src="view/img/knowledge.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Base Conocimiento</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        
-        <div class="content">
-            <h1>Contenido del proyecto</h1>        
-            <?php
-            // mensaje de prueba para visualizar la vinculacion con la base de datos
-            require_once 'model/conexion_class.php';
-            $conexion = new conexion_class();
-            $conexion->conexion();
-            ?>
-        </div>    
-    </body>
-</html>
+<?php
+session_start();
+
+// se valida si el usuario esta logeado
+if (isset($_SESSION['username']) || @$_REQUEST ['action']=="login" && @$_REQUEST['petition'] == "validalogin" ) {
+   
+    $controller = 'main';
+
+//FrontController.
+    if (!isset($_REQUEST['action'])) {
+
+        require_once "controller/".$controller."_controller.php";
+        $controller = ucwords($controller) . '_Controller';
+        $controller = new $controller;
+        $controller->home();
+    } else {
+        // Obtenemos el controlador que queremos cargar
+        $controller = strtolower($_REQUEST['action']);
+        $accion = isset($_REQUEST['petition']) ? $_REQUEST['petition'] : 'index';
+
+        // Instanciamos el controlador
+        require_once "controller/".$controller."_controller.php";
+        $controller = ucwords($controller) . '_Controller'; // ucwords convierte la primera letra de la cadena en mayuscula.
+        $controller = new $controller;
+        // Llama la accion.
+        call_user_func(array($controller, $accion));
+    }
+} else {
+
+    $controller = 'login';
+    require_once "controller/".$controller."_controller.php";
+    $controller = ucwords($controller) . '_Controller';
+    $controller = new $controller;
+    $controller->frm_login();
+}
+?>

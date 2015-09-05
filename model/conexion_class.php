@@ -68,29 +68,27 @@ class conexion_class {
 
         // se valida si sucede un error al procesar la peticion
         try {
-           
+
             // se ejecuta la consulta en la base de datos
             $consulta = mysql_query($sql, $this->conexion);
-            
+
             // se valida si ocurre un error en la consulta
             if (!$consulta) {
 
                 // se retorna el error que ocurrio al realizar la consulta
                 return $error = "MYSQL Error:" . mysql_error();
-               
             } else {
-                
+
                 // se almacenan todos los datos en un array para ser retornados.
-                while ($row = mysql_fetch_array($consulta)){
-                    
+                while ($row = mysql_fetch_array($consulta)) {
+
                     $array[] = $row;
                 }
-                
-                return $array;            
+
+                return $array;
             }
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
-
 }

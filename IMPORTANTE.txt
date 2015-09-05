@@ -1,0 +1,9 @@
+ya se implemento el sistema de login por lo cual
+es necesario incorporar la base de datos para poder acceder a la interfaz.
+
+les cree otro archivo sql que solo es necesario incorporarlo para poder usar la cuenta admin
+
+los datos de acceso son 
+
+Usuario: admin
+Contraseña: admin
