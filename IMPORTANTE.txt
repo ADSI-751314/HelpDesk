@@ -1,9 +1,14 @@
-ya se implemento el sistema de login por lo cual
-es necesario incorporar la base de datos para poder acceder a la interfaz.
-
-les cree otro archivo sql que solo es necesario incorporarlo para poder usar la cuenta admin
-
-los datos de acceso son 
+*Implementacion Sistema Login*
+------------------------------
+Se incorporo el sistema de login 
+que permite el acceso al sistema
+para poder ingresar al sistema es
+necesario realizar la vinculacion 
+de la base de datos al proyecto,
+al incorporar el archivo SQL del proyecto
+ya viene incorporada la cuenta de administrador
+por lo cual para poder acceder se debe usar la 
+siguiente cuenta.
 
 Usuario: admin
 Contraseña: admin

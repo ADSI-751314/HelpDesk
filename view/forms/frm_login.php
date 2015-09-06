@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Gestinv 2.0</title>
+        <title>Login Help Desk</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="view/css/login.css">
-        <link rel="shortcut icon" href="view/img/favicon.ico">
+        <link rel="shortcut icon" href="view/img/favicon.png">
 
     </head>
     <body>
