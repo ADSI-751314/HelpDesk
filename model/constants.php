@@ -2,8 +2,8 @@
 
 define ("HOST","localhost");
 define ("USER","root");
-define ("PASSWORD","root");
-define ("DATABASE","helpdesk");
+define ("PASSWORD","");
+define ("DATABASE","HelpDesk");
 define ("PORT","3306");
 
 ?>

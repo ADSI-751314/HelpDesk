@@ -1,4 +1,4 @@
-        <form>
+<form action="controller/garantias_controller.php" method="POST"  name="frm_garantias">
             <br>
             <table>
                 <tr>
@@ -18,9 +18,7 @@
                 </tr>
                 <tr>
                     <td colspan="2"> <input type="submit" name="btnGuardar" value="GUARDAR"> 
-                     <input type="submit" name="btnModificar" value="MODIFICAR"> 
-                    <input type="submit" name="btnConsultar" value="CONSULTAR"> 
-                     <input type="submit" name="btnEliminar" value="ELIMINAR"> </td>
+                   </td>
                     
                 </tr>
             </table>

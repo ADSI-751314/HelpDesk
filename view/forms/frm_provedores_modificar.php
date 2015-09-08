@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 
 <html>
@@ -14,7 +13,7 @@
     
     
     <body>          
-            <form>
+            <form action="controller/provedores_controller.php" method="POST" name="frm_provedores_modificar">
                 
                 
                 <table>
@@ -24,12 +23,11 @@
      
                     </tr>
                     
-                      <tr> 
+                    <tr> 
                           <td colspan="2"  >   
-                              <input type="button"  name="btnguardar" value="REGISTRAR">
-                              <input type="button"  name="btnconsultar" value="CONSULTAR">
-                              <input type="button"  name="btnmodificar" value="MODIFICAR">
-                              <input type="button"  name="btneliminar" value="ELIMINAR">
+                            
+                              <input type="submit"  name="btnmodificar" value="modificar">
+                             
                           </td> 
      
                     </tr>
