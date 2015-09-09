@@ -1,5 +1,5 @@
 <form name="frmDetallesServicio">
-			<table border="4" class="color_fondo">
+			<table border="4">
 				<tr>
 					<td colspan="10" class="titulos" align="center"> DETALLES SERVICIO </td>					
 				</tr>
@@ -9,14 +9,14 @@
 				<tr>
 					
 					<td class="textos"> CODIGO DETALLE: </td>
-					<td> <input type="text" name="txtPlaca" size="10" maxlength="10"> </td>
+					<td> <input type="text" name="txtCodigo" size="10" maxlength="10"> </td>
 				</tr>
 				</tr>
 				</tr>
 				</tr>
 				<tr>
 					<td class="textos"> FECHA ATENCION: </td>
-					<td> <input type="text" name="txtModelo" size="8" maxlength="4"> </td>
+					<td> <input type="text" name="txtFecha" size="8" maxlength="4"> </td>
 				
 				</tr>
 				<tr>
