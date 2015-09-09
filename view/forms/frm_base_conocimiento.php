@@ -1,4 +1,4 @@
-<form name="frmBuscar.php"><br><br>
+<form name="frmBase_Conocimiento_Consultar.php"><br><br>
     <table class="fondo" align="center">
         <tr> 
             <td class="textos"> Adicionar Balabra Clave </td>

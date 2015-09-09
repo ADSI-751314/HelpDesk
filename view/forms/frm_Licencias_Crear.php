@@ -1,4 +1,4 @@
-<form>
+<form name="frmLicencias_Crear">
 	<table colspan="3"align="center">
 		<tr>
 			<td> 
