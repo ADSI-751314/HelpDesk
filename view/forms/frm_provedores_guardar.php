@@ -1,4 +1,4 @@
-<form action="controller/provedores_controller.php" method="POST" name="frm_provedores_guardar">
+<form action="../../controller/provedores_controller.php?petition=guardar" method="POST" name="frm_provedores_guardar">
     <table>
         <tr>
             <td colspan="2"><h1> Registro de Provedores<h1></td>
