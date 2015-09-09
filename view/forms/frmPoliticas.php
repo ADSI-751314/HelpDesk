@@ -1,6 +1,7 @@
 
 <?php
-<form name="frmPoliticas">
+<form> 
+<h1>frmPoliticas</h1>
 			<table border="1" >
 				<tr>
 				<td colspan="4" class="titulos" align="center"> POLITICAS </td>					
