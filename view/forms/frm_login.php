@@ -4,15 +4,15 @@
         <title>Login Help Desk</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="view/css/login.css">
-        <link rel="shortcut icon" href="view/img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="../css/login.css">
+        <link rel="shortcut icon" href="../img/favicon.png">
 
     </head>
     <body>
         <div class="mensaje"><h1>INICIAR SESSION</h1></div>
         <div class="contenido"> 
             <div id ="login">
-                <form action="?action=login&petition=validalogin" method="POST">
+                <form action="../../controller/login_controller.php?petition=validalogin" method="POST">
                 <table width="100%">
                     <tr>
                         <td><input type="text" name ="username" placeholder="Usuario" autocomplete="off" required></td>
