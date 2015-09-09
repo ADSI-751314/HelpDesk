@@ -1,5 +1,6 @@
-<form action="controller/garantias_controller.php" method="POST"  name="frm_garantias">
+<form action="../../controller/garantias_controller.php?petition=guardar" method="POST"  name="frm_garantias">
             <br>
+             <h1 align="center"> FORMULARIO GARANTIAS (GUARDAR)</h1>
             <table>
                 <tr>
                     <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_arantia" size="12" maxlength="12"> </td>
