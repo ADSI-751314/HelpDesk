@@ -55,8 +55,7 @@
 			</td>
 		</tr>
 		<tr align="center">
-		
-		<td><input type="submit" name="btnGuardar" size="35" value="Guardar" class="textos" onClick="Guardar()"> </td>
+		<td><input type="submit" name="btnCrear" size="35" value="CREAR" class="textos" onClick="CREAR()"> </td>
 		</tr>
 		</table>
 	</table>

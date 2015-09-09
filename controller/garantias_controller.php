@@ -28,7 +28,7 @@ switch ($proceso) {
 
 class garantias_controller {
     
-    public function guardar($gar_id,$gar_hardware,$)
+    public function guardar($gar_id,$gar_hardware)
     {
         $test = new garantias_class();        
         $test->almacenar($gar_id);
