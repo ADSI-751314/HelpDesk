@@ -7,7 +7,7 @@
                     <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_arantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
-                    <td> Tipo de garantía:  </td>   <td align="left"><input type="radio" id="hardware" name="hardware" value="hardware"> Hardware <input type="radio" id="software" name="software" value="software"> Software </td>
+                    <td> Tipo de garantía:  </td>   <td align="left"><input type="radio" id="hardware" name="rdoHardware" value="hardware"> Hardware <input type="radio" id="software" name="rdoSoftware" value="software"> Software </td>
                 </tr>
                 <tr>
                     <td> Fecha de inicio: </td>      <td align="left"><input type="date" name="fecha"></td>
