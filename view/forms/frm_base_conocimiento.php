@@ -4,17 +4,22 @@
 			
 			<tr> 
 				<td class="textos"> Consultar Palabra Clave </td>
-				<td><form id="buscador" name="buscador" method="post" size="30"action="<?php echo $_SERVER['PHP_SELF'] ?>">  
-				<input id="buscar" name="buscar" type="search" placeholder="Buscar aqui..." autofocus > 
-				<input type="submit" name="btnbuscador" class="boton peque aceptar" size="20" value="Buscar" > </form> </td>
+				<td><form id="buscador" name="buscador" method="post" size="30"action="<?php echo $_SERVER['PHP_SELF'] ?>" width="50">  
+				<input id="buscar" name="buscar" type="search" placeholder="Buscar aqui..." autofocus size="45" > 
+				 </form> </td>
 			
 			</tr>
 			<tr>
 				<td class="textos"> Consulta Especifica </td>
-				<td><input type="text"name="txtEspecifica" size="38"maxlength="100">
-                                    
-                                    
+				<td> <form id="buscador" name="buscador" method="post" size="50"action="<?php echo $_SERVER['PHP_SELF'] ?>">  
+				<input id="buscar" name="buscar" type="search" placeholder="Digite aqui su Busqueda Especifica......." autofocus  size="45"> 
+				
 			
+			</tr>
+			<tr>
+			<td align="center" colspan="3">
+			<input type="submit" name="btnbuscador" class="boton peque aceptar" size="30" value="Buscar" >
+			</td>
 			</tr>
 			<tr>
 				<td class="textos"> Descripcion de la Falla </td>
