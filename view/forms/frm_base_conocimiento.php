@@ -11,8 +11,9 @@
 			</tr>
 			<tr>
 				<td class="textos"> Consulta Especifica </td>
-				<td> <input type="text"name="txtEspecifica" size="38"maxlength="100">
-				<input type="submit" name="btnBuscar" class="boton peque aceptar" size="20" value="Buscar" ></td>
+				<td><input type="text"name="txtEspecifica" size="38"maxlength="100">
+                                    
+                                    
 			
 			</tr>
 			<tr>
