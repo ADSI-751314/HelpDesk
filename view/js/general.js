@@ -7,7 +7,7 @@ $(document).ready(function (e) {
         return false;
     });
     
-    //-----------------Control de efectos-------------------
+    //-----------------Control de efectos menu principal-------------------
     $(".user").on("click",function(){
         $(".usr-options").slideToggle(200);
         $(this).toggleClass("active-usr");
@@ -15,5 +15,13 @@ $(document).ready(function (e) {
     $(".usr-options").on("click",function (){
         $(this).slideUp(200);
         $(".user").removeClass("active-usr");
+    });
+    
+    //-----------------Control de efectos login-------------------
+    $(".txt-login").on("focus",function (){
+        $(this).siblings(".fa").addClass("active-fa");
+    });
+    $(".txt-login").on("blur",function (){
+        $(this).siblings(".fa").removeClass("active-fa");
     });
 });
