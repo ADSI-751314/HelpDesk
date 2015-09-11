@@ -57,8 +57,8 @@ CREATE TABLE IF NOT EXISTS EQUIPOS(
     fk_dep_codigo tinyint not null,
     fk_tip_codigo tinyint not null,
     primary key(pk_equ_codigo),
-    foreign key(fk_dep_codigo) references dependencias(pk_dep_codigo),
-    foreign key(fk_tip_codigo) references tipos_equipos(pk_tip_codigo)
+    foreign key(fk_dep_codigo) references DEPENDENCIAS(pk_dep_codigo),
+    foreign key(fk_tip_codigo) references TIPOS_EQUIPOS(pk_tip_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS SERVICIOS(
@@ -72,8 +72,8 @@ CREATE TABLE IF NOT EXISTS SERVICIOS(
     fk_usu_codigo smallint not null,
     fk_equ_codigo smallint not null,
     primary key(pk_ser_ticket),
-    foreign key(fk_usu_codigo) references usuarios(pk_usu_codigo),
-    foreign key(fk_equ_codigo) references equipos(pk_equ_codigo)
+    foreign key(fk_usu_codigo) references USUARIOS(pk_usu_codigo),
+    foreign key(fk_equ_codigo) references EQUIPOS(pk_equ_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS DETALLES_SERVICIOS(
@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS TSD(
 	fk_tec_codigo smallint not null,
     fk_ser_ticket int not null,
     fk_det_codigo int not null,
-    foreign key(fk_tec_codigo) references tecnicos(pk_tec_codigo),
-    foreign key(fk_ser_ticket) references servicios(pk_ser_ticket),
-    foreign key(fk_det_codigo) references detalles_servicios(pk_det_codigo)
+    foreign key(fk_tec_codigo) references TECNICOS(pk_tec_codigo),
+    foreign key(fk_ser_ticket) references SERVICIOS(pk_ser_ticket),
+    foreign key(fk_det_codigo) references DETALLES_SERVICIOS(pk_det_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS POLITICAS(
@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS PARTES_EQUIPOS(
     fk_equ_codigo smallint not null,
     fk_htc_codigo int not null,
     primary key(pk_pte_serial),
-    foreign key(fk_equ_codigo) references equipos(pk_equ_codigo),
-    foreign key(fk_htc_codigo) references historial_cambios(pk_htc_codigo)
+    foreign key(fk_equ_codigo) references EQUIPOS(pk_equ_codigo),
+    foreign key(fk_htc_codigo) references HISTORIAL_CAMBIOS(pk_htc_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS GARANTIAS(
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS GARANTIAS(
     gar_fecha_fin date not null,
     gar_descripcion varchar(80),
     fk_equ_codigo smallint not null,
-    foreign key(fk_equ_codigo) references equipos(pk_equ_codigo)
+    foreign key(fk_equ_codigo) references EQUIPOS(pk_equ_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS LICENCIAS(
@@ -156,8 +156,8 @@ CREATE TABLE IF NOT EXISTS EQUIPOS_LICENCIAS(
     fk_equ_codigo smallint not null,
     fk_lic_codigo smallint not null,
     primary key(pk_eql_codigo),
-    foreign key(fk_equ_codigo) references equipos(pk_equ_codigo),
-    foreign key(fk_lic_codigo) references licencias(pk_lic_codigo)
+    foreign key(fk_equ_codigo) references EQUIPOS(pk_equ_codigo),
+    foreign key(fk_lic_codigo) references LICENCIAS(pk_lic_codigo)
 );
 
 CREATE TABLE IF NOT EXISTS FICHAS_TECNICAS(
@@ -197,10 +197,10 @@ CREATE TABLE IF NOT EXISTS FICHAS_TECNICAS(
     fic_lente varchar(10),
     fk_equ_codigo smallint not null,
     primary key(pk_fic_codigo),
-    foreign key(fk_equ_codigo) references equipos(pk_equ_codigo)
+    foreign key(fk_equ_codigo) references EQUIPOS(pk_equ_codigo)
 );
 
-insert into `dependencias` (`pk_dep_codigo`, `dep_nombre`, `dep_extension`) values('1','Administrador','123');
-insert into `permisos` (`pk_per_codigo`, `per_tipo`, `per_descripcion`) values('1','Administrador','Administrador del sistema');
-insert into `roles` (`pk_rol_codigo`, `rol_descripcion`, `fk_per_codigo`) values('1','Administrador','1');
-insert into `usuarios` (`pk_usu_codigo`, `usu_primer_nombre`, `usu_segundo_nombre`, `usu_primer_apellido`, `usu_segundo_apellido`, `usu_extension`, `usu_cargo`, `usu_correo`, `usu_username`, `usu_password`, `usu_fecha_creacion`, `usu_fecha_modificacion`, `fk_rol_codigo`, `fk_dep_codigo`) values('1','Administrador','Administrador','Administrador','admin','123','Administrador','admin@mail.com','admin','admin','2015-09-05 13:27:19',NULL,'1','1');
+insert into `DEPENDENCIAS` (`pk_dep_codigo`, `dep_nombre`, `dep_extension`) values('1','Administrador','123');
+insert into `PERMISOS` (`pk_per_codigo`, `per_tipo`, `per_descripcion`) values('1','Administrador','Administrador del sistema');
+insert into `ROLES` (`pk_rol_codigo`, `rol_descripcion`, `fk_per_codigo`) values('1','Administrador','1');
+insert into `USUARIOS` (`pk_usu_codigo`, `usu_primer_nombre`, `usu_segundo_nombre`, `usu_primer_apellido`, `usu_segundo_apellido`, `usu_extension`, `usu_cargo`, `usu_correo`, `usu_username`, `usu_password`, `usu_fecha_creacion`, `usu_fecha_modificacion`, `fk_rol_codigo`, `fk_dep_codigo`) values('1','Administrador','Administrador','Administrador','admin','123','Administrador','admin@mail.com','admin','admin',NOW(),NULL,'1','1');

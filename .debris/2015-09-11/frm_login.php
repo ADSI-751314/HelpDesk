@@ -19,7 +19,7 @@
                         <tr>
                             <td align="center">
                                 <div class="txtBox">
-                                    <i class="fa fa-user fa-3x"></i>
+                                    <div><span></span><i class="fa fa-user fa-2x"></i></div>
                                     <input class="txt-login" type="text" name="username" placeholder="Nombre de usuario" maxlength="30" />
                                 </div>
                             </td>
@@ -27,7 +27,7 @@
                         <tr>
                             <td align="center">
                                 <div class="txtBox">
-                                    <i class="fa fa-unlock-alt fa-3x"></i>
+                                    <div><span></span><i class="fa fa-unlock-alt fa-2x"></i></div>
                                     <input class="txt-login" type="password" name ="password" placeholder="Contraseña" maxlength="20" />
                                 </div>
                             </td>
