@@ -1,4 +1,4 @@
-<form name="frmServicio">
+<form name="frmServicio" action="../../controller/servicios_controller.php" method="post">
 <br />
 <br />
 <br /><br />
@@ -18,10 +18,10 @@
      <td>Usuario:</td>
      <td><input type="text" maxlength="25" name="txtUsuario" value="<?php echo $usuario; ?> " disabled="true"/></td>
      <td>Estado: </td>
-     <td> <select name="selComboEstado" size="1" > 
-        <option value="comboAbierto">Abierto</option>
-        <option value="comboCerrado">Cerrado</option>
-        <option value="comboPendiente">Pendiente</option>
+     <td> <select name="cboEstado" size="1" > 
+        <option value="1">Abierto</option>
+        <option value="2">Cerrado</option>
+        <option value="3">Pendiente</option>
         </select> </td>
     </tr>
     
@@ -31,11 +31,11 @@
      <td>Hora: </td>
      <td> <input type="text" name="txtHora" value="<?php $time = time(); echo date("H:i:s", $time);?>" /></td>
      <td>Prioridad: </td>
-     <td><select name="selComboPrioridad" size="1" > 
-        <option value="comboCritico">Cr&iacute;tico</option>
-        <option value="comboAlto"> Alta </option>
-        <option value="comboNormal"> Normal </option>
-        <option value="comboBaja"> Baja s</option> 
+     <td><select name="cboPrioridad" size="1" > 
+        <option value="1">Cr&iacute;tico</option>
+        <option value="2"> Alta </option>
+        <option value="3"> Normal </option>
+        <option value="4"> Baja s</option> 
      </select> </td>
     </tr>
    

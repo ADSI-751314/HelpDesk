@@ -1,4 +1,4 @@
-<form name="frmServicio">
+<form name="frmServicio" action="../../controller/servicios_controller.php" method="post">
 <br />
 <br />
 <br /><br />
