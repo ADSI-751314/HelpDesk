@@ -32,7 +32,8 @@ class garantias_class {
                                    gar_software = '".$gar_software."',
                                    gar_fecha_inicio= '".$gar_fecha1."',
                                    gar_fecha_fin = '".$gar_fecha2."',
-                                   gar_descripcion = '".$gar_descripcion."'";
+                                   gar_descripcion = '".$gar_descripcion."',
+                                   WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
                                     
     }
 }

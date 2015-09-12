@@ -1,4 +1,4 @@
-<form action="../../controller/garantias_controller.php?petition=consultar" method="POST"  name="frm_garantias">
+<form action="../../controller/garantias_controller.php?petition=consultar" method="POST"  name="frm_garantias_consultar">
             <br>
             <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR)</h1>
             <table>
