@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'conexion_class.php';
 
 class login_class {
@@ -11,23 +11,14 @@ class login_class {
         $this->conexion->conexion();
     }
 
-    public function validacion($username, $password) {
-
-        $sql = "SELECT * FROM usuarios";
+    public function login($username, $password) {
+        $sql = "SELECT * FROM USUARIOS WHERE usu_username = '".$username."' AND usu_password = '".$username."';";
         $query = $this->conexion->consultarQuery($sql);
 
-        foreach ($query as $row):
-                         
-            if ($username == $row['usu_username'] && $password == $row['usu_password']) {
-
-                $validacion = 1;   
-                
-            } else {
-
-                $validacion = 0;            
-            }  
-        endforeach;
-        return $validacion;
+        return $query;
     }
-
+    
+    public function logout() {
+        
+    }
 }

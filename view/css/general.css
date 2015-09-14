@@ -1,6 +1,6 @@
 /*Estilos generales para la maquetación y diseño del sitio principal*/
-/*Color naranja = (236,113,45)
-  Color verde = (4,123,117)*/
+/*Color naranja = rgb(232,76,61)
+  Color verde = /*lighten rgb(42,197,108); darken rgb(23, 170, 86); darkener rgb(21, 98, 54)*/
 @charset "UTF-8";
 @font-face{
 	font-family: roboto;
@@ -16,94 +16,70 @@
     margin-bottom: 2px;
     padding: 0px;
 }
-body{
-    margin: 0px;
+body.layout{
     font-family: roboto;
 }
-header{
-    float: left;
-    width: 100%;
-    height: 80px;
-    background-color: rgb(4,123,117);
-    z-index: 2;
-    -webkit-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
-    -moz-box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
-    box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.8);
+header.user{
+    margin-top: 10px;
+    min-height: 60px;
+    padding: 10px 10px;
+    background-color: rgba(0,0,0,0.5);
+    border-bottom: 4px solid rgba(0,0,0,0.5);
+    border-radius: 2px;
+    transition: .25s;
 }
-/*Div anidado en header muestra el logo de la app*/
-.app-logo{
-    float: left;
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 6em;
-    height: inherit;
-}
-/*Div anidado en header alineado a la derecha,
-Muestra el logo de la compañía*/
-.user{
-    position: relative;
-    top: 0px;
-    right: 0px;  
-    float: right;
-    display: inline-block;
-    width: 20em;
-    height: inherit;
-    transition: all .5s ease;
-}
-.user:hover{
+header.user:hover{
+    margin-top: 8px;
     cursor: pointer;
     background-color: rgba(0,0,0,0.5);
+    border-bottom: 6px solid rgba(0,0,0,0.5);
     color: white;
+    box-shadow: 0px 10px 15px -5px black;
 }
 .active-usr{
     background-color: rgba(0,0,0,0.5);
     color: white;
 }
 #usr-photo{
-    width: 5em;
-    height: inherit;
-    float: right;
+    float: left;
+    width: 60px;
+    height: 60px;
     background-image: url('../img/male.png');
     background-repeat: no-repeat;
-    background-size: 80px 80px;
+    background-size: 100% 100%;
     border-radius: 50%;
 }
-#usr-name{
-    width: 15em;
-    height: inherit;
+#usr-name{  
     float: left;
+    height: 60px;
+    width: 70%;
 }
 #usr-name > p{
-    text-align: right;
-    width: inherit;
-    max-width: 200px;
-    display: inline-block;
+    padding: 20px 0px 20px 10px;
     margin: 0px;
-    padding: 30px 0 25px 0;
+    width: 100%;
 }
 .usr-options{
-    display: none;
     color: white;
-    width: 20em;
-    float: right;
-    background-color: rgba(0,0,0,0.8);
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    border-top: 2px solid black;
 }
 .usr-options .fa{
     transition: all .25s ease-out;
-    color: rgb(236,113,45);
-}
-.usr-options ul{
-    padding: 20px 0 5px 0;
+    color: rgb(42,197,108);
 }
 .usr-options a{
-    padding: 20px 0 20px 20px;
+    color: inherit;
+    text-decoration: none;
+    padding: 10px 5px;
     display: block;
     transition: all .35s ease;
 }
 .usr-options a:hover{
     cursor: pointer;
-    background-color: rgb(236,113,45);
+    background-color: rgba(42,197,108,0.8);
 }
 .usr-options a:hover .fa{
     color: black;
@@ -112,69 +88,68 @@ Muestra el logo de la compañía*/
     margin-left: 5px;
     display: inline;
 }
-/*Div anidado en header, contiene etiqueta h1*/
-.title-box{
+aside.layout-menu{
     float: left;
-    width: 60%;
-    height: inherit;
-}
-/*Etiqueta h1 anidada en .title-box que contiene el titulo*/
-.title-box > h1{
-    color: white;
-    margin: 0px;
-    padding: 20px 0px 0px 10px;
-    display: inline-block;
-    font-size: 1.5rem;
-}
-nav{
-    position: absolute;
-    top: 80px;
-    bottom: 0px;
-    background-color: rgba(3,122,116,0.5);
+    background-color: rgb(42,197,108);
+    box-shadow: 20px 0px 30px -20px black;
     width: 20%;
-    z-index: -1;
+    min-width: 260px;
+    margin-right: 50px;
 }
 /*Etiqueta ul anidada en nav*/
 .side-menu{
     padding: 20px 0px 20px 0px;
 }
-.side-menu li{
-    background-color: rgba(0,0,0,0.2);
+.side-menu > li{
+    background-color: rgba(255,255,255,0.5);
 }
-.side-menu li > a{
+.side-menu > li > a{
     display: block;
-    padding: 10px 10px 10px 20px;
+    padding: 10px;
+    padding-right: 0px;
     text-decoration: none;
     color: black;
     -webkit-transition: all .25s ease;
     -moz-transition:  all .25s  ease;
     transition:  all .25s  ease;
 }
-.side-menu li > a:hover{
-    border-left: 4px solid rgb(236,113,45);
-    box-shadow: inset 0 5px 10px black;
-    color: white;
+.side-menu > li > a:hover{
+    border-left: 4px solid rgb(21, 98, 54);
+    color: rgb(21, 98, 54);
+}
+.side-menu .left{
+    text-align: center;
+    width: 32px;
+    height: 32px;
 }
 /*Etiquete img que contiene los iconos*/
 .side-mnu-icon{
     float: left;
-    width: 2em;
-    height: 2.5em;
+    width: 1.5em;
+    height: 2em;
 }
 .side-mnu-text{
     margin: 0px;
-    padding: 10px;
-    width: 70%;
+    padding: 10px 5px;
+    width: 69%;
     display: inline-block;
 }
-.content{
-    position: absolute;
-    top: 80px;
-    right: 0px;
-    bottom: 0px;
-    width: 80%;
-    text-align: center;
-    z-index: -1;
+.submenu{
+    display: none;
+    background-color: rgb(24,109,61);
+    padding: 10px 0px;
+    box-shadow: inset 0px 5px 15px -5px black;
 }
-
-
+.submenu > li{
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255,0.2);
+}
+.submenu > li:hover{
+    background-color: green;
+}
+.content{
+    text-align: center;
+    width: 100%;
+    text-align: center;
+}

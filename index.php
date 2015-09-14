@@ -17,60 +17,74 @@ if(!$_SESSION['username']){
         <script type="text/javascript" src="view/js/general.js"></script>
         <link rel="stylesheet" href="view/css/font-awesome.min.css">
     </head>
-    <body>
-        <header>
-            <div class="app-logo"></div>
-            <div class="title-box"><h1><!---Sistema de información para la prestación de servicios tecnológicos con base en la metodología ITIL v3--></h1></div>
-            <div class="user">
+    <body class="layout">
+        <aside class="layout-menu">
+            <header class="user">
                 <div id="usr-photo"></div>
                 <div id="usr-name"><p>Nombre del usuario</p></div>
-            </div>
-        </header>
-        <div class="usr-options">
-            <ul class="list">
-                <li>
-                    <a>
-                        <i class="fa fa-cog fa-lg"></i>
-                        <p>Configuración</p>
-                    </a>
-                </li>
-                <li>        
-                    <a href="/HelpDesk/controller/login_controller.php?petition=unlog">
-                        <i class="fa fa-power-off fa-lg"></i>
-                        <p>Salir</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <nav>
-            <ul class="list side-menu">
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_reportes.php" class="loadfrm">
-                        <img src="view/img/reports.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Reportes</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_garantias.php" class="loadfrm">
-                        <img src="view/img/warranty.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Garantias</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php" class="loadfrm">
-                        <img src="view/img/inventory.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Inventario</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/HelpDesk/view/forms/frm_base_conocimiento.php" class="loadfrm">
-                        <img src="view/img/knowledge.png" class="side-mnu-icon">
-                        <p class="side-mnu-text">Base Conocimiento</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+                <ul class="list usr-options">
+                    <li><a href=""><i class="fa fa-wrench"></i><p>Configurar</p></a></li>
+                    <li><a href="controller/login_controller.php?petition=logout"><i class="fa fa-power-off"></i><p>Cerrar Sesión</p></a></li>
+                </ul>
+            </header>
+            <nav>
+                <ul class="list side-menu">
+                    <li>
+                        <a href="/HelpDesk/view/forms/frm_reportes.php" class="loadfrm">
+                            <i class="fa fa-pie-chart fa-2x left"></i>
+                            <p class="side-mnu-text">Reportes</p>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="list submenu">
+                            <li>Create</li>
+                            <li>Read</li>
+                            <li>Update</li>
+                            <li>Delete</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/HelpDesk/view/forms/frm_garantias.php" class="loadfrm">
+                            <i class="fa fa-shield fa-2x left"></i>
+                            <p class="side-mnu-text">Garantias</p>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="list submenu">
+                            <li>Create</li>
+                            <li>Read</li>
+                            <li>Update</li>
+                            <li>Delete</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/HelpDesk/view/forms/frm_inventario_tecnologico.php" class="loadfrm">
+                            <i class="fa fa-check-square fa-2x"></i>
+                            <p class="side-mnu-text">Inventario</p>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="list submenu">
+                            <li>Create</li>
+                            <li>Read</li>
+                            <li>Update</li>
+                            <li>Delete</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/HelpDesk/view/forms/frm_base_conocimiento.php" class="loadfrm">
+                            <i class="fa fa-database fa-2x"></i>
+                            <p class="side-mnu-text">Base Conocimiento</p>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="list submenu">
+                            <li>Create</li>
+                            <li>Read</li>
+                            <li>Update</li>
+                            <li>Delete</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Página en construcción...</p>
+            </nav>
+        </aside>
 
         <div class="content">
             <h1>Contenido del proyecto</h1>        

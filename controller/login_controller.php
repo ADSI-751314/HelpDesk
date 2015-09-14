@@ -2,9 +2,7 @@
 session_start();
 require_once '../model/login_class.php';
 
-
 $proceso = $_REQUEST['petition'];
-
 $instancia = new login_controller();
 
 switch ($proceso) {
@@ -14,9 +12,9 @@ switch ($proceso) {
         $instancia->validalogin($_REQUEST['username'], $_REQUEST['password']);
         break;
 
-    case("unlog"):
+    case("logout"):
         
-        $instancia->unlog();
+        $instancia->logout();
         
         break;
 }
@@ -32,25 +30,20 @@ class login_controller {
 
         $login = new login_class();
 
-        $validacion = $login->validacion($_REQUEST['username'], $_REQUEST['password']);
-
-
-        if ($validacion == 0) {
-
+        $validacion = $login->login($_REQUEST['username'], $_REQUEST['password']);
+        
+        if (!$validacion) {
             echo "<script>alert('El usuario y contrasena son incorrectas')</script>";
             echo '<meta http-equiv="refresh" content="0; url=../view/forms/frm_login.php" />';
-        } elseif ($validacion == 1) {
-
-            @$_SESSION['username'] = $_REQUEST['username'];
-            @$_SESSION['password'] = $_REQUEST['password'];
-
-            echo "<script>alert('Bienvenido a Help Desk')</script>";
-
+        } else {
+            $_SESSION['username'] = $_REQUEST['username'];
+            $_SESSION['password'] = $_REQUEST['password'];
+            echo "<script>alert('Bienvenido a Help Desk ".$validacion["usu_primer_nombre"]."')</script>";
             echo '<meta http-equiv="refresh" content="0; url=../index.php" />';
         }
     }
 
-    public function unlog() {
+    public function logout() {
 
         session_destroy();
         echo '<meta http-equiv="refresh" content="0; url=../index.php" />';
