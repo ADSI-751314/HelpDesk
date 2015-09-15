@@ -1,9 +1,9 @@
-<form action="../../controller/garantias_controller.php?petition=guardar" method="POST"  name="frm_garantias_guardar">
+<form action="/HelpDesk/controller/garantias_controller.php?petition=guardar" method="POST"  name="frm_garantias_guardar">
             <br>
              <h1 align="center"> FORMULARIO GARANTIAS (GUARDAR)</h1>
             <table>
                 <tr>
-                    <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_arantia" size="12" maxlength="12"> </td>
+                    <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
                     <td> Tipo de garantía:  </td>   <td align="left"><input type="radio" id="hardware" name="rdoHardware" value="hardware"> Hardware <input type="radio" id="software" name="rdoSoftware" value="software"> Software </td>

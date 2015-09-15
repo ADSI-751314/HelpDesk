@@ -1,6 +1,6 @@
 <?php
 
-include "../model/garantias_class.php";
+include "../../HelpDesk/model/garantias_class.php";
 
 $proceso = $_REQUEST ['petition'];
 
@@ -9,7 +9,7 @@ $garantias = new garantias_controller();
 
 switch ($proceso) {
     case ("guardar"): {
-            $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['rdoHardware'],$_REQUEST['rdoSfotware'],$_REQUEST['fecha1'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion']);
+            $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['rdoHardware'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion']);
             echo 'guardado con éxito';
         }
         break;

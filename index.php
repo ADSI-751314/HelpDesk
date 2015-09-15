@@ -43,7 +43,7 @@ if(!$_SESSION['username']){
                         </ul>
                     </li>
                     <li>
-                        <a href="/HelpDesk/view/forms/frm_garantias.php" class="loadfrm">
+                        <a href="/HelpDesk/view/forms/frm_garantias_guardar.php" class="loadfrm">
                             <i class="fa fa-shield fa-2x left"></i>
                             <p class="side-mnu-text">Garantias</p>
                             <i class="fa fa-chevron-down"></i>
