@@ -1,8 +1,9 @@
-<form action="../../controller/licencias_controller.php?petition=eliminar" method="POST"  name="frm_licencias_eliminar">
+
+<form action="../../controller/licencias_controller.php?petition=consultar" method="POST"  name="frm_licencias_consultar">
 	<table colspan="3"align="center">
 		<tr>
 			<td> 
-				FORMULARIO LICENCIAS <br> ELIMINAR
+				FORMULARIO LICENCIAS <br> CONSULTAR
 			</td>
 			
 		</tr>
@@ -56,7 +57,7 @@
 		</tr>
 		<tr align="center">
 		
-		<td><input type="submit" name="btnEliminar" size="35" value="Eliminar" class="textos" onClick="Eliminar()"> </td>
+		<td><input type="submit" name="btnConsultar" size="35" value="Consultar" class="textos" onClick="Consultar()"> </td>
 		</tr>
 		</table>
 	</table>
