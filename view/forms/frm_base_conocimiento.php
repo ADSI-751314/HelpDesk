@@ -1,4 +1,4 @@
-<form name="frmBase_Conocimiento_Consultar.php"><br><br>
+<form action="../../controller/base_conocimiento_controller.php?petition=consultar" method="POST"  name="frm_base_conocimiento_consultar"><br><br>
 			<table class="fondo" align="center">
 			
 			

@@ -3,7 +3,7 @@
 
 include '../model/base_conocimiento_class.php';
 
-$proceso = $_REQUEST['btnConsultar'];
+$proceso = $_REQUEST['petition'];
 
 $controller = new base_conocimiento_controller();
 
