@@ -36,10 +36,10 @@ if(!$_SESSION['username']){
                             <i class="fa fa-chevron-down"></i>
                         </a>
                         <ul class="list submenu">
-                            <li>Create</li>
-                            <li>Read</li>
-                            <li>Update</li>
-                            <li>Delete</li>
+                            <li><a href="/HelpDesk/view/forms/frm_reportes_usuarios.php" class="loadfrm">Usuarios</li>
+                            <li><a href="/HelpDesk/view/forms/frm_reportes_fallas.php" class="loadfrm">Fallas</li>
+                            <li><a href="/HelpDesk/view/forms/frm_reportes_marcas.php" class="loadfrm">Marcas</li>
+                            <li><a href="/HelpDesk/view/forms/frm_reportes_partes.php" class="loadfrm">Partes</li>
                         </ul>
                     </li>
                     <li>

@@ -1,8 +1,8 @@
-<form name="frmLicencias_Consultar">
+<form name="frmLicencias_Eliminar">
 	<table colspan="3"align="center">
 		<tr>
 			<td> 
-				FORMULARIO LICENCIAS <br> CONSULTAR
+				FORMULARIO LICENCIAS <br> ELIMINAR
 			</td>
 			
 		</tr>
@@ -56,7 +56,7 @@
 		</tr>
 		<tr align="center">
 		
-		<td><input type="submit" name="btnConsultar" size="35" value="Consultar" class="textos" onClick="Consultar()"> </td>
+		<td><input type="submit" name="btnEliminar" size="35" value="Eliminar" class="textos" onClick="Eliminar()"> </td>
 		</tr>
 		</table>
 	</table>
