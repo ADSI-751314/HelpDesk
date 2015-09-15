@@ -1,19 +1,5 @@
-<!DOCTYPE HTML>
-
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	
-
-       <link rel="stylesheet" type="text/css" href="view/css/general.css">
-        <title>
-            Registro Provedores
-        </title>
-    </head>
-    
-    
-    <body>          
-            <form action="controller/provedores_controller.php" method="POST" name="frm_provedores_consultar">
+        
+            <form action="../../controller/provedores_controller.php?petition=consultar" method="POST" name="frm_provedores_consultar">
                 
                 
                 <table>
@@ -64,9 +50,31 @@
                     </table>
                  
                     
-               
+                          
+            <table>
+                
+                <tr>
                     
-             
+                    <td> CODIGO PROVEDOR</td>
+                    <td> NOMBRE PROVEDOR </td>
+                    <td> TELEFONO PROVEDOR</td>
+                    <td> DIRECCION </td>
+                    <td> CORREO</td>
+                    <td>PAGINA WEB</td>
+               
+                
+                
+                
+                
+                </tr>
+                
+          
+                
+                
+                
+            </table>
+                    
+             				
                    
               
                  
@@ -94,13 +102,7 @@
                 
                 
             </form>
-        
-        
-    </body>
-    
-    
-    
-</html>
+
     
 
 

@@ -1,19 +1,5 @@
-<!DOCTYPE HTML>
-
-<html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	
-
-       <link rel="stylesheet" type="text/css" href="view/css/general.css">
-        <title>
-            Registro Provedores
-        </title>
-    </head>
-    
-    
-    <body>          
-            <form action="controller/provedores_controller.php" method="POST" name="frm_provedores_modificar">
+          
+            <form action="../../controller/provedores_controller.php?petition=modificar" method="POST" name="frm_provedores_modificar">
                 
                 
                 <table>
@@ -96,9 +82,5 @@
             </form>
         
         
-    </body>
-    
-    
-    
-</html>
+
     
