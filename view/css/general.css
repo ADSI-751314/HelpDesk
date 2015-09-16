@@ -60,7 +60,7 @@ aside.layout-menu{
     color: rgb(29, 41, 57);
 }
 .active-menu{
-    border-bottom: 4px solid rgb(29, 41, 57);
+    border-left: 4px solid rgb(29, 41, 57);
     color: rgb(29, 41, 57)!important;
 }
 .side-menu .left{
@@ -87,15 +87,20 @@ aside.layout-menu{
     box-shadow: inset 0px 15px 15px -15px black;
 }
 .submenu > li{
+    color: rgb(29, 41, 57);
     box-sizing: border-box;
     padding: 10px 20px;
-    background-color: rgba(255,255,255,0.2);
     transition: all .25s ease;
 }
 .submenu > li:hover{
     cursor: pointer;
     color: rgb(42,197,108)!important;
     border-left: 4px solid rgb(42,197,108);
+}
+.active-sm{
+    color: white!important;
+    border-left: 4px solid rgb(42,197,108);
+    background-color: rgb(29, 41, 57);
 }
 .sm-text{
     display: inline;
