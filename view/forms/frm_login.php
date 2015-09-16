@@ -10,9 +10,9 @@
         <script type="text/javascript" src="../js/jquery.js"></script>
         <script type="text/javascript" src="../js/general.js"></script>
     </head>
-    <body>
-        <section>
-            <article>
+    <body class="login-body">
+        <section class="login-container">
+            <article class="login-article">
                 <h1>Iniciar Sesión</h1>
                 <form name="frmLogin" action="../../controller/login_controller.php?petition=validalogin" method="POST" autocomplete="off">
                     <table width="100%" id="frm-table">
