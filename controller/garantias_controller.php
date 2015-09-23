@@ -15,7 +15,7 @@ switch ($proceso) {
         break;
     case("consultar"): {
         
-            $garantias->consultar($gar_id, $gar_hardware, $gar_software, $gar_fecha1, $gar_fecha2, $gar_descripcion);
+            $garantias->consultar($gar_id,$ga_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea);
             echo'consultar';
         }
         break;
@@ -39,9 +39,10 @@ class garantias_controller {
         $test = new garantias_class();        
         $test->guardar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea);
     }
-    public  function consultar($gar_id,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion)
+    public  function consultar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea)
     {
-        
+        $consul = new garantias_class();
+        $consul->consultar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea);
     }
     public function eliminar ($gar_id)
     {

@@ -15,9 +15,9 @@ class garantias_class {
         $sql= "insert into garantias values ('$pk_gar_codigo','$gar_tipo','$gar_fecha_inicio','$gar_fecha_fin','$gar_descripcion','$gar_foranea')";
         $query = $this->conexion->ejecutarQuery($sql);
     }
-    public function consultar($gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion)
+    public function consultar($pk_gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion,$gar_foranea)
     {
-        $sql="select * from garantias";
+        $sql="select pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar, gar_descripcion, fk_equ_codigo FROM garantias";
         $query = $this->conexion->consultarQuery($sql);
         
     }
