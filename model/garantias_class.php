@@ -5,17 +5,17 @@ include 'conexion_class.php';
 class garantias_class {
     //put your code here
     private $conexion;
-    public function _construct()
+    public function __construct()
     {
            $this->conexion = new conexion_class();
            $this->conexion->conexion();
     }
-    public function almacenar($pk_gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion)
+    public function guardar($pk_gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion,$gar_foranea)
     {
-        $sql= "insert into garantias values ('$pk_gar_codigo','$gar_tipo','$gar_fecha_inicio','$gar_fecha_fin','$gar_descripcion')";
+        $sql= "insert into garantias values ('$pk_gar_codigo','$gar_tipo','$gar_fecha_inicio','$gar_fecha_fin','$gar_descripcion','$gar_foranea')";
         $query = $this->conexion->ejecutarQuery($sql);
     }
-    public function consultar($gar_codigo,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion)
+    public function consultar($gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion)
     {
         $sql="select * from garantias";
         $query = $this->conexion->consultarQuery($sql);
