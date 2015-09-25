@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS USUARIOS(
     usu_extension varchar(15),
     usu_cargo varchar(80),
     usu_correo varchar(100),
-    usu_username varchar(30) not null,
+    usu_username varchar(30) not null UNIQUE,
     usu_password varchar(20) not null,
     usu_fecha_creacion datetime not null,
     usu_fecha_modificacion datetime,
