@@ -15,15 +15,15 @@ class garantias_class {
         $sql= "insert into garantias values ('$pk_gar_codigo','$gar_tipo','$gar_fecha_inicio','$gar_fecha_fin','$gar_descripcion','$gar_foranea')";
         $query = $this->conexion->ejecutarQuery($sql);
     }
-    public function consultar($pk_gar_codigo,$gar_tipo,$gar_fecha_inicio,$gar_fecha_fin,$gar_descripcion,$gar_foranea)
+    public function consultar($pk_gar_codigo)
     {
-        $sql="select pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar, gar_descripcion, fk_equ_codigo FROM garantias";
+        $sql="select * from garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
         $query = $this->conexion->consultarQuery($sql);
-        
+        return $query;
     }
-    public function eliminar($gar_codigo)
+    public function eliminar($pk_gar_codigo)
     {
-        $sql="DELETE FROM garantias WHERE pk_gar_codigo = ('$pk_gar_codigo')";
+        $sql="DELETE FROM garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
         $query = $this->conexion->ejecutarQuery($sql);        
     }
     public function modificar ($gar_codigo,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion)
