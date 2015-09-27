@@ -1,9 +1,7 @@
 <?php
-
 require_once 'conexion_class.php';
 
 class login_class {
-
     private $conexion;
 
     public function __construct() {
@@ -12,13 +10,9 @@ class login_class {
     }
 
     public function login($username, $password) {
-        $sql = "SELECT * FROM USUARIOS WHERE usu_username = '".$username."' AND usu_password = '".$username."';";
+        $sql = "SELECT * FROM USUARIOS WHERE usu_username = '".$username."' AND usu_password = '".$password."';";
         $query = $this->conexion->consultarQuery($sql);
 
         return $query;
-    }
-    
-    public function logout() {
-        
     }
 }
