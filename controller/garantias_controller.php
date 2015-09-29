@@ -22,11 +22,13 @@ switch ($proceso) {
         break;
     case ("eliminar"): {
         
-            $garantias->eliminar();
+            $garantias->eliminar($_REQUEST['txtGarantiaID']);
             echo 'eliminado';
         }
         break;
     case ("modificar"): {
+            
+            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['txtTipo'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
             echo "modificado";
         }
         break;
@@ -71,9 +73,9 @@ class garantias_controller {
         $elimi = new garantias_class();
         $elimi->eliminar($gar_id);
     }
-    public function modificar($gar_id,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion)
+    public function modificar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea)
     {
         $modifi = new garantias_class();
-        $modifi->modificar($gar_id,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion);
+        $modifi->modificar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea);
     }
 }

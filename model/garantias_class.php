@@ -26,10 +26,9 @@ class garantias_class {
         $sql="DELETE FROM garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
         $query = $this->conexion->ejecutarQuery($sql);        
     }
-    public function modificar ($pk_gar_codigo,$gar_hardware,$gar_software,$gar_fecha1,$gar_fecha2,$gar_descripcion,$fk_equ_codigo)
+    public function modificar ($pk_gar_codigo,$gar_tipo,$gar_fecha1,$gar_fecha2,$gar_descripcion,$fk_equ_codigo)
     {
-        $sql="UPDATE garantias SET gar_hardware = '".$gar_hardware."',
-                                   gar_software = '".$gar_software."',
+        $sql="UPDATE garantias SET gar_tipo = '".$gar_tipo."',
                                    gar_fecha_inicio= '".$gar_fecha1."',
                                    gar_fecha_fin = '".$gar_fecha2."',
                                    gar_descripcion = '".$gar_descripcion."',

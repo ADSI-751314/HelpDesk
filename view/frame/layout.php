@@ -42,22 +42,30 @@
                             <p class="side-mnu-text">Garantias</p>
                             <i class="fa fa-chevron-down"></i>
                         </a>
-                        <ul class="list submenu">
+                        <ul  class="list submenu">
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_guardar.php">
                                 <i class="fa fa-plus sm-i"></i>
                                 <p class="sm-text">Create</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_consultar.php">
                                 <i class="fa fa-search sm-i"></i>
                                 <p class="sm-text">Read</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_modificar.php">
                                 <i class="fa fa-pencil sm-i"></i>
                                 <p class="sm-text">Update</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_eliminar.php">
                                 <i class="fa fa-trash sm-i"></i>
                                 <p class="sm-text">Delete</p>
+                                </a>
                             </li>
                         </ul>
                     </li>
