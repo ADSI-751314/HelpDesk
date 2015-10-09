@@ -1,7 +1,7 @@
 <form action="../../controller/provedores_controller.php?petition=guardar" method="POST" name="frm_provedores_guardar">
     <table>
-        <tr>
-            <td colspan="2"><h1> Registro de Provedores<h1></td>
+                        <tr>
+                        <td colspan="2"><h1> Registro de Provedores<h1></td>
                         </tr>
                         <tr> 
                             <td><label for="txtPro_codigo">Codigo Provedor</label></td> 
@@ -30,5 +30,5 @@
                         <tr> 
                             <td colspan="2"><input type="submit"  name="btnguardar" value="guardar"></td> 
                         </tr>
-                        </table>
-                        </form>
+    </table>
+</form>
