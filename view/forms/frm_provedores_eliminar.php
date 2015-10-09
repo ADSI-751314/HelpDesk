@@ -5,7 +5,7 @@
                 <table>
                     
                        <tr> 
-                           <td colspan="2"  >  <h1> Registro de Provedores<h1></td> 
+                           <td colspan="2"  >  <h1> Eliminar  Provedores<h1></td> 
      
                     </tr>
                     
