@@ -5,16 +5,22 @@
                 <table>
                     
                        <tr> 
-                           <td colspan="2"  >  <h1> Registro de Provedores<h1></td> 
+                           <td colspan="2"  >  <h1> Consultar Provedores<h1></td> 
      
                     </tr>
                     
                     <tr> 
                           <td colspan="2"  >   
+                              
                            
                               <input type="submit"  name="btnconsultar" value="consultar">
                            
                           </td> 
+                          
+                          
+                        <td>   <label for="txtConsulta">Buscar Provedor</label> 
+                        <input type="text"  name="txtConsulta" values="Ingrese  el codigo"> </td> 
+                   
      
                     </tr>
                     <tr> 
@@ -69,7 +75,14 @@
                 </tr>
                 
           
+                <?php
                 
+                include '../../HelpDesk/model/provedores_class.php';
+                
+                $mostrar = new provedores_class();
+                $mostrar->consultar($pro_codigo);
+                
+                ?>
                 
                 
             </table>
