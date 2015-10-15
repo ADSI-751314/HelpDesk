@@ -1,5 +1,5 @@
 <?php
-include 'conexion_class.php';
+include '../../HelpDesk/model/conexion_class.php';
 
 class base_conocimiento_class{
     

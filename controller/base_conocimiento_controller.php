@@ -1,7 +1,7 @@
 <?php
 
 
-include '../model/base_conocimiento_class.php';
+include '../../HelpDesk/model/baseconocimiento_class.php';
 
 $proceso = $_REQUEST['petition'];
 

@@ -1,7 +1,7 @@
 <?php
 
 
-include '../model/licencias_class.php';
+include '../../HelpDesk/model/conexion_class.php';
 
 $trabajo= $_REQUEST['petition'];
 
