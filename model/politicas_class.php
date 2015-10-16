@@ -2,7 +2,9 @@
 
 include 'HelpDesk/model/conexion_class.php';
 
-class politicas_class {
+class politicas_class 
+{
+
     
     
     private $conexion; 
@@ -27,4 +29,4 @@ class politicas_class {
         
         $query = $this->conexion->ejecutarQuery($sql);
     }
-?>
+  }
