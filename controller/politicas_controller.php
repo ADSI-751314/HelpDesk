@@ -14,8 +14,8 @@ switch($proceso)
      {
          echo
          
-        $pol_codigo=$_POST['txtPol_codigo'];
-        $pro_describcion=$_POST['txtPol_descripcion'];
+        $pol_codigo=$_POST['txtCodigo'];
+        $pol_descripcion=$_POST['txtDescripcion'];
              
         $politicas->guardar($pol_codigo,$pol_descripcion);
                  
@@ -25,8 +25,8 @@ switch($proceso)
   
      case('consultar');
      {
-        $pol_codigo=$_POST['txtPol_codigo'];
-        $pro_describcion=$_POST['txtPol_descripcion'];
+        $pol_codigo=$_POST['txtCodigo'];
+        $pol_descripcion=$_POST['txtDescripcion'];
         
        
      $politicas->consultar($pol_codigo,$pol_descripcion);
