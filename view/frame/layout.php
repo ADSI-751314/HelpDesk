@@ -111,6 +111,31 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="/HelpDesk/view/forms/frm_licencias.php" class="menu">
+                            <i class="fa fa-database fa-2x left"></i>
+                            <p class="side-mnu-text">Licencias</p>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <ul class="list submenu">
+                            <li>
+                                <i class="fa fa-plus sm-i"></i>
+                                <p class="sm-text">Create</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-search sm-i"></i>
+                                <p class="sm-text">Read</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-pencil sm-i"></i>
+                                <p class="sm-text">Update</p>
+                            </li>
+                            <li>
+                                <i class="fa fa-trash sm-i"></i>
+                                <p class="sm-text">Delete</p>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </aside>
