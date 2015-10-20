@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <form action="/HelpDesk/controller/garantias_controller.php?petition=consultar" method="POST"  name="frm_garantias_consultar">
             <br>
              <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR)</h1>

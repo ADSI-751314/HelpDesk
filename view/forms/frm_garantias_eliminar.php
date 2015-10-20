@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <form action="../../controller/garantias_controller.php?petition=eliminar" method="POST"  name="frm_garantias">
             <br>
             <h1 align="center">FORMULARIO GARANTIAS (ELIMINAR)</h1>
