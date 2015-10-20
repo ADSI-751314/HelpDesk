@@ -48,10 +48,9 @@ class garantias_controller {
         $consul = new garantias_class();
         $resp = $consul->consultar($gar_id);
         
+        include "../../HelpDesk/view/forms/frm_consulta_garantias.php";
         //muestra el resultado que me regresa garantias_class de la consulta
-        foreach($resp as $contenido)
-        {
-             echo $contenido;      
+        
          /*for($i=0; $i<count($resp); $i++)
         
             $contenido = "<tr> 
@@ -67,7 +66,7 @@ class garantias_controller {
                 
             
         }
-    }
+    
     
        //metodo encargado de eliminar el campo seleccionado en la base de datos
     public function eliminar ($gar_id)
