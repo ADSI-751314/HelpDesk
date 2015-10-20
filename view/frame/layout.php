@@ -119,20 +119,28 @@
                         </a>
                         <ul class="list submenu">
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_licencias_crear.php" class="menu">
                                 <i class="fa fa-plus sm-i"></i>
                                 <p class="sm-text">Create</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_licencias_consultar.php" class="menu">
                                 <i class="fa fa-search sm-i"></i>
                                 <p class="sm-text">Read</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_licencias_actualizar.php" class="menu">
                                 <i class="fa fa-pencil sm-i"></i>
                                 <p class="sm-text">Update</p>
+                                </a>
                             </li>
                             <li>
-                                <i class="fa fa-trash sm-i"></i>
+                                <a href="/HelpDesk/view/forms/frm_licencias_eliminar.php" class="menu">
+                                <i class="fa fa-trash-o"></i>
                                 <p class="sm-text">Delete</p>
+                                </a>
                             </li>
                         </ul>
                     </li>
