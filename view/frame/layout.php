@@ -113,7 +113,7 @@
                     </li>
                     <li>
                         <a href="/HelpDesk/view/forms/frm_licencias.php" class="menu">
-                            <i class="fa fa-database fa-2x left"></i>
+                            <i class="fa fa-hand-o-right fa-2x left"></i>
                             <p class="side-mnu-text">Licencias</p>
                             <i class="fa fa-chevron-down"></i>
                         </a>
