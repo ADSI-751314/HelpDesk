@@ -16,8 +16,8 @@ $conexion = @new mysqli($server, $username, $password, $database);
 if ($conexion->connect_error) { //verificamos si hubo un error al conectar, recuerden que pusimos el @ para evitarlo
     die('Error de conexión: ' . $conexion->connect_error); //si hay un error termina la aplicación y mostramos el error
 }
-
-$sql = "select * from tipoequipo";
+$conexion->query("SET NAMES 'UTF8'");
+$sql = "select * from tipos_equipos";
 $result = $conexion->query($sql); //usamos la conexion para dar un resultado a la variable
 
 if ($result->num_rows > 0) { //si la variable tiene al menos 1 fila entonces seguimos con el codigo
@@ -30,7 +30,7 @@ if ($result->num_rows > 0) { //si la variable tiene al menos 1 fila entonces seg
 }
 
 
-$sql2 = "select pk_dep_codigo, dep_nombre from dependencia";
+$sql2 = "select pk_dep_codigo, dep_nombre from dependencias";
 $result2 = $conexion->query($sql2); //usamos la conexion para dar un resultado a la variable
 
 if ($result2->num_rows > 0) { //si la variable tiene al menos 1 fila entonces seguimos con el codigo
@@ -43,6 +43,7 @@ if ($result2->num_rows > 0) { //si la variable tiene al menos 1 fila entonces se
 }
 $conexion->close(); //cerramos la conexión
 ?>
+
 <html>
     <head>
         <title>Ingresar Ficha Técnica</title>
@@ -72,7 +73,7 @@ $conexion->close(); //cerramos la conexión
     <body>
         <div class="container">
             <div class="row">
-                <form>
+                <form method="POST" action="../../controller/equipo_controller.php?var='guar'">
 
                     <div class="input-field col s12">
                         <b>Tipo de Equipo</b>
@@ -90,15 +91,15 @@ $conexion->close(); //cerramos la conexión
                     </div>
                     <div class="input-field col s12">
                         <b>Nombre del equipo</b>
-                        <input placeholder="ABCDE" id="nomEquipo" type="text" class="validate">
+                        <input placeholder="ABCDE" name="nomEquipo" type="text" class="validate">
                     </div>
                     <div class="input-field col s12">
                         <b>Precio</b>
-                        <input placeholder="12345" id="preEquipo" type="number" class="validate">
+                        <input placeholder="12345" name="preEquipo" type="number" class="validate">
                     </div>
                     <div class="input-field col s12">
                         <b>Número de serie</b>
-                        <input placeholder="102030" id="numSerie" type="text" class="validate">
+                        <input placeholder="102030" name="numSerie" type="text" class="validate">
                     </div>
 
                     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Añadir Partes</a> <br><br>
