@@ -3,11 +3,12 @@
     font-family: roboto;
     src: url(../fonts/Roboto-Condensed.ttf);
 }
-body.login-body{
-    background: url('../img/login-background.jpg');
+#login-body{
+    background: rgb(29, 41, 57) url('../img/questions.jpg') left top fixed;
+    background-size: cover;
     font-family: roboto,Helvetica, sans-serif;
 }
-section.login-container{
+#bgcolor{
     background: -moz-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
     background: -o-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
     background: -webkit-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
@@ -17,82 +18,110 @@ section.login-container{
     position: fixed;
     top: 0; bottom: 0;
 }
-article.login-article{
-    background: rgba(0,0,0,0.6);
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-    height: 90%;
-    margin: auto;
-    min-height: 600px;
+#login-container{
     width: 30em;
+    margin-top: 2em;
+    background-color: rgba(0,0,0,0.8)!important;
+    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
 }
-.login-article > h1{
+.title{
     background-color: rgba(45, 249, 133, 0.5);
     border-bottom: 4px solid rgba(0,0,0,0.3);
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
     color: white;
-    display: block;
-    font-size: 200%;
+    font-size: xx-large;
     letter-spacing: 2px;
     margin: 0px;
-    padding: 1.2em 0px;
+    padding: 1.2em;
     text-align: center;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
 }
-.login-article > form{
-    border-top: 4px solid rgba(45, 249, 133, 0.5);
+#login-container > form{
     color: white;
-    padding-top: 5em;
     text-align: center;
 }
 .txtBox{
-    background-color: rgba(255,255,255,0.1);
-    transition: .25s ease;
-    width: 80%;
+    background-color: rgba(255,255,255,0.05);
+    width: 90%;
+    height: 80px;
+    margin: 2px auto;
+}
+.td-alert{
+    padding: 0px!important;
+    height: 60px;
+}
+.td, .td-fa{
+    padding: 0px!important;
+    height: inherit;
+}
+.td-fa{
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
 }
 .txt-login{
     background: none;
     border: none;
     color: white;
     font-size: 150%;
-    outline: 0;
     padding: 30px 0px;
-    width: 78%;
+    height: inherit;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    outline: none!important;
+    box-shadow: none!important;
 }
 .active-fa{
-    box-shadow: inset 85px 0px rgba(23, 170, 86,0.8);
+    -webkit-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
+    -moz-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
+    box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
 }
-.txtBox > .fa{
-    float: left;
-    height: inherit;
-    padding: 20px 0px;
-    transition: .3s linear;
-    width: 20%;
+.txtBox .fa{
+    padding: 15px 0px;
 }
-#btn-td{
-    padding-top: 5em;
+.btn-container{
+    height: 100px;
+    padding: 60px 0px 0px 0px!important;;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 #btn-login{
-    background-color: rgb(23, 170, 86);    
-    border-radius: 2px 2px 5px 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 6px #097347;
+    -moz-box-shadow: 0px 6px #097347;
+    box-shadow: 0px 6px #097347;
+    background-color: rgb(23, 170, 86);
+    width: 90%;
+    margin: auto;
     border: none;
-    box-shadow: 0px 8px #097347;
     color: white;
     font-size: 120%;
     font-weight: bold;
     letter-spacing: 1px;
-    outline: none;
     padding: 25px 80px;
     text-transform: uppercase;
-    width: 80%;
+    outline: none!important;
 }
 #btn-login:hover, #btn-login:focus{
-    box-shadow: 0px 6px #097347;
+    -webkit-box-shadow: 0px 4px #097347;
+    -moz-box-shadow: 0px 4px #097347;
+    box-shadow: 0px 4px #097347;
     cursor: pointer;
     margin-top: 2px;
 }
 #btn-login:active{
     box-shadow: none;
-    margin-top: 7px;
+    margin-top: 6px;
     text-shadow: 0px 2px #097347;
+}
+.alert{
+    display: none;
 }
 :-moz-placeholder { color: white; }
 :-ms-input-placeholder { color: white; } 
