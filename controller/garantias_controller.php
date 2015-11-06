@@ -11,7 +11,7 @@ $garantias = new garantias_controller();
 switch ($proceso) {
     case ("guardar"): {
             $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
-            echo 'guardado con éxito';
+           
         }
         break;
     case("consultar"): {
@@ -32,6 +32,11 @@ switch ($proceso) {
             echo "modificado";
         }
         break;
+    case ("consultar_todo"):{
+        
+            $garantias->consultar_todo();
+    }
+    break;
 }
 
 class garantias_controller {
@@ -80,5 +85,17 @@ class garantias_controller {
     {
         $modifi = new garantias_class();
         $modifi->modificar($gar_id,$gar_tipo,$gar_fecha,$gar_fecha2,$gar_descripcion,$gar_foranea);
+    }
+    public  function consultar_todo()
+    {
+        $consul = new garantias_class();
+        $contod = $consul->consultar_todo();
+        foreach ($contod as $contenido) {
+                    
+                    echo $contenido;
+                    
+        }
+        
+        //include "../../HelpDesk/view/forms/frm_consulta_todo_garantias.php";
     }
 }

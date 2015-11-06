@@ -42,4 +42,10 @@ class garantias_class {
         $this->conexion->ejecutarQuery($sql);
                                     
     }
+    public function consultar_todo()
+    {
+        $sql="select * from garantias";
+        $query = $this->conexion->consultarQuery($sql);
+        return $query;
+    }
 }
