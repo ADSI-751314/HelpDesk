@@ -17,7 +17,7 @@ switch ($proceso) {
     case("consultar"): {
         
             $garantias->consultar($_REQUEST['txtGarantiaID']);
-            echo "consulta exitosa";
+            echo "éxito en la consulta";
         }
         break;
     case ("eliminar"): {
