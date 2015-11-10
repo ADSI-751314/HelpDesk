@@ -119,6 +119,14 @@
 .alert{
     display: none;
 }
+.popover{
+    font-family: Roboto;
+    color: black;
+    width: 150px;
+}
+.popover .fa{
+    color: red;
+}
 :-moz-placeholder { color: white; }
 :-ms-input-placeholder { color: white; } 
 ::-moz-placeholder { color: white; } 

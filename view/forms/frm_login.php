@@ -14,8 +14,7 @@
                         <i class="fa fa-user fa-3x"></i>
                     </div>
                     <div class="col-xs-10 col-md-9 td">
-                        <input class="txt-login form-control" type="text" name="txtUsername" placeholder="Nombre de usuario" maxlength="30"/>
-                               <!--data-toggle="popover" data-content="Este campo no puede estar vacío!" data-placement="right"/>-->
+                        <input class="txt-login form-control" type="text" name="txtUsername" id="txtUsu" placeholder="Nombre de usuario" maxlength="30"/>
                     </div>
                 </div>
                 <div class="txtBox row">
@@ -23,7 +22,7 @@
                         <i class="fa fa-unlock-alt fa-3x"></i>
                     </div>
                     <div class="col-xs-10 col-md-9 td">
-                        <input class="txt-login form-control" type="password" name ="txtPassword" placeholder="Contraseña" maxlength="20" required/>
+                        <input class="txt-login form-control" type="password" name="txtPassword" id="txtPass" placeholder="Contraseña" maxlength="20"/>
                     </div>
                 </div>
                 <div class="row">
