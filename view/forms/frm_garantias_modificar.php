@@ -1,13 +1,12 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<form action="../../controller/garantias_controller.php?petition=modificar" method="POST"  name="frm_garantias_modificar">
-            <br>
-            <h1 align="center">FORMULARIO GARANTIAS (MODIFICAR)</h1>
+<form action="/HelpDesk/controller/garantias_controller.php?petition=modificar" method="POST"  name="frm_garantias_modificar">
+           <br>
+             <h1 align="center"> FORMULARIO GARANTIAS (MODIFICAR)</h1>
             <table>
                 <tr>
                     <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
-                    <td> Tipo de garantía:  </td>   <td align="left"><input type="radio" id="hardware" name="rdoHardware" value="hardware"> Hardware <input type="radio" id="software" name="rdoSoftware" value="software"> Software </td>
+                    <td> Tipo de garantía:  </td>   <td align="left"><input type="text" name="txtTipo" id="tipo_garantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
                     <td> Fecha de inicio: </td>      <td align="left"><input type="date" name="fecha"></td>
@@ -19,10 +18,12 @@
                     <td>Descripción: </td> <td> <textarea cols="50" rows="15" name="txtDescripcion" id="descripcion"></textarea></td>
                 </tr>
                 <tr>
+                    <td>foránea: </td>  <td align="left"><input type="text" name="txtForanea" id="foranea" size="12" maxlength="12"> </td>
+                </tr>
+                <tr>
                     <td colspan="2"> <input type="submit" name="btnModificar" value="modificar"> 
                    </td>
                     
                 </tr>
             </table>
         </form>
-

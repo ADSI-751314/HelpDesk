@@ -44,20 +44,28 @@
                         </a>
                         <ul class="list submenu">
                             <li>
+                             <a href="/HelpDesk/view/forms/frm_garantias_guardar.php" class="menu">
                                 <i class="fa fa-plus sm-i"></i>
                                 <p class="sm-text">Create</p>
+                             </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_consultar.php" class="menu">
                                 <i class="fa fa-search sm-i"></i>
                                 <p class="sm-text">Read</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_modificar.php" class="menu">
                                 <i class="fa fa-pencil sm-i"></i>
                                 <p class="sm-text">Update</p>
+                                </a>
                             </li>
                             <li>
+                                <a href="/HelpDesk/view/forms/frm_garantias_eliminar.php" class="menu">
                                 <i class="fa fa-trash sm-i"></i>
                                 <p class="sm-text">Delete</p>
+                                </a>
                             </li>
                         </ul>
                     </li>
