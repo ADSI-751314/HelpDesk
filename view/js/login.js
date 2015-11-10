@@ -19,24 +19,42 @@
 
      $("form").on("submit", function (e) {
          e.preventDefault();
-         /*$('[data-toggle="popover"]').popover();
+
          var username = $("input[name=txtUsername]").val();
          var password = $("input[name=txtPassword]").val();
 
          if(username.trim() == ""){
-             $("input[name=txtUsername]").popover('show');
+             $("#txtUsu").popover({
+                 placement: 'right',
+                 html: true,
+                 content: "<i class='fa fa-exclamation-circle fa-lg'></i> Campo requerido.",
+                 trigger: 'manual',
+             }).focus(function () {
+                 $(this).popover('destroy');
+             });
+
+             $("#txtUsu").popover('show');
          }
          else if(password.trim() == ""){
-             $('[data-toggle="popover"]').popover('show');
+             $("#txtPass").popover({
+                 placement: 'right',
+                 html: true,
+                 content: "<i class='fa fa-exclamation-circle fa-lg'></i> Campo requerido.",
+                 trigger: 'manual',
+             }).focus(function () {
+                 $(this).popover('destroy');
+             });
+
+             $("#txtPass").popover('show');
          }
-         else{*/
+         else{
              var action = $(this).attr("action");
              var name = $(this).attr("name");
              var data = $(this).serialize()+"&action="+name;
              var method = $(this).attr("method");
 
              ajax(action,data,method,loginRequestHandler);
-         //}
+         }
      });
 
      function loginRequestHandler(response){
@@ -47,7 +65,7 @@
              alert.html("Bienvenido!");
         }else{
              alert.addClass("alert-danger");
-             alert.html("Nombre de usuario o contraseña incorrecto!");
+             alert.html("Nombre de usuario o contraseña incorrecta!");
         }
         alert.fadeIn(500);
         setTimeout(function (){
