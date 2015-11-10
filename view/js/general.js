@@ -35,9 +35,9 @@ $(function() {
     //----------------------------------Funcionalidad----------------------------
 
     $(".menu").click(function () {
-        var y = $(this).attr("href");
-        var respuesta = $(".content");
-        respuesta.load(y);
+        var html_form = $(this).attr("href");
+        var container = $(".content");
+        container.load(html_form);
         return false;
     });
 
@@ -49,26 +49,24 @@ $(function() {
         obj.removeClass(reCl);
         obj.addClass(adCl);
     };
-
-    function ajax(url,data,method,callback){
-        $.ajax({
-            url: url,// URL para la petición
-            data: data,// Información a enviar
-            type: method,// Especifica si será una petición POST o GET
-            beforeSend : function () {
-
-            },// Antes de que se complete la petición
-            success : function(response){
-                // Si la petición es satisfactoria
-                callback(response);
-            },
-            error : function(){
-                // Si la petición falla
-            },
-            complete : function () {
-                // Código a ejecutar sin importar si la petición falló o no
-            }
-        })
-    }
 });
+
+
+function ajax(url,data,method,callback){
+    $.ajax({
+        url: url,// URL para la petición
+        data: data,// Información a enviar
+        type: method,// Especifica si será una petición POST o GET
+        beforeSend: function () {
+            // Antes de que se complete la petición
+        },
+        success: function(response){
+            // Si la petición es satisfactoria
+            callback(response);
+        },
+        error: function(){
+            // Si la petición falla
+        }
+    });
+}
 

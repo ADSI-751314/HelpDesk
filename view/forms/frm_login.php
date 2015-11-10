@@ -3,13 +3,10 @@
     <div id="bgcolor">
         <div class="container" id="login-container">
             <h1 class="title">Iniciar Sesión</h1>
-            <form name="frmLogin" action="controller/login_controller.php?petition=validalogin" method="POST" autocomplete="off">
+            <form name="login" action="controller/login_controller.php" method="POST" autocomplete="off">
                 <div class="row">
                     <div class="col-xs-12 col-md-12 td-alert">
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            Nombre de usuario o contraseña incorrecta!
-                        </div>
+                        <div class="alert" role="alert" id="alert"></div>
                     </div>
                 </div>
                 <div class="txtBox row">
@@ -17,7 +14,8 @@
                         <i class="fa fa-user fa-3x"></i>
                     </div>
                     <div class="col-xs-10 col-md-9 td">
-                        <input class="txt-login form-control" type="text" name="txtUsername" placeholder="Nombre de usuario" maxlength="30" required/>
+                        <input class="txt-login form-control" type="text" name="txtUsername" placeholder="Nombre de usuario" maxlength="30"/>
+                               <!--data-toggle="popover" data-content="Este campo no puede estar vacío!" data-placement="right"/>-->
                     </div>
                 </div>
                 <div class="txtBox row">
@@ -30,7 +28,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-md-12 td btn-container">
-                        <input class="btn-block" type="submit" name="btnLogin" id="btn-login" value="Ingresar" />
+                        <input class="btn btn-block btn-success" type="submit" name="btnLogin" id="btn-login" value="INGRESAR" />
                     </div>
                 </div>
             </form>
