@@ -12,7 +12,7 @@
             <nav>
                 <ul class="list side-menu">
                     <li>
-                        <a href="/HelpDesk/view/forms/frm_reportes.php" class="menu">
+                        <a href="/HelpDesk/view/forms/frm_reportes_usuarios.php" class="menu">
                             <i class="fa fa-pie-chart fa-2x left"></i>
                             <p class="side-mnu-text">Reportes</p>
                             <i class="fa fa-chevron-down"></i>
