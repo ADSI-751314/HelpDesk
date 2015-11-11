@@ -1,9 +1,9 @@
 <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/login.css">
 <body id="login-body">
     <div id="bgcolor">
-        <div class="container" id="login-container">
-            <h1 class="title">Iniciar Sesión</h1>
-            <form name="login" action="controller/login_controller.php" method="POST" autocomplete="off">
+        <div class="container">
+            <form id="frm-login" name="login" action="controller/login_controller.php" method="POST" autocomplete="off">
+                <h1 class="frm-login-heading">Iniciar Sesión</h1>
                 <div class="row">
                     <div class="col-xs-12 col-md-12 td-alert">
                         <div class="alert" role="alert" id="alert"></div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-md-12 td btn-container">
-                        <input class="btn btn-block btn-success" type="submit" name="btnLogin" id="btn-login" value="INGRESAR" />
+                        <input class="btn" type="submit" name="btnLogin" id="btn-login" value="INGRESAR" />
                     </div>
                 </div>
             </form>

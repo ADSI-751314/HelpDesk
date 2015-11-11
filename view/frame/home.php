@@ -6,7 +6,7 @@
                 <div id="usr-name"><p><?php echo $_SESSION["fullname"];?></p></div>
                 <ul class="list usr-options">
                     <li><a href=""><i class="fa fa-wrench"></i><p>Configurar</p></a></li>
-                    <li><a href="controller/login_controller.php?petition=logout"><i class="fa fa-power-off"></i><p>Cerrar Sesión</p></a></li>
+                    <li><a href="controller/login_controller.php?action=logout"><i class="fa fa-power-off"></i><p>Cerrar Sesión</p></a></li>
                 </ul>
             </header>
             <nav>
