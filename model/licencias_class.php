@@ -1,13 +1,20 @@
 <?php
 
 
-include  "../../HelpDesk/model/conexion_class.php";
+include  "conexion_class.php";
 
 class licencias_class {
-
+    
+  
+    private $pk_lic_codigo;
+    private $lic_nombre;
+    private $lic_fecha_compra;
+    private $lic_fecha_caducidad;
+    private $lic_precio;
+    private $lic_cobertura;
     private $conexion;
 
-    public function _construct() {
+    public function __construct() {
         $this->conexion = new conexion_class();
         $this->conexion->conexion();
     }
@@ -20,7 +27,7 @@ class licencias_class {
     }
 
     public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
-        $sql = " UPDATE licencias SET ('$pk_lic_codigo,$lic_nombre,$lic_fecha_compra,$lic_fecha_caducidad,$lic_precio,$lic_cobertura') where pk_lic_codigo=" . $lic_codigo . "";
+        $sql = " UPDATE licencias SET ('$pk_lic_codigo','$lic_nombre','$lic_fecha_compra','$lic_fecha_caducidad','$lic_precio','$lic_cobertura') where pk_lic_codigo='" . $lic_codigo ."'";
 
         $query = $this->conexion->ejecutarQuery($sql);
     }
@@ -66,7 +73,7 @@ class licencias_class {
     }
 
     public function eliminar($pk_lic_codigo) {
-        $sql = " DELETE FROM licencias where pk_lic_codigo=" . $pk_lic_codigo . "";
+        $sql = " DELETE FROM licencias where pk_lic_codigo= '" . $pk_lic_codigo."'";
 
 
         $query = $this->conexion->ejecutarQuery($sql);

@@ -20,15 +20,15 @@
 		</tr>
 		<tr>
 			<td>Fecha Inicio</td> 
-			<td><input type="text" name="txtFecha_Inicio" value="" size="50" maxlength="80"></td>
+			<td><input type="text" name="txtFecha_Inicio" value="" size="50" maxlength="80" type="date" name="Fecha_Inicio"></td>
 		</tr>
 		<tr>
 			<td>Fecha Caducidad </td> 
-			<td><input type="text" name="txtFecha_Caducidad" value="" size="50" maxlength="80"></td>
+			<td><input type="text" name="txtFecha_Caducidad" value="" size="50" maxlength="80" type="date" name="Fecha_Inicio"></td>
 		</tr>
 		<tr>
 			<td>Fecha Compra</td> 
-			<td><input type="text" name="txtFecha_Compra" value="" size="50" maxlength="80"></td>
+			<td><input type="text" name="txtFecha_Compra" value="" size="50" maxlength="80" type="date" name="Fecha_Inicio"></td>
 		</tr>
 		<tr>
 			<td>Precio </td> 
