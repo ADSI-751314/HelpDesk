@@ -10,27 +10,27 @@ $controller = new licencias_controller();
 switch ($trabajo){
     
     case("consulta"):
-        $controller->consultar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
+        $controller->consultar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'],$_REQUEST['txtFecha_Inicio'],$_REQUEST['txtFecha_Vencimiento'],$_REQUEST['txtFecha_Compra'],$_REQUEST['txtPrecio'],$_REQUEST['txtCobertura']);
         
         echo "se esta realizando la consulta";
       
         break;
     
-    case("Actualizar"):
-        $controller->actualizar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
+    case("actualizar"):
+        $controller->actualizar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'],$_REQUEST['txtFecha_Inicio'],$_REQUEST['txtFecha_Vencimiento'],$_REQUEST['txtFecha_Compra'],$_REQUEST['txtPrecio'],$_REQUEST['txtCobertura']);
         
         echo "se esta realizando la Actualizacion";
       
         break;
     
-    case("Crear"):
-        $controller->crear($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
+    case("crear"):
+        $controller->crear($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'],$_REQUEST['txtFecha_Inicio'],$_REQUEST['txtFecha_Vencimiento'],$_REQUEST['txtFecha_Compra'],$_REQUEST['txtPrecio'],$_REQUEST['txtCobertura']);
         
-        echo "se esta creando el formulario";
+        echo "se esta guardando el formulario";
       
         break;
-    case("Eliminar"):
-        $controller->eliminar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
+    case("eliminar"):
+        $controller->eliminar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'],$_REQUEST['txtFecha_Inicio'],$_REQUEST['txtFecha_Vencimiento'],$_REQUEST['txtFecha_Compra'],$_REQUEST['txtPrecio'],$_REQUEST['txtCobertura']);
         
         echo "se esta eliminado";
       
@@ -39,19 +39,19 @@ switch ($trabajo){
 
 class licencias_controller{
     
-      public function consultar($txtCodigo_Licencia,$txtNombre_Licencia,$txtFecha_Inicio,$txtFecha_Vencimiento,$txtFecha_Compra,$txtPrecio,$txtCobertura){
+      public function consultar($txtCodigo_Licencia,$txtNombre_Licencia,$txtFecha_Inicio,$txtFecha_caducidad,$txtFecha_Compra,$txtPrecio,$txtCobertura){
        
        $clase = new licencias_class();
        $clase->consultar();
       
       }
-    public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura){
+    public function actualizar($txtCodigo_Licencia,$txtNombre_Licencia,$txtFecha_Inicio,$txtFecha_caducidad,$txtFecha_Compra,$txtPrecio,$txtCobertura){
         
         $clase = new licencias_class();
         $clase->actualizar();
                 
     }
-    public function crear($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura){
+    public function crear($txtCodigo_Licencia,$txtNombre_Licencia,$txtFecha_Inicio,$txtFecha_caducidad,$txtFecha_Compra,$txtPrecio,$txtCobertura){
         
         $clase = new licencias_class();
         $clase->crear();
