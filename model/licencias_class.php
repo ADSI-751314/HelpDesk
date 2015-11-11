@@ -1,7 +1,7 @@
 <?php
 
 
-include '../../HelpDesk/model/conexion_class.php';
+include  "../../HelpDesk/model/conexion_class.php";
 
 class licencias_class {
 
@@ -14,7 +14,7 @@ class licencias_class {
 
     public function crear($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
        
-        $sql = "select into licencias values ('$pk_lic_codigo','$lic_nombre','$lic_fecha_compra','$lic_fecha_caducidad','$lic_precio','$lic_cobertura')";
+        $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_compra','$lic_fecha_caducidad','$lic_precio','$lic_cobertura')";
 
         $query = $this->conexion->ejecutarQuery($sql);
     }

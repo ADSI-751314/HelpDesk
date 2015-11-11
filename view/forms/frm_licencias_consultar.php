@@ -24,8 +24,8 @@
 			<td><input type="text" name="txtFecha_Inicio" value="" size="50" maxlength="80"></td>
 		</tr>
 		<tr>
-			<td>Fecha Vencimiento </td> 
-			<td><input type="text" name="txtFecha_Vencimiento" value="" size="50" maxlength="80"></td>
+			<td>Fecha Caducidad </td> 
+			<td><input type="text" name="txtFecha_Caducidad" value="" size="50" maxlength="80"></td>
 		</tr>
 		<tr>
 			<td>Fecha Compra</td> 
