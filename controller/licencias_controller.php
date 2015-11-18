@@ -12,27 +12,27 @@ $controller = new licencias_controller();
 switch ($trabajo) {
 
     case("consulta"):
-        $controller->consultar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['txtFecha_Inicio'], $_REQUEST['txtFecha_Caducidad'], $_REQUEST['txtFecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->consultar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
 
         echo "se esta realizando la consulta";
 
         break;
 
     case("actualizar"):
-        $controller->actualizar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['txtFecha_Inicio'], $_REQUEST['txtFecha_Caducidad'], $_REQUEST['txtFecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->actualizar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
 
         echo "se esta realizando la Actualizacion";
 
         break;
 
     case("crear"):
-        $controller->crear($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['txtFecha_Inicio'], $_REQUEST['txtFecha_Caducidad'], $_REQUEST['txtFecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->crear($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
 
         echo "se esta guardando el formulario";
 
         break;
     case("eliminar"):
-        $controller->eliminar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['txtFecha_Inicio'], $_REQUEST['txtFecha_Caducidad'], $_REQUEST['txtFecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->eliminar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
 
         echo "se esta eliminado";
 
