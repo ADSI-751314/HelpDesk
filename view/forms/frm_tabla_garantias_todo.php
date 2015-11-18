@@ -1,11 +1,6 @@
-<form action="/HelpDesk/controller/garantias_controller.php?petition=consultar_todo" method="POST"  name="frm_consulta_todo_garantias">
-            <br>
-             <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR TODO)</h1>
-            
-                    <input type="submit" name="btnConsultar" value="consultar todo">   
-                    
-                
-               <h2 align="center"> CONSULTA GARANTIAS </h2>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<form>    
+    <h1 align="center"> CONSULTA GARANTIAS </h1>
     <table border="1" align="center">
         
         <tr>
@@ -22,12 +17,10 @@
             
                 
             ?>
-            
         </tr>
         
         
         
     </table>
-                
-            
-        </form>
+</form>
+

@@ -28,7 +28,7 @@ switch ($proceso) {
         break;
     case ("modificar"): {
             
-            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['txtTipo'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
+            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
             echo "modificado";
         }
         break;
@@ -89,13 +89,11 @@ class garantias_controller {
     public  function consultar_todo()
     {
         $consul = new garantias_class();
-        $contod = $consul->consultar_todo();
-        foreach ($contod as $contenido) {
-                    
-                    echo $contenido;
-                    
-        }
+        $contod = $consul->consultar_todo1();
+               
+        include "../../HelpDesk/view/forms/frm_consulta_todo_garantias.php";          
         
-        //include "../../HelpDesk/view/forms/frm_consulta_todo_garantias.php";
+        
+        
     }
 }
