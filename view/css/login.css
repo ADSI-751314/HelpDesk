@@ -4,29 +4,34 @@
     src: url(../fonts/Roboto-Condensed.ttf);
 }
 #login-body{
-    background: rgb(29, 41, 57) url('../img/questions.jpg') left top fixed;
+    background: rgb(29, 41, 57) url('/HelpDesk/view/img/polyw.jpg') left top fixed;
     background-size: cover;
     font-family: roboto,Helvetica, sans-serif;
 }
 #bgcolor{
-    background: -moz-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
-    background: -o-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
-    background: -webkit-linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
-    background: linear-gradient(rgba(255,255,255,0.8), rgb(29, 41, 57));
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
+    padding-top: 20px;
     left: 0; right: 0;
     overflow: auto;
     position: fixed;
     top: 0; bottom: 0;
 }
-#login-container{
-    width: 30em;
-    margin-top: 2em;
+#frm-login{
+    color: white;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
     background-color: rgba(0,0,0,0.8)!important;
     -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-    -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-    box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+       -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
 }
-.title{
+.frm-login-heading{
     background-color: rgba(45, 249, 133, 0.5);
     border-bottom: 4px solid rgba(0,0,0,0.3);
     color: white;
@@ -35,19 +40,18 @@
     margin: 0px;
     padding: 1.2em;
     text-align: center;
-    border-radius: 4px;
     -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-}
-#login-container > form{
-    color: white;
-    text-align: center;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
 }
 .txtBox{
     background-color: rgba(255,255,255,0.05);
     width: 90%;
     height: 80px;
     margin: 2px auto;
+    -webkit-transition: all .5s ease;
+       -moz-transition: all .5s ease;
+            transition: all .5s ease;
 }
 .td-alert{
     padding: 0px!important;
@@ -59,8 +63,8 @@
 }
 .td-fa{
     -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    transition: all .5s ease;
+       -moz-transition: all .5s ease;
+            transition: all .5s ease;
 }
 .txt-login{
     background: none;
@@ -69,15 +73,15 @@
     font-size: 150%;
     padding: 30px 0px;
     height: inherit;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
     outline: none!important;
-    box-shadow: none!important;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none!important;
 }
 .active-fa{
     -webkit-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
-    -moz-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
-    box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
+       -moz-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
+            box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
 }
 .txtBox .fa{
     padding: 15px 0px;
@@ -86,13 +90,10 @@
     height: 100px;
     padding: 60px 0px 0px 0px!important;;
     -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
 }
 #btn-login{
-    -webkit-box-shadow: 0px 6px #097347;
-    -moz-box-shadow: 0px 6px #097347;
-    box-shadow: 0px 6px #097347;
     background-color: rgb(23, 170, 86);
     width: 90%;
     margin: auto;
@@ -103,13 +104,16 @@
     letter-spacing: 1px;
     padding: 25px 80px;
     outline: none!important;
+    -webkit-box-shadow: 0px 6px #097347;
+       -moz-box-shadow: 0px 6px #097347;
+            box-shadow: 0px 6px #097347;
 }
 #btn-login:hover, #btn-login:focus{
-    -webkit-box-shadow: 0px 4px #097347;
-    -moz-box-shadow: 0px 4px #097347;
-    box-shadow: 0px 4px #097347;
     cursor: pointer;
     margin-top: 2px;
+    -webkit-box-shadow: 0px 4px #097347;
+       -moz-box-shadow: 0px 4px #097347;
+            box-shadow: 0px 4px #097347;
 }
 #btn-login:active{
     box-shadow: none;
@@ -127,6 +131,13 @@
 .popover .fa{
     color: red;
 }
+.login-success{
+    background-color: rgba(23, 170, 86,0.1);
+}
+.login-fail{
+    background-color: rgba(224, 25, 49,0.3);
+}
+
 :-moz-placeholder { color: white; }
 :-ms-input-placeholder { color: white; } 
 ::-moz-placeholder { color: white; } 

@@ -61,22 +61,25 @@
          var alert = $("#alert");
          
          if (response.trim()) {
+             $(".txtBox").addClass("login-success");
              alert.addClass("alert-success");
              alert.html("Bienvenido!");
         }else{
+             $(".txtBox").addClass("login-fail");
              alert.addClass("alert-danger");
              alert.html("Nombre de usuario o contraseña incorrecta!");
+
+             $(".txtBox").on("click",function () {
+                 $(".txtBox").removeClass("login-fail");
+             });
         }
-        alert.fadeIn(500);
-        setTimeout(function (){
-            alert.fadeOut(500, function (){
-                if (response.trim()) {
-                    alert.removeClass("alert-success");
-                    window.location.reload();
-                }else{
-                    alert.removeClass("alert-danger");
-                }
-            });
-        },2000);
+        alert.fadeIn(1000).fadeOut(3000, function (){
+            if (response.trim()) {
+                alert.removeClass("alert-success");
+                window.location.reload();
+            }else{
+                alert.removeClass("alert-danger");
+            }
+        });
      }
  });
