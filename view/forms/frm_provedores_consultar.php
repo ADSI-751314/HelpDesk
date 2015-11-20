@@ -1,4 +1,6 @@
- <div class="col-md-6">
+
+
+<div class="col-md-6">
             <form action="controller/provedores_controller.php?petition=consultar" method="POST" name="frm_provedores_consultar">
                 
                 
@@ -24,28 +26,28 @@
      
                     </tr>
                     <tr> 
-                        <td>  Codigo Provedor</td> 
+                        <td>  Codigo Proveedor</td> 
                         <td> <input type="text"  name="txtPro_codigo" values="Ingrese  el codigo"> </td> 
                     </tr>
                   
                     
                     <tr> 
-                        <td> Nombre Provedor</td> 
+                        <td> Nombre Proveedor</td> 
                         <td> <input type="text"  name="txtPro_nombre" values="">  </td> 
                     </tr>
                     
                     <tr> 
-                        <td>   Telefono Provedor</td> 
+                        <td>   Telefono Proveedor</td> 
                         <td> <input type="text"  name="txtPro_telefono" values=""> </td> 
                     </tr>
                     
                     <tr> 
-                        <td> Direccion Provedor</td> 
+                        <td> Direccion Proveedor</td> 
                         <td> <input type="text"  name="txtPro_direccion" values="">  </td> 
                     </tr>
                     
                     <tr> 
-                        <td>  Correo Provedor</td> 
+                        <td>  Correo Proveedor</td> 
                         <td>   <input type="text"  name="txtPro_correo" values="">  </td> 
                     </tr>
                     
@@ -74,13 +76,13 @@
                 
                 </tr>
                 
-          
-                <?php
+          <div id="Provedores"></div>
+               <?php
                 
-              include ('../../HelpDesk/model/provedores_class.php');
+               //include ('../../model/provedores_class.php');
              
-                $mostrar = new provedores_class();
-                $mostrar->consultar($pro_codigo);
+                //$mostrar = new provedores_class();
+                //$mostrar->consultar($pro_codigo);
                 
                 ?>
                 
