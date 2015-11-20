@@ -48,15 +48,15 @@ $(function() {
 
         menuItems.siblings("ul").slideUp(200);
         menuItems.removeClass("active-menu");
-        alterClass(menuItems.children("i:last-child"),"fa-chevron-up","fa-chevron-down");
+        alterClass(menuItems.children("i:last-child"),"fa-angle-up","fa-angle-down");
 
-        alterClass(menu.children("i:last-child"),"fa-chevron-down","fa-chevron-up")
+        alterClass(menu.children("i:last-child"),"fa-angle-down","fa-angle-up")
         menu.addClass("active-menu");
         menu.siblings("ul").slideDown(200);
     }
 
     function hideSubmenu(menu){
-        alterClass(menu.children("i:last-child"),"fa-chevron-up","fa-chevron-down")
+        alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
         menu.removeClass("active-menu");
         menu.siblings("ul").slideUp(200);
     }
