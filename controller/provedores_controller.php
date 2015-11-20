@@ -26,7 +26,7 @@ $proceso = $_REQUEST ['petition'];
        
         $provedores->guardar($pro_codigo,$pro_nombre, $pro_telefono,$pro_direccion,$pro_correo,$pro_pagina_web);
                  
-             
+         
                  
      } 
   break;
@@ -49,7 +49,7 @@ $proceso = $_REQUEST ['petition'];
      case('consultar');
      {
         
-        $pro_codigo=$_POST['txtPro_codigo'];
+        $pro_codigo=$_POST['txtConsulta'];
          $provedores->consultar($pro_codigo);
         
      }

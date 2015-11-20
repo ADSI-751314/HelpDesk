@@ -1,5 +1,5 @@
              <div class="col-md-6">
-            <form action="../../controller/provedores_controller.php?petition=eliminar" method="POST" name="frm_provedores_guardar">
+            <form action="controller/provedores_controller.php?petition=eliminar" method="POST" name="frm_provedores_guardar">
                 
                 
                 <table class="table">
