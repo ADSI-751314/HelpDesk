@@ -18,23 +18,15 @@
 			<td>Nombre Licencia</td> 
 			<td><input type="text" name="txtNombre_Licencia"  id="txtNombre_Licencia" value="" size="50" maxlength="80"></td>
 		</tr>
+		
 		<tr>
-			<td>Fecha Inicio</td> 
-                        <td> <input type="date" name="Fecha_Inicio" size="100"> </td> 
-                    
-                      
+			<td>Fecha Compra </td> 
+                        <td>  <input type="date" name="Fecha_Compra"> </td>
+                          
 		</tr>
 		<tr>
-			<td>Fecha Caducidad </td> 
-                        <td>  <input type="date" name="Fecha_Caducidad"> </td>
-                            
-                            
-                        
-		</tr>
-		<tr>
-			<td>Fecha Compra</td> 
-                        <td> <input type="date" name="Fecha_Compra"> </td>
-                        
+			<td>Fecha Caducidad</td> 
+                        <td> <input type="date" name="Fecha_Caducidad "> </td>
                         
 		</tr>
 		<tr>
