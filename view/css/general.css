@@ -2,184 +2,282 @@
 /*Color azul = rgb(29, 41, 57)
   Color verde = /*lighten rgb(42,197,108); darken rgb(23, 170, 86); darkener rgb(21, 98, 54)*/
 @charset "UTF-8";
+
+/*--------------------Default Styles------------------*/
 @font-face{
 	font-family: roboto;
 	src: url(../fonts/Roboto-Condensed.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
 }
 a{
     text-decoration: none;
     color: rgb(0,0,0);
     outline: none;
 }
-.list{
+.list-menu{
     list-style: none;
-    margin: 0px;
-    padding: 0px;
 }
-.list li{
-    width: 100%;
-    margin-bottom: 2px;
-    padding: 0px;
+/*--------------------End Default Styles------------------*/
+
+/* -------------------Toggle Styles--------------- */
+#home-background{
+    background: url('../img/poly-background.jpg') left top;
+    font-family: roboto!important;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
-body.main-layout{
-    background: url('../img/login-background.jpg');
-    font-family: roboto;
+#wrapper{
+    background-color: rgba(255,255,255,0.7);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-section.layout{
+#wrapper.toggled {
+    padding-left: 270px;
+}
+#sidebar-wrapper{
+    background: rgb(21, 31, 53);
+    z-index: 1000;
     position: fixed;
-    top: 0px; bottom: 0px;
-    left: 0px; right: 0px;
-    overflow: auto;
-    background-color: rgba(255,255,255,0.9);
-    padding: 5px;
+    left: 270px;
+    width: 0;
+    height: 100%;
+    margin-left: -270px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
-aside.layout-menu{
-    float: left;
-    background: rgb(42,197,108);
-    width: 20%;
-    min-width: 260px;
+#wrapper.toggled #sidebar-wrapper {
+    width: 270px;
 }
-/*Etiqueta ul anidada en nav*/
-.side-menu{
-    float: left;
+#page-content-wrapper {
     width: 100%;
+    position: absolute;
 }
-.side-menu > li{
-    background-color: rgb(42,197,108);
+#page-content-wrapper #top-bar{
+    background: rgba(255,255,255,0.5);
+    margin: 0px!important;
+    position: relative;
 }
-.side-menu > li > a{
+#top-bar .cell{
+    text-align: center;
+}
+#top-bar-title {
+    display: inline-block;
+    margin: 0px!important;
+}
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -270px;
+}
+#menu-toggle{
+    float: left;
+    color: rgb(29, 41, 57);
+}
+#menu-toggle:hover{
+    cursor: pointer;
+    color: rgb(42,197,108);
+}
+/* -------------------End Toggle Styles--------------- */
+
+/* -------------------Sidebar Styles------------------- */
+#sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 270px;
+}
+#sidebar-nav li a{
+    color: #ffffff;
     display: block;
-    padding: 10px;
-    padding-right: 0px;
-    color: white;
     -webkit-transition: all .25s ease;
     -moz-transition:  all .25s  ease;
     transition:  all .25s  ease;
 }
-.side-menu > li > a:hover{
-    color: rgb(29, 41, 57);
+#sidebar-nav li a:hover{
+    text-decoration: none;
+}
+#sidebar-nav li a:active,
+#sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+/* ----------------User Options---------------- */
+#sidebar-nav > #sidebar-heading {
+    position: relative;
+    cursor: pointer;
+    height: 60px;
+    overflow: hidden;
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -ms-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    -webkit-box-shadow: 0px 10px 8px -10px black;
+    -moz-box-shadow: 0px 10px 8px -10px black;
+    box-shadow: 0px 10px 8px -10px black;
+}
+#sidebar-heading > #profile-avatar {
+    float: left;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    margin: 5px;
+    background: url('../img/avatarx48.png') no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+#sidebar-heading > #profile-name {
+    color: #ffffff;
+    height: 48px;
+    line-height: 48px;
+    margin: 0!important;
+    overflow: hidden;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+#sidebar-heading:hover{
+    -webkit-box-shadow: 0px 5px 30px -10px black!important;
+    -moz-box-shadow: 0px 5px 30px -10px black!important;
+    box-shadow: 0px 5px 30px -10px black!important;
+}
+.active-profile{
+    height: 100px!important;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 20px 25px -20px black!important;
+    -moz-box-shadow: 0px 20px 25px -20px black!important;
+    box-shadow: 0px 20px 25px -20px black!important;
+}
+#sidebar-heading #logout{
+    margin-top: 15px;
+    line-height: 30px;
+}
+#logout a{
+    padding: 0px 10px;
+    background-color: rgb(207, 0, 15);
+    -webkit-box-shadow: inset 0px -3px rgb(150, 0, 0);
+    -moz-box-shadow: inset 0px -3px rgb(150, 0, 0);
+    box-shadow: inset 0px -3px rgb(150, 0, 0);
+}
+#logout a:hover{
+    background-color: rgb(240, 0, 20);
+}
+#logout .fa{
+    margin-right: 5px;
+    color: rgba(0,0,0,0.6)!important;
+}
+/* ----------------End User Options---------------- */
+
+/* ----------------Menu---------------- */
+.menu-item {
+    height: 50px;
+    padding: 10px 5px;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    font-size: small;
+    color: rgba(255,255,255,0.7)!important;
+}
+.menu-item:hover{
+    color: rgb(255,255,255)!important;
+    background-color: rgba(255,255,255,0.1);
+}
+.menu-item:hover .fa{
+    color: rgb(42,197,108)!important;
+}
+.menu-item span{
+    display: inline-block;
+    padding: 0px 10px;
+    font-size: large;
+}
+.menu-item .fa-chevron-down{
+    display: block;
+    float: right;
+    line-height: 28px;
+    margin-right: 10px;
+}
+.menu-item .fa-chevron-up{
+    display: block;
+    float: right;
+    line-height: 28px;
+    margin-right: 10px;
 }
 .active-menu{
-    border-left: 4px solid rgb(29, 41, 57);
-    color: rgb(29, 41, 57)!important;
+    color: rgb(255,255,255)!important;
+    background-color: rgba(255,255,255,0.1);
 }
-.side-menu .left{
-    text-align: center;
-    width: 32px;
-    height: 32px;
+.active-menu .fa{
+    color: rgb(42,197,108)!important;
 }
-/*Etiquete img que contiene los iconos*/
-.side-mnu-icon{
-    float: left;
-    width: 1.5em;
-    height: 2em;
-}
-.side-mnu-text{
-    margin: 0px;
-    padding: 10px 5px;
-    width: 69%;
-    display: inline-block;
-}
+/* ----------------End Menu---------------- */
+
+/* ----------------SubMenu---------------- */
 .submenu{
     display: none;
-    background-color: rgb(255,255,255);
-    padding: 10px 0px;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0px 15px 15px -15px black;
+    -moz-box-shadow: inset 0px 15px 15px -15px black;
     box-shadow: inset 0px 15px 15px -15px black;
 }
 .submenu > li{
-    color: rgb(29, 41, 57);
-    box-sizing: border-box;
-    padding: 10px 20px;
-    transition: all .25s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
 }
-.submenu > li:hover{
+.submenu > li a:hover{
     cursor: pointer;
-    color: rgb(42,197,108)!important;
-    border-left: 4px solid rgb(42,197,108);
+    color: rgb(255,255,255)!important;
+    background-color: rgba(255,255,255,0.1);
 }
-.active-sm{
-    color: white!important;
-    border-left: 4px solid rgb(42,197,108);
-    background-color: rgb(29, 41, 57);
-}
-.sm-text{
-    display: inline;
-    margin-left: 10px;
-}
-header.user{
-    float: left;
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 60px;
-    padding: 10px 10px;
-    background-color: rgb(29, 41, 57);
-    border-top: 4px solid transparent;
-}
-header.user:hover{
-    cursor: pointer;
-    color: white;
-}
-.active-header{
-    height: auto;
-    cursor: pointer;
-    color: white;
-    background-color: rgb(42,197,108);
-    box-shadow: inset 0px -10px 15px -10px black;
-}
-#usr-photo{
-    float: left;
-    width: 60px;
-    height: 60px;
-    background-image: url('../img/male.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    border-radius: 50%;
-}
-#usr-name{
-    float: left;
-    height: 60px;
-    width: 70%;
-}
-#usr-name > p{
-    padding: 20px 0px 20px 10px;
-    margin: 0px;
-    width: 100%;
-}
-.user > .fa{
-    float: right;
-}
-.usr-options{
-    display: none;
-    float: left;
-    margin-top: 10px;
-    width: 100%;
-    padding-top: 5px;
-    border-top: 1px solid rgb(42,197,108);
-}
-.usr-options .fa{
-    transition: all .25s ease-out;
-    color: rgb(42,197,108);
-}
-.usr-options a{
-    color: inherit;
-    padding: 10px 5px;
+.submenu-item{
     display: block;
-    transition: all .35s ease;
+    padding: 10px 20px;
+    color: rgba(255,255,255,0.5)!important;
 }
-.usr-options a:hover{
-    cursor: pointer;
-    background-color: rgba(42,197,108,0.8);
+.active-submenu{
+    color: rgb(255,255,255)!important;
+    -webkit-box-shadow: inset 5px 0px rgb(42,197,108);
+    -moz-box-shadow: inset 5px 0px rgb(42,197,108);
+    box-shadow: inset 5px 0px rgb(42,197,108);
+    background-color: rgba(255,255,255,0.1);
 }
-.usr-options a:hover .fa{
-    color: rgb(29, 41, 57);
-}
-.usr-options a p{
-    margin-left: 5px;
-    display: inline;
-}
-.content{
-    text-align: center;
-    width: 100%;
-    text-align: center;
+/* ----------------End Menu---------------- */
+
+/* -------------------End Sidebar Styles------------------- */
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 270px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 270px;
+        overflow-x: hidden;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }

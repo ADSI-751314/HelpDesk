@@ -73,12 +73,14 @@
                  $(".txtBox").removeClass("login-fail");
              });
         }
-        alert.fadeIn(1000).fadeOut(3000, function (){
+        alert.fadeIn(1000, function () {
             if (response.trim()) {
-                alert.removeClass("alert-success");
                 window.location.reload();
+                $(this).removeClass("alert-success");
             }else{
-                alert.removeClass("alert-danger");
+                alert.fadeOut(3000, function () {
+                    $(this).removeClass("alert-danger");
+                });
             }
         });
      }
