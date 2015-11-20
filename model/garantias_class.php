@@ -46,6 +46,6 @@ class garantias_class {
     {
         $sql="select * from garantias";
         $query = $this->conexion->consultarQuery($sql);
-        return $query;
+        
     }
 }

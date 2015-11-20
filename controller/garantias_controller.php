@@ -89,7 +89,7 @@ class garantias_controller {
     public  function consultar_todo()
     {
         $consul = new garantias_class();
-        $contod = $consul->consultar_todo1();
+        $consTodo = $consul->consultar_todo1();
                
         include "../../HelpDesk/view/forms/frm_consulta_todo_garantias.php";          
         

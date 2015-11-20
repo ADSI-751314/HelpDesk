@@ -14,13 +14,14 @@
         </tr>
         <tr>
             <?php 
-                foreach ($contod as $contenido) {
+                foreach ($consTodo as $contenidoTodo) {
                     echo "<td>";
-                    echo $contenido;
+                    echo $contenidoTodo;
                     echo "</td>";
                 }
             
-                
+            
+            
             ?>
             
         </tr>
