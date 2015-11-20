@@ -34,9 +34,7 @@ class reportes_controller {
         // enlaza con la clase 
         $consul = new reportes_class();
         $resp = $consul->consultarUsuarios($FechaInicio, $FechaFin);
-
-        include "../view/forms/frm_resultados_reportes.php";
-        // Muestra los resultados de la consulta
+        echo json_encode($resp);
     }
 
 }
