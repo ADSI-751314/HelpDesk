@@ -1,54 +1,66 @@
 $(function() {
 
-    //-----------------Control de efectos menu principal-------------------
-
-    $(".user").on("click",function(){
-        $(".usr-options").slideToggle("fast");
-        $(this).toggleClass("active-header");
-    });
-    $(".usr-options").on("click",function (){
-        $(this).slideUp(200);
-        $(".user").removeClass("active-usr");
+    /*---------------------------Event Listeners------------------------*/
+    $("#sidebar-heading").on("click",function () {
+        $(this).toggleClass("active-profile");
     });
     
-    $(".menu").on("click",function (){
+    $(".menu-item").on("click",function (e){
+        e.preventDefault();
         if (!$(this).hasClass("active-menu")){
-            var objMenu = $(".menu");
-            objMenu.siblings("ul").slideUp(200);
-            objMenu.removeClass("active-menu");
-            alterClass(objMenu.children("i:last-child"),"fa-chevron-up","fa-chevron-down");
-            alterClass($(this).children("i:last-child"),"fa-chevron-down","fa-chevron-up")
-            $(this).addClass("active-menu");
-            $(this).siblings("ul").slideDown(200);
+            showSubmenu($(this));
         }else{
-            alterClass($(this).children("i:last-child"),"fa-chevron-up","fa-chevron-down")
-            $(this).removeClass("active-menu");
-            $(this).siblings("ul").slideUp(200);
+            hideSubmenu($(this));
         }
     });
-    
-    $(".submenu > li").on("click",function (){
-        $(".submenu > li").removeClass("active-sm");
-        $(this).addClass("active-sm");
+
+    $("#menu-toggle").on("click",function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
     });
 
-    //----------------------------------Funcionalidad----------------------------
+    $(".submenu-item").on("click",function (e) {
+        e.preventDefault();
+        var href = $(this).attr("href");
+        var container = $("#form-container");
+        container.load(href);
 
-    $(".menu").click(function () {
-        var html_form = $(this).attr("href");
-        var container = $(".content");
-        container.load(html_form);
-        return false;
+        $(".submenu-item").removeClass("active-submenu");
+        $(this).addClass("active-submenu");
     });
 
-    //Funcion para cambiar clases
-    //obj: elemento html
-    //reCl: clase que será eliminada
-    //adCl: clase que reemplazará la anterior
+    /*---------------------------End Event Listeners------------------------*/
+
+    /*---------------------------Functions------------------------*/
+
+    /*Funcion para cambiar clases
+    Parametros:
+    obj: elemento html
+    reCl: clase que será eliminada
+    adCl: clase nueva*/
     function alterClass(obj,reCl,adCl){
         obj.removeClass(reCl);
         obj.addClass(adCl);
-    };
+    }
+
+    function showSubmenu(menu){
+        var menuItems = $(".menu-item");
+
+        menuItems.siblings("ul").slideUp(200);
+        menuItems.removeClass("active-menu");
+        alterClass(menuItems.children("i:last-child"),"fa-chevron-up","fa-chevron-down");
+
+        alterClass(menu.children("i:last-child"),"fa-chevron-down","fa-chevron-up")
+        menu.addClass("active-menu");
+        menu.siblings("ul").slideDown(200);
+    }
+
+    function hideSubmenu(menu){
+        alterClass(menu.children("i:last-child"),"fa-chevron-up","fa-chevron-down")
+        menu.removeClass("active-menu");
+        menu.siblings("ul").slideUp(200);
+    }
+    /*---------------------------End Functions------------------------*/
 });
 
 
