@@ -1,5 +1,5 @@
        <div class="col-md-6">    
-            <form action="../../controller/provedores_controller.php?petition=modificar" method="POST" name="frm_provedores_modificar">
+            <form action="controller/provedores_controller.php?petition=modificar" method="POST" name="frm_provedores_modificar">
                 
                 
                 <table CLASS="table">

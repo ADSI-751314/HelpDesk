@@ -1,9 +1,9 @@
 <?php
 
 
-include '../../HelpDesk/model/licencias_class.php';
+include"../../HelpDesk/model/licencias_class.php";
 
-include 'model/conexion_class.php';
+
 
 $trabajo = $_REQUEST['petition'];
 
@@ -41,11 +41,11 @@ switch ($trabajo) {
 
 class licencias_controller {
 
-    public function consultar($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura) {
+    public function consultar($txtCodigo_Licencia) {
 
         $clase = new licencias_class();
         
-        $clase->consultar($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura);
+        $clase->consultar($txtCodigo_Licencia);
         
         include "../../HelpDesk/view/forms/frm_licencias_consultar.php";
     }
@@ -73,5 +73,15 @@ class licencias_controller {
         
          include "../../HelpDesk/view/forms/frm_licencias_eliminar.php";
     }
-
+    public  function consultar_todo()
+    {
+        $consul = new licencias_class();
+        $contod = $consul->consultar_todo();
+        foreach ($contod as $contenido) {
+                    
+                    echo $contenido;
+                    
+        }
+        
+    }
 }
