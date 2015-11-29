@@ -17,9 +17,14 @@ class login_class {
         if ($query_result) {
             $_SESSION['username'] = $query_result["usu_username"];
             $_SESSION['password'] = $query_result["usu_password"];
-            $_SESSION['fullname'] = $query_result["usu_primer_nombre"].$query_result["usu_primer_apellido"];
+            $_SESSION['fullname'] = $query_result["usu_primer_nombre"]." ".$query_result["usu_primer_apellido"];
             return true;
         }
         return false;
+    }
+
+    public function logout(){
+        $_SESSION = array();
+        session_destroy();
     }
 }

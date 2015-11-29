@@ -1,6 +1,6 @@
 <!-- esta accion envia los datos del formulario a la clase controladora. -->
-<div class="container">
-    <h3>Reporte de usuarios que mas fallan!</h4>
+<div class="container-fluid">
+    <h3>Reporte de usuarios que mas fallan!</h3>
         <form action="controller/reportes_controller.php" method="POST"  name="reporteUsuario" role="form">
             <div class="form-group">
                 <label for="ejemplo_email_1">Fecha Inicio</label>

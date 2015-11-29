@@ -29,6 +29,10 @@ $(function() {
         $(this).addClass("active-submenu");
     });
 
+    $("#logout").on("click", function() {
+        ajax("controller/login_controller.php", "action=logout", "POST", logoutHandler);
+    });
+
     /*---------------------------End Event Listeners------------------------*/
 
     /*---------------------------Functions------------------------*/
@@ -59,6 +63,10 @@ $(function() {
         alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
         menu.removeClass("active-menu");
         menu.siblings("ul").slideUp(200);
+    }
+
+    function logoutHandler(data){
+        window.location.reload();
     }
     /*---------------------------End Functions------------------------*/
 });

@@ -1,36 +1,29 @@
 <?php
 require_once '../model/login_class.php';
 
-$username = trim($_REQUEST['txtUsername']);
-$password = trim($_REQUEST['txtPassword']);
 $action = trim($_REQUEST['action']);
-
-$controller = new login_controller($username,$password);
-
+$controller = new login_controller();
 if ($action == "login") {
-    $controller->validalogin();
+    $username = trim($_REQUEST['txtUsername']);
+    $password = trim($_REQUEST['txtPassword']);
+    $controller->validalogin($username, $password);
 }elseif ($action == "logout") {
     $controller->logout();
 }
 
 class login_controller {
-    private $username;
-    private $password;
     private $login_class;
             
-    function __construct($username,$password) {
-        $this->username = $username;
-        $this->password = $password;
+    function __construct() {
         $this->login_class = new login_class();
     }
 
-    public function validalogin() {
-        $user_exist = $this->login_class->login($this->username,  $this->password);
+    public function validalogin($username, $password) {
+        $user_exist = $this->login_class->login($username,  $password);
         echo $user_exist;
     }
 
     public function logout() {
-        session_destroy();
-        header("Location: ../index.php");   
+        $this->login_class->logout();
     }
 }

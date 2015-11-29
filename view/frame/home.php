@@ -8,7 +8,7 @@
                     <div id="profile-avatar"></div>
                     <div id="profile-name"><?php echo $_SESSION["fullname"];?></div>
                     <div id="logout">
-                        <a href="controller/login_controller.php?action=logout">
+                        <a href="#logout">
                             <i class="fa fa-power-off fa-lg"></i>
                             <span>Cerrar sesión</span>
                         </a>
