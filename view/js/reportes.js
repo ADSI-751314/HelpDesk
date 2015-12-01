@@ -4,7 +4,7 @@ $(function () {
     $("form").submit(function (e) {
         //se cancela el evento del click para que no cambie de pagina.
         e.preventDefault();
-
+        
         var controller = $("form").attr("action");
         var method = $("form").attr("method");
         var name = $("form").attr("name");

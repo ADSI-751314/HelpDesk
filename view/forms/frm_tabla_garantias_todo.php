@@ -9,6 +9,8 @@
         </tr>
         <tr>
             <?php 
+            
+            
                /* foreach ($contod as $contenido) {
                     echo "<td>";
                     echo $contenido;

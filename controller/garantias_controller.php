@@ -7,7 +7,6 @@ $proceso = $_REQUEST ['petition'];
 
 $garantias = new garantias_controller();
 
-
 switch ($proceso) {
     case ("guardar"): {
             $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
@@ -17,7 +16,6 @@ switch ($proceso) {
     case("consultar"): {
         
             $garantias->consultar($_REQUEST['txtGarantiaID']);
-            echo "éxito en la consulta";
         }
         break;
     case ("eliminar"): {
@@ -52,8 +50,8 @@ class garantias_controller {
     {
         $consul = new garantias_class();
         $resp = $consul->consultar($gar_id);
-        
-        include "../../HelpDesk/view/forms/frm_consulta_garantias.php";
+        echo json_encode($resp);
+        //include "../../HelpDesk/view/forms/frm_consulta_garantias.php";
         //muestra el resultado que me regresa garantias_class de la consulta
         
          /*for($i=0; $i<count($resp); $i++)

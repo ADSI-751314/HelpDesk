@@ -1,5 +1,4 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<form action="/HelpDesk/controller/garantias_controller.php?petition=consultar" method="POST"  name="frm_garantias_consultar">
+<form action="controller/garantias_controller.php" method="POST"  name="consultar">
             <br>
              <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR)</h1>
             <table>
@@ -13,4 +12,23 @@
                 </tr>
             </table>
         
+             <div id="respuesta">
+            <table id="tabla" class="table table-hover">
+                <thead>
+                    <tr>
+                        <td>Garantía Numero.</td>
+                        <td>Tipo de Garantía</td>
+                        <td>Fecha de Inicio garantía</td>
+                        <td>Fecha Fin de garantía</td>
+                        <td>Descripción</td>
+                        <td>Tipo de equipo</td>                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
 </form>
+<script type="text/javascript" src="view/js/consultaGarantias.js"></script>
