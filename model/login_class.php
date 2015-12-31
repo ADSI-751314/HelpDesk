@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'conexion_class.php';
 
 class login_class {
@@ -10,9 +11,20 @@ class login_class {
     }
 
     public function login($username, $password) {
-        $sql = "SELECT * FROM USUARIOS WHERE usu_username = '".$username."' AND usu_password = '".$password."';";
-        $query = $this->conexion->consultarQuery($sql);
+        $sql = "SELECT * FROM USUARIOS WHERE usu_username = '".$username."' AND usu_password = '".$password."'";
+        $query_result = $this->conexion->consultarQuery($sql);
+        
+        if ($query_result) {
+            $_SESSION['username'] = $query_result["usu_username"];
+            $_SESSION['password'] = $query_result["usu_password"];
+            $_SESSION['fullname'] = $query_result["usu_primer_nombre"]." ".$query_result["usu_primer_apellido"];
+            return true;
+        }
+        return false;
+    }
 
-        return $query;
+    public function logout(){
+        $_SESSION = array();
+        session_destroy();
     }
 }

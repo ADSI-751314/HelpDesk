@@ -8,20 +8,21 @@
             
         </tr>
         <tr>
-           
-            
             <?php 
-                /*foreach ($resp as $contenido) {
+            
+            
+               /* foreach ($contod as $contenido) {
                     echo "<td>";
                     echo $contenido;
                     echo "</td>";
                 }*/
+            
+                
             ?>
         </tr>
         
         
         
-    </table>    
-    
+    </table>
 </form>
 

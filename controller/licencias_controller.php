@@ -1,70 +1,87 @@
 <?php
 
 
-include '../model/licencias_class.php';
+include"../../HelpDesk/model/licencias_class.php";
 
-$trabajo= $_REQUEST['petition'];
+
+
+$trabajo = $_REQUEST['petition'];
 
 $controller = new licencias_controller();
 
-switch ($trabajo){
-    
+switch ($trabajo) {
+
     case("consulta"):
-        $controller->consultar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
-        
+        $controller->consultar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+
         echo "se esta realizando la consulta";
-      
+
         break;
-    
-    case("Actualizar"):
-        $controller->actualizar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
-        
+
+    case("actualizar"):
+        $controller->actualizar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+
         echo "se esta realizando la Actualizacion";
-      
+
         break;
-    
-    case("Crear"):
-        $controller->crear($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
-        
-        echo "se esta creando el formulario";
-      
+
+    case("crear"):
+        $controller->crear($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+
+        echo "se esta guardando el formulario";
+
         break;
-    case("Eliminar"):
-        $controller->eliminar($_REQUEST['txtCodigo_Licencia'],$REQUEST['txtNombre_Licencia'],$REQUEST['txtFecha_Inicio'],$REQUEST['txtFecha_Vencimiento'],$REQUEST['txtFecha_Compra'],$REQUEST['txtPrecio'],$REQUEST['txtCobertura']);
-        
+    case("eliminar"):
+        $controller->eliminar($_REQUEST['txtCodigo_Licencia'], $_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+
         echo "se esta eliminado";
-      
+
         break;
 }
 
-class licencias_controller{
+class licencias_controller {
+
+    public function consultar($txtCodigo_Licencia) {
+
+        $clase = new licencias_class();
+        
+        $clase->consultar($txtCodigo_Licencia);
+        
+        include "../../HelpDesk/view/forms/frm_licencias_consultar.php";
+    }
+
+    public function actualizar($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura) {
+
+        $clase = new licencias_class();
+        $clase->actualizar($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura);
     
-      public function consultar($txtCodigo_Licencia,$txtNombre_Licencia,$txtFecha_Inicio,$txtFecha_Vencimiento,$txtFecha_Compra,$txtPrecio,$txtCobertura){
-       
-       $clase = new licencias_class();
-       $clase->consultar();
-      
-      }
-    public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura){
-        
-        $clase = new licencias_class();
-        $clase->actualizar();
-                
+         include "../../HelpDesk/view/forms/frm_licencias_actualizar.php";
     }
-    public function crear($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura){
-        
+
+    public function crear($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura) {
+
         $clase = new licencias_class();
-        $clase->crear();
-        
+        $clase->crear($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura);
+         
+        include "../../HelpDesk/view/forms/frm_licencias_crear.php";
     }
-    public function eliminar($pk_lic_codigo){
-        
+
+    public function eliminar($pk_lic_codigo) {
+
         $clase = new licencias_class();
-        $clase->eliminar();
+        $clase->eliminar($pk_lic_codigo);
+        
+         include "../../HelpDesk/view/forms/frm_licencias_eliminar.php";
+    }
+    public  function consultar_todo()
+    {
+        $consul = new licencias_class();
+        $contod = $consul->consultar_todo();
+        foreach ($contod as $contenido) {
+                    
+                    echo $contenido;
+                    
+        }
         
     }
 }
-
-
-    
-    

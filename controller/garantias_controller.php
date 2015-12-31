@@ -7,17 +7,15 @@ $proceso = $_REQUEST ['petition'];
 
 $garantias = new garantias_controller();
 
-
 switch ($proceso) {
     case ("guardar"): {
-            $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
-           
+            $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['Tipo_Equipo']);
+           echo "Datos almacenados con éxito";
         }
         break;
     case("consultar"): {
         
             $garantias->consultar($_REQUEST['txtGarantiaID']);
-            echo "éxito en la consulta";
         }
         break;
     case ("eliminar"): {
@@ -28,7 +26,7 @@ switch ($proceso) {
         break;
     case ("modificar"): {
             
-            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['txtTipo'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
+            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
             echo "modificado";
         }
         break;
@@ -52,8 +50,8 @@ class garantias_controller {
     {
         $consul = new garantias_class();
         $resp = $consul->consultar($gar_id);
-        
-        include "../../HelpDesk/view/forms/frm_consulta_garantias.php";
+        echo json_encode($resp);
+        //include "../../HelpDesk/view/forms/frm_consulta_garantias.php";
         //muestra el resultado que me regresa garantias_class de la consulta
         
          /*for($i=0; $i<count($resp); $i++)
@@ -89,13 +87,7 @@ class garantias_controller {
     public  function consultar_todo()
     {
         $consul = new garantias_class();
-        $contod = $consul->consultar_todo();
-        foreach ($contod as $contenido) {
-                    
-                    echo $contenido;
-                    
-        }
-        
-        //include "../../HelpDesk/view/forms/frm_consulta_todo_garantias.php";
-    }
+        $consTodo = $consul->consultar_todo1();
+               
+   }
 }

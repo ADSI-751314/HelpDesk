@@ -1,56 +1,92 @@
-$(document).ready(function (e) {
+$(function() {
 
-    $(".menu").click(function () {
-        var y = $(this).attr("href");
-        var respuesta = $(".content");
-        respuesta.load(y);
-        return false;
+    /*---------------------------Event Listeners------------------------*/
+    $("#sidebar-heading").on("click",function () {
+        $(this).toggleClass("active-profile");
     });
     
-    //-----------------Control de efectos menu principal-------------------
-    $(".user").on("click",function(){
-        $(".usr-options").slideToggle("fast");
-        $(this).toggleClass("active-header");
-    });
-    $(".usr-options").on("click",function (){
-        $(this).slideUp(200);
-        $(".user").removeClass("active-usr");
-    });
-    
-    $(".menu").on("click",function (){
+    $(".menu-item").on("click",function (e){
+        e.preventDefault();
         if (!$(this).hasClass("active-menu")){
-            var objMenu = $(".menu");
-            objMenu.siblings("ul").slideUp(200);
-            objMenu.removeClass("active-menu");
-            alterClass(objMenu.children("i:last-child"),"fa-chevron-up","fa-chevron-down");
-            alterClass($(this).children("i:last-child"),"fa-chevron-down","fa-chevron-up")
-            $(this).addClass("active-menu");
-            $(this).siblings("ul").slideDown(200);
+            showSubmenu($(this));
         }else{
-            alterClass($(this).children("i:last-child"),"fa-chevron-up","fa-chevron-down")
-            $(this).removeClass("active-menu");
-            $(this).siblings("ul").slideUp(200);
+            hideSubmenu($(this));
         }
     });
-    
-    $(".submenu > li").on("click",function (){
-        $(".submenu > li").removeClass("active-sm");
-        $(this).addClass("active-sm");
+
+    $("#menu-toggle").on("click",function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
     });
-    
-    //-----------------Control de efectos login-------------------
-    $(".txt-login").on("focus",function (){
-        $(this).siblings(".fa").addClass("active-fa");
+
+    $(".submenu-item").on("click",function (e) {
+        e.preventDefault();
+        var href = $(this).attr("href");
+        var container = $("#form-container");
+        container.load(href);
+
+        $(".submenu-item").removeClass("active-submenu");
+        $(this).addClass("active-submenu");
     });
-    $(".txt-login").on("blur",function (){
-        $(this).siblings(".fa").removeClass("active-fa");
+
+    $("#logout").on("click", function() {
+        ajax("controller/login_controller.php", "action=logout", "POST", logoutHandler);
     });
+
+    /*---------------------------End Event Listeners------------------------*/
+
+    /*---------------------------Functions------------------------*/
+
+    /*Funcion para cambiar clases
+    Parametros:
+    obj: elemento html
+    reCl: clase que será eliminada
+    adCl: clase nueva*/
+    function alterClass(obj,reCl,adCl){
+        obj.removeClass(reCl);
+        obj.addClass(adCl);
+    }
+
+    function showSubmenu(menu){
+        var menuItems = $(".menu-item");
+
+        menuItems.siblings("ul").slideUp(200);
+        menuItems.removeClass("active-menu");
+        alterClass(menuItems.children("i:last-child"),"fa-angle-up","fa-angle-down");
+
+        alterClass(menu.children("i:last-child"),"fa-angle-down","fa-angle-up")
+        menu.addClass("active-menu");
+        menu.siblings("ul").slideDown(200);
+    }
+
+    function hideSubmenu(menu){
+        alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
+        menu.removeClass("active-menu");
+        menu.siblings("ul").slideUp(200);
+    }
+
+    function logoutHandler(data){
+        window.location.reload();
+    }
+    /*---------------------------End Functions------------------------*/
 });
 
-//obj: objeto al que se le alterara el atributo clase
-//reCl: clase que será eliminada
-//adCl: clase que reemplazará la anterior
-function alterClass(obj,reCl,adCl){
-    obj.removeClass(reCl);
-    obj.addClass(adCl);
-};
+
+function ajax(url,data,method,callback){
+    $.ajax({
+        url: url,// URL para la petición
+        data: data,// Información a enviar
+        type: method,// Especifica si será una petición POST o GET
+        beforeSend: function () {
+            // Antes de que se complete la petición
+        },
+        success: function(response){
+            // Si la petición es satisfactoria
+            callback(response);
+        },
+        error: function(){
+            // Si la petición falla
+        }
+    });
+}
+

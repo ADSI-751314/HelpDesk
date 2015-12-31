@@ -1,7 +1,7 @@
 <?php
 
 
-include '/HelpDesk/model/provedores_class.php';
+include '../../HelpDesk/model/provedores_class.php';
 
 
  
@@ -15,50 +15,52 @@ $proceso = $_REQUEST ['petition'];
      
      case('guardar');
      {
-         echo
+       
          
         $pro_codigo=$_POST['txtPro_codigo'];
         $pro_nombre=$_POST['txtPro_nombre'];
         $pro_telefono=$_POST['txtPro_telefono'];
         $pro_direccion=$_POST['txtPro_direccion'];
         $pro_correo=$_POST['txtPro_correo'];
-        $pro_direccion=$_POST['txtpagina_web'];
+        $pro_pagina_web=$_POST['txtpagina_web'];
        
         $provedores->guardar($pro_codigo,$pro_nombre, $pro_telefono,$pro_direccion,$pro_correo,$pro_pagina_web);
                  
-            break;     
+         
                  
      } 
-  
+  break;
      case('modificar');
      {
+      
         $pro_codigo=$_POST['txtPro_codigo'];
         $pro_nombre=$_POST['txtPro_nombre'];
         $pro_telefono=$_POST['txtPro_telefono'];
         $pro_direccion=$_POST['txtPro_direccion'];
         $pro_correo=$_POST['txtPro_correo'];
-        $pro_direccion=$_POST['txtpagina_web'];
+        $pro_pagina_web=$_POST['txtpagina_web'];
        
      $provedores->modificar($pro_codigo,$pro_nombre, $pro_telefono,$pro_direccion,$pro_correo,$pro_pagina_web);
-         
+        
          
      }
-     
+     break;
      
      case('consultar');
      {
-         echo
-        $pro_codigo=$_POST['txtPro_codigo'];
+        
+        $pro_codigo=$_POST['txtConsulta'];
          $provedores->consultar($pro_codigo);
-         break;
+        
      }
+      break;
      case('eliminar');
      {
        $pro_codigo=$_POST['txtPro_codigo'];
        $provedores->eliminar($pro_codigo);
          
      }
-   
+    break;
  }
 
 

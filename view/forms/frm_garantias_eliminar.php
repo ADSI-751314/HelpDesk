@@ -1,4 +1,6 @@
-<form action="/HelpDesk/controller/garantias_controller.php?petition=eliminar" method="POST"  name="frm_garantias">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<form action="/HelpDesk/controller/garantias_controller.php?petition=eliminar" method="POST"  name="frm_garantias_eliminar">
+
             <br>
             <h1 align="center">FORMULARIO GARANTIAS (ELIMINAR)</h1>
             <table>
@@ -12,4 +14,3 @@
                 </tr>
             </table>
         </form>
-

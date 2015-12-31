@@ -6,7 +6,7 @@
                     <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
-                    <td> Tipo de garantía:  </td>   <td align="left"><input type="text" name="txtTipo" id="tipo_garantia" size="12" maxlength="12"> </td>
+                    <td> Tipo de garantía:  </td>   <td align="left"><input type="checkbox" name="option" value="hardware"> Hardware <input type="checkbox" name="option" value="software"> Software </td>
                 </tr>
                 <tr>
                     <td> Fecha de inicio: </td>      <td align="left"><input type="date" name="fecha"></td>
@@ -27,4 +27,3 @@
                 </tr>
             </table>
         </form>
-
