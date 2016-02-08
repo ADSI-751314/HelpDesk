@@ -21,7 +21,7 @@
                         <td>Fecha de Inicio garantía</td>
                         <td>Fecha Fin de garantía</td>
                         <td>Descripción</td>
-                        <td>Tipo de equipo</td>                     
+                        <td>Dependencia Equipo</td>                     
                     </tr>
                 </thead>
                 <tbody>
