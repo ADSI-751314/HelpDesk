@@ -1,11 +1,5 @@
 
 <?php
-//include '../../controller/dependencia_controller.php';
-//$results = dependencia_controller::consultarDependencias();
-//foreach ($results as $result) {
-//    echo $result;
-//}
-
 $server = 'localhost'; //servidor
 $username = 'root'; //usuario de la base de datos
 $password = ''; //password del usuario de la base de datos
@@ -49,32 +43,40 @@ $conexion->close(); //cerramos la conexión
         <title>Ingresar Ficha Técnica</title>
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
-        <script type="text/javascript" src="../js/jquery.js"></script>
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
         <script type="text/javascript" src="../js/materialize.min.js"></script>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('input#input_text, textarea#textarea1').characterCounter();
             });
-        </script>
-        <script>
-            $(document).ready(function() {
+
+            $(document).ready(function () {
                 $('select').material_select();
             });
-        </script>
-        <script>
-            $(document).ready(function() {
+
+            $(document).ready(function () {
                 // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
                 $('.modal-trigger').leanModal();
             });
+            $('#textarea1').val('New Text');
+            $('#textarea1').trigger('autoresize');
+
 
         </script>
     </head>
     <body>
+        <?php
+        if (isset($_GET['var'])) {
+            $var = $_GET['var'];
+            if ($var == 1) {
+                echo '<script>alert("El equipo ha sido agregado correctamente");</script>';
+            }
+        }
+        ?>
         <div class="container">
             <div class="row">
-                <form method="POST" action="../../controller/equipo_controller.php?var='guar'">
-
+                <form method="POST" action="../../controller/equipo_controller.php">
                     <div class="input-field col s12">
                         <b>Tipo de Equipo</b>
                         <select name="equTipo">
@@ -95,25 +97,12 @@ $conexion->close(); //cerramos la conexión
                     </div>
                     <div class="input-field col s12">
                         <b>Precio</b>
-                        <input placeholder="12345" name="preEquipo" type="number" class="validate">
+                        <input placeholder="12345" name="preEquipo" type="text">
                     </div>
                     <div class="input-field col s12">
                         <b>Número de serie</b>
-                        <input placeholder="102030" name="numSerie" type="text" class="validate">
+                        <input placeholder="102030" name="numSerie" type="text">
                     </div>
-
-                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Añadir Partes</a> <br><br>
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                        </div>
-                    </div>  
 
 
                     <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
@@ -121,8 +110,10 @@ $conexion->close(); //cerramos la conexión
                     </button>
                 </form>
             </div>
-
         </div>
 
     </body>
 </html>
+
+
+
