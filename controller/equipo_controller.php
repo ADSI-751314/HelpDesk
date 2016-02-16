@@ -1,43 +1,20 @@
+
 <?php
-
-include '../model/conexion_class.php';
-$guar = $_REQUEST['var'];
-switch ($guar) {
-    case 'guar':
-
-guardar();
-        break;
-
-    default:
-        break;
-}
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of equipo_controller
- *
- * @author Sena
- */
-class equipo_controller {
-
-//put your code here
-
-    public static function guardar() {
-        $tipoEquipo = $_POST["equTipo"];
-        $dependencia = $_POST["dep"];
-        $nombre = $_POST["nomEquipo"];
-        $precio = $_POST["preEquipo"];
-        $nomObjeto = $_POST["numSerie"];
-
-        $sql = "INSERT INTO 'equipos'('equ_nombre', 'equ_precio', 'equ_numero_serie', 'fk_dep_codigo', 'fk_tip_codigo') VALUES ('" . nombre . "'," . precio . "," . numSerie . "," . depen . ", " . tipoEquipo . ")";
-        $con = new conexion_class();
-        $con->ejecutarQuery($sql);
-        header("Location: ../view/forms/frm_ingresar_ficha_tecnica");
+include_once '../model/conexion_class.php';
+    $tipoEquipo = $_POST['equTipo'];
+    $dependencia = $_POST['dep'];
+    $nombre = $_POST['nomEquipo'];
+    $precio = $_POST['preEquipo'];
+    $numSerie = $_POST['numSerie'];
+    
+    $con = mysqli_connect('localhost', 'root', '', 'helpdesk');
+    $sql = "insert into equipos values('$numSerie', '$nombre', '$precio', '$dependencia', '$tipoEquipo')";
+    echo $sql;
+    $result = mysqli_query($con, $sql);
+    if($result){
+        header('Location: ../view/forms/frm_ingresar_ficha_tecnica.php?var=1');
     }
-
+ else {
+        echo mysqli_error($con);
 }
-
-?>
+    
