@@ -15,6 +15,46 @@
                     </div>
                 </li>
                 <li>
+                    <a href="#servicios" class="menu-item">
+                        <i class="fa fa-plus"></i>
+                        <span>Servicios</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul id="servicios" class="list-menu submenu">
+                        <li>
+                            <a href="view/forms/frm_solicitud_servicio_crear.php" class="submenu-item">
+                                <i class="fa fa-plus"></i>
+                                <span>Crear</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_solicitud_servicio_consultar.php" class="submenu-item">
+                                <i class="fa fa-search"></i>
+                                <span>Consultar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_solicitud_servicio_modificar.php" class="submenu-item">
+                                <i class="fa fa-pencil"></i>
+                                <span>Modificar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_solicitud_servicio_eliminar.php" class="submenu-item">
+                                <i class="fa fa-trash"></i>
+                                <span>Eliminar</span>
+                            </a>
+                        </li>
+                        <!-- pendiente revisar si el usuario puede eliminar
+                        <li>
+                            <a href="view/forms/frm_garantias_eliminar.php" class="submenu-item">
+                                <i class="fa fa-trash"></i>
+                                <span>Eliminar</span>
+                            </a>
+                        </li>.-->
+                    </ul>
+                </li>
+                <li>
                     <a href="#reportes" class="menu-item">
                         <i class="fa fa-line-chart"></i>
                         <span>Reportes</span>

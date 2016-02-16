@@ -1,47 +1,35 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include_once '../../HelpDesk/model/servicio_class.php';
 
-/**
- * Description of servicios_controller
- *
- * @author USUARIO
- */
-
-include_once '/HelpDesk/model/servicio_class.php';
-
-$proceso=$_POST['peticion'];
+$proceso=$_REQUEST['peticion'];
 
 $SerController=new servicio_class();
 
 switch ($proceso)
 {
-    case('ENVIAR'):
+    case("guardar"):
     {
-        $SerController->guardar($_REQUEST['txtTicket'], $_REQUEST['txtFechaCreacion'], $_REQUEST['txtHora'], $_REQUEST['txtDescripcion'], $_REQUEST['cboEstado'], $_REQUEST['cboPrioridad'], $_REQUEST['txtFechaActualizacion'], $_REQUEST['txtUsuario'], $_REQUEST['selComboIdEquipo']);
+        $SerController->guardar($_REQUEST["txtTicket"], $_REQUEST["txtFechaCreacion"], $_REQUEST["txtHora"], $_REQUEST["txtDescripcion"], $_REQUEST["cboEstado"], $_REQUEST["cboPrioridad"], $_REQUEST["txtFechaActualizacion"], $_REQUEST["txtIdUsuario"], $_REQUEST["txtIdEquipo"]);
         echo 'Registrado con Éxito';
     }
     break;
     
-    case('CONSULTAR'):
+    case("consultar"):
         {
             $SerController->consultar($_REQUEST['txtTicket']);
             echo 'Consultar';
         }
         break;
         
-    case ('ELIMINAR'):
+    case ("eliminar"):
         {
             $SerController->eliminar($_REQUEST['txtTicket']);
             echo 'Eliminado';
         }
         break;
     
-    case('MODIFICAR');
+    case("modificar");
         {
             $SerController->modificar($_REQUEST['txtTicket'], $_REQUEST['txtFechaCreacion'], $_REQUEST['txtHora'], $_REQUEST['txtDescripcion'], $_REQUEST['cboEstado'], $_REQUEST['cboPrioridad'], $_REQUEST['txtFechaActualizacion'], $_REQUEST['txtUsuario'], $_REQUEST['selComboIdEquipo']);
             echo 'Modificado';
