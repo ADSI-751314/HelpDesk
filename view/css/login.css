@@ -9,7 +9,7 @@
     -webkit-background-size: cover;
             background-size: cover;
 }
-#bgcolor{
+#layer {
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,0.5) 30%, rgba(29, 41, 57,0.1) 50%, rgb(29, 41, 57) 100%);
@@ -24,72 +24,72 @@
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
+    padding: 2.8em 0 1em 0;
     background-color: rgba(0,0,0,0.8)!important;
-    -webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-       -moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-            box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+       -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+            border-radius: 10px;
 }
 .frm-login-heading{
     background-color: rgba(45, 249, 133, 0.5);
     border-bottom: 4px solid rgba(0,0,0,0.3);
+    text-shadow: 0 2px #097347;
     color: white;
-    font-size: xx-large;
-    letter-spacing: 2px;
-    margin: 0px;
-    padding: 1.2em;
-    text-align: center;
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
+    font-size: 250%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: .9em;
 }
 .txtBox{
-    background-color: rgba(255,255,255,0.05);
-    width: 90%;
+    background-color: rgba(255,255,255,0.03);
+    width: 95%;
     height: 80px;
-    margin: 2px auto;
+    margin: 5px auto!important;
     -webkit-transition: all .5s ease;
        -moz-transition: all .5s ease;
             transition: all .5s ease;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
 }
-.td-alert{
-    padding: 0px!important;
-    height: 60px;
+.txtBox-error{
+    border: 1px solid orangered;
 }
-.td, .td-fa{
-    padding: 0px!important;
-    height: inherit;
-}
-.td-fa{
+.txtBox .fa{
+    float: left;
+    color: rgba(255,255,255,0.9);
+    width: 80px;
+    line-height: 80px;
+    border-radius: 5px 0 0 5px;
     -webkit-transition: all .5s ease;
-       -moz-transition: all .5s ease;
-            transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    transition: all .5s ease;
 }
 .txt-login{
     background: none;
     border: none;
     color: white;
     font-size: 150%;
-    padding: 30px 0px;
+    width: 280px;
     height: inherit;
     outline: none!important;
     -webkit-box-shadow: none;
        -moz-box-shadow: none;
             box-shadow: none!important;
+    border-radius: 0!important;
 }
 .active-fa{
-    -webkit-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
-       -moz-box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
-            box-shadow: inset 90px 0px rgba(23, 170, 86,0.8);
-}
-.txtBox .fa{
-    padding: 15px 0px;
+    -webkit-box-shadow: inset 90px 0 rgba(23, 170, 86,0.8);
+       -moz-box-shadow: inset 90px 0 rgba(23, 170, 86,0.8);
+            box-shadow: inset 90px 0 rgba(23, 170, 86,0.8);
 }
 .btn-container{
     height: 100px;
-    padding: 60px 0px 0px 0px!important;;
+    padding: 60px 0 0 0!important;;
     -webkit-box-sizing: content-box;
        -moz-box-sizing: content-box;
             box-sizing: content-box;
@@ -100,45 +100,89 @@
     margin: auto;
     border: none;
     color: white;
-    font-size: 120%;
-    letter-spacing: 1px;
-    padding: 25px 80px;
+    font-size: 200%;
+    font-weight: bold;
+    padding: 15px 80px;
     outline: none!important;
-    -webkit-box-shadow: 0px 6px #097347;
-       -moz-box-shadow: 0px 6px #097347;
-            box-shadow: 0px 6px #097347;
+    -webkit-box-shadow: 0 5px #097347;
+       -moz-box-shadow: 0 5px #097347;
+            box-shadow: 0 5px #097347;
+    text-shadow: 0 2px #097347;
 }
 #btn-login:hover, #btn-login:focus{
     cursor: pointer;
     margin-top: 2px;
-    -webkit-box-shadow: 0px 4px #097347;
-       -moz-box-shadow: 0px 4px #097347;
-            box-shadow: 0px 4px #097347;
+    -webkit-box-shadow: 0 3px #097347;
+       -moz-box-shadow: 0 3px #097347;
+            box-shadow: 0 3px #097347;
 }
 #btn-login:active{
     box-shadow: none;
     margin-top: 6px;
-    text-shadow: 0px 2px #097347;
 }
-.alert{
+.row{
+    margin: 0;
+}
+.row-alert{
+    padding: 0!important;
+    height: 60px;
+}
+#alert{
     display: none;
+    padding: 10px;
+    margin: 10px 5px;
+    color: lightyellow;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.1);
+}
+.fa-1xm {
+    color: #FF4500;
+    font-size: 1.8em;
+    line-height: .75em;
+    vertical-align: -15%;
+    margin: 0 3px;
 }
 .popover{
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     color: black;
     width: 150px;
 }
 .popover .fa{
     color: red;
 }
-.login-success{
-    background-color: rgba(23, 170, 86,0.1);
-}
-.login-fail{
-    background-color: rgba(224, 25, 49,0.3);
-}
 
 :-moz-placeholder { color: white; }
 :-ms-input-placeholder { color: white; } 
 ::-moz-placeholder { color: white; } 
 ::-webkit-input-placeholder { color: white; }
+
+@media (max-width: 480px) {
+    #layer {
+        padding-top: 0;
+        background: rgb(0,0,0);
+    }
+    #frm-login{
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: auto;
+        padding: 0;
+    }
+    .txtBox .fa{
+        width: 20%;
+    }
+    .txt-login{
+        width: 78%;
+    }
+    .txtBox:hover{
+        background-color: rgba(255,255,255,.1);
+    }
+    .active-fa{
+        box-shadow: none;
+        color: rgba(23, 170, 86,0.8)!important;
+    }
+}
