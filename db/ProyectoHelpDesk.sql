@@ -231,8 +231,3 @@ CREATE TABLE IF NOT EXISTS PARTES_PROVEEDORES (
     FOREIGN KEY (fk_pte_codigo) REFERENCES PARTES_EQUIPOS(pk_pte_codigo),
     FOREIGN KEY (fk_pro_codigo) REFERENCES PROVEEDORES(pk_pro_codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-insert into DEPENDENCIAS values('1','Administrador','123');
-insert into PERMISOS values('1','Administrador','Administrador del sistema');
-insert into ROLES values('1','Administrador','1');
-insert into USUARIOS values('1','Administrador','Administrador','Administrador','admin','123','Administrador','admin@mail.com','admin','admin','2015-09-05 13:27:19',NULL,'1','1');
