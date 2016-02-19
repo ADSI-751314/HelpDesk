@@ -2,16 +2,18 @@
 
      //-----------------Control de efectos-------------------
 
-     $(".txt-login").on("focus",function (){
-         $(this).parent().prev().addClass("active-fa");
-         $(this).parent().prev().css("color", "rgb(255,255,255)");
-     });
-     $(".txt-login").on("blur",function (){
-         $(this).parent().prev().removeClass("active-fa");
-         if($(this).val() !== "") {
-             $(this).parent().prev().css("color", "rgb(23, 170, 86)");
-         }else{
-             $(this).parent().prev().css("color", "rgb(255,255,255)");
+     $(".txt-login").on({
+         focus : function (){
+             $(this).prev().addClass("active-fa");
+             $(this).prev().css("color", "rgb(255,255,255)");
+         },
+         blur : function () {
+             $(this).prev().removeClass("active-fa");
+             if ($(this).val() !== "") {
+                 $(this).prev().css("color", "rgb(23, 170, 86)");
+             } else {
+                 $(this).prev().css("color", "rgb(255,255,255)");
+             }
          }
      });
 
@@ -24,28 +26,16 @@
          var password = $("input[name=txtPassword]").val();
 
          if(username.trim() == ""){
-             $("#txtUsu").popover({
-                 placement: 'right',
-                 html: true,
-                 content: "<i class='fa fa-exclamation-circle fa-lg'></i> Campo requerido.",
-                 trigger: 'manual',
-             }).focus(function () {
-                 $(this).popover('destroy');
+             $("#txtUsu").parent().toggleClass("txtBox-error");
+             showAlert("<i class='fa fa-exclamation-circle fa-1xm'></i> Por favor ingrese su nombre de usuario", function(){
+                 $("#txtUsu").parent().toggleClass("txtBox-error");
              });
-
-             $("#txtUsu").popover('show');
          }
          else if(password.trim() == ""){
-             $("#txtPass").popover({
-                 placement: 'right',
-                 html: true,
-                 content: "<i class='fa fa-exclamation-circle fa-lg'></i> Campo requerido.",
-                 trigger: 'manual',
-             }).focus(function () {
-                 $(this).popover('destroy');
+             $("#txtPass").parent().toggleClass("txtBox-error");
+             showAlert("<i class='fa fa-exclamation-circle fa-1xm'></i> Por favor ingrese su contraseña", function(){
+                 $("#txtPass").parent().toggleClass("txtBox-error");
              });
-
-             $("#txtPass").popover('show');
          }
          else{
              var action = $(this).attr("action");
@@ -61,27 +51,21 @@
          var alert = $("#alert");
          
          if (response.trim()) {
-             $(".txtBox").addClass("login-success");
-             alert.addClass("alert-success");
              alert.html("Bienvenido!");
+             alert.fadeIn(500, function () {window.location.reload();});
         }else{
-             $(".txtBox").addClass("login-fail");
-             alert.addClass("alert-danger");
-             alert.html("Nombre de usuario o contraseña incorrecta!");
-
-             $(".txtBox").on("click",function () {
-                 $(".txtBox").removeClass("login-fail");
-             });
+             showAlert("<i class='fa fa-exclamation-circle fa-1xm'></i>Nombre de usuario o contraseña incorrecta!");
+             $("#frm-login").effect("shake",{times:3, distance:20},400);
         }
-        alert.fadeIn(1000, function () {
-            if (response.trim()) {
-                window.location.reload();
-                $(this).removeClass("alert-success");
-            }else{
-                alert.fadeOut(3000, function () {
-                    $(this).removeClass("alert-danger");
-                });
-            }
-        });
+     }
+
+     function showAlert(msg, cb){
+         $("#alert").html(msg)
+             .fadeIn(500,function(){
+                 setTimeout(function(){
+                     $("#alert").fadeOut(1000);
+                     cb();
+                 },5000);
+             });
      }
  });
