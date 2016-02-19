@@ -39,7 +39,6 @@
     text-shadow: 0 2px #097347;
     color: white;
     font-size: 250%;
-    font-weight: bold;
     letter-spacing: 1px;
     margin: 0;
     padding: .9em;
@@ -101,7 +100,6 @@
     border: none;
     color: white;
     font-size: 200%;
-    font-weight: bold;
     padding: 15px 80px;
     outline: none!important;
     -webkit-box-shadow: 0 5px #097347;

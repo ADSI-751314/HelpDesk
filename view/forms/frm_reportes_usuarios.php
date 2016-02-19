@@ -4,7 +4,7 @@
     <form action="controller/reportes_controller.php" method="POST"  name="reporteUsuario" role="form">
         <div class="form-group">
             <label for="ejemplo_email_1">Fecha Inicio</label>
-            <input type="date" name="FechaInicio" class="form-control" required>
+            <input type="text" name="FechaInicio" class="form-control form_datetime" value="" readonly="readonly">
         </div>
         
         <div class="form-group">
