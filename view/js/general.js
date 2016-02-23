@@ -1,5 +1,5 @@
 $(function() {
-
+    
     /*---------------------------Event Listeners------------------------*/
     $("#sidebar-heading").on("click",function () {
         $(this).toggleClass("active-profile");
@@ -12,6 +12,7 @@ $(function() {
         }else{
             hideSubmenu($(this));
         }
+        loadJS('reportes.js');
     });
 
     $("#menu-toggle").on("click",function(e) {
@@ -88,5 +89,14 @@ function ajax(url,data,method,callback){
             // Si la petición falla
         }
     });
+}
+
+function loadJS(fileName){
+    var script = document.createElement('script');
+    script.setAttribute("type","text/javascript");
+    script.setAttribute("src", '/HelpDesk/view/js/'+fileName);
+    
+    if (typeof script!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(script);
 }
 
