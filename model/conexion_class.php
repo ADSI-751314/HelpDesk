@@ -50,6 +50,7 @@ class conexion_class {
                 return "MYSQL Error:" . mysqli_error($this->conexion);
             } else { 
                 if (mysqli_num_rows($consulta)) {
+                    
                     return mysqli_fetch_assoc($consulta);
                 }
                 return false;
