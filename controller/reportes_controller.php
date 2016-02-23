@@ -14,6 +14,7 @@ switch ($proceso) {
     case ("reporteUsuario"): {
             // hace el llamado al metodo reporteUsuario
             $controller->reporteUsuario($_REQUEST['FechaInicio'], $_REQUEST['FechaFin']);
+
         }break;
     case ("reporteFallas"): {
             

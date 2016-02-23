@@ -1,3 +1,4 @@
+use HelpDesk;
 insert into DEPENDENCIAS values(1,'Administrador','123');
 insert into DEPENDENCIAS values(2,'Gerencia','3456');
 insert into DEPENDENCIAS values(3,'Empleado','3457');

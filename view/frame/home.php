@@ -6,7 +6,7 @@
             <ul class="list-menu" id="sidebar-nav">
                 <li id="sidebar-heading">
                     <div id="profile-avatar"></div>
-                    <div id="profile-name"><?php echo $_SESSION["fullname"];?></div>
+                    <div id="profile-name"><?php echo $_SESSION["fullname"]; ?></div>
                     <div id="logout">
                         <a href="#logout">
                             <i class="fa fa-power-off fa-lg"></i>
@@ -62,29 +62,36 @@
                     </a>
                     <ul id="reportes" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_reportes_fallas.php" class="submenu-item">
-                                <i class="fa fa-trash"></i>
-                                <span>Fallas más comunes</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_reportes_partes.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Partes que más fallan</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_reportes_marcas.php" class="submenu-item">
+                            <a href="view/forms/frm_reportes.php" class="submenu-item">
                                 <i class="fa fa-search"></i>
-                                <span>Marcas que más fallan</span>
+                                <span>Generar Reporte</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="view/forms/frm_reportes_usuarios.php" class="submenu-item">
-                                <i class="fa fa-plus"></i>
-                                <span>Usuarios que más reportan</span>
-                            </a>
-                        </li>
+                        <!--
+                                                <li>
+                                                    <a href="view/forms/frm_reportes_fallas.php" class="submenu-item">
+                                                        <i class="fa fa-trash"></i>
+                                                        <span>Fallas más comunes</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="view/forms/frm_reportes_partes.php" class="submenu-item">
+                                                        <i class="fa fa-pencil"></i>
+                                                        <span>Partes que más fallan</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="view/forms/frm_reportes_marcas.php" class="submenu-item">
+                                                        <i class="fa fa-search"></i>
+                                                        <span>Marcas que más fallan</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="view/forms/frm_reportes_usuarios.php" class="submenu-item">
+                                                        <i class="fa fa-plus"></i>
+                                                        <span>Usuarios que más reportan</span>
+                                                    </a>
+                                                </li>-->
                     </ul>
                 </li>
                 <li>
@@ -219,7 +226,7 @@
                         </li>
                     </ul>
                 </li>
-               <li>
+                <li>
                     <a href="#proveedores" class="menu-item">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Gestion de Proveedores</span>
