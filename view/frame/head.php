@@ -15,6 +15,7 @@
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datetimepicker.min.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datetimepicker.es.js"></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/general.js"></script>
         
     </head>

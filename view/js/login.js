@@ -46,26 +46,26 @@
              ajax(action,data,method,loginRequestHandler);
          }
      });
-
-     function loginRequestHandler(response){
-         var alert = $("#alert");
-         
-         if (response.trim()) {
-             alert.html("Bienvenido!");
-             alert.fadeIn(500, function () {window.location.reload();});
-        }else{
-             showAlert("<i class='fa fa-exclamation-circle fa-1xm'></i>Nombre de usuario o contraseña incorrecta!");
-             $("#frm-login").effect("shake",{times:3, distance:20},400);
-        }
-     }
-
-     function showAlert(msg, cb){
-         $("#alert").html(msg)
-             .fadeIn(500,function(){
-                 setTimeout(function(){
-                     $("#alert").fadeOut(1000);
-                     cb();
-                 },5000);
-             });
-     }
  });
+
+ function loginRequestHandler(response){
+     var alert = $("#alert");
+
+     if (response.trim()) {
+         alert.html("Bienvenido!");
+         alert.fadeIn(500, function () {window.location.reload();});
+     }else{
+         showAlert("<i class='fa fa-exclamation-circle fa-1xm'></i>Nombre de usuario o contraseña incorrecta!");
+         $("#frm-login").effect("shake",{times:3, distance:20},400);
+     }
+ }
+
+ function showAlert(msg, cb){
+     $("#alert").html(msg)
+         .fadeIn(500,function(){
+             setTimeout(function(){
+                 $("#alert").fadeOut(1000);
+                 cb();
+             },5000);
+         });
+ }

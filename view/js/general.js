@@ -1,5 +1,5 @@
 $(function() {
-    
+
     /*---------------------------Event Listeners------------------------*/
     $("#sidebar-heading").on("click",function () {
         $(this).toggleClass("active-profile");
@@ -7,17 +7,18 @@ $(function() {
     
     $(".menu-item").on("click",function (e){
         e.preventDefault();
-        if (!$(this).hasClass("active-menu")){
-            showSubmenu($(this));
-        }else{
-            hideSubmenu($(this));
+
+        if ($(this).hasClass('no-submenu')) {
+
+        } else {
+            if (!$(this).hasClass("active-menu")){
+                showSubmenu($(this));
+            }else{
+                hideSubmenu($(this));
+            }
         }
-        loadJS('highcharts.js');
-        setTimeOut(function(){
             
-            loadJS('reportes.js');
-        },5000);
-        
+        loadScript($(this));
     });
 
     $("#menu-toggle").on("click",function(e) {
@@ -40,41 +41,6 @@ $(function() {
     });
 
     /*---------------------------End Event Listeners------------------------*/
-
-    /*---------------------------Functions------------------------*/
-
-    /*Funcion para cambiar clases
-    Parametros:
-    obj: elemento html
-    reCl: clase que será eliminada
-    adCl: clase nueva*/
-    function alterClass(obj,reCl,adCl){
-        obj.removeClass(reCl);
-        obj.addClass(adCl);
-    }
-
-    function showSubmenu(menu){
-        var menuItems = $(".menu-item");
-
-        menuItems.siblings("ul").slideUp(200);
-        menuItems.removeClass("active-menu");
-        alterClass(menuItems.children("i:last-child"),"fa-angle-up","fa-angle-down");
-
-        alterClass(menu.children("i:last-child"),"fa-angle-down","fa-angle-up")
-        menu.addClass("active-menu");
-        menu.siblings("ul").slideDown(200);
-    }
-
-    function hideSubmenu(menu){
-        alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
-        menu.removeClass("active-menu");
-        menu.siblings("ul").slideUp(200);
-    }
-
-    function logoutHandler(data){
-        window.location.reload();
-    }
-    /*---------------------------End Functions------------------------*/
 });
 
 
@@ -96,11 +62,40 @@ function ajax(url,data,method,callback){
     });
 }
 
-function loadJS(fileName){
-    var script = document.createElement('script');
-    script.setAttribute("type","text/javascript");
-    script.setAttribute("src", '/HelpDesk/view/js/'+fileName);
-    if (typeof script!="undefined")
-        document.getElementsByTagName("head")[0].appendChild(script);
+function loadScript(el){
+    var fileName = el.data("script") + ".js";
+    if (fileName !== '') {
+        var script = document.createElement('script');
+        script.setAttribute("type","text/javascript");
+        script.setAttribute("src", '/HelpDesk/view/js/'+fileName);
+        if (typeof script!="undefined")
+            document.getElementsByTagName("head")[0].appendChild(script);
+    }
 }
 
+function alterClass(obj,reCl,adCl){
+    obj.removeClass(reCl);
+    obj.addClass(adCl);
+}
+
+function showSubmenu(menu){
+    var menuItems = $(".menu-item");
+
+    menuItems.siblings("ul").slideUp(200);
+    menuItems.removeClass("active-menu");
+    alterClass(menuItems.children("i:last-child"),"fa-angle-up","fa-angle-down");
+
+    alterClass(menu.children("i:last-child"),"fa-angle-down","fa-angle-up")
+    menu.addClass("active-menu");
+    menu.siblings("ul").slideDown(200);
+}
+
+function hideSubmenu(menu){
+    alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
+    menu.removeClass("active-menu");
+    menu.siblings("ul").slideUp(200);
+}
+
+function logoutHandler(data){
+    window.location.reload();
+}

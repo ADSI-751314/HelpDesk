@@ -15,7 +15,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#servicios" class="menu-item">
+                    <a href="#servicios" class="menu-item" data-script="">
                         <i class="fa fa-plus"></i>
                         <span>Servicios</span>
                         <i class="fa fa-angle-down"></i>
@@ -55,22 +55,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#reportes" class="menu-item">
-                        <i class="fa fa-line-chart"></i>
-                        <span>Reportes</span>
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul id="reportes" class="list-menu submenu">
-                        <li>
-                            <a href="view/forms/frm_reportes.php" class="submenu-item">
-                                <i class="fa fa-search"></i>
-                                <span>Generar Reporte</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#garantias" class="menu-item">
+                    <a href="#garantias" class="menu-item" data-script="">
                         <i class="fa fa-shield"></i>
                         <span>Garantias</span>
                         <i class="fa fa-angle-down"></i>
@@ -103,7 +88,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#inventario" class="menu-item">
+                    <a href="#inventario" class="menu-item" data-script="">
                         <i class="fa fa-check-square"></i>
                         <span>Inventario</span>
                         <i class="fa fa-angle-down"></i>
@@ -136,7 +121,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#base" class="menu-item">
+                    <a href="#base" class="menu-item" data-script="">
                         <i class="fa fa-database"></i>
                         <span>Base Conocimiento</span>
                         <i class="fa fa-angle-down"></i>
@@ -169,7 +154,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#licencias" class="menu-item">
+                    <a href="#licencias" class="menu-item" data-script="">
                         <i class="fa fa-hand-o-right"></i>
                         <span>Licencias</span>
                         <i class="fa fa-angle-down"></i>
@@ -202,7 +187,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#proveedores" class="menu-item">
+                    <a href="#proveedores" class="menu-item" data-script="">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Gestion de Proveedores</span>
                         <i class="fa fa-angle-down"></i>
@@ -233,6 +218,20 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="view/forms/frm_reportes.php" class="menu-item no-submenu" data-script="reportes">
+                        <i class="fa fa-line-chart"></i>
+                        <span>Reportes</span>
+                    </a>
+<!--                    <ul id="reportes" class="list-menu submenu">
+                        <li>
+                            <a href="view/forms/frm_reportes.php" class="submenu-item">
+                                <i class="fa fa-search"></i>
+                                <span>Generar Reporte</span>
+                            </a>
+                        </li>
+                    </ul>-->
                 </li>
             </ul>
         </nav>
