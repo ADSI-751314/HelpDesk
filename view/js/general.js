@@ -12,7 +12,12 @@ $(function() {
         }else{
             hideSubmenu($(this));
         }
-        loadJS('reportes.js');
+        loadJS('highcharts.js');
+        setTimeOut(function(){
+            
+            loadJS('reportes.js');
+        },5000);
+        
     });
 
     $("#menu-toggle").on("click",function(e) {
@@ -95,7 +100,6 @@ function loadJS(fileName){
     var script = document.createElement('script');
     script.setAttribute("type","text/javascript");
     script.setAttribute("src", '/HelpDesk/view/js/'+fileName);
-    
     if (typeof script!="undefined")
         document.getElementsByTagName("head")[0].appendChild(script);
 }

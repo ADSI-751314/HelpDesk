@@ -10,7 +10,6 @@ $(function () {
     // Cargando grafica de Fallas mas comunes
     graficaFallasComunes();
 
-
 // funcion que se ejecuta cuando se hace submit en el form 
     $(".form_datetime").datetimepicker({
         format: "dd MM yyyy - HH:ii P",
@@ -18,7 +17,7 @@ $(function () {
         autoclose: true,
         todayBtn: true
     });
-    
+
     // funcion que se ejecuta cuando se hace submit en el form 
     $("form").submit(function (e) {
 //se cancela el evento del click para que no cambie de pagina.

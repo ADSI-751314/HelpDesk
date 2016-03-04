@@ -1,3 +1,12 @@
 .contenedorFormulario{
     max-width: 600px;
 }
+
+.alineacionDiv{
+   text-align: center;    
+}
+
+/*
+.chart-box{
+    width: 20%;
+}*/

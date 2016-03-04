@@ -67,31 +67,6 @@
                                 <span>Generar Reporte</span>
                             </a>
                         </li>
-                        <!--
-                                                <li>
-                                                    <a href="view/forms/frm_reportes_fallas.php" class="submenu-item">
-                                                        <i class="fa fa-trash"></i>
-                                                        <span>Fallas más comunes</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="view/forms/frm_reportes_partes.php" class="submenu-item">
-                                                        <i class="fa fa-pencil"></i>
-                                                        <span>Partes que más fallan</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="view/forms/frm_reportes_marcas.php" class="submenu-item">
-                                                        <i class="fa fa-search"></i>
-                                                        <span>Marcas que más fallan</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="view/forms/frm_reportes_usuarios.php" class="submenu-item">
-                                                        <i class="fa fa-plus"></i>
-                                                        <span>Usuarios que más reportan</span>
-                                                    </a>
-                                                </li>-->
                     </ul>
                 </li>
                 <li>
