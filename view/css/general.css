@@ -5,9 +5,16 @@
 
 /*--------------------Default Styles------------------*/
 @font-face{
-	font-family: roboto;
+	font-family: Roboto;
 	src: url(../fonts/Roboto-Condensed.ttf);
+    font-weight: normal;
 }
+@font-face{
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -25,7 +32,7 @@ a{
 /* -------------------Toggle Styles--------------- */
 #home-background{
     background: url('../img/poly-background.jpg') left top;
-    font-family: roboto!important;
+    font-family: Roboto, Helvetica, arial, sans-serif!important;
     -webkit-background-size: cover;
     background-size: cover;
     position: absolute;

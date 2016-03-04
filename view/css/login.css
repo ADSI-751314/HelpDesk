@@ -1,11 +1,7 @@
 @charset "UTF-8";
-@font-face{
-    font-family: roboto;
-    src: url(../fonts/Roboto-Condensed.ttf);
-}
 #login-body{
     background: rgb(29, 41, 57) url('../img/poly-background.jpg') center center fixed;
-    font-family: roboto,Helvetica, sans-serif;
+    font-family: Roboto,Helvetica, sans-serif;
     -webkit-background-size: cover;
             background-size: cover;
 }

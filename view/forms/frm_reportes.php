@@ -6,12 +6,12 @@
                 <div class="form-group has-feedback">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Fecha Inicial</span>
-                        <input type="datetime" class="form-control form_datetime" id="fechaInicio">
+                        <input type="text" class="form-control form_datetime" id="fechaInicio" readonly>
                         <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
                     </div>    
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Fecha Final</span>
-                        <input type="datetime" class="form-control form_datetime" id="fechaFin">
+                        <input type="text" class="form-control form_datetime" id="fechaFin" readonly>
                         <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
                     </div>
                     <button type="submit" class="btn btn-default">Filtrar</button>
