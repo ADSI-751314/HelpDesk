@@ -193,26 +193,26 @@ a{
 /* ----------------End User Options---------------- */
 
 /* ----------------Menu---------------- */
-.menu-item {
+.menu-item, .menu-item2 {
     height: 50px;
     padding: 10px 5px;
     color: rgba(255,255,255,0.7)!important;
 }
-.menu-item:hover{
+.menu-item:hover, .menu-item2:hover, .active-menu{
     color: rgb(255,255,255)!important;
     background-color: rgba(255,255,255,0.1);
 }
-.menu-item:hover .fa{
+.menu-item:hover .fa, .menu-item2:hover .fa{
     color: rgb(42,197,108)!important;
 }
-.menu-item .fa:first-child{
+.menu-item .fa:first-child, .menu-item2 .fa:first-child{
     display: inline-block;
     text-align: center;
     font-size: 160%;
     width: 20px!important;
     height: 20px!important;
 }
-.menu-item span{
+.menu-item span, .menu-item2 span{
     display: inline-block;
     padding: 0px 10px;
     font-size: 120%;
@@ -230,10 +230,6 @@ a{
     float: right;
     line-height: 28px;
     margin-right: 10px;
-}
-.active-menu{
-    color: rgb(255,255,255)!important;
-    background-color: rgba(255,255,255,0.1);
 }
 .active-menu .fa{
     color: rgb(42,197,108)!important;

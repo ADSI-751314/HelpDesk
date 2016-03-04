@@ -1,5 +1,18 @@
+jQuery.fn.useClass = function (className){
+    var active = document.getElementsByClassName(className);
+    if (active.length) {
+        active[0].removeClass(className);
+    }
+    this.addClass(className);
+};
+
+jQuery.fn.alterClass = function (rClass, aClass){
+    this.removeClass(rClass);
+    this.addClass(aClass);
+};
+
 $(function() {
-    
+
     /*---------------------------Event Listeners------------------------*/
     $("#sidebar-heading").on("click",function () {
         $(this).toggleClass("active-profile");
@@ -7,17 +20,21 @@ $(function() {
     
     $(".menu-item").on("click",function (e){
         e.preventDefault();
+
         if (!$(this).hasClass("active-menu")){
             showSubmenu($(this));
         }else{
             hideSubmenu($(this));
         }
-        loadJS('highcharts.js');
-        setTimeOut(function(){
             
-            loadJS('reportes.js');
-        },5000);
-        
+        loadScript($(this));
+    });
+    
+    $(".menu-item2").on("click",function (e){
+        e.preventDefault();
+        loadForm(this.getAttribute('href'));
+        loadScript($(this));
+        $(this).useClass('active-menu');
     });
 
     $("#menu-toggle").on("click",function(e) {
@@ -27,12 +44,8 @@ $(function() {
 
     $(".submenu-item").on("click",function (e) {
         e.preventDefault();
-        var href = $(this).attr("href");
-        var container = $("#form-container");
-        container.load(href);
-
-        $(".submenu-item").removeClass("active-submenu");
-        $(this).addClass("active-submenu");
+        loadForm(this.getAttribute('href'));
+        $(this).useClass("active-submenu");
     });
 
     $("#logout").on("click", function() {
@@ -40,43 +53,7 @@ $(function() {
     });
 
     /*---------------------------End Event Listeners------------------------*/
-
-    /*---------------------------Functions------------------------*/
-
-    /*Funcion para cambiar clases
-    Parametros:
-    obj: elemento html
-    reCl: clase que será eliminada
-    adCl: clase nueva*/
-    function alterClass(obj,reCl,adCl){
-        obj.removeClass(reCl);
-        obj.addClass(adCl);
-    }
-
-    function showSubmenu(menu){
-        var menuItems = $(".menu-item");
-
-        menuItems.siblings("ul").slideUp(200);
-        menuItems.removeClass("active-menu");
-        alterClass(menuItems.children("i:last-child"),"fa-angle-up","fa-angle-down");
-
-        alterClass(menu.children("i:last-child"),"fa-angle-down","fa-angle-up")
-        menu.addClass("active-menu");
-        menu.siblings("ul").slideDown(200);
-    }
-
-    function hideSubmenu(menu){
-        alterClass(menu.children("i:last-child"),"fa-angle-up","fa-angle-down")
-        menu.removeClass("active-menu");
-        menu.siblings("ul").slideUp(200);
-    }
-
-    function logoutHandler(data){
-        window.location.reload();
-    }
-    /*---------------------------End Functions------------------------*/
 });
-
 
 function ajax(url,data,method,callback){
     $.ajax({
@@ -96,11 +73,38 @@ function ajax(url,data,method,callback){
     });
 }
 
-function loadJS(fileName){
-    var script = document.createElement('script');
-    script.setAttribute("type","text/javascript");
-    script.setAttribute("src", '/HelpDesk/view/js/'+fileName);
-    if (typeof script!="undefined")
-        document.getElementsByTagName("head")[0].appendChild(script);
+function loadForm(href){
+    $("#form-container").load(href);
 }
 
+function loadScript(el){
+    var fileName = el.data("script");
+    if (fileName !== '' && typeof fileName !== 'undefined') {
+        var script = document.createElement('script');
+        script.setAttribute("type","text/javascript");
+        script.setAttribute("src", '/HelpDesk/view/js/'+fileName+'.js');
+        if (typeof script!== "undefined")
+            document.getElementsByTagName("head")[0].appendChild(script);
+    }
+}
+
+function showSubmenu(menu){
+    var menuItems = $(".menu-item");
+
+    menuItems.siblings("ul").slideUp(200);
+    menuItems.last().alterClass("fa-angle-up","fa-angle-down");
+
+    menu.last().alterClass("fa-angle-down","fa-angle-up");
+    menu.useClass("active-menu");
+    menu.siblings("ul").slideDown(200);
+}
+
+function hideSubmenu(menu){
+    menu.last().alterClass("fa-angle-up","fa-angle-down");
+    menu.removeClass("active-menu");
+    menu.siblings("ul").slideUp(200);
+}
+
+function logoutHandler(data){
+    window.location.reload();
+}

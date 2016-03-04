@@ -40,5 +40,3 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="view/js/highcharts.js"></script>
-<script type="text/javascript" src="view/js/reportes.js"></script>
