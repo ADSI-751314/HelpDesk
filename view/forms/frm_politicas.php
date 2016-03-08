@@ -1,4 +1,4 @@
-<form> 
+<form name="frm_politicas">> 
     <h1>frmPoliticas</h1>
     <table border="1" >
         <tr>
