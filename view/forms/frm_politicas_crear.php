@@ -1,5 +1,5 @@
-<form> 
-    <h1>frmPoliticas</h1>
+<form name="frm_politicas">
+    <h1>POLITICAS</h1>
     <table border="1" >
         <tr>
             <td colspan="4" class="titulos" align="center"> POLITICAS </td>					
@@ -16,9 +16,6 @@
         <tr>
             <td colspan="4" align="center">
                 <input type="button" name="btnGuardar" value="Guardar">
-                <input type="button" name="btnModificar" value="Modificar">
-                <input type="button" name="btnEliminar" value="Eliminar">
-                <input type="button" name="btnConsultar" value="Consultar">
             </td>
 
         </tr>

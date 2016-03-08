@@ -37,5 +37,13 @@ class reportes_controller {
         $resp = $consul->consultarUsuarios($FechaInicio, $FechaFin);
         echo json_encode($resp);
     }
+    
+    // Metodo reporteusuario
+    public function reporteFallas($FechaInicio, $FechaFin) {
+        // enlaza con la clase 
+        $consul = new reportes_class();
+        $resp = $consul->consultarFallasComunes($FechaInicio, $FechaFin);
+        echo json_encode($resp);
+    }
 
 }

@@ -1,4 +1,4 @@
-<form action="HelpDesk/controller/provedores_controller.php?petition=consultar" method="POST" name="frm_politicas_consultar">
+<form action="HelpDesk/controller/politicas_controller.php?petition=consultar" method="POST" name="frm_politicas_consultar">
     <table>
         <tr>
             <td colspan="2"><h1> Politicas <h1></td>
