@@ -16,13 +16,26 @@ class reportes_class {
 
     public function consultarUsuarios($fechaInicio, $fechaFinal) {
         // ejecucion de la consulta sql
-        $sql = "SELECT usu_primer_nombre,usu_segundo_nombre,usu_primer_apellido,usu_segundo_apellido,dep_nombre,ser_fecha FROM servicios s 
-             INNER JOIN usuarios u ON s.fk_usu_codigo = u.pk_usu_codigo 
-             INNER JOIN dependencias  d ON d.pk_dep_codigo= u.fk_dep_codigo
-             WHERE ser_fecha between '$fechaInicio' and '$fechaFinal'";
+        $sql = "SELECT
+                    COUNT(s.pk_ser_ticket) AS 'Cantidad Fallas', 
+                    d.dep_nombre AS 'Dependencia',
+                    u.usu_primer_nombre AS 'Primer Nombre',
+                    u.usu_segundo_nombre AS 'Segundo Nombre',
+                    u.usu_primer_apellido AS 'Primer Apellido',
+                    u.usu_segundo_apellido AS 'Segundo Apellido'
+                    FROM servicios s 
+                    RIGHT JOIN usuarios u ON s.fk_usu_codigo = u.pk_usu_codigo
+                    INNER JOIN dependencias  d ON d.pk_dep_codigo= u.fk_dep_codigo
+                    WHERE s.ser_fecha between '$fechaInicio' and '$fechaFinal'
+                    GROUP BY s.fk_usu_codigo";
         //retorno de la base de datos 
-        $query = $this->conexion->consultarQuery($sql);
-        return $query;
+         return $query = $this->conexion->consultarQuery($sql); 
+    }
+    public function consultarFallasComunes($fechaInicio, $fechaFinal) {
+        // ejecucion de la consulta sql
+        $sql = " ";
+        //retorno de la base de datos 
+         return $query = $this->conexion->consultarQuery($sql); 
     }
 
 }

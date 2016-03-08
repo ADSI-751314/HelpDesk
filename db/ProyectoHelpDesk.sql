@@ -148,8 +148,9 @@ CREATE TABLE IF NOT EXISTS GARANTIAS(
 CREATE TABLE IF NOT EXISTS LICENCIAS(
     pk_lic_codigo int auto_increment,
     lic_nombre varchar(30) not null,
-    lic_fecha_compra date not null,
+    lic_fecha_inicio date not null,
     lic_fecha_caducidad date not null,
+    lic_fecha_compra date not null,
     lic_precio double,
     lic_cobertura text,
     primary key(pk_lic_codigo)

@@ -20,12 +20,10 @@ class licencias_class {
         $this->conexion = new conexion_class();
         $this->conexion->conexion();
     }
-   
-    
-    public function crear($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
-       
-        $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_compra','$lic_fecha_caducidad','$lic_precio','$lic_cobertura')";
 
+    public function crear($pk_lic_codigo, $lic_nombre,$lic_fecha_inicio,$lic_fecha_caducidad, $lic_fecha_compra, $lic_precio, $lic_cobertura) {
+        
+        $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_inicio','$lic_fecha_caducidad','$lic_fecha_compra','$lic_precio','$lic_cobertura')";
         $query = $this->conexion->ejecutarQuery($sql);
     }
 
