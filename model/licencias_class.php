@@ -29,7 +29,7 @@ class licencias_class {
 
     public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
         
-        $sql = " UPDATE licencias SET pk_lic_codigo = '".$pk_lic_codigo."',
+        $sql = "UPDATE licencias SET pk_lic_codigo = '".$pk_lic_codigo."',
                                         lic_nombre ='". $lic_nombre.'",
                                         lic_fecha_compra = "'.$lic_fecha_compra."',
                                         lic_fecha_caducidad = '".$lic_fecha_caducidad."',
@@ -56,12 +56,9 @@ class licencias_class {
         $consulta_licencias = "select pk_lic_codigo,lic_nombre,lic_fecha_compra,lic_fecha_caducidad,lic_precio,lic_cobertura FROM licencias";
 
         //ejecucion de la consulta
-
         $fuente_helpdesk = mysql_query($consulta_helpdesk, $conecta);
-
         //obtener la cantidad de registros
         $cantidad_licencias = mysql_num_rows($fuente_licencias);
-
 
         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
         for ($i = 0; $i < $cantidad_licencias; $i++) {
