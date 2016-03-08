@@ -26,17 +26,19 @@
 			<option> Activo </option>			
 			<option> Inactivo </option>
 			
-			
 			</select>
 			<input type="text" id="mensaje">
 			<font color="green" size="65"></font>
 			</td>
 		</tr>
+                
 		<tr align="center">
 		
 		<td><input type="submit" name="btnListar_Todo" size="35" value="Listar Todo" class="textos"> </td>
 		</tr>
-		</table>
+                
+                
+		</table><br><br>
                 
                 <table id="lic_consulta" class="table table-bordered">
                  <tr>
