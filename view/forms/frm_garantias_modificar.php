@@ -15,13 +15,20 @@
                     <td>Fecha fin de garantía:</td> <td align="left"><input type="date" name="fecha2"></td>
                 </tr>
                 <tr>
-                    <td>Descripción: </td> <td> <textarea cols="50" rows="15" name="txtDescripcion" id="descripcion"></textarea></td>
+                    <td>Descripción: </td> <td> <textarea cols="60" rows="5" name="txtDescripcion" id="descripcion"></textarea></td>
                 </tr>
                 <tr>
-                    <td>foránea: </td>  <td align="left"><input type="text" name="txtForanea" id="foranea" size="12" maxlength="12"> </td>
+                    <td>Tipo de Equipo: </td>  <td align="left"><select name="Tipo_Equipo"> 
+                                                <option disabled="disabled" selected="selected">SELECCIONE---></option>
+                                                <option value="1">Computador Portatil</option>
+                                                <option value="2">Computador de Mesa</option>
+                                                <option value="3">Impresora</option>
+                                                <option value="4">Poyector</option>
+                                                <option value="5">Servidor</option>
+                                                </select></td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnModificar" value="modificar"> 
+                    <td colspan="2"> <input type="submit" name="btnModificar" value="MODIFICAR" class="btn btn-info"> 
                    </td>
                     
                 </tr>

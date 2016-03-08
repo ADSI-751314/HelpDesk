@@ -55,7 +55,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#garantias" class="menu-item" data-script="">
+                    <a href="#garantias" class="menu-item" data-script="consultaGarantias">
                         <i class="fa fa-shield"></i>
                         <span>Garantias</span>
                         <i class="fa fa-angle-down"></i>

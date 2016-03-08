@@ -16,8 +16,9 @@
                 <tr>
                     <td>Fecha fin de garantía:</td> <td align="left"><input type="date" name="fecha2"></td>
                 </tr>
+                <br>
                 <tr>
-                    <td>Descripción: </td> <td> <textarea cols="50" rows="15" name="txtDescripcion" id="descripcion"></textarea></td>
+                    <td>Descripción: </td> <td> <textarea cols="60" rows="5" name="txtDescripcion" id="descripcion"></textarea></td>
                 </tr>
                 <tr>
                     <td>Tipo de Equipo: </td>  <td align="left"><select name="Tipo_Equipo">
@@ -26,11 +27,12 @@
                                                 <option value="2">Computador de Mesa</option>
                                                 <option value="3">Impresora</option>
                                                 <option value="4">Poyector</option>
+                                                <option value="5">Servidor</option>
                                                 </select> </td>
                                                 
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnGuardar" value="GUARDAR"> 
+                    <td colspan="2"> <input type="submit" name="btnGuardar" value="GUARDAR" class="btn btn-info"> 
                    </td>
                     
                 </tr>

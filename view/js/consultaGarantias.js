@@ -14,11 +14,10 @@ $(function () {
 
 function respuesta(data) {
     data = JSON.parse(data);
-    
     var div = document.getElementById("respuesta");
     var tabla = document.getElementById("tabla");
     var tblBody = document.createElement("tbody");
-    
+    tblBody.innerHTML = "";
     var hilera = null;
     var celda = null;
 
