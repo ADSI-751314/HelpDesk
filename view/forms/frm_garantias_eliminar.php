@@ -8,7 +8,7 @@
                     <td> Número garantía que desea eliminar: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_arantia" size="12" maxlength="12"> </td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnEliminar" value="eliminar"> 
+                    <td colspan="2"> <input type="submit" name="btnEliminar" value="ELIMINAR" class="btn btn-info"> 
                    </td>
                     
                 </tr>

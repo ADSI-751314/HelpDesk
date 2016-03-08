@@ -8,7 +8,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnConsultar" value="consultar"></td>
+                    <td colspan="2"> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info"></td>
                 </tr>
             </table>
         

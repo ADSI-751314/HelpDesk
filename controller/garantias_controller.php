@@ -26,7 +26,7 @@ switch ($proceso) {
         break;
     case ("modificar"): {
             
-            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['txtForanea']);
+            $garantias->modificar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['Tipo_Equipo']);
             echo "modificado";
         }
         break;
