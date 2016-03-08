@@ -72,4 +72,4 @@ break;
         $cons=new politicas_class();
         $cons->eliminar($pol_codigo);
     }
-?>
+ }
