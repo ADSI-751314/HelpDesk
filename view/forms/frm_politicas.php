@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <td> DESCRIPCION: </td>
-            <td> <input type="text" name="txtDescripcion" size="60" maxlength="4"> </td>
+            <td> <textarea name="txtDescripcion" rows ="5" cols="25"> </textarea> </td>
 
         </tr>
         <tr>
