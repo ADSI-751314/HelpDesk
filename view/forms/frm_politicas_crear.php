@@ -1,5 +1,5 @@
-<form name="frm_politicas">> 
-    <h1>frmPoliticas</h1>
+<form name="frm_politicas">
+    <h1>POLITICAS</h1>
     <table border="1" >
         <tr>
             <td colspan="4" class="titulos" align="center"> POLITICAS </td>					
