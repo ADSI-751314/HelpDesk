@@ -16,9 +16,6 @@
         <tr>
             <td colspan="4" align="center">
                 <input type="button" name="btnGuardar" value="Guardar">
-                <input type="button" name="btnModificar" value="Modificar">
-                <input type="button" name="btnEliminar" value="Eliminar">
-                <input type="button" name="btnConsultar" value="Consultar">
             </td>
 
         </tr>
