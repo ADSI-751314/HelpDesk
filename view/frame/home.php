@@ -220,7 +220,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="view/forms/frm_reportes.php" class="menu-item2" data-script="reportes">
+                    <a href="view/forms/frm_reportes.php" name="Reportes" class="menu-item2" data-script="reportes">
                         <i class="fa fa-line-chart"></i>
                         <span>Reportes</span>
                     </a>
@@ -232,9 +232,9 @@
         <!-- Page-Content -->
         <div id="page-content-wrapper">
             <div class="row" id="top-bar">
-                <div class="cell col-lg-12">
-                    <i class="fa fa-bars fa-3x" id="menu-toggle"></i>
-                    <h1 id="top-bar-title">Help Desk <small></small></h1>
+                <div class="cell col-md-12 col-xs-12">
+                    <i class="fa fa-bars fa-2x" id="menu-toggle"></i>
+                    <h2 id="top-bar-title">HelpDesk</h2>
                 </div>
             </div>
             <div class="container-fluid">

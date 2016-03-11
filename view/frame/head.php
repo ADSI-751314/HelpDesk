@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="shortcut icon" href="/HelpDesk/view/img/favicon.png">
-        <link rel="stylesheet" href="/HelpDesk/view/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/general.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap-datetimepicker.min.css">
