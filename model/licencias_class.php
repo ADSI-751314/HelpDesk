@@ -82,7 +82,7 @@ class licencias_class {
     }
 
     public function eliminar($pk_lic_codigo) {
-        $sql = " DELETE FROM licencias where pk_lic_codigo= '" . $pk_lic_codigo."";
+        $sql = " DELETE FROM licencias where pk_lic_codigo= '" . $pk_lic_codigo."'";
 
 
         $query = $this->conexion->ejecutarQuery($sql);
