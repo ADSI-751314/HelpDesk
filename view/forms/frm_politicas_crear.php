@@ -1,4 +1,7 @@
-<form name="frm_politicas">
+<form action="controller/politicas_controller.php?petition=crear" method="POST" name="frm_politicas_consultar">
+    
+ 
+    
     <h1>POLITICAS</h1>
     <table border="1" >
         <tr>
@@ -15,7 +18,7 @@
         </tr>
         <tr>
             <td colspan="4" align="center">
-                <input type="button" name="btnGuardar" value="Guardar">
+                <input type="submit" name="btnGuardar" value="Guardar">
             </td>
 
         </tr>
