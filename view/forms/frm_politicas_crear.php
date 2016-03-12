@@ -6,7 +6,7 @@
         </tr>
         <tr>
             <td> CODIGO POLITICAS: </td>
-            <td> <input type="text" name="txtPoliticas" size="8" maxlength="6"> </td>
+            <td> <input type="text" name="txtCodigo" size="8" maxlength="6"> </td>
         </tr>
         <tr>
             <td> DESCRIPCION: </td>
