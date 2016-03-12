@@ -154,6 +154,40 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="#Politicas" class="menu-item" datascript="">
+                        <i class="fa fa-briefcase"></i>
+                        <span>Politicas</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul id="politicas" class="list-menu submenu">
+                        <li>
+                            <a href="view/forms/frm_politicas_crear.php" class="submenu-item">
+                                <i class="fa fa-plus"></i>
+                                <span>Crear</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_politicas_consultar.php" class="submenu-item">
+                                <i class="fa fa-search"></i>
+                                <span>Consultar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_politicas_modificar.php" class="submenu-item">
+                                <i class="fa fa-pencil"></i>
+                                <span>Modificar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_politicas_eliminar.php" class="submenu-item">
+                                <i class="fa fa-trash-o"></i>
+                                <span>Eliminar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#licencias" class="menu-item" data-script="">
                         <i class="fa fa-hand-o-right"></i>
                         <span>Licencias</span>
