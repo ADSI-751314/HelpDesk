@@ -59,6 +59,7 @@ class licencias_controller {
 
         $clase = new licencias_class();
         $clase->eliminar($pk_lic_codigo);
+        
     }
 
     public function consultar_todo() {

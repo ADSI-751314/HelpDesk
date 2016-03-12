@@ -1,4 +1,4 @@
-<form action="controller/licencias_controller.php" method="POST"  name="crear">
+<form action="controller/licencias_controller.php" method="POST"  name="actualizar">
     <table colspan="3"align="center">
         <tr>
             <td> 
