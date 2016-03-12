@@ -16,7 +16,7 @@ switch($proceso)
         $pol_codigo=$_POST['txtCodigo'];
         $pol_descripcion=$_POST['txtDescripcion'];
 
-        $politicas ->guardar($pol_codigo,$pol_descripcion);
+        $politicas->guardar($pol_codigo,$pol_descripcion);
      } 
 
   break; 
@@ -26,7 +26,7 @@ case ('modificar');
         $pol_codigo=$_POST['txtCodigo'];
         $pol_descripcion=$_POST['txtDescripcion'];  
 
-        $politicas ->modificar($pol_codigo,$pol_descripcion);
+        $politicas->modificar($pol_codigo,$pol_descripcion);
 }
 
 break;
@@ -43,7 +43,7 @@ break;
      case ('eliminar');
      {
         $pol_codigo=$_POST['txtCodigo'];
-        $pol_descripcion=$_POST['txtDescripcion'];
+        $politicas->eliminar($pol_codigo);
      }
 
      break;
