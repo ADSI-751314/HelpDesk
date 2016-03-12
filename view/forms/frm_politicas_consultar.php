@@ -12,7 +12,8 @@
                             <td><input type="text"  name="txtDescripcion" values="">  </td> 
                         </tr>
                         <tr> 
-                            <td colspan="2"><input type="submit"  name="btnConsultar" value=" "></td> 
+                            <td colspan="4" aling="center">
+                            <input type="submit"  name="btnConsultar" value="guardar"></td> 
                         </tr>
                         </table>
  </form>
