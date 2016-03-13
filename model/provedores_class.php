@@ -1,7 +1,7 @@
 <?php
 
 include '../../HelpDesk/model/conexion_class.php';
-include 'model/conexion_class.php';
+
 
 class provedores_class {
 
@@ -26,12 +26,12 @@ class provedores_class {
         $query = $this->conexion->ejecutarQuery($sql);
     }
 
-    public function consultar($pro_codigo) {
+    public function consultar() {
 
         //CONEXION CON LA BASE DE DATOS 
         // CONSULTA CASE DE DATOS 
 
-        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores  ";
+        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores ";
 
         //ejecucion de la consulta
         $fuente_cliente = $this->conexion->ejecutarQuery($consulta_cliente);
@@ -39,7 +39,7 @@ class provedores_class {
 
 
         //obtener la cantidad de registros
-        $cantidad_cliente = mysql_num_rows($fuente_cliente);
+       $cantidad_cliente = mysql_num_rows($fuente_cliente);
 
 
         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
