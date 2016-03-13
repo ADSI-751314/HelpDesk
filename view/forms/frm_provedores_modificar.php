@@ -1,5 +1,6 @@
-       <div class="col-md-6">    
-            <form action="controller/provedores_controller.php?petition=modificar" method="POST" name="frm_provedores_modificar">
+<script type="text/javascript" src="view/js/proveedores.js"></script>
+<div class="col-md-6">    
+            <form action="controller/provedores_controller.php" method="POST" name="modificar">
                 
                 
                 <table CLASS="table">
@@ -18,28 +19,28 @@
      
                     </tr>
                     <tr> 
-                        <td>   Codigo Provedor</td> 
+                        <td>   Codigo Proveedor</td> 
                         <td> <input type="text"  name="txtPro_codigo" values="Ingrese  el codigo"> </td> 
                     </tr>
                   
                     
                     <tr> 
-                        <td>  Nombre Provedor</td> 
+                        <td>  Nombre Proveedor</td> 
                         <td> <input type="text"  name="txtPro_nombre" values="">  </td> 
                     </tr>
                     
                     <tr> 
-                        <td>  Telefono Provedor</td> 
+                        <td>  Telefono Proveedor</td> 
                         <td> <input type="text"  name="txtPro_telefono" values=""> </td> 
                     </tr>
                     
                     <tr> 
-                        <td>  Direccion Provedor </td> 
+                        <td>  Direccion Proveedor </td> 
                         <td> <input type="text"  name="txtPro_direccion" values="">  </td> 
                     </tr>
                     
                     <tr> 
-                        <td>  Correo Provedor</td> 
+                        <td>  Correo Proveedor</td> 
                         <td>   <input type="text"  name="txtPro_correo" values="">  </td> 
                     </tr>
                     
