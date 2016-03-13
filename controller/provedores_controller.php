@@ -8,7 +8,7 @@ include '../../HelpDesk/model/provedores_class.php';
 $provedores = new provedores_class();
 
 
-$proceso = $_REQUEST ['petition'];
+$proceso = $_REQUEST['petition'];
  
  switch($proceso)
  {
@@ -26,7 +26,8 @@ $proceso = $_REQUEST ['petition'];
        
         $provedores->guardar($pro_codigo,$pro_nombre, $pro_telefono,$pro_direccion,$pro_correo,$pro_pagina_web);
                  
-         
+        echo "registro guardado";
+       
                  
      } 
   break;
@@ -42,7 +43,7 @@ $proceso = $_REQUEST ['petition'];
        
      $provedores->modificar($pro_codigo,$pro_nombre, $pro_telefono,$pro_direccion,$pro_correo,$pro_pagina_web);
         
-         
+         echo "registro modificado";
      }
      break;
      
@@ -50,7 +51,7 @@ $proceso = $_REQUEST ['petition'];
      {
         
         $pro_codigo=$_POST['txtConsulta'];
-         $provedores->consultar($pro_codigo);
+         $provedores->consultar();
         
      }
       break;
@@ -58,7 +59,7 @@ $proceso = $_REQUEST ['petition'];
      {
        $pro_codigo=$_POST['txtPro_codigo'];
        $provedores->eliminar($pro_codigo);
-         
+         echo "registro eliminado";
      }
     break;
  }
