@@ -1,7 +1,7 @@
 
-
+<script type="text/javascript" src="view/js/proveedores.js"></script>   
 <div class="col-md-6">
-            <form action="controller/provedores_controller.php?petition=consultar" method="POST" name="frm_provedores_consultar">
+            <form action="controller/provedores_controller.php" method="POST" name="consultar">
                 
                 
                 <table class="table">
