@@ -1,3 +1,5 @@
+
+ 
 // funcion que se ejecuta cuando la pagina ya termino de cargar.
 $(function () {
     // funcion que se ejecuta cuando se hace submit en el form 
@@ -11,13 +13,11 @@ $(function () {
         ajax(controller,data,method,respuesta);
     });
 });
-
+var tblBody = document.createElement("tbody");
 function respuesta(data) {
     data = JSON.parse(data);
     var div = document.getElementById("respuesta");
     var tabla = document.getElementById("tabla");
-    var tblBody = document.createElement("tbody");
-    tblBody.innerHTML = "";
     var hilera = null;
     var celda = null;
 
@@ -37,4 +37,9 @@ function respuesta(data) {
         tabla.appendChild(tblBody);
         div.appendChild(tabla);
     }
+}
+
+function limpiarTexto()
+{
+     tblBody.innerHTML = "";
 }

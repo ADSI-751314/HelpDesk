@@ -8,7 +8,8 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info"></td>
+                    <td colspan="2"> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info">
+                        <input type="button" name="btnlimpiar" value="LIMPIAR" class="btn btn-info" onclick="limpiarTexto()"></td>
                 </tr>
             </table>
         
