@@ -95,7 +95,7 @@
                     </a>
                     <ul id="inventario" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_inventario_tecnologico.php" class="submenu-item">
+                            <a href="view/forms/frm_HistorialCambios.php" class="submenu-item">
                                 <i class="fa fa-plus"></i>
                                 <span>Crear</span>
                             </a>
