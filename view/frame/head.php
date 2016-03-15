@@ -10,12 +10,12 @@
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/general.css">
-        <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap-datepicker3.min.css">
         
         <script type="text/javascript" src="/HelpDesk/view/js/jquery.min.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datetimepicker.min.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datetimepicker.es.js"></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.es.min.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js"></script>
         <script type="text/javascript" src="/HelpDesk/view/js/general.js"></script>
         
