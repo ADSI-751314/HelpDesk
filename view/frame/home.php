@@ -8,7 +8,7 @@
                     <div id="profile-avatar"></div>
                     <div id="profile-name"><?php echo $_SESSION["fullname"]; ?></div>
                     <div id="logout">
-                        <a href="#logout">
+                        <a href="javascript:void(0);">
                             <i class="fa fa-power-off fa-lg"></i>
                             <span>Cerrar sesión</span>
                         </a>
@@ -273,7 +273,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12 col-xs-12">
                         <div id="form-container"></div>
                     </div>
                 </div>
