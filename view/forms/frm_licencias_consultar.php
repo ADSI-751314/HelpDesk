@@ -34,14 +34,16 @@
                 
 		<tr align="center">
 		
-		<td><input type="submit" name="btnListar_Todo" size="35" value="Listar Todo" class="textos"> </td>
+		<td><input type="submit" name="btnListar_Todo" size="35" value="Listar Todo" class="textos">
+                 <input type="button" name="btnlimpiar" value="LIMPIAR" class="btn btn-info" onclick="limpiarTexto()"></td>
 		</tr>
                 
                 
 		</table><br><br>
                 
                 <table id="lic_consulta" class="table table-bordered">
-                 <tr>
+                <thead>
+                    <tr>
                   <td><strong>Codigo</strong></td>
                   <td><strong>Nombre</strong></td>
                   <td><strong>Fecha Compra</strong></td>
@@ -50,7 +52,7 @@
                   <td><strong>Precio</strong></td>
                   <td><strong>Cobertura</strong></td>
                  </tr>
-                 
+                 </thead>
               </table>
        
     </table>

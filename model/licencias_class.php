@@ -4,7 +4,6 @@
 include_once 'conexion_class.php';
 
 
-
 class licencias_class {
     
   
@@ -29,7 +28,7 @@ class licencias_class {
 
     public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_inicio,$lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
         
-        $sql = "UPDATE licencias SET pk_lic_codigo = '".$pk_lic_codigo."',
+        $sql="UPDATE licencias SET pk_lic_codigo = '".$pk_lic_codigo."',
                                         lic_nombre ='". $lic_nombre."',
                                         lic_fecha_inicio = '".$lic_fecha_inicio."',
                                         lic_fecha_caducidad = '".$lic_fecha_caducidad."',
@@ -37,7 +36,6 @@ class licencias_class {
                                         lic_precio='".$lic_precio."',
                                         lic_cobertura = '".$lic_cobertura."' 
                                         where pk_lic_codigo='" . $pk_lic_codigo ."'";
-
         $query = $this->conexion->ejecutarQuery($sql);
         
         
@@ -48,6 +46,9 @@ class licencias_class {
 
         //CONEXION CON LA BASE DE DATOS 
 
+        $sql="select * from licencias";
+        $query = $this->conexion->consultarQuery($sql);
+        
         include_once ("conexion.php");
         $objconex = new Conexion ();
         $conecta = $objconex->conectar();
