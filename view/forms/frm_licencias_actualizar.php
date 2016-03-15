@@ -41,7 +41,7 @@
 
         <table colspan="3"align="center">
             <tr align="center">
-                <td><input type="submit" name="btnActualizar" size="35" value="Actualizar" class="textos"> </td>
+                <td><input type="submit" name="btnActualizar" size="35" value="Modificiar" class="textos"> </td>
             </tr>
         </table>
     </table>

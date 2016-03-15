@@ -1,5 +1,13 @@
 // funcion que se ejecuta cuando la pagina ya termino de cargar.
 $(function () {
+    var datePickerConfig = {
+        todayBtn: "linked",
+        language: "es",
+        autoclose: true,
+        todayHighlight: true
+    };
+    
+    $('.datepicker').datepicker(datePickerConfig);
 
     //Cargando Graficas de Usuarios.
     graficaUsuarios();
@@ -10,17 +18,9 @@ $(function () {
     // Cargando grafica de Fallas mas comunes
     graficaFallasComunes();
 
-// funcion que se ejecuta cuando se hace submit en el form 
-    $(".form_datetime").datetimepicker({
-        format: "dd MM yyyy - HH:ii P",
-        showMeridian: true,
-        autoclose: true,
-        todayBtn: true
-    });
-
     // funcion que se ejecuta cuando se hace submit en el form 
     $("form").submit(function (e) {
-//se cancela el evento del click para que no cambie de pagina.
+    //se cancela el evento del click para que no cambie de pagina.
         e.preventDefault();
         var controller = $("form").attr("action");
         var method = $("form").attr("method");
