@@ -121,6 +121,40 @@
                     </ul>
                 </li>
                 <li>
+                     <a href="#equipos" class="menu-item" data-script="">
+                        <i class="fa fa-laptop"></i>
+                        <span>Equipos</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul id="equipos" class="list-menu submenu">
+                        <li>
+                            <a href="view/forms/frm_equipos_crear.php" class="submenu-item">
+                                <i class="fa fa-plus"></i>
+                                <span>Crear</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_equipos_consultar.php" class="submenu-item">
+                                <i class="fa fa-search"></i>
+                                <span>Consultar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_equipos_modificar.php" class="submenu-item">
+                                <i class="fa fa-pencil"></i>
+                                <span>Modificar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_equipos_eliminar.php" class="submenu-item">
+                                <i class="fa fa-trash"></i>
+                                <span>Eliminar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    
                     <a href="#base" class="menu-item" data-script="">
                         <i class="fa fa-database"></i>
                         <span>Base Conocimiento</span>
