@@ -1,15 +1,14 @@
 <form action="controller/garantias_controller.php" method="POST"  name="consultar">
             <br>
              <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR)</h1>
-            <table>
+            <table border="2">
                 
                 <tr>
                     <td> Número garantía a consultar: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"> </td>
                 </tr>
-                
                 <tr>
-                    <td colspan="2"> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info">
-                        <input type="button" name="btnlimpiar" value="LIMPIAR" class="btn btn-info" onclick="limpiarTexto()"></td>
+                    <td> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info"></td>
+                    
                 </tr>
             </table>
         
@@ -29,7 +28,9 @@
                     <tr>
                     </tr>
                 </tbody>
-            </table>    
-        </div>
+            </table> 
+                
+          </div>
+              <input type="button" name="btnlimpiar" value="LIMPIAR" class="btn btn-info" onclick="limpiarTexto()">
 </form>
 <script type="text/javascript" src="view/js/consultaGarantias.js"></script>

@@ -2,11 +2,11 @@
 
 include "../../HelpDesk/model/garantias_class.php";
 
-
+//se recibe la peticion desde los formularios de garantias y los valida por medio de un comando switch
 $proceso = $_REQUEST ['petition'];
 
 $garantias = new garantias_controller();
-
+//se valida la peticion recibida
 switch ($proceso) {
     case ("guardar"): {
             $garantias->guardar($_REQUEST['txtGarantiaID'],$_REQUEST['option'],$_REQUEST['fecha'],$_REQUEST['fecha2'],$_REQUEST['txtDescripcion'],$_REQUEST['Tipo_Equipo']);
