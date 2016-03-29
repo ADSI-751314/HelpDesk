@@ -15,9 +15,9 @@ class login_class {
         $query_result = $this->conexion->consultarQuery($sql);
         
         if ($query_result) {
-            $_SESSION['username'] = $query_result["usu_username"];
-            $_SESSION['password'] = $query_result["usu_password"];
-            $_SESSION['fullname'] = $query_result["usu_primer_nombre"]." ".$query_result["usu_primer_apellido"];
+            $_SESSION['username'] = $query_result[0]["usu_username"];
+            $_SESSION['password'] = $query_result[0]["usu_password"];
+            $_SESSION['fullname'] = $query_result[0]["usu_primer_nombre"]." ".$query_result[0]["usu_primer_apellido"];
             return true;
         }
         return false;
