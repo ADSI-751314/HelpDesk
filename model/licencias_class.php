@@ -42,12 +42,14 @@ class licencias_class {
        
     }
 
+  
     public function consultar($pk_lic_codigo) {
 
         //CONEXION CON LA BASE DE DATOS 
 
-        $sql="select * from licencias";
+        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."'";
         $query = $this->conexion->consultarQuery($sql);
+        return $query;
         
         include_once ("conexion.php");
         $objconex = new Conexion ();
@@ -87,6 +89,13 @@ class licencias_class {
 
 
         $query = $this->conexion->ejecutarQuery($sql);
+    }
+    
+    public function consultar_todo1()
+    {
+        $sql="select * from licencias";
+        $query = $this->conexion->consultarQuery($sql);
+        
     }
 
 }

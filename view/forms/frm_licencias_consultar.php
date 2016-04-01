@@ -35,8 +35,8 @@
 		<tr align="center">
 		
 		<td><input type="submit" name="btnListar_Todo" size="35" value="Listar Todo" class="textos btn btn-info">
-                 <input type="button" name="btnConsultar" value="Consultar" class="btn btn-info" >
-                 <input type="button" name="btnlimpiar" value="Limpiar" class="btn btn-info" onclick="limpiarTexto()"></td>
+                    <input type="submit" name="btnConsultar" value="Consultar" class="btn btn-info" >
+                    <input type="submit" name="btnlimpiar" value="Limpiar" class="btn btn-info" onclick="limpiarTexto()"></td>
                
 		</tr>
                 
