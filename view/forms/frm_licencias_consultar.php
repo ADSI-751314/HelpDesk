@@ -1,4 +1,4 @@
-<form action="controller/licencias_controller.php" method="POST"  name="consultar">
+<form action="/HelpDesk/controller/licencias_controller.php?petition=consultar" method="POST" name="frm_licencias_consultar">
     <table colspan="3"align="center">
         <tr>
             <td> 
@@ -34,29 +34,22 @@
                 
 		<tr align="center">
 		
-		<td><input type="submit" name="btnListar_Todo" size="35" value="Listar Todo" class="textos btn btn-info">
-                    <input type="submit" name="btnConsultar" value="Consultar" class="btn btn-info" >
-                    <input type="submit" name="btnlimpiar" value="Limpiar" class="btn btn-info" onclick="limpiarTexto()"></td>
-               
+                    <td><input type="submit" name="btnConsultar" size="35" value="Consultar" class="textos btn btn-info">
 		</tr>
-                
-                
 		</table><br><br>
                 
                 <table id="lic_consulta" class="table table-bordered">
-                <thead>
-                    <tr>
-                  <td><strong>Codigo</strong></td>
-                  <td><strong>Nombre</strong></td>
-                  <td><strong>Fecha Compra</strong></td>
-                  <td><strong>Fecha Inicio</strong></td>
-                  <td><strong>Fecha Caducidad</strong></td>
-                  <td><strong>Precio</strong></td>
-                  <td><strong>Cobertura</strong></td>
-                 </tr>
-                 </thead>
+                    <thead>
+                        <tr>
+                           <td><strong>Codigo</strong></td>
+                           <td><strong>Nombre</strong></td>
+                           <td><strong>Fecha Compra</strong></td>
+                           <td><strong>Fecha Inicio</strong></td>
+                           <td><strong>Fecha Caducidad</strong></td>
+                           <td><strong>Precio</strong></td>
+                           <td><strong>Cobertura</strong></td>
+                        </tr>
+                     </thead>
               </table>
-       
-    </table>
 </form>
 <script type="text/javascript" src="view/js/licencias.js"/>

@@ -46,21 +46,25 @@ class licencias_class {
     public function consultar($pk_lic_codigo) {
 
         //CONEXION CON LA BASE DE DATOS 
-
-        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."'";
+        
+        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."'"; 
         $query = $this->conexion->consultarQuery($sql);
         return $query;
         
-        include_once ("conexion.php");
+        
+        /*include_once ("conexion.php");
         $objconex = new Conexion ();
         $conecta = $objconex->conectar();
-
+       */
+        
+        
         // CONSULTA CASE DE DATOS 
 
         $consulta_licencias = "select pk_lic_codigo,lic_nombre,lic_fecha_compra,lic_fecha_caducidad,lic_precio,lic_cobertura FROM licencias";
 
         //ejecucion de la consulta
-        $fuente_helpdesk = mysql_query($consulta_helpdesk, $conecta);
+        /*$fuente_helpdesk = mysql_query($consulta_helpdesk, $conecta);*/
+        
         //obtener la cantidad de registros
         $cantidad_licencias = mysql_num_rows($fuente_licencias);
 
@@ -84,14 +88,13 @@ class licencias_class {
         //fin del ciclo
     }
 
-    public function eliminar($pk_lic_codigo) {
-        $sql = " DELETE FROM licencias where pk_lic_codigo= '" . $pk_lic_codigo."'";
-
-
+    public function eliminar($pk_lic_codigo)
+    {
+        $sql = " DELETE FROM licencias where pk_lic_codigo= '".$pk_lic_codigo."'";
         $query = $this->conexion->ejecutarQuery($sql);
     }
     
-    public function consultar_todo1()
+    public function consultar_todo()
     {
         $sql="select * from licencias";
         $query = $this->conexion->consultarQuery($sql);
