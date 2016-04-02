@@ -128,21 +128,21 @@
                     </a>
                     <ul id="equipos" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_equipos_crear.php" class="submenu-item">
+                            <a href="view/forms/frm_ingresar_equipo.php" class="submenu-item">
                                 <i class="fa fa-plus"></i>
-                                <span>Crear</span>
+                                <span>Equipos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_equipos_consultar.php" class="submenu-item">
+                            <a href="view/forms/frm_ingresar_tipo_equipo.php" class="submenu-item">
                                 <i class="fa fa-search"></i>
-                                <span>Consultar</span>
+                                <span>Tipo De Equipos</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_equipos_modificar.php" class="submenu-item">
+                            <a href="view/forms/frm_ingresar_ficha_tecnica.php" class="submenu-item">
                                 <i class="fa fa-pencil"></i>
-                                <span>Modificar</span>
+                                <span>Ficha Tecnica</span>
                             </a>
                         </li>
                         <li>

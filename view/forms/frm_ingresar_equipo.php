@@ -1,21 +1,10 @@
 <html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>HelpDesk | Ingresar Equipo</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 70px;
+        /*padding-top: 70px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
     th, td{
@@ -23,15 +12,11 @@
     }
     </style>
 </head>
-
 <body onload="cargarOpciones();">
-    <div class="container">
-        <div class="row">
             <div class="col-lg-12 text-center">
                 <h1>HelpDesk | Ingresar Equipo</h1>
                 <p class="lead">Ingrese un tipo para crear una ficha técnica </p>
             </div>     
-        </div>
         <div class="row col-md-12 well">
             <form role="form" onsubmit="AgregarEquipo(); return false">
                 <div class="row">
@@ -67,10 +52,6 @@
         <div class="row">
             <div id="mostrar" class="col-md-12"></div>
         </div>
-
-    </div>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <script>
     function objetoAjax() {
         var xmlhttp = false;
@@ -98,7 +79,7 @@
         dep = document.getElementById("dep").value;
         tipo = document.getElementById("tipo").value;
         ajax = objetoAjax();
-        ajax.open("POST", "../../controller/equipo_controller.php?op=4", true);
+        ajax.open("POST", "controller/equipo_controller.php?op=4", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText;
@@ -113,7 +94,7 @@
     function mostrarEquipo() {
         divResultado = document.getElementById('mostrar');
         ajax = objetoAjax();
-        ajax.open("POST", "../../controller/equipo_controller.php?op=5", true);
+        ajax.open("POST", "controller/equipo_controller.php?op=5", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText
@@ -125,7 +106,7 @@
     function cargarOpciones() {
         divResultado = document.getElementById('cargarOps');
         ajax = objetoAjax();
-        ajax.open("POST", "../../controller/equipo_controller.php?op=3", true);
+        ajax.open("POST", "controller/equipo_controller.php?op=3", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText;
@@ -135,6 +116,8 @@
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         ajax.send(null);
     }
+    
+    cargarOpciones();
     </script>
 </body>
 </html>

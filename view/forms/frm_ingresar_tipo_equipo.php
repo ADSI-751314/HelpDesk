@@ -1,21 +1,10 @@
 <html lang="en">
     <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
         <title>HelpDesk | Ingresar Tipo de equipo</title>
-
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-
         <!-- Custom CSS -->
         <style>
             body {
-                padding-top: 70px;
+                /*padding-top: 70px;
                 /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
             }
             th, td{
@@ -23,15 +12,11 @@
             }
         </style>
     </head>
-
-    <body onload="mostrarTipo();">
-        <div class="container">
-            <div class="row">
+    <body>
                 <div class="col-lg-12 text-center">
                     <h1>HelpDesk | Ingresar Tipo de equipo</h1>
                     <p class="lead">Ingrese un Equipo para asociar a un próximo equipo. </p>
                 </div>     
-            </div>
             <div class="row well">
                 <form class="form-horizontal col-lg-12" role="form" onsubmit="AgregarTipo(); return false">
                     <div class="form-group">
@@ -48,7 +33,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="row col-md-12">
                 <div class="col-md-4"></div>
                 <div id="respuesta" class="col-md-4"></div>
@@ -57,10 +41,6 @@
             <div class="row">
                 <div id="mostrar" class="col-md-12"></div>
             </div>
-
-        </div>
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
         <script>
                     function objetoAjax() {
                         var xmlhttp = false;
@@ -85,7 +65,7 @@
                         divResultado = document.getElementById('respuesta');
                         tipo = document.getElementById("tipo").value;
                         ajax = objetoAjax();
-                        ajax.open("POST", "../../controller/equipo_controller.php?op=1", true);
+                        ajax.open("POST", "controller/equipo_controller.php?op=1", true);
                         ajax.onreadystatechange = function () {
                             if (ajax.readyState == 4) {
                                 divResultado.innerHTML = ajax.responseText;
@@ -101,7 +81,7 @@
                         divResultado = document.getElementById('mostrar');
                         tipo = document.getElementById("tipo").value;
                         ajax = objetoAjax();
-                        ajax.open("POST", "../../controller/equipo_controller.php?op=2", true);
+                        ajax.open("POST", "controller/equipo_controller.php?op=2", true);
                         ajax.onreadystatechange = function () {
                             if (ajax.readyState == 4) {
                                 divResultado.innerHTML = ajax.responseText
@@ -111,7 +91,7 @@
                         //enviando los valores a registro.php para que inserte los datos
                         ajax.send(null);
                     }
+                    mostrarTipo();
         </script>
     </body>
-
 </html>
