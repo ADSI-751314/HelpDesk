@@ -1,16 +1,16 @@
 <?php
 
-include '../../HelpDesk/model/conexion_class.php';
+include_once '../../HelpDesk/model/conexion_class.php';
 
 class politicas_class 
-{
+    {
 
     
     
     private $conexion; 
     public function __construct()
     {
-        $this->conexion=new conexion_class();
+        $this->conexion = new conexion_class();
         $this->conexion->conexion();
         
   }
