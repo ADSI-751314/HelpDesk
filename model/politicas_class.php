@@ -10,7 +10,7 @@ class politicas_class
     private $conexion; 
     public function __construct()
     {
-        $this->conexion = new conexion_class();
+        $this->conexion = new politicas_class();
         $this->conexion->conexion();
         
   }
