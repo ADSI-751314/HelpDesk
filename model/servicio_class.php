@@ -30,9 +30,10 @@ class servicio_class {
         $query=  $this->conexion->ejecutarQuery($sql);
     }
     
-    public function modificar($pTic, $pFec, $pHor, $pDes, $pEst, $pPrio, $pFecMod, $pUsu, $pEqu)
+    public function modificar($pTic, $pDes, $pEst, $pPrio, $pFecMod)
     {
-        $sql="UPDATE servicios SET('$pTic','$pFec','$pHor','$pDes','$pEst','$pPrio','$pFecMod','$pUsu','$pEqu')";
+        
+        $sql="UPDATE servicios SET ser_descripcion='".$pDes."', ser_estado='".$pEst."', ser_prioridad='".$pPrio."',ser_fecha_modificacion='".$pFecMod."' WHERE pk_ser_ticket='".$pTic."'";
         
         $query=  $this->conexion->ejecutarQuery($sql);
     }
@@ -46,40 +47,16 @@ class servicio_class {
     
     public function consultar($pTic)
     {
-        include_once 'conexion_class.php';
+        $sql="SELECT * FROM servicios WHERE pk_ser_ticket = '".$pTic."'";
         
-        $objConexion= new conexion_class();
-        $objConecta->$objConexion->conexion();
-        
-        
-        $sql="SELECT * FROM servicios WHERE pk_ser_ticket = $pTic";
-        
-        $query=  mysql_query($sql,$objConecta);
-        
-        $numCampos=  mysql_num_rows($query);
-        
-        for($i=0;$i<$numCampos;$i++)
-        {
-            $registro_servicios=  mysql_fetch_array($query);
-            
-            $contenido ="<tr>
-                    <td>".$registro_servicios[0]."</td>,
-                    <td>".$registro_servicios[1]."</td>,
-                    <td>".$registro_servicios[2]."</td>,
-                    <td>".$registro_servicios[3]."</td>,
-                    <td>".$registro_servicios[4]."</td>,
-                    <td>".$registro_servicios[5]."</td>,
-                    <td>".$registro_servicios[6]."</td>,
-                    <td>".$registro_servicios[7]."</td>,
-                    <td>".$registro_servicios[8]."</td>";
-            
-            echo $contenido;
-
-        }//fin del For
-        
-        
-        
+        $query = $this->conexion->consultarQuery($sql);
+        return $query;
+       
+       }
+       public function consultar_todo1()
+    {
+        $sql="select * from garantias";
+        $query = $this->conexion->consultarQuery($sql);
         
     }
-    
 }
