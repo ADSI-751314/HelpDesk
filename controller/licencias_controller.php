@@ -17,10 +17,7 @@ switch ($trabajo) {
     
     case("consultar"):
     {
-            echo 'NOSE SE VEEEEE';
         $controller->consultar($_REQUEST['txtCodigo_Licencia']);
-
-        echo "se esta realizando la consulta";
     }
     break;
 
@@ -53,9 +50,8 @@ class licencias_controller {
     
     public function consultar($lic_codigo)
     {
-        echo "rerreeree";
         $clase = new licencias_class();
-        $clase->consultar($txtCodigo_Licencia);
+        $clase->consultar($lic_codigo);
     }
     
 // metodo encargado de modificar algun campo de la bd tabla licencias 
