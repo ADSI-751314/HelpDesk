@@ -1,6 +1,6 @@
 <?php
 
-include '../../HelpDesk/model/politicas_class.php';
+include '../../HelpDesk/model/conexion_class.php';
 
 $politicas = new politicas_class();
 
