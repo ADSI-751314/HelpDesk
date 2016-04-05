@@ -18,6 +18,6 @@ $(function () {
 });
 
 function respuesta(data) {
-    alert("data");
+    
 }
 

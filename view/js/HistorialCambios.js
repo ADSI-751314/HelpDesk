@@ -25,8 +25,7 @@
              ajax(action,data,method,loginRequestHandler);
          }
      });
- });
-
+     
  function loginRequestHandler(response){
      var alert = $("#alert");
 
