@@ -18,6 +18,9 @@ $(function () {
 });
 
 function respuesta(data) {
-    
+
+    var respuesta = document.getElementById("respuesta");
+    respuesta.innerHTML = "";
+    respuesta.innerHTML = data;
 }
 
