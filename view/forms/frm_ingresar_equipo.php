@@ -1,24 +1,28 @@
 <html lang="en">
-<head>
-    <title>HelpDesk | Ingresar Equipo</title>
-    <!-- Custom CSS -->
-    <style>
-    body {
-        /*padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    th, td{
-        text-align: center;
-    }
-    </style>
-</head>
-<body onload="cargarOpciones();">
-            <div class="col-lg-12 text-center">
-                <h1>HelpDesk | Ingresar Equipo</h1>
-                <p class="lead">Ingrese un tipo para crear una ficha técnica </p>
-            </div>     
-        <div class="row col-md-12 well">
-            <form role="form" onsubmit="AgregarEquipo(); return false">
+    <head>
+        <title>HelpDesk | Ingresar Equipo</title>
+        <!-- Custom CSS -->
+        <style>
+            body {
+                /*padding-top: 70px;
+                /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+            }
+            th, td{
+                text-align: center;
+            }
+            a{
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body onload="cargarOpciones();">
+        <div class="col-lg-12 text-center">
+            <h1>HelpDesk | Ingresar Equipo</h1>
+            <p class="lead">Ingrese un tipo para crear una ficha técnica </p>
+        </div>     
+        <div class="row col-md-12 well" id="form">
+            <form role="form" onsubmit="AgregarEquipo();
+                    return false">
                 <div class="row">
                     <div class="form-group">
                         <label class="col-lg-2 control-label" for="nombre">Nombre</label>
@@ -43,7 +47,7 @@
                 </div>
             </form>
         </div>
-
+        <div id="cargarForm"></div>
         <div class="row col-md-12">
             <div class="col-md-4"></div>
             <div id="respuesta" class="col-md-4"></div>
@@ -52,72 +56,117 @@
         <div class="row">
             <div id="mostrar" class="col-md-12"></div>
         </div>
-    <script>
-    function objetoAjax() {
-        var xmlhttp = false;
-        try {
-            xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
+        <script>
+            function objetoAjax() {
+                var xmlhttp = false;
+                try {
+                    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
 
-            try {
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (E) {
-                xmlhttp = false;
-            }
-        }
+                    try {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (E) {
+                        xmlhttp = false;
+                    }
+                }
 
-        if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-            xmlhttp = new XMLHttpRequest();
-        }
-        return xmlhttp;
-    }
+                if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                return xmlhttp;
+            }
 
-    function AgregarEquipo() {
-        divResultado = document.getElementById('respuesta');
-        nombre = document.getElementById("nombre").value;
-        precio = document.getElementById("precio").value;
-        dep = document.getElementById("dep").value;
-        tipo = document.getElementById("tipo").value;
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/equipo_controller.php?op=4", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                document.getElementById("nombre").value = "";
-                document.getElementById("precio").value = "";
-                mostrarEquipo();
+            function AgregarEquipo() {
+                divResultado = document.getElementById('respuesta');
+                nombre = document.getElementById("nombre").value;
+                precio = document.getElementById("precio").value;
+                dep = document.getElementById("dep").value;
+                tipo = document.getElementById("tipo").value;
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=4", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        document.getElementById("nombre").value = "";
+                        document.getElementById("precio").value = "";
+                        mostrarEquipo();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send("nombre=" + nombre + "&precio=" + precio + "&dep=" + dep + "&tipo=" + tipo);
             }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ajax.send("nombre=" + nombre+"&precio=" + precio+"&dep=" + dep+"&tipo=" + tipo);
-    }
-    function mostrarEquipo() {
-        divResultado = document.getElementById('mostrar');
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/equipo_controller.php?op=5", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
+            function mostrarEquipo() {
+                divResultado = document.getElementById('mostrar');
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=5", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send(null);
             }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ajax.send(null);
-    }
-    function cargarOpciones() {
-        divResultado = document.getElementById('cargarOps');
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/equipo_controller.php?op=3", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                mostrarEquipo();
+            function cargarOpciones() {
+                divResultado = document.getElementById('cargarOps');
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=3", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        mostrarEquipo();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send(null);
             }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ajax.send(null);
-    }
-    
-    cargarOpciones();
-    </script>
-</body>
+            function cargarForm(id) {
+                document.getElementById('cargarForm').style.display = 'block';
+                divResultado = document.getElementById('cargarForm');
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=6", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        mostrarEquipo();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send("id=" + id);
+            }
+            function modificar() {
+                divResultado = document.getElementById('respuesta');
+                nombre = document.getElementById("nombreM").value;
+                precio = document.getElementById("precioM").value;
+                dep = document.getElementById("depM").value;
+                tipo = document.getElementById("tipoM").value;
+                id = document.getElementById("idM").value;
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=7", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        document.getElementById('cargarForm').style.display = 'none';
+                        mostrarEquipo();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send("nombre=" + nombre + "&precio=" + precio + "&dep=" + dep + "&tipo=" + tipo+ "&id=" + id);
+            }
+            function eliminar(id) {
+                divResultado = document.getElementById('respuesta');
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/equipo_controller.php?op=8", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        mostrarEquipo();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send("id=" + id);
+            }
+            cargarOpciones();
+        </script>
+    </body>
 </html>
