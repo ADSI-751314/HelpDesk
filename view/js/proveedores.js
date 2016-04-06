@@ -49,6 +49,23 @@ function objetoAjax() {
         ajax.send(null);
     }
     
+    
+     function mostrarParametro() {
+        divResultado = document.getElementById('ProveedoresF');
+        var parametro = document.getElementById('txtPro_parametro').value;
+        ajax = objetoAjax();
+        ajax.open("POST", "controller/provedores_controller.php?op=5", true);
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                divResultado.innerHTML = ajax.responseText
+            }
+        }
+        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        ajax.send("txtPro_parametro=" + parametro);
+    }
+    
+    
+    
      function guardar() {
         divResultado = document.getElementById('result');
         var codigo = document.getElementById('txtPro_codigo').value;
@@ -90,6 +107,10 @@ function modificar() {
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
     }
+    
+    
+    
+    
     function eliminar() {
         divResultado = document.getElementById('result');
         var codigo = document.getElementById('txtPro_codigo').value;
