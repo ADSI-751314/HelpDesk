@@ -49,6 +49,14 @@ if ($op==4)
             echo "registro eliminado";
 }
 
+if($op==5){
+    $pro_parametro = $_POST['txtPro_parametro'];
+    
+    $provedores->consultarParametro($pro_parametro);
+    echo "consulta exitosa";
+}
+
+
 class provedores_controller {
 
     public function guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
