@@ -7,6 +7,12 @@
                    <td> Codigo de Equipo que desea Eliminar: </td>  <td align="left"><input type="text" name="txtcodigo" id="numero_garantia" size="12" maxlength="12"></td> 
                        
                 </tr>
+                
+                <tr>
+                    <td colspan="2"> <input type="submit" name="btnEliminar" value="ELIMINAR" class="btn btn-info"> 
+                   </td>
+                    
+                </tr>
               
             </table>
         </form>
