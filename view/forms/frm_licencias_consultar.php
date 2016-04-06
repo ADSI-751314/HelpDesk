@@ -24,6 +24,7 @@
                 </tr>
                 <tr align="center">
                     <td><input type="submit" name="btnConsultar" size="35" value="Consultar" class="textos btn btn-info">
+                        <input type="submit" name="btnConsultar" size="35" value="Consultar Todo" class="btn btn-lg btn-success"></td>
                 </tr>
             </table>
         </form>

@@ -1,11 +1,7 @@
+<h1>FORMULARIO LICENCIAS<h1> 
+        <h2> ELIMINAR LICENCIA</h2>
 <form action="controller/licencias_controller.php" method="POST"  name="eliminar">
-    <table colspan="3"align="center">
-        <tr>
-            <td> 
-                FORMULARIO LICENCIAS <br> ELIMINAR LICENCIA
-            </td>
-        </tr>
-    </table>
+   
     <table colspan="3"align="center">
         <tr>
             <td>Codigo Licencia</td> 

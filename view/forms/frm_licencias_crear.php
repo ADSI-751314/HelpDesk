@@ -1,11 +1,6 @@
+<h1>FORMULARIO LICENCIAS<h1> 
+        <h2> CREAR LICENCIAS</h2>
 <form action="controller/licencias_controller.php" method="POST"  name="crear">
-    <table colspan="3"align="center">
-        <tr>
-            <td> 
-                FORMULARIO LICENCIAS <br> CREAR
-            </td>
-        </tr>
-    </table>
     <table colspan="3"align="center">
         <tr>
             <td>Codigo Licencia</td> 
