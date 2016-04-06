@@ -38,9 +38,49 @@ class provedores_class {
         } 
         echo '  <table class="table table-striped">
                                 <tr>
-                                    <td> CODIGO PROVEDOR</td>
-                                    <td> NOMBRE PROVEDOR </td>
-                                    <td> TELEFONO PROVEDOR</td>
+                                    <td> CODIGO PROVEEDOR</td>
+                                    <td> NOMBRE PROVEEDOR </td>
+                                    <td> TELEFONO PROVEEDOR</td>
+                                    <td> DIRECCION </td>
+                                    <td> CORREO</td>
+                                    <td>PAGINA WEB</td>
+                                </tr>';
+        while ($row = mysqli_fetch_array($result)) {
+            $contenido = "<tr>
+							<td> " . $row[0] . " </td>
+							<td> " . $row[1] . " </td>
+							<td> " . $row[2] . " </td>
+							<td> " . $row[3] . " </td>
+							<td> " . $row[4] . " </td>
+                                                        <td> " . $row[5] . " </td>
+							
+							</tr>";
+
+            echo $contenido;
+        }
+        echo '</table>';
+    }
+
+       public function consultarParametro($pro_parametro) {
+
+        //CONEXION CON LA BASE DE DATOS 
+        // CONSULTA CASE DE DATOS 
+
+        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo like '%".$pro_parametro."%' or  pro_nombre like '%".$pro_parametro."%' or   pro_telefono like '%".$pro_parametro."%' or   pro_direccion like '%".$pro_parametro."%' or pro_correo like '%".$pro_parametro."%' or pro_pagina_web like '%".$pro_parametro."%'";
+
+        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
+            echo $conexion->error;
+        } 
+        
+        
+        
+        
+        
+        echo '  <table class="table table-striped">
+                                <tr>
+                                    <td> CODIGO PROVEEDOR</td>
+                                    <td> NOMBRE PROVEEDOR </td>
+                                    <td> TELEFONO PROVEEDOR</td>
                                     <td> DIRECCION </td>
                                     <td> CORREO</td>
                                     <td>PAGINA WEB</td>
