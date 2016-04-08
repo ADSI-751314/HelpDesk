@@ -4,16 +4,13 @@
              <h1 align="center"> FORMULARIO EQUIPOS (ELIMINAR)</h1>
             <table>
                 <tr>
-                   <td> Codigo de Equipo que desea Eliminar: </td>  <td align="left"><input type="text" name="txtcodigo" id="numero_garantia" size="12" maxlength="12"></td> 
+                   <td> Codigo de Equipo que desea Eliminar: </td>  <td align="left"><input type="text" name="txtcodigo" id="numero_garantia" size="12" maxlength="12" placeholder="Codigo" ></td> 
                        
                 </tr>
-                
-                <tr>
-                    <td colspan="2"> <input type="submit" name="btnEliminar" value="ELIMINAR" class="btn btn-info"> 
-                   </td>
-                    
-                </tr>
-              
             </table>
+             
+                 <button class="btn btn-danger" type="submit" name="btnEliminar">
+                        <i class="glyphicon glyphicon-trash">Eliminar</i>
+                    </button>
         </form>
 

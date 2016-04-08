@@ -24,7 +24,7 @@ switch ($proceso) {
         
 /* @var $_REQUEST type */
             $equipos->eliminar($_REQUEST['txtcodigo']);
-            echo 'eliminado';
+            echo '<script type="text/javascript">alert("Eliminado");</script>';
         }
         break;
     case ("modificar"): {
@@ -33,6 +33,11 @@ switch ($proceso) {
             echo "modificado";
         }
         break;
+     case("consultar"):
+    {
+        $equipos->consultar($_REQUEST['txtCodigo_Equipo']);
+    }
+    break;
    
 }
 class equipos_controller {
@@ -59,6 +64,21 @@ class equipos_controller {
         $modifi = new equipos_class();
         $modifi->modificar($equ_cod,$equ_precio,$equ_option,$equ_optionl);
     }
+    
+    public function consultar($equ_codigo)
+    {
+        $clase = new equipos_class();
+        $clase->consultar($equ_codigo);
+    }
+    
+      public function consultar_todo() {
+        $consul = new equipos_class();
+        $contod = $consul->consultar_todo();
+        foreach ($contod as $contenido) {
+            echo $contenido;
+        }
+    }
+
     
     
 }
