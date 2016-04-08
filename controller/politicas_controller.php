@@ -21,21 +21,21 @@ switch($proceso)
 
   break; 
 
-case ('modificar');
+
+case ('actualizar');
 {
         $pol_codigo=$_POST['txtCodigo'];
         $pol_descripcion=$_POST['txtDescripcion'];  
 
         $politicas->modificar($pol_codigo,$pol_descripcion);
 }
-
 break;
 
      case('consultar');
      {
         $pol_codigo=$_POST['txtCodigo'];
-        $pol_descripcion=$_POST['txtDescripcion'];
-         
+        
+         $politicas->consultar($pol_codigo);
      }
 
      break;

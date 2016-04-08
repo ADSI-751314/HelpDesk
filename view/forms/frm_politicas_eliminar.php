@@ -1,4 +1,4 @@
-<form action="HelpDesk/controller/politicas_controller.php?petition=eliminar" method="POST" name="frm_politicas_eliminar">
+<form action="controller/politicas_controller.php?petition=eliminar" method="POST" name="frm_politicas_eliminar">
     <table>
         <tr>
             <td colspan="2"><h1> Eliminar Politicas <h1></td>
