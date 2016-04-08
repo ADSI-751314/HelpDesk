@@ -25,4 +25,11 @@ class base_conocimiento_controller{
         $clase->consultar('pk_det_codigo','det_descripcion','det_fecha');     
     }
     
+    public function consulta($buscar,$busqueda,$descripcion,$solucion){
+        
+        $clase = new base_conocimiento_class();
+        $clase->consulta('pk_htc_codigo','htc_fecha','htc_hora', 'htc_descripcion');     
+    }
+    
 }
+
