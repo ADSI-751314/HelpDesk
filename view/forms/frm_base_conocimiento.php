@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 			<td align="center" colspan="3">
-			<input type="submit" name="btnbuscador" class="boton peque aceptar btn btn-info" size="30" value="Buscar" id="buscador">
+			<input type="submit" name="btnbuscador" class="boton peque aceptar btn btn-info" size="30" value="Consultar" id="buscador">
 			</td>
 			</tr>
 			<tr>

@@ -2,7 +2,6 @@
 
 include '../../HelpDesk/model/conexion_class.php';
 
-
 class provedores_class {
 
     private $conexion;
@@ -14,9 +13,10 @@ class provedores_class {
 
     public function guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
         $sql = " insert into proveedores values ('$pro_codigo','$pro_nombre', '$pro_telefono','$pro_direccion','$pro_correo','$pro_pagina_web')";
-
-
-        $query = $this->conexion->ejecutarQuery($sql);
+        
+        if(!$query = $this->conexion->ejecutarQuery($sql)){
+            echo 'error';
+        }
     }
 
     public function modificar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
@@ -33,33 +33,75 @@ class provedores_class {
 
         $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores ";
 
-        //ejecucion de la consulta
-        $fuente_cliente = $this->conexion->ejecutarQuery($consulta_cliente);
-
-
-
-        //obtener la cantidad de registros
-       $cantidad_cliente = mysql_num_rows($fuente_cliente);
-
-
-        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
-        for ($i = 0; $i < $cantidad_cliente; $i++) {
-            $registro_cliente = mysql_fetch_row($fuente_cliente);
-
+        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
+            echo $conexion->error;
+        } 
+        echo '  <table class="table table-striped">
+                                <tr>
+                                    <td> CODIGO PROVEEDOR</td>
+                                    <td> NOMBRE PROVEEDOR </td>
+                                    <td> TELEFONO PROVEEDOR</td>
+                                    <td> DIRECCION </td>
+                                    <td> CORREO</td>
+                                    <td>PAGINA WEB</td>
+                                </tr>';
+        while ($row = mysqli_fetch_array($result)) {
             $contenido = "<tr>
-							<td> " . $registro_cliente[0] . " </td>
-							<td> " . $registro_cliente[1] . " </td>
-							<td> " . $registro_cliente[2] . " </td>
-							<td> " . $registro_cliente[3] . " </td>
-							<td> " . $registro_cliente[4] . " </td>
-                                                        <td> " . $registro_cliente[5] . " </td>
+							<td> " . $row[0] . " </td>
+							<td> " . $row[1] . " </td>
+							<td> " . $row[2] . " </td>
+							<td> " . $row[3] . " </td>
+							<td> " . $row[4] . " </td>
+                                                        <td> " . $row[5] . " </td>
 							
 							</tr>";
 
             echo $contenido;
         }
-        //fin del ciclo
+        echo '</table>';
     }
+
+       public function consultarParametro($pro_parametro) {
+
+        //CONEXION CON LA BASE DE DATOS 
+        // CONSULTA CASE DE DATOS 
+
+        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo like '%".$pro_parametro."%' or  pro_nombre like '%".$pro_parametro."%' or   pro_telefono like '%".$pro_parametro."%' or   pro_direccion like '%".$pro_parametro."%' or pro_correo like '%".$pro_parametro."%' or pro_pagina_web like '%".$pro_parametro."%'";
+
+        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
+            echo $conexion->error;
+        } 
+        
+        
+        
+        
+        
+        echo '  <table class="table table-striped">
+                                <tr>
+                                    <td> CODIGO PROVEEDOR</td>
+                                    <td> NOMBRE PROVEEDOR </td>
+                                    <td> TELEFONO PROVEEDOR</td>
+                                    <td> DIRECCION </td>
+                                    <td> CORREO</td>
+                                    <td>PAGINA WEB</td>
+                                </tr>';
+        while ($row = mysqli_fetch_array($result)) {
+            $contenido = "<tr>
+							<td> " . $row[0] . " </td>
+							<td> " . $row[1] . " </td>
+							<td> " . $row[2] . " </td>
+							<td> " . $row[3] . " </td>
+							<td> " . $row[4] . " </td>
+                                                        <td> " . $row[5] . " </td>
+							
+							</tr>";
+
+            echo $contenido;
+        }
+        echo '</table>';
+    }
+
+    //fin del ciclo
 
     public function eliminar($pro_codigo) {
         $sql = " DELETE FROM proveedores where pk_pro_codigo=" . $pro_codigo . "";

@@ -25,7 +25,7 @@ class equipos_class {
      //metodo que me elimina el campo seleccionado desde el formulario
     public function eliminar($pk_gar_codigo)
     {
-        $sql="DELETE FROM garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
+        $sql="DELETE FROM equipos WHERE pk_equ_codigo = '".$pk_gar_codigo."'";
         $query = $this->conexion->ejecutarQuery($sql);        
     }
      //metodo para modificar el campo seleccionado
