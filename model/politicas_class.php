@@ -22,10 +22,11 @@ class politicas_class
         $query = $this->conexion->ejecutarQuery($sql);
     }
     
-     public function modificar($pol_codigo,$pol_descripcion)
+  
+    
+       public function modificar($pol_codigo,$pol_descripcion)
     {
-       $sql= " 'UPDATE politicas SET pol_codigo='" . $pol_codigo . "'pol_descripcion'" . $pol_descripcion . "'";
-        
+        $sql= "UPDATE politicas SET pol_descripcion = '".$pol_descripcion."' where pk_pol_codigo = '".$pol_codigo."'";
         
         $query = $this->conexion->ejecutarQuery($sql);
     }
