@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../HelpDesk/model/politicas_class.php';
+include_once 'conexion_class.php';
 
 class politicas_class 
     {
@@ -10,7 +10,7 @@ class politicas_class
     private $conexion; 
     public function __construct()
     {
-        $this->conexion = new politicas_class();
+        $this->conexion = new conexion_class();
         $this->conexion->conexion();
         
   }
@@ -35,28 +35,14 @@ class politicas_class
         //cnx bd
         //consulta bd
         
-        $consulta_cliente = "select pk_pol_codigo,pol_descripcion";
+        $consulta_cliente = "select pk_pol_codigo,pol_descripcion from politicas where pk_pol_codigo =" . $pol_codigo."" ;
         
-        $fuente_cliente = $this->conexion->ejecutarQuery($consulta_cliente);
+       $this->conexion->ejecutarQuery($consulta_cliente);
         
         $cantidad_cliente = mysql_num_rows($fuente_cliente);
         
-        for ($i = 0; $i < $cantidad_cliente; $i++)
-        {
-            $registro_cliente = mysql_fetch_row($fuente_cliente);
-
-            $contenido = "<tr>
-							<td> " . $registro_cliente[0] . " </td>
-							<td> " . $registro_cliente[1] . " </td>
-							<td> " . $registro_cliente[2] . " </td>
-							<td> " . $registro_cliente[3] . " </td>
-							<td> " . $registro_cliente[4] . " </td>
-                                                        <td> " . $registro_cliente[5] . " </td>
-							
-							</tr>";
-
-            echo $contenido;
-        }
+        
+        
     }
         public function eliminar($pol_codigo) 
         {
