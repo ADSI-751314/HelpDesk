@@ -36,7 +36,7 @@
 
         <table colspan="3"align="center">
             <tr align="center">
-                <td><input type="submit" name="btnCrear" size="35" value="Crear" class="textos"> </td>
+                <td><input type="submit" name="btnCrear" size="35" value="Crear" class="textos btn btn-lg btn-success"> </td>
             </tr>
         </table>
     </table>

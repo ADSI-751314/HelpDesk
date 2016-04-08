@@ -15,7 +15,7 @@
         
         <table colspan="3"align="center">
             <tr align="center">
-                <td><input type="submit" name="btnEliminar" size="35" value="Eliminar" class="textos"> </td>
+                <td><input type="submit" name="btnEliminar" size="35" value="Eliminar" class="textos btn btn-lg btn-success"> </td>
             </tr>
         </table>
     </table>
