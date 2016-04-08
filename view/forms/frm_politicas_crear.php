@@ -1,4 +1,4 @@
-<form action="controller/politicas_controller.php?petition=crear" method="POST" name="frm_politicas_consultar">
+<form action="controller/politicas_controller.php?petition=guardar" method="POST" name="frm_politicas_consultar">
     
  
     
@@ -12,7 +12,7 @@
             <td> <input type="text" name="txtCodigo" size="8" maxlength="6"> </td>
         </tr>
         <tr>
-            <td> DESCRIPCION: </td>
+            <td> DESCRIPCION mm: </td>
             <td> <textarea name="txtDescripcion" rows ="5" cols="25"> </textarea> </td>
 
         </tr>
