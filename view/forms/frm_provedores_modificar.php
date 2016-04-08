@@ -14,7 +14,7 @@
                           <td colspan="2"  >   
                             
                               <a onclick="modificar();"  name="btnmodificar" value="modificar" class="btn btn-lg btn-success">Modificar</a>
-                             
+                             <a onclick="cargarModificar();"  name="btnmodificar" value="modificar" class="btn btn-lg btn-success">Cargar</a>
                           </td> 
      
                     </tr>
@@ -50,7 +50,7 @@
                     </tr>
                     </table>
                  
-                <div id="result"></div>
+                <div id="resultado"></div>
                
                     
              

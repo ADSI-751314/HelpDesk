@@ -65,6 +65,24 @@ function objetoAjax() {
     }
     
     
+      function cargarModificar() {
+           document.getElementById('resultado').style.display = 'block';
+                divResultado = document.getElementById('resultado');
+               
+                var codigo = document.getElementById('txtPro_codigo').value;
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/provedores_controller.php?op=6", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                        mostrar();
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send("txtPro_codigo=" + codigo);
+            }
+    
+    
     
      function guardar() {
         divResultado = document.getElementById('result');
@@ -88,7 +106,7 @@ function objetoAjax() {
     }
 
 function modificar() {
-        divResultado = document.getElementById('result');
+        divResultado = document.getElementById('resultado');
         var codigo = document.getElementById('txtPro_codigo').value;
         var nombre = document.getElementById('txtPro_nombre').value;
         var telefono = document.getElementById('txtPro_telefono').value;

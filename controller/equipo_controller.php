@@ -208,6 +208,8 @@ function modificar() {
     $tipo = $_POST["tipo"];
     $sql = "update equipos set equ_nombre = '$nombre', equ_precio = '$precio', fk_dep_codigo = $dep, fk_tip_codigo = $tipo where pk_equ_codigo = $id ";
     $insert = $conexion->ejecutarQuery($sql);
+    
+    
     if ($insert == '1') {
         echo '<div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>

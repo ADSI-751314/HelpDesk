@@ -56,6 +56,12 @@ if($op==5){
     echo "consulta exitosa";
 }
 
+if($op==6){
+     $pro_codigo = $_POST['txtPro_codigo'];
+    
+    $provedores->cargarModificar($pro_codigo);
+    echo "carga exitosa";
+}
 
 class provedores_controller {
 

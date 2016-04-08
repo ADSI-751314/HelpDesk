@@ -25,5 +25,5 @@
         </div>
 
   <div id="ProveedoresF"></div>
-
+    <div id="resultado"></div>
 </div>

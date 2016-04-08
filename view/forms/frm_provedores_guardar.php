@@ -1,4 +1,4 @@
- <div class="col-md-6">
+ <div class="col-md-12">
 <form>
     <table class="table">
                         <tr>
@@ -36,8 +36,6 @@
      
      <div>
          
-         <div id="result"></div>
-         <script>
-         
-         </script>
+         <div id="result" ></div>
+       
          <script type="text/javascript" src="view/js/proveedores.js"></script>
