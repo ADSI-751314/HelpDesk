@@ -26,3 +26,4 @@
     </table>
 
 </form>
+<script type="text/javascript" src="view/js/politicas.js"/>
