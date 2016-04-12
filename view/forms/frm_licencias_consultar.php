@@ -44,5 +44,9 @@
                 <tbody id ="respuesta">
                     
                 </tbody>
+                <tbody id ="respuesta2">
+                    
+                </tbody>
+                
             </table>
         <script type="text/javascript" src="view/js/licencias.js"/>

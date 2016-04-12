@@ -54,6 +54,11 @@ class licencias_controller {
         $clase->consultar($lic_codigo,$lic_nombre);
     }
     
+     public function consulta($lic_codigo,$lic_nombre,$lic_fecha_inicio,$lic_fecha_compra,$lic_fecha_caducidad,$lic_precio,$lic_cobertura)
+    {
+        $clase = new licencias_class();
+        $clase->consulta($lic_codigo,$lic_nombre,$lic_fecha_inicio,$lic_fecha_compra,$lic_fecha_caducidad,$lic_precio,$lic_cobertura);
+    }
 // metodo encargado de modificar algun campo de la bd tabla licencias 
     
     public function actualizar($txtCodigo_Licencia, $txtNombre_Licencia, $txtFecha_Inicio, $txtFecha_caducidad, $txtFecha_Compra, $txtPrecio, $txtCobertura)

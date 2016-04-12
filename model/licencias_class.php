@@ -61,7 +61,29 @@ class licencias_class {
         }
         //fin del ciclo
     }
+public function consulta($pk_lic_codigo,$lic_nombre,$lic_fecha_inicio,$lic_fecha_compra,$lic_fecha_caducidad,$lic_precio,$lic_cobertura) {
 
+    //CONEXION CON LA BASE DE DATOS 
+        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."' or lic_nombre = '".$lic_nombre."'or lic_fecha_inicio = '".$lic_fecha_inicio."'or lic_fecha_compra = '".$lic_fecha_compra."'or lic_fecha_caducidad = '".$lic_fecha_caducidad."'or lic_precio = '".$lic_precio."'or lic_cobertura= '".$lic_cobertura."'"; 
+        $query = $this->conexion->consultaQuery($sql);
+        
+        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
+        foreach ($query as $fila) {
+
+           $contenido = "<tr>
+                            <td> " . $fila['pk_lic_codigo'] . " </td>
+                            <td> " . $fila['lic_nombre'] . " </td>
+                            <td> " . $fila['lic_fecha_inicio'] . " </td>
+                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
+                            <td> " . $fila['lic_fecha_compra'] . " </td>
+                            <td> " . $fila['lic_precio'] . " </td>
+                            <td> " . $fila['lic_cobertura'] . " </td>
+                        </tr>";
+            echo $contenido;
+        }
+        //fin del ciclo
+    }
+    
     public function eliminar($pk_lic_codigo)
     {
         $sql = " DELETE FROM licencias where pk_lic_codigo= '".$pk_lic_codigo."'";
