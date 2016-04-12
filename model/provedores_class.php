@@ -14,10 +14,11 @@ class provedores_class {
     public function guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
         $sql = " insert into proveedores values ('$pro_codigo','$pro_nombre', '$pro_telefono','$pro_direccion','$pro_correo','$pro_pagina_web')";
         
+        $query = $this->conexion->ejecutarQuery($sql);
         if(!$query = $this->conexion->ejecutarQuery($sql)){
             echo 'error';
         }
-        
+       
              if ($query == '1') {
         echo '<div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -43,61 +44,51 @@ class provedores_class {
     }else{
        
          while ($row = mysqli_fetch_array($result)) {
-           $contenido = '  <table CLASS="table">
-                    
-                       <tr> 
-                           <td colspan="2"  >  <h1> Modificar  de Proveedores<h1></td> 
-     
-                    </tr>
-                    
-                    <tr> 
-                          <td colspan="2"  >   
-                            
-                              <a onclick="modificar();"  name="btnmodificar" value="modificar" class="btn btn-lg btn-success">Modificar</a>
-                             
-                          </td> 
-     
-                    </tr>
-                    <tr> 
-                        <td>   Codigo Proveedor</td> 
-                        <td> <input type="text"  id="txtPro_codigo" values="'.$row[0].'"> </td> 
-                    </tr>
-                  
-                    
-                    <tr> 
-                        <td>  Nombre Proveedor</td> 
-                        <td> <input type="text"  id="txtPro_nombre" values="'.$row[1].'">  </td> 
-                    </tr>
-                    
-                    <tr> 
-                        <td>  Telefono Proveedor</td> 
-                        <td> <input type="text"  id="txtPro_telefono" values="'.$row[2].'"> </td> 
-                    </tr>
-                    
-                    <tr> 
-                        <td>  Direccion Proveedor </td> 
-                        <td> <input type="text"  id="txtPro_direccion" values="'.$row[3].'">  </td> 
-                    </tr>
-                    
-                    <tr> 
-                        <td>  Correo Proveedor</td> 
-                        <td>   <input type="text"  id="txtPro_correo" values="'.$row[4].'">  </td> 
-                    </tr>
-                    
-                    <tr> 
-                        <td>  Pagina Web </td> 
-                        <td>  <input type="text"  id="txtpagina_web" values="'.$row[5].'"> </td> 
-                    </tr>
-                    </table>';
-           
-           
-           echo $contenido;
+       
+             echo "<h1> Up Date Proveedores</h1>";
+            
+            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' value=\"$row[0]\"> </input></div>";
+              
+            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]."> </input></div>";
+            
+            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]."> </input></div>";
+       
+            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."> </input></div>";
+       
+            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]."> </input></div>";
+       
+            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]."> </input></div>";
+            
+            echo "<a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
+
          }
     }
 }
     
     
     
+    function cargarAgregar() {
+ 
+       
+             echo "<h1> Up Date Proveedores</h1>";
+            
+            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' > </input></div>";
+              
+            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' > </input></div>";
+            
+            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' > </input></div>";
+       
+            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' > </input></div>";
+       
+            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' > </input></div>";
+       
+            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' > </input></div>";
+            
+            echo "<a onclick='guardar();'  name='btnAgregar' value='modificar' class='btn btn-lg btn-success'>Agregar</a>"  ;   
+
+         }
+    
+
     
     
     
@@ -130,7 +121,7 @@ class provedores_class {
         if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
             echo $conexion->error;
         } 
-        echo '  <table class="table table-striped">
+        echo '  <table class="table  table-striped table-resposive">
                                 <tr>
                                     <td> CODIGO PROVEEDOR</td>
                                     <td> NOMBRE PROVEEDOR </td>
@@ -139,21 +130,30 @@ class provedores_class {
                                     <td> CORREO</td>
                                     <td>PAGINA WEB</td>
                                     <td>OPCIONES</td>
-                                </tr>';
+                            </tr>';
+       
+                
         while ($row = mysqli_fetch_array($result)) {
-            $contenido = "<tr>
-							<td> " . $row[0] . " </td>
-							<td> " . $row[1] . " </td>
-							<td> " . $row[2] . " </td>
-							<td> " . $row[3] . " </td>
-							<td> " . $row[4] . " </td>
-                                                        <td> " . $row[5] . " </td>
-							<td><a onclick='cargarModificar(' . $row[0] . ');'>Modificar</a><br><a onclick='eliminar(' . $row[0] . ');'>Eliminar</a></td>
+            
 
-							</tr>";
+              $contenido = "<tr>
+                                                        <td> " . $row[0] . " </td>
+                                                        <td> " . $row[1] . " </td>
+                                                        <td> " . $row[2] . " </td>
+                                                        <td> " . $row[3] . " </td>
+                                                        <td> " . $row[4] . " </td>
+                                                        <td> " . $row[5] . " </td>
+                                                        <td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
+
+                                                        </tr>";
 
             echo $contenido;
+        
+      
+            
         }
+        
+        
         echo '</table>';
     }
 

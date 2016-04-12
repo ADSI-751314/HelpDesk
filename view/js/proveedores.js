@@ -16,6 +16,7 @@
 //    }
 //});
 
+
 function objetoAjax() {
         var xmlhttp = false;
         try {
@@ -49,7 +50,15 @@ function objetoAjax() {
         ajax.send(null);
     }
     
-    
+    $(function(){
+    $("document").on("ready",function(){
+        $("#btnmodificar").on("onclick",function(){
+           mostrar(); 
+        });
+        
+    });
+ });
+
      function mostrarParametro() {
         divResultado = document.getElementById('ProveedoresF');
         var parametro = document.getElementById('txtPro_parametro').value;
@@ -63,13 +72,30 @@ function objetoAjax() {
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         ajax.send("txtPro_parametro=" + parametro);
     }
+          function cargarAgregar() {
+          // document.getElementById('resultado').style.display = 'block';
+                divResultado = document.getElementById('resultado');
+               
+            
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/provedores_controller.php?op=7", true);
+                ajax.onreadystatechange = function () {
+                    if (ajax.readyState == 4) {
+                        divResultado.innerHTML = ajax.responseText;
+                   
+                    }
+                }
+                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                ajax.send( );
+            }
+    
     
     
       function cargarModificar() {
-           document.getElementById('resultado').style.display = 'block';
+          // document.getElementById('resultado').style.display = 'block';
                 divResultado = document.getElementById('resultado');
                
-                var codigo = document.getElementById('txtPro_codigo').value;
+                var codigo = document.getElementById('txtPro_parametro').value;
                 ajax = objetoAjax();
                 ajax.open("POST", "controller/provedores_controller.php?op=6", true);
                 ajax.onreadystatechange = function () {
@@ -79,7 +105,7 @@ function objetoAjax() {
                     }
                 }
                 ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send("txtPro_codigo=" + codigo);
+                ajax.send("txtPro_parametro=" +codigo );
             }
     
     
@@ -103,9 +129,11 @@ function objetoAjax() {
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
-    }
+      mostrar();
+     }
 
 function modificar() {
+    
         divResultado = document.getElementById('resultado');
         var codigo = document.getElementById('txtPro_codigo').value;
         var nombre = document.getElementById('txtPro_nombre').value;
