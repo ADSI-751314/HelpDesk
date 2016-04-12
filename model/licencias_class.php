@@ -39,10 +39,10 @@ class licencias_class {
     }
 
   
-    public function consultar($pk_lic_codigo) {
+    public function consultar($pk_lic_codigo,$lic_nombre) {
 
         //CONEXION CON LA BASE DE DATOS 
-        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."'"; 
+        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."' or lic_nombre = '".$lic_nombre."'"; 
         $query = $this->conexion->consultarQuery($sql);
         
         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes

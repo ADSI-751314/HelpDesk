@@ -17,7 +17,7 @@ switch ($trabajo) {
     
     case("consultar"):
     {
-        $controller->consultar($_REQUEST['txtCodigo_Licencia']);
+    $controller->consultar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia']);
     }
     break;
 
@@ -48,10 +48,10 @@ class licencias_controller {
     
      //metodo encargado realizar la consulta en la tabla garantias
     
-    public function consultar($lic_codigo)
+    public function consultar($lic_codigo,$lic_nombre)
     {
         $clase = new licencias_class();
-        $clase->consultar($lic_codigo);
+        $clase->consultar($lic_codigo,$lic_nombre);
     }
     
 // metodo encargado de modificar algun campo de la bd tabla licencias 
