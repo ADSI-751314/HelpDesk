@@ -22,7 +22,7 @@ class garantias_class {
     {
         $sql="select * from garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
         $query = $this->conexion->consultarQuery($sql);
-        return $query;
+        return $query[0];
     }
      //metodo que me elimina el campo seleccionado desde el formulario
     public function eliminar($pk_gar_codigo)
