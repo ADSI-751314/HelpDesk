@@ -74,7 +74,7 @@ function objetoAjax() {
     }
           function cargarAgregar() {
           // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('resultado');
+                divResultado = document.getElementById('ProveedoresF');
                
             
                 ajax = objetoAjax();
@@ -91,27 +91,27 @@ function objetoAjax() {
     
     
     
-      function cargarModificar() {
+      function cargarModificar(id) {
           // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('resultado');
+                divResultado = document.getElementById('ProveedoresF');
                
-                var codigo = document.getElementById('txtPro_parametro').value;
+             //   var codigo = document.getElementById('txtPro_parametro').value;
                 ajax = objetoAjax();
                 ajax.open("POST", "controller/provedores_controller.php?op=6", true);
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState == 4) {
                         divResultado.innerHTML = ajax.responseText;
-                        mostrar();
+                     
                     }
                 }
                 ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send("txtPro_parametro=" +codigo );
+                ajax.send("txtPro_parametro=" +id );
             }
     
     
     
      function guardar() {
-        divResultado = document.getElementById('result');
+        divResultado = document.getElementById('resultado');
         var codigo = document.getElementById('txtPro_codigo').value;
         var nombre = document.getElementById('txtPro_nombre').value;
         var telefono = document.getElementById('txtPro_telefono').value;
@@ -124,12 +124,13 @@ function objetoAjax() {
         ajax.open("POST", "controller/provedores_controller.php?op=2", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
+                divResultado.innerHTML = ajax.responseText;
+                mostrar(); 
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
-      mostrar();
+    
      }
 
 function modificar() {
@@ -147,7 +148,8 @@ function modificar() {
         ajax.open("POST", "controller/provedores_controller.php?op=3", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
+                divResultado.innerHTML = ajax.responseText;
+                mostrar(); 
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -157,9 +159,9 @@ function modificar() {
     
     
     
-    function eliminar() {
-        divResultado = document.getElementById('result');
-        var codigo = document.getElementById('txtPro_codigo').value;
+    function eliminar(id) {
+        divResultado = document.getElementById('resultado');
+       // var codigo = document.getElementById('txtPro_codigo').value;
 
         
         
@@ -167,9 +169,10 @@ function modificar() {
         ajax.open("POST", "controller/provedores_controller.php?op=4", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
+                divResultado.innerHTML = ajax.responseText;
+                mostrar(); 
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + codigo);
+       ajax.send("txtPro_codigo=" + id);
     }

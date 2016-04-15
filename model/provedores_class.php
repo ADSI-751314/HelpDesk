@@ -15,11 +15,11 @@ class provedores_class {
         $sql = " insert into proveedores values ('$pro_codigo','$pro_nombre', '$pro_telefono','$pro_direccion','$pro_correo','$pro_pagina_web')";
         
         $query = $this->conexion->ejecutarQuery($sql);
-        if(!$query = $this->conexion->ejecutarQuery($sql)){
-            echo 'error';
-        }
+       // if(!$query = $this->conexion->ejecutarQuery($sql)){
+      //      echo 'error';
+       // }
        
-             if ($query == '1') {
+         if ($query == '1') {
         echo '<div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡Bien!</strong> Dato agregado Correctamente.
@@ -70,7 +70,7 @@ class provedores_class {
     function cargarAgregar() {
  
        
-             echo "<h1> Up Date Proveedores</h1>";
+             echo "<h1>Registro de Proveedores</h1>";
             
             echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' > </input></div>";
               
@@ -204,6 +204,17 @@ class provedores_class {
 
 
         $query = $this->conexion->ejecutarQuery($sql);
+                  if ($query == '1') {
+        echo '<div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien!</strong> Registro Eliminado con exito .
+        </div>';
+    } else {
+        echo '<div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡UPS!</strong> Ha ocurrido un error.
+        </div>';
+    }
     }
 
 }

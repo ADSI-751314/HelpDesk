@@ -15,7 +15,7 @@
                               
                                  <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class=" col-xs-5  ">
                                  <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg btn-success ">Buscar</a>
-                                 <a onclick="cargarModificar();"  name="btnmodificar" value="modificar" class="btn btn-lg btn-success">Cargar</a>
+                               
 
                     </div>
 

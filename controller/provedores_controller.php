@@ -10,9 +10,11 @@ $provedores = new provedores_class();
 if (isset($_GET['op'])) {
     $op = $_GET['op'];
 }
+
 if ($op == 1) {
     $provedores->consultar();
 }
+
 if ($op == 2) {
             $pro_codigo = $_POST['txtPro_codigo'];
             $pro_nombre = $_POST['txtPro_nombre'];
@@ -23,7 +25,7 @@ if ($op == 2) {
 
             $provedores->guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web);
 
-            echo "registro guardado";
+            echo "";
 }
 
 
@@ -39,28 +41,28 @@ if ($op==3){
 
             $provedores->modificar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web);
 
-            echo "registro modificado";
+            echo "";
 }
 
 if ($op==4)
 {
      $pro_codigo = $_POST['txtPro_codigo'];
             $provedores->eliminar($pro_codigo);
-            echo "registro eliminado";
+            echo "";
 }
 
 if($op==5){
     $pro_parametro = $_POST['txtPro_parametro'];
     
     $provedores->consultarParametro($pro_parametro);
-    echo "consulta exitosa";
+    echo "";
 }
 
 if($op==6){
      $pro_codigo = $_POST['txtPro_parametro'];
     
     $provedores->cargarModificar($pro_codigo);
-    echo "carga exitosa";
+    echo "";
 }
 
 if($op==7){
