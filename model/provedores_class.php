@@ -14,10 +14,10 @@ class provedores_class {
     public function guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
         $sql = " insert into proveedores values ('$pro_codigo','$pro_nombre', '$pro_telefono','$pro_direccion','$pro_correo','$pro_pagina_web')";
         
-        $query = $this->conexion->ejecutarQuery($sql);
-       // if(!$query = $this->conexion->ejecutarQuery($sql)){
-      //      echo 'error';
-       // }
+       // $query = $this->conexion->ejecutarQuery($sql);
+        if(!$query = $this->conexion->ejecutarQuery($sql)){
+           echo 'error';
+        }
        
          if ($query == '1') {
         echo '<div class="alert alert-success alert-dismissable">
@@ -166,9 +166,20 @@ class provedores_class {
 
         if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
             echo $conexion->error;
+              
         } 
         
-        
+            if ($result == '1') {
+        echo '<div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien!</strong> Registro encontrado.
+        </div>';
+    } else {
+        echo '<div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡UPS!</strong> No encontrado.
+        </div>';
+    }
         
         
         

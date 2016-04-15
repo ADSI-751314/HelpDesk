@@ -160,6 +160,11 @@ function modificar() {
     
     
     function eliminar(id) {
+        
+       var del = confirm("Seguro que desea eliminar registro");
+        
+        if(del==true)
+           {
         divResultado = document.getElementById('resultado');
        // var codigo = document.getElementById('txtPro_codigo').value;
 
@@ -175,4 +180,6 @@ function modificar() {
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        ajax.send("txtPro_codigo=" + id);
+           }
+           
     }

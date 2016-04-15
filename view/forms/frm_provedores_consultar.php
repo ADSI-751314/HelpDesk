@@ -11,7 +11,7 @@
                     <div class="ROW">
                        
                                  <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success">Listar Proveedores</a>
- <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a>
+                                 <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a>
                               
                                  <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class=" col-xs-5  ">
                                  <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg btn-success ">Buscar</a>
