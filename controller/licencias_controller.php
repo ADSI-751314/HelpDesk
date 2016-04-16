@@ -83,5 +83,13 @@ class licencias_controller {
             echo $contenido;
         }
     }
+    
+    public function consultar_todo1() {
+        $consul = new licencias_class();
+        $contod = $consul->consultar_todo();
+        foreach ($contod as $contenido) {
+            echo $contenido;
+        }
+    }
 
 }
