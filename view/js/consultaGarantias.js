@@ -43,4 +43,5 @@ function respuesta(data) {
 function limpiarTexto()
 {
      tblBody.innerHTML = "";
+     txtGarantiaID.text = "";
 }

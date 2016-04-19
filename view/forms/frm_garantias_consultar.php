@@ -4,7 +4,7 @@
             <table border="2">
                 
                 <tr>
-                    <td> Número garantía a consultar: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"> </td>
+                    <td> Número garantía a consultar: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="20" maxlength="12"> </td>
                 </tr>
                 <tr>
                     <td> <input type="submit" name="btnConsultar" value="CONSULTAR" class="btn btn-info"></td>
@@ -21,7 +21,7 @@
                         <td>Fecha de Inicio garantía</td>
                         <td>Fecha Fin de garantía</td>
                         <td>Descripción</td>
-                        <td>Dependencia Equipo</td>                     
+                        <td>Equipo</td>                     
                     </tr>
                 </thead>
                 <tbody>

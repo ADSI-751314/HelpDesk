@@ -20,7 +20,7 @@ class garantias_class {
      //metodo que me consulta la peticion enviada desde el formulario
     public function consultar($pk_gar_codigo)
     {
-        $sql="select * from garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
+        $sql="SELECT pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar_descripcion, equ_nombre FROM `garantias` INNER join equipos on garantias.fk_equ_codigo = equipos.pk_equ_codigo WHERE pk_gar_codigo ='".$pk_gar_codigo."'";
         $query = $this->conexion->consultarQuery($sql);
         return $query[0];
     }
