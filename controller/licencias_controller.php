@@ -10,7 +10,7 @@ switch ($trabajo) {
 
     case("crear"):{
         
-        $controller->crear($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'], $_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->crear($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'],  $_REQUEST['Fecha_Compra'], $_REQUEST['Fecha_Caducidad'],$_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
         
     }
     break;
@@ -22,7 +22,7 @@ switch ($trabajo) {
     break;
 
     case("actualizar"):{
-        $controller->actualizar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'],$_REQUEST['Fecha_Inicio'],$_REQUEST['Fecha_Caducidad'], $_REQUEST['Fecha_Compra'], $_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
+        $controller->actualizar($_REQUEST['txtCodigo_Licencia'],$_REQUEST['txtNombre_Licencia'], $_REQUEST['Fecha_Inicio'],  $_REQUEST['Fecha_Compra'], $_REQUEST['Fecha_Caducidad'],$_REQUEST['txtPrecio'], $_REQUEST['txtCobertura']);
 
         echo "se esta realizando la Actualizacion";
     }
