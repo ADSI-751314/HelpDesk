@@ -65,13 +65,13 @@ break;
 
  class tecnicos_controller {
     
-      public function guardar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad);
+      public function guardar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad)
     {
-        $guar=new tecnicos_class();
-        $guar->guardar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad);
+        $guar = new tecnicos_class();
+        $guar->guardar($tec_codigo, $tec_pimer_nombre, $tec_segundo_nombre, $tec_primer_apellido, $tec_segundo_apellido, $tec_numero_telefono, $tec_numero_movil, $tec_correo, $tec_especialidad);
     }
     
-      public function modificar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad);
+      public function modificar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad)
     {
         $modi=new tecnicos_class();
         $modi->modificar($tec_codigo,$tec_pimer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad);
