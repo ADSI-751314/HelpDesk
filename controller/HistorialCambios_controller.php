@@ -1,6 +1,6 @@
 <?php
 
-include "../../HelpDesk-desarrollo/model/HistorialCambios_class.php";
+include "../../HelpDesk/model/HistorialCambios_class.php";
 
 
 $proceso = $_REQUEST ['petition'];
