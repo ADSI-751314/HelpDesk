@@ -30,14 +30,13 @@ class equipos_class {
         $query = $this->conexion->ejecutarQuery($sql);        
     }
      //metodo para modificar el campo seleccionado
-    public function modificar ($pk_gar_codigo,$gar_tipo,$gar_fecha1,$gar_fecha2,$gar_descripcion,$fk_equ_codigo)
+    public function modificar ($equ_cod,$equ_nombre,$equ_oprecio,$equ_tipo,$equ_tip)
     {
-        $sql="UPDATE garantias SET gar_tipo = '".$gar_tipo."',
-                                   gar_fecha_inicio= '".$gar_fecha1."',
-                                   gar_fecha_fin = '".$gar_fecha2."',
-                                   gar_descripcion = '".$gar_descripcion."',
-                                   fk_equ_codigo = '".$fk_equ_codigo."'    
-                                   WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
+        $sql="UPDATE equipos SET equ_nombre = '".$equ_nombre."',
+                                   equ_precio= '".$equ_oprecio."',
+                                   fk_dep_codigo = '".$equ_tipo."',
+                                    fk_tip_codigo= '".$equ_tip."'
+                                    WHERE pk_equ_codigo = ".$equ_cod;
         $this->conexion->ejecutarQuery($sql);
                                     
     }

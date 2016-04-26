@@ -29,7 +29,7 @@ switch ($proceso) {
         break;
     case ("modificar"): {
             
-            $equipos->modificar($_REQUEST['txtcodigo'],$_REQUEST['txtprecio'],$_REQUEST['option'],$_REQUEST['optionl']);
+            $equipos->modificar($_REQUEST['txtcodigo'],$_REQUEST['txtnombre'],$_REQUEST['txtprecio'],$_REQUEST['Tipo_Dependencia'],$_REQUEST['Tipo_Equipo']);
             echo "modificado";
         }
         break;
@@ -59,10 +59,10 @@ class equipos_controller {
     }
     
     // metodo encargado de modificar algun campo de la bd tabla garantias
-    public function modificar($equ_cod,$equ_precio,$equ_option,$equ_optionl)
+    public function modificar($equ_cod,$equ_nombre,$equ_oprecio,$equ_tipo,$equ_tip)
     {
         $modifi = new equipos_class();
-        $modifi->modificar($equ_cod,$equ_precio,$equ_option,$equ_optionl);
+        $modifi->modificar($equ_cod,$equ_nombre,$equ_oprecio,$equ_tipo,$equ_tip);
     }
     
     public function consultar($equ_codigo)

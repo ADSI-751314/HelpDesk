@@ -7,12 +7,11 @@
                     <td>Codigo equipo</td> 
                     <td><input type="text" name="txtCodigo_Equipo" id="txtCodigo_Equipo" size="50" maxlength="80"></td>
                 </tr>
+               </table>
                
-             
-                <tr align="center">
-                    <td><input type="submit" name="btnConsultar" size="35" value="Consultar " class="textos btn btn-info">
-                </tr>
-            </table>
+                 <button type="submit" name="btnConsultar" size="35" value="Consultar "class="btn btn-success">
+                        <i class="glyphicon glyphicon-search">Consultar</i>
+                    </button>
         </form>
         <br><br>
                 <table class="table table-bordered">

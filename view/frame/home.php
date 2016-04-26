@@ -145,7 +145,14 @@
                                 <span>Ficha Tecnica</span>
                             </a>
                         </li>
-                          <li>
+                        <li>
+                            <a href="view/forms/frm_equipos_modificar.php" class="submenu-item">
+                                <i class="fa fa-pencil"></i>
+                                <span>Modificar</span>
+                            </a>
+                        </li>  
+                        
+                        <li>
                             <a href="view/forms/frm_equipos_consultar.php" class="submenu-item">
                                 <i class="fa fa-pencil"></i>
                                 <span>Consultar</span>
