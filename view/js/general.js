@@ -14,6 +14,27 @@ jQuery.fn.alterClass = function (rClass, aClass){
     this.addClass(aClass);
 };
 
+jQuery.extend({
+    getScript: function(url, callback) {
+        var head = document.head;
+        var script = document.createElement("script");
+        script.src = url;
+        
+        {
+            var done = false;
+            script.onload = script.onreadystatechange = function() { 
+                if ( !done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") ) {
+                    done = true;
+                    if (callback) { callback(); }
+                    script.onload = script.onreadystatechange = null;
+                }
+            };
+        }
+        head.appendChild(script);		
+        return undefined;
+    }
+});
+
 $(function() {
 
     /*---------------------------Event Listeners------------------------*/
@@ -30,14 +51,13 @@ $(function() {
             hideSubmenu($(this));
         }
 
-        loadScript($(this));
+        loadScript($(this).data("script"));
         $('#top-bar-title').html($(this).find('span').html());
     });
     
     $(".menu-item2").on("click",function (e){
         e.preventDefault();
-        loadScript($(this));
-        loadForm(this.getAttribute('href'));
+        loadForm($(this));
         $(this).useClass('active-menu');
         $('#top-bar-title').html($(this).find('span').html());
     });
@@ -49,7 +69,7 @@ $(function() {
 
     $(".submenu-item").on("click",function (e) {
         e.preventDefault();
-        loadForm(this.getAttribute('href'));
+        loadForm($(this));
         $(this).useClass("active-submenu");
     });
 
@@ -78,30 +98,39 @@ function ajax(url,data,method,callback){
     });
 }
 
-function loadForm(href){
-    $("#form-container").load(href);
+function loadForm(el){
+    $.get(el.attr('href'))
+        .done( function (responseText) {
+            $("#form-container").html($.parseHTML(responseText));
+        })
+        .done( function (){
+            var fn = el.data("script");
+            var scripts = $('script');
+            var src = null;
+            var title = null;
+
+            if (fn !== '' && typeof fn !== 'undefined') {
+                for (var i = scripts.length -1; i >= 0; i--){
+                    src = scripts[i].src;
+                    title = src.substring(src.lastIndexOf('/') +1, src.length -3);
+                    if (fn === title){
+                        window[fn]();
+                        return;
+                    }
+                }
+
+                loadScript(fn);
+            }
+        });
 }
 
-function loadScript(el){
-    var fileName = el.data("script");
-    var scripts = $('script');
-    var src = null;
-    var title = null;
-
-    for (var i = scripts.length -1; i >= 0; i--){
-        src = scripts[i].src;
-        title = src.substring(src.lastIndexOf('/') +1, src.length -3);
-        if (fileName === title){
-            return;
-        }
-    }
-
-    if (fileName !== '' && typeof fileName !== 'undefined') {
-        var script = document.createElement('script');
-        script.setAttribute("type","text/javascript");
-        script.setAttribute("src", '/HelpDesk/view/js/'+fileName+ '.js');
-        if (typeof script!== "undefined")
-            document.getElementsByTagName("head")[0].appendChild(script);
+function loadScript(fn) {
+    if (fn !== '' && fn !== undefined) {
+        $.getScript('/HelpDesk/view/js/' +fn+ '.js', function () {
+            if (window[fn]) {
+                window[fn]();
+            }
+        });
     }
 }
 
