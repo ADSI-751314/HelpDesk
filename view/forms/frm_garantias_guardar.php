@@ -4,7 +4,7 @@
              <h1 align="center"> FORMULARIO GARANTIAS (GUARDAR)</h1>
             <table>
                 <tr>
-                   <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="12" maxlength="12"></td> 
+                   <td> Garantía Número: </td>  <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="21" maxlength="12"></td> 
                        
                 </tr>
                 <tr>

@@ -24,7 +24,7 @@
                 </tr>
                 <tr align="center">
                     <td><input type="submit" name="btnConsultar" size="35" value="Consultar por codigo o nombre " class="textos btn btn-info">
-                        <input type="submit" name="btnConsultar" size="35" value="Consultar Todo" class="btn btn-lg btn-success"></td>
+                        <input type="submit" name="btnConsultarTodo" size="35" value="Consultar Todo" class="btn btn-lg btn-success"></td>
                 </tr>
             </table>
         </form>
@@ -44,5 +44,9 @@
                 <tbody id ="respuesta">
                     
                 </tbody>
+                <tbody id ="respuesta2">
+                    
+                </tbody>
+                
             </table>
         <script type="text/javascript" src="view/js/licencias.js"/>

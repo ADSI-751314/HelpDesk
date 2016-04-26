@@ -39,12 +39,36 @@ class licencias_class {
     }
 
   
-    public function consultar($pk_lic_codigo) {
+    public function consultar($pk_lic_codigo,$lic_nombre) {
 
         //CONEXION CON LA BASE DE DATOS 
-        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."'"; 
+        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."' or lic_nombre = '".$lic_nombre."'"; 
         $query = $this->conexion->consultarQuery($sql);
         
+        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
+        foreach ($query as $fila) {
+
+           $contenido = "<tr>
+                            <td> " . $fila['pk_lic_codigo'] . " </td>
+                            <td> " . $fila['lic_nombre'] . " </td>
+                            <td> " . $fila['lic_fecha_inicio'] . " </td>
+                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
+                            <td> " . $fila['lic_fecha_compra'] . " </td>
+                            <td> " . $fila['lic_precio'] . " </td>
+                            <td> " . $fila['lic_cobertura'] . " </td>
+                            
+                        </tr>";
+            echo $contenido;
+        }
+        //fin del ciclo
+    }
+public function consulta() {
+
+    //CONEXION CON LA BASE DE DATOS 
+        $sql="select * from licencias"; 
+        $query = $this->conexion->consultarQuery($sql);
+        
+       
         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
         foreach ($query as $fila) {
 
@@ -61,7 +85,7 @@ class licencias_class {
         }
         //fin del ciclo
     }
-
+    
     public function eliminar($pk_lic_codigo)
     {
         $sql = " DELETE FROM licencias where pk_lic_codigo= '".$pk_lic_codigo."'";
@@ -69,6 +93,13 @@ class licencias_class {
     }
     
     public function consultar_todo()
+    {
+        $sql="select * from licencias";
+        $query = $this->conexion->consultarQuery($sql);
+        
+    }
+    
+     public function consultar_todo1()
     {
         $sql="select * from licencias";
         $query = $this->conexion->consultarQuery($sql);

@@ -63,8 +63,10 @@ class conexion_class {
                     while ($fila = mysqli_fetch_assoc($consulta)) {
                         array_push($array, $fila);
                     }
+                    
                     return $array;
                 } else {
+                    
                     return false;
                 }
             }

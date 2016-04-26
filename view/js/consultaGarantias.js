@@ -15,6 +15,7 @@ $(function () {
 });
 var tblBody = document.createElement("tbody");
 function respuesta(data) {
+
     data = JSON.parse(data);
     var div = document.getElementById("respuesta");
     var tabla = document.getElementById("tabla");
@@ -42,4 +43,5 @@ function respuesta(data) {
 function limpiarTexto()
 {
      tblBody.innerHTML = "";
+     txtGarantiaID.text = "";
 }

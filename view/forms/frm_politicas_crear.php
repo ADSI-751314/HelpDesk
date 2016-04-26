@@ -12,7 +12,7 @@
             <td> <input type="text" name="txtCodigo" size="8" maxlength="6"> </td>
         </tr>
         <tr>
-            <td> DESCRIPCION mm: </td>
+            <td> DESCRIPCION: </td>
             <td> <textarea name="txtDescripcion" rows ="5" cols="25"> </textarea> </td>
 
         </tr>
@@ -26,3 +26,4 @@
     </table>
 
 </form>
+<script type="text/javascript" src="view/js/politicas.js"/>

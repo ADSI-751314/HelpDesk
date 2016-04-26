@@ -48,4 +48,3 @@ function limpiarTexto()
 {
      tblBody.innerHTML = "";
 }
-
