@@ -13,10 +13,9 @@
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap-datepicker3.min.css">
         
         <script type="text/javascript" src="/HelpDesk/view/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap.min.js" async></script>
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.min.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.es.min.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js"></script>
-        <script type="text/javascript" src="/HelpDesk/view/js/general.js"></script>
-        
+        <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.es.min.js" async></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js" async></script>
+        <script type="text/javascript" src="/HelpDesk/view/js/general.js" async></script>
     </head>

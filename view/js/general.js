@@ -1,3 +1,5 @@
+var app = {};
+
 jQuery.fn.useClass = function (className, callback){
     var active = document.getElementsByClassName(className);
     if (active.length) {
@@ -14,15 +16,16 @@ jQuery.fn.alterClass = function (rClass, aClass){
     this.addClass(aClass);
 };
 
+
 jQuery.extend({
     getScript: function(url, callback) {
         var head = document.head;
         var script = document.createElement("script");
         script.src = url;
-        
+
         {
             var done = false;
-            script.onload = script.onreadystatechange = function() { 
+            script.onload = script.onreadystatechange = function() {
                 if ( !done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") ) {
                     done = true;
                     if (callback) { callback(); }
@@ -30,13 +33,12 @@ jQuery.extend({
                 }
             };
         }
-        head.appendChild(script);		
+        head.appendChild(script);
         return undefined;
     }
 });
 
-$(function() {
-
+app.main = function() {
     /*---------------------------Event Listeners------------------------*/
     $("#sidebar-heading").on("click",function () {
         $(this).toggleClass("active-profile");
@@ -78,7 +80,9 @@ $(function() {
     });
 
     /*---------------------------End Event Listeners------------------------*/
-});
+};
+
+app.main();
 
 function ajax(url,data,method,callback){
     $.ajax({
@@ -114,7 +118,7 @@ function loadForm(el){
                     src = scripts[i].src;
                     title = src.substring(src.lastIndexOf('/') +1, src.length -3);
                     if (fn === title){
-                        window[fn]();
+                        app[fn]();
                         return;
                     }
                 }
@@ -127,8 +131,8 @@ function loadForm(el){
 function loadScript(fn) {
     if (fn !== '' && fn !== undefined) {
         $.getScript('/HelpDesk/view/js/' +fn+ '.js', function () {
-            if (window[fn]) {
-                window[fn]();
+            if (app[fn]) {
+                app[fn]();
             }
         });
     }
@@ -151,6 +155,6 @@ function hideSubmenu(menu){
     menu.siblings("ul").slideUp(200);
 }
 
-function logoutHandler(data){
+function logoutHandler(){
     window.location.reload();
 }

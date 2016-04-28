@@ -1,12 +1,11 @@
-// funcion que se ejecuta cuando la pagina ya termino de cargar.
-$(function () {
+app.reportes = function () {
     var datePickerConfig = {
         todayBtn: "linked",
         language: "es",
         autoclose: true,
         todayHighlight: true
     };
-    
+
     $('.datepicker').datepicker(datePickerConfig);
 
     //Cargando Graficas de Usuarios.
@@ -18,111 +17,112 @@ $(function () {
     // Cargando grafica de Fallas mas comunes
     graficaFallasComunes();
 
-    // funcion que se ejecuta cuando se hace submit en el form 
+    // funcion que se ejecuta cuando se hace submit en el form
     $("form").submit(function (e) {
     //se cancela el evento del click para que no cambie de pagina.
         e.preventDefault();
-        var controller = $("form").attr("action");
-        var method = $("form").attr("method");
-        var name = $("form").attr("name");
-        var data = $("form").serialize() + "&petition=" + name;
+        var form = $("form"),
+            controller = form.attr("action"),
+            method = form.attr("method"),
+            name = form.attr("name"),
+            data = form.serialize() + "&petition=" + name;
+
         ajax(controller, data, method, respuesta);
     });
-});
 
-function respuesta(data) {
+    function respuesta(data) {
 
-    data = JSON.parse(data);
-    var div = document.getElementById("respuesta");
-    var tabla = document.getElementById("tabla");
-    var tblBody = document.createElement("tbody");
-    tblBody.innerHTML("");
-    var hilera = null;
-    var celda = null;
-    for (var i = 0; i < 2; i++) {
+        data = JSON.parse(data);
+        var div = document.getElementById("respuesta");
+        var tabla = document.getElementById("tabla");
+        var tblBody = document.createElement("tbody");
+        tblBody.innerHTML("");
+        var hilera = null;
+        var celda = null;
+        for (var i = 0; i < 2; i++) {
 
-        hilera = document.createElement("tr");
-        for (var fila in data) {
+            hilera = document.createElement("tr");
+            for (var fila in data) {
 
-            celda = document.createElement("td");
-            var textoCelda = document.createTextNode(data[fila]);
-            celda.appendChild(textoCelda);
-            hilera.appendChild(celda);
+                celda = document.createElement("td");
+                var textoCelda = document.createTextNode(data[fila]);
+                celda.appendChild(textoCelda);
+                hilera.appendChild(celda);
+            }
+            tblBody.appendChild(hilera);
+            tabla.appendChild(tblBody);
+            div.appendChild(tabla);
         }
-        tblBody.appendChild(hilera);
-        tabla.appendChild(tblBody);
-        div.appendChild(tabla);
     }
-}
 
-function graficaUsuarios() {
+    function graficaUsuarios() {
 // Create the chart
-    $('#graficaUsuarios').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Grafica de usuarios que mas fallan'
-        },
-        subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
+        $('#graficaUsuarios').highcharts({
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: 'Total percent market share'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.1f}%'
+                text: 'Grafica de usuarios que mas fallan'
+            },
+            subtitle: {
+                text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
                 }
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },
-        series: [{
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
                 name: 'Brands',
                 colorByPoint: true,
                 data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
-                    }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
-                    }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
-                    }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
-                    }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
-                    }]
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }, {
+                    name: 'Firefox',
+                    y: 10.38,
+                    drilldown: 'Firefox'
+                }, {
+                    name: 'Safari',
+                    y: 4.77,
+                    drilldown: 'Safari'
+                }, {
+                    name: 'Opera',
+                    y: 0.91,
+                    drilldown: 'Opera'
+                }, {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    drilldown: null
+                }]
             }],
-        drilldown: {
-            series: [{
+            drilldown: {
+                series: [{
                     name: 'Microsoft Internet Explorer',
                     id: 'Microsoft Internet Explorer',
                     data: [
@@ -304,78 +304,78 @@ function graficaUsuarios() {
                         ]
                     ]
                 }]
-        }
-    });
-}
+            }
+        });
+    }
 
-function graficaMarcas() {
+    function graficaMarcas() {
 // Create the chart
-    $('#graficaMarcas').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Grafica de marcas que mas fallan.'
-        },
-        subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
+        $('#graficaMarcas').highcharts({
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: 'Total percent market share'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.1f}%'
+                text: 'Grafica de marcas que mas fallan.'
+            },
+            subtitle: {
+                text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
                 }
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },
-        series: [{
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
                 name: 'Brands',
                 colorByPoint: true,
                 data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
-                    }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
-                    }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
-                    }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
-                    }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
-                    }]
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }, {
+                    name: 'Firefox',
+                    y: 10.38,
+                    drilldown: 'Firefox'
+                }, {
+                    name: 'Safari',
+                    y: 4.77,
+                    drilldown: 'Safari'
+                }, {
+                    name: 'Opera',
+                    y: 0.91,
+                    drilldown: 'Opera'
+                }, {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    drilldown: null
+                }]
             }],
-        drilldown: {
-            series: [{
+            drilldown: {
+                series: [{
                     name: 'Microsoft Internet Explorer',
                     id: 'Microsoft Internet Explorer',
                     data: [
@@ -557,78 +557,78 @@ function graficaMarcas() {
                         ]
                     ]
                 }]
-        }
-    });
-}
+            }
+        });
+    }
 
-function graficaPartes() {
+    function graficaPartes() {
 // Create the chart
-    $('#graficaPartes').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Grafica de partes que mas fallan.'
-        },
-        subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
+        $('#graficaPartes').highcharts({
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: 'Total percent market share'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.1f}%'
+                text: 'Grafica de partes que mas fallan.'
+            },
+            subtitle: {
+                text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
                 }
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },
-        series: [{
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
                 name: 'Brands',
                 colorByPoint: true,
                 data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
-                    }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
-                    }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
-                    }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
-                    }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
-                    }]
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }, {
+                    name: 'Firefox',
+                    y: 10.38,
+                    drilldown: 'Firefox'
+                }, {
+                    name: 'Safari',
+                    y: 4.77,
+                    drilldown: 'Safari'
+                }, {
+                    name: 'Opera',
+                    y: 0.91,
+                    drilldown: 'Opera'
+                }, {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    drilldown: null
+                }]
             }],
-        drilldown: {
-            series: [{
+            drilldown: {
+                series: [{
                     name: 'Microsoft Internet Explorer',
                     id: 'Microsoft Internet Explorer',
                     data: [
@@ -810,78 +810,78 @@ function graficaPartes() {
                         ]
                     ]
                 }]
-        }
-    });
-}
+            }
+        });
+    }
 
-function graficaFallasComunes() {
+    function graficaFallasComunes() {
 // Create the chart
-    $('#graficaFallasComunes').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Grafica de fallas mas comunes.'
-        },
-        subtitle: {
-            text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
+        $('#graficaFallasComunes').highcharts({
+            chart: {
+                type: 'column'
+            },
             title: {
-                text: 'Total percent market share'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.1f}%'
+                text: 'Grafica de fallas mas comunes.'
+            },
+            subtitle: {
+                text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: 'Total percent market share'
                 }
-            }
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-        },
-        series: [{
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
                 name: 'Brands',
                 colorByPoint: true,
                 data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
-                    }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
-                    }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
-                    }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
-                    }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
-                    }]
+                    name: 'Microsoft Internet Explorer',
+                    y: 56.33,
+                    drilldown: 'Microsoft Internet Explorer'
+                }, {
+                    name: 'Chrome',
+                    y: 24.03,
+                    drilldown: 'Chrome'
+                }, {
+                    name: 'Firefox',
+                    y: 10.38,
+                    drilldown: 'Firefox'
+                }, {
+                    name: 'Safari',
+                    y: 4.77,
+                    drilldown: 'Safari'
+                }, {
+                    name: 'Opera',
+                    y: 0.91,
+                    drilldown: 'Opera'
+                }, {
+                    name: 'Proprietary or Undetectable',
+                    y: 0.2,
+                    drilldown: null
+                }]
             }],
-        drilldown: {
-            series: [{
+            drilldown: {
+                series: [{
                     name: 'Microsoft Internet Explorer',
                     id: 'Microsoft Internet Explorer',
                     data: [
@@ -1063,6 +1063,7 @@ function graficaFallasComunes() {
                         ]
                     ]
                 }]
-        }
-    });
-}
+            }
+        });
+    }
+};
