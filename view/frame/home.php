@@ -236,6 +236,40 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="#Tecnicos" class="menu-item" datascript="">
+                        <i class="fa fa-briefcase"></i>
+                        <span>Tecnicos</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+
+                    <ul id="tecnicos" class="list-menu submenu">
+                        <li>
+                            <a href="view/forms/frm_tecnicos_crear.php" class="submenu-item">
+                                <i class="fa fa-plus"></i>
+                                <span>Crear</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_tecnicos_consultar.php" class="submenu-item">
+                                <i class="fa fa-search"></i>
+                                <span>Consultar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_tecnicos_actualizar.php" class="submenu-item">
+                                <i class="fa fa-pencil"></i>
+                                <span>Actualizar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="view/forms/frm_tecnicos_eliminar.php" class="submenu-item">
+                                <i class="fa fa-trash-o"></i>
+                                <span>Eliminar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
                     <a href="#licencias" class="menu-item" data-script="">
                         <i class="fa fa-hand-o-right"></i>
                         <span>Licencias</span>
