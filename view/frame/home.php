@@ -303,22 +303,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#proveedores" class="menu-item" data-script="">
+                    <a href="view/forms/frm_provedores_consultar.php" class="menu-item2" data-script="proveedores">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Gestion de Proveedores</span>
-                        <i class="fa fa-angle-down"></i>
                     </a>
-                    <ul id="proveedores" class="list-menu submenu">
-                       
-                        <li>
-                            <a href="view/forms/frm_provedores_consultar.php" class="submenu-item">
-                                <i class="fa fa-search"></i>
-                                <span>Gestion de Proveedores</span>
-                            </a>
-                        </li>
-                        
-                      
-                    </ul>
                 </li>
                 <li>
                     <a href="view/forms/frm_reportes.php" name="Reportes" class="menu-item2" data-script="reportes">
