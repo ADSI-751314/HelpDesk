@@ -169,17 +169,17 @@ class provedores_class {
               
         } 
         
-            if ($result == '1') {
-        echo '<div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Registro encontrado.
-        </div>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡UPS!</strong> No encontrado.
-        </div>';
-    }
+//            if ($result == '1') {
+//        echo '<div class="alert alert-success alert-dismissable">
+//        <button type="button" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡Bien!</strong> Registro encontrado.
+//        </div>';
+//    } else {
+//        echo '<div class="alert alert-warning alert-dismissable">
+//        <button type="button" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡UPS!</strong> No encontrado.
+//        </div>';
+//    }
         
         
         
@@ -191,6 +191,7 @@ class provedores_class {
                                     <td> DIRECCION </td>
                                     <td> CORREO</td>
                                     <td>PAGINA WEB</td>
+                                     <td>OPCIONES</td>
                                 </tr>';
         while ($row = mysqli_fetch_array($result)) {
             $contenido = "<tr>
@@ -200,7 +201,7 @@ class provedores_class {
 							<td> " . $row[3] . " </td>
 							<td> " . $row[4] . " </td>
                                                         <td> " . $row[5] . " </td>
-							
+							<td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
 							</tr>";
 
             echo $contenido;
