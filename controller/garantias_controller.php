@@ -88,6 +88,7 @@ class garantias_controller {
     {
         $consul = new garantias_class();
         $consTodo = $consul->consultar_todo1();
+        echo json_encode($consTodo);
                
    }
 }

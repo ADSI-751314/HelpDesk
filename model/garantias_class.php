@@ -45,6 +45,7 @@ class garantias_class {
     public function consultar_todo1()
     {
         $sql="SELECT * FROM garantias";
-         $this->conexion->ejecutarQuery($sql);
+        $query1 = $this->conexion->consultarQuery($sql);
+        return $query1;
     }
 }

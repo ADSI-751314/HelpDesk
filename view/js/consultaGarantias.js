@@ -52,12 +52,12 @@ app.consultaGarantias = function () {
         var hilera = null;
         var celda = null;
 
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < data.length; i++) {
             hilera = document.createElement("tr");
 
-            for (var fila in data) {
+            for (var fila in data[i]) {
                 celda = document.createElement("td");
-                var textoCelda = document.createTextNode(data[fila]);
+                var textoCelda = document.createTextNode(data[i][fila]);
                 celda.appendChild(textoCelda);
                 hilera.appendChild(celda);
             }
@@ -67,10 +67,10 @@ app.consultaGarantias = function () {
             div.appendChild(tabla);
         }
     }
+    $("#form-container").on('click', '#btnlimpiar', function (e) {
+        $("table").find("tbody").html("");
+    });
 
-    function limpiarTexto()
-    {
-         tblBody.innerHTML = "";
-    }
+    
 }
 

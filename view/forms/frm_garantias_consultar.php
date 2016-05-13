@@ -1,17 +1,13 @@
 <form action="/HelpDesk/controller/garantias_controller.php?petition=consultar" method="POST" id="frmConsultar">
     <br>
     <h1 align="center"> FORMULARIO GARANTIAS (CONSULTAR)</h1>
-    <table border="2">
-        <tr>
-            <td> Número garantía a consultar:</td>
-            <td align="left"><input type="text" name="txtGarantiaID" id="numero_garantia" size="20" maxlength="12"></td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" id="btnConsultar" name="btnConsultar" value="CONSULTAR" class="btn btn-info btn-submit">
-            </td>
-        </tr>
-    </table>
+   
+        
+            <p> Número garantía a consultar:</p>
+            <input type="text" name="txtGarantiaID" id="numero_garantia" size="20" maxlength="12">
+            
+            <input type="submit" id="btnConsultar" name="btnConsultar" value="CONSULTAR" class="btn btn-info btn-submit">
+           
 
     <div id="respuesta">
         <table id="tabla" class="table table-hover">
@@ -28,7 +24,7 @@
         </table>
     </div>
 
-    <input type="button" name="btnlimpiar" value="LIMPIAR" class="btn btn-info" onclick="limpiarTexto()">
+    <input type="button" id="btnlimpiar" value="LIMPIAR" class="btn btn-info">
     <input id="consultarT" type="button" name="btnconsulartT" value="consultar todo" class="btn btn-info btn-submit">
 
     <div id="respuesta2">
