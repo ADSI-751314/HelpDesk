@@ -1,36 +1,39 @@
 
 <script type="text/javascript" src="view/js/proveedores.js"></script>   
-<div class="col-md-12">
-   
 
-        <div class="well"  >
+    
+<div class="well">
+    <nav class="navbar  ">
+        <ul class="nav navbar-nav">
      
-          
-            <h1> Consultar Provedores<h1></td> 
-
-                    <div class="ROW">
-                       
-                                 <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success">Listar Proveedores</a>
-                                 <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a>
-                              
-                                 <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class=" col-xs-5  ">
-                                 <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg btn-success ">Buscar</a>
-                               
-
-                    </div>
+           <li>  <h1 class="text-muted">Consultar Provedores<h1></li> 
+        
+        </ul>
+                    <ul>     
+                        <li>   <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class="form-control "> </li> 
+                    </ul>   
+                 
+                     <ul class="nav nav-justified">
+                         
+                         <li>   <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar" class="btn btn-lg btn-success">Buscar</a> </li>
+                         <li>   <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success" >Listar </a> </li>
+                         <li>    <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a> </li>
+                    
+                      </ul>
+                  
+    </nav>           
 
                   
-                         
-
-        </div>
+         
+</div>
     
  
 
     
     
     
-  <div id="resultado"></div>
+  <div id="resultado" class=""></div>
   
-  <div id="ProveedoresF"></div>
+  <div id="ProveedoresF" class=""></div>
 
-</div>
+

@@ -47,19 +47,19 @@ class provedores_class {
        
              echo "<h1> Up Date Proveedores</h1>";
             
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' value=\"$row[0]\"> </input></div>";
+            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' disabled='true' id='txtPro_codigo' value=\"$row[0]\" class='form-control'> </input></div>";
               
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]."> </input></div>";
+            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]." class='form-control' > </input></div>";
             
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]."> </input></div>";
+            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]." class='form-control'> </input></div>";
        
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."> </input></div>";
+            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."  class='form-control'> </input></div>";
        
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]."> </input></div>";
+            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]." class='form-control'> </input></div>";
        
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]."> </input></div>";
+            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]." class='form-control'> </input></div>";
             
-            echo "<a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
+            echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
 
          }
     }
@@ -72,19 +72,19 @@ class provedores_class {
        
              echo "<h1>Registro de Proveedores</h1>";
             
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' > </input></div>";
+            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' class='form-control' > </input></div>";
               
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' > </input></div>";
+            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' class='form-control'> </input></div>";
             
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' > </input></div>";
+            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' class='form-control' > </input></div>";
        
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' > </input></div>";
+            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' class='form-control'> </input></div>";
        
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' > </input></div>";
+            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' class='form-control'> </input></div>";
        
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' > </input></div>";
+            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' class='form-control'> </input></div>";
             
-            echo "<a onclick='guardar();'  name='btnAgregar' value='modificar' class='btn btn-lg btn-success'>Agregar</a>"  ;   
+            echo "<br><a onclick='guardar();'  name='btnAgregar' value='agregar' class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
 
          }
     
