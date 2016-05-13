@@ -121,7 +121,7 @@
                     </ul>
                 </li>
                 <li>
-                     <a href="#equipos" class="menu-item" data-script="">
+                     <a href="#equipos" class="menu-item" data-script="equipos">
                         <i class="fa fa-laptop"></i>
                         <span>Equipos</span>
                         <i class="fa fa-angle-down"></i>

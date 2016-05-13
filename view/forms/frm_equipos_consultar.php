@@ -9,7 +9,7 @@
                 </tr>
                </table>
                
-                 <button type="submit" name="btnConsultar" size="35" value="Consultar "class="btn btn-success">
+                 <button type="submit" name="btnConsultar" size="35" value="Consultar "class="btn btn-success btn-consultar-equipos">
                         <i class="glyphicon glyphicon-search">Consultar</i>
                     </button>
         </form>
@@ -29,4 +29,3 @@
                     
                 </tbody>
             </table>
-        <script type="text/javascript" src="view/js/equipos.js"/>
