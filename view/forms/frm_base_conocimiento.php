@@ -1,5 +1,7 @@
+<h1>FORMULARIO BASE DE CONOCIMIENTO <h1> 
+        
+        <form action="controller/base_conocimiento_controller.php" method="POST" name="consultar"> 
 
-<script type="text/javascript" src="view/js/proveedores.js"></script>   
 <div class="col-md-12">
    
 
