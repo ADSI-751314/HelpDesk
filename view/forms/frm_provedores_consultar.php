@@ -19,6 +19,8 @@
                          <li>   <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success" >Listar </a> </li>
                          <li>    <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a> </li>
                     
+                         
+                         
                       </ul>
                   
     </nav>           
