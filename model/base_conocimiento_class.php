@@ -1,275 +1,67 @@
-<?php
+<?php  include "../../HelpDesk/model/conexion_class.php";
 
-include '../../HelpDesk/model/conexion_class.php';
-
-class base_conocimiento_class {
-
+class base_conocimiento_class{
+    
     private $conexion;
-
-    public function __construct() {
-        $this->conexion = new conexion_class();
-        $this->conexion->conexion();
-    }
-
-    public function guardar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
-        $sql = " insert into proveedores values ('$pro_codigo','$pro_nombre', '$pro_telefono','$pro_direccion','$pro_correo','$pro_pagina_web')";
-        
-       // $query = $this->conexion->ejecutarQuery($sql);
-        if(!$query = $this->conexion->ejecutarQuery($sql)){
-           echo 'error';
-        }
-       
-         if ($query == '1') {
-        echo '<div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Dato agregado Correctamente.
-        </div>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡UPS!</strong> Ha ocurrido un error.
-        </div>';
-    }
-    }
-
     
-    function cargarModificar($id) {
-  
-  
-    $sql = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo = $id";
+    private $pk_det_codigo;
+    private $det_descripcion;
+    private $det_fecha;
    
-     $query = $this->conexion->ejecutarQuery($sql);
-    if (!$result = $this->conexion->ejecutarQuery($sql)) {
-        echo $conexion->error;
-    }else{
-       
-         while ($row = mysqli_fetch_array($result)) {
-       
-             echo "<h1> Up Date Proveedores</h1>";
-            
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' value=\"$row[0]\"> </input></div>";
-              
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]."> </input></div>";
-            
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]."> </input></div>";
-       
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."> </input></div>";
-       
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]."> </input></div>";
-       
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]."> </input></div>";
-            
-            echo "<a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
-
-         }
+    private $pk_htc_codigo;
+    private $htc_fecha;
+    private $htc_hora;
+    private $htc_descripcion;
+   
+    public function __construct()
+   {
+           $this->conexion = new conexion_class();
+           $this->conexion->conexion();
     }
-}
     
-    
-    
-    function cargarAgregar() {
- 
+    public function consultar(){
+        
+        
+        $sql="select from detalles_servicios INNER JOIN tec_ser_det ON pk_det_codigo = '".$pk_det_codigo."' OR (pk_tsd_codigo = '".$pk_tsd_codigo.'") ON (pk_det_codigo ='".$det_descripcion.'")"  ;
+        $query = $this->conexion->consultarQuery($sql);
+        return $query;
        
-             echo "<h1>Registro de Proveedores</h1>";
-            
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' > </input></div>";
-              
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' > </input></div>";
-            
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' > </input></div>";
-       
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' > </input></div>";
-       
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' > </input></div>";
-       
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' > </input></div>";
-            
-            echo "<a onclick='guardar();'  name='btnAgregar' value='modificar' class='btn btn-lg btn-success'>Agregar</a>"  ;   
 
-         }
+    }
     
+SELECT
+interpretes.int_nombre,
+albumes.alb_titulo,
+canciones.can_titulo,
+compositores.com_nombre,
+compositores.com_apellido
 
+
+FROM
+
+interpretes inner join interprete_album
+on interpretes.pk_int_codigo = interprete_album.fk_int_codigo
+inner join albumes
+on interprete_album.fk_alb_codigo = albumes.pk_alb_codigo
+inner join canciones_albumes
+on albumes.pk_alb_codigo = canciones_albumes.fk_alb_codigo
+inner join canciones
+on  canciones_albumes.fk_can_codigo = canciones.pk_can_codigo
+inner join canciones_compositores
+on canciones.pk_can_codigo = canciones_compositores.fk_can_codigo
+inner join compositores
+on canciones_compositores.fk_com_codigo = compositores.pk_com_codigo
+
+
+
+    public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){
+        
+        
+        $sql="select * from historial_cambios where pk_htc_codigo = '".$pk_htc_codigo."'";
+        $query = $this->conexion->consultarQuery($sql);
+        return $query;
+        
+    }
     
-    
-    
-    public function modificar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
-        $sql = " UPDATE proveedores SET pro_nombre='" . $pro_nombre . "', pro_telefono='" . $pro_telefono . "',pro_direccion='" . $pro_direccion . "',pro_correo='" . $pro_correo . "',pro_pagina_web='" . $pro_pagina_web . "' where pk_pro_codigo='" . $pro_codigo . "'";
-
-
-        $query = $this->conexion->ejecutarQuery($sql);
-        
-         if ($query == '1') {
-        echo '<div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Dato Modificado Correctamente.
-        </div>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡UPS!</strong> Ha ocurrido un error.
-        </div>';
-    }
-    }
-
-    public function consultar() {
-
-        //CONEXION CON LA BASE DE DATOS 
-        // CONSULTA CASE DE DATOS 
-
-        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores ";
-
-        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
-            echo $conexion->error;
-        } 
-        echo '  <table class="table  table-striped table-resposive">
-                                <tr>
-                                    <td> CODIGO PROVEEDOR</td>
-                                    <td> NOMBRE PROVEEDOR </td>
-                                    <td> TELEFONO PROVEEDOR</td>
-                                    <td> DIRECCION </td>
-                                    <td> CORREO</td>
-                                    <td>PAGINA WEB</td>
-                                    <td>OPCIONES</td>
-                            </tr>';
-       
-                
-        while ($row = mysqli_fetch_array($result)) {
-            
-
-              $contenido = "<tr>
-                                                        <td> " . $row[0] . " </td>
-                                                        <td> " . $row[1] . " </td>
-                                                        <td> " . $row[2] . " </td>
-                                                        <td> " . $row[3] . " </td>
-                                                        <td> " . $row[4] . " </td>
-                                                        <td> " . $row[5] . " </td>
-                                                        <td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
-
-                                                        </tr>";
-
-            echo $contenido;
-        
-      
-            
-        }
-        
-        
-        echo '</table>';
-    }
-
-       public function consultarParametro($pro_parametro) {
-
-        //CONEXION CON LA BASE DE DATOS 
-        // CONSULTA CASE DE DATOS 
-
-        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo like '%".$pro_parametro."%' or  pro_nombre like '%".$pro_parametro."%' or   pro_telefono like '%".$pro_parametro."%' or   pro_direccion like '%".$pro_parametro."%' or pro_correo like '%".$pro_parametro."%' or pro_pagina_web like '%".$pro_parametro."%'";
-
-        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
-            echo $conexion->error;
-              
-        } 
-        
-//            if ($result == '1') {
-//        echo '<div class="alert alert-success alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡Bien!</strong> Registro encontrado.
-//        </div>';
-//    } else {
-//        echo '<div class="alert alert-warning alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡UPS!</strong> No encontrado.
-//        </div>';
-//    }
-        
-        
-        
-        echo '  <table class="table table-striped">
-                                <tr>
-                                    <td> CODIGO PROVEEDOR</td>
-                                    <td> NOMBRE PROVEEDOR </td>
-                                    <td> TELEFONO PROVEEDOR</td>
-                                    <td> DIRECCION </td>
-                                    <td> CORREO</td>
-                                    <td>PAGINA WEB</td>
-                                     <td>OPCIONES</td>
-                                </tr>';
-        while ($row = mysqli_fetch_array($result)) {
-            $contenido = "<tr>
-							<td> " . $row[0] . " </td>
-							<td> " . $row[1] . " </td>
-							<td> " . $row[2] . " </td>
-							<td> " . $row[3] . " </td>
-							<td> " . $row[4] . " </td>
-                                                        <td> " . $row[5] . " </td>
-							<td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
-							</tr>";
-
-            echo $contenido;
-        }
-        echo '</table>';
-    }
-
-    //fin del ciclo
-
-    public function eliminar($pro_codigo) {
-        $sql = " DELETE FROM proveedores where pk_pro_codigo=" . $pro_codigo . "";
-
-
-        $query = $this->conexion->ejecutarQuery($sql);
-                  if ($query == '1') {
-        echo '<div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Registro Eliminado con exito .
-        </div>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡UPS!</strong> Ha ocurrido un error.
-        </div>';
-    }
-    }
-
 }
 
-
-
-//<?php // include "../../HelpDesk/model/conexion_class.php";
-//
-//class base_conocimiento_class{
-//    
-//    private $conexion;
-//    
-//    private $pk_det_codigo;
-//    private $det_descripcion;
-//    private $det_fecha;
-//   
-//    private $pk_htc_codigo;
-//    private $htc_fecha;
-//    private $htc_hora;
-//    private $htc_descripcion;
-//   
-//    public function __construct()
-//    {
-//           $this->conexion = new conexion_class();
-//           $this->conexion->conexion();
-//    }
-//    
-//    public function consultar($pk_det_codigo,$det_descripcion,$det_fecha){
-//        
-//        
-//        $sql="select * from detalles_servicios where pk_det_codigo = '".$pk_det_codigo."'";
-//        $query = $this->conexion->consultarQuery($sql);
-//        return $query;
-//        
-//    }
-//    public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){
-//        
-//        
-//        $sql="select * from historial_cambios where pk_htc_codigo = '".$pk_htc_codigo."'";
-//        $query = $this->conexion->consultarQuery($sql);
-//        return $query;
-//        
-//    }
-//    
-//}
-//

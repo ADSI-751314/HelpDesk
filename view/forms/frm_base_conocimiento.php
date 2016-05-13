@@ -17,11 +17,29 @@
                                  <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg bg-primary ">Buscar</a>
                                
 
+                    </div><br><br>
+                    
+                    <div>
+                        <tr>
+                                <div class="textos"> Descripciòn de la Falla </div>
+                                <div> <textarea id= "textarea" name="descripion_falla" rows="10"cols="30"> </textarea><br><br></div>
+			
+			</tr>
+                        
+                    </div>
+                                <div class="textos"> Soluciòn de la Falla </div>
+				<div> <textarea id= "textarea" name="Solucion_falla" rows="10"cols="30"> </textarea><br><br></div>
+                     <div >
+        
+        
+        
                     </div>
         </div>
-  <div id="resultado"></div>
+    
+        
+   
   
-  <div id="ProveedoresF"></div>
+  <div id=""></div>
 
 </div>
 
