@@ -277,25 +277,25 @@
                     </a>
                     <ul id="licencias" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_licencias_crear.php" class="submenu-item">
+                            <a href="view/forms/frm_licencias_crear.php" class="submenu-item" data-script="consultaLicencias">
                                 <i class="fa fa-plus"></i>
                                 <span>Crear</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_licencias_consultar.php" class="submenu-item">
+                            <a href="view/forms/frm_licencias_consultar.php" class="submenu-item" data-script="licencias">
                                 <i class="fa fa-search"></i>
                                 <span>Consultar</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_licencias_actualizar.php" class="submenu-item">
+                            <a href="view/forms/frm_licencias_actualizar.php" class="submenu-item" data-script="consultaLicencias" >
                                 <i class="fa fa-pencil"></i>
                                 <span>Modificar</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_licencias_eliminar.php" class="submenu-item">
+                            <a href="view/forms/frm_licencias_eliminar.php" class="submenu-item" data-script="licencias">
                                 <i class="fa fa-trash-o"></i>
                                 <span>Eliminar</span>
                             </a>

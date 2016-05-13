@@ -34,8 +34,8 @@
                     <tr>
                         <td><strong>Codigo</strong></td>
                         <td><strong>Nombre</strong></td>
-                        <td><strong>Fecha Compra</strong></td>
                         <td><strong>Fecha Inicio</strong></td>
+                        <td><strong>Fecha Compra</strong></td>
                         <td><strong>Fecha Caducidad</strong></td>
                         <td><strong>Precio</strong></td>
                         <td><strong>Cobertura</strong></td>
