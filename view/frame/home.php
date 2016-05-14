@@ -175,30 +175,15 @@
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul id="base" class="list-menu submenu">
-                        <li>
-                            <a href="view/forms/frm_base_conocimiento.php" class="submenu-item">
-                                <i class="fa fa-plus"></i>
-                                <span>Crear</span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <a href="view/forms/frm_base_conocimiento.php" class="submenu-item">
                                 <i class="fa fa-search"></i>
                                 <span>Consultar</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="view/forms/frm_base_conocimiento.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Modificar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_base_conocimiento.php" class="submenu-item">
-                                <i class="fa fa-trash"></i>
-                                <span>Eliminar</span>
-                            </a>
-                        </li>
+                        
+                        
                     </ul>
                 </li>
                 <li>

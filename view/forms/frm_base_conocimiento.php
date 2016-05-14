@@ -1,49 +1,39 @@
 <h1>FORMULARIO BASE DE CONOCIMIENTO <h1> 
-        
+
         <form action="controller/base_conocimiento_controller.php" method="POST" name="consultar"> 
 
-<div class="col-md-12">
-   
+            <div class="col-md-12">
 
-        <div class="well"  >
-     
-          
-            <h1> Consultar Base de Conocimiento<h1></td> 
 
-                    <div class="ROW">
-                       
-                                 <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success">Pendiente Listar </a>
-                                 <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar Informacion</a>
-                              
-                                 <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class=" col-xs-5  ">
-                                 <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg bg-primary ">Buscar</a>
-                               
+                <div class="well"  >
 
-                    </div><br><br>
-                    
-                    <div>
-                        <tr>
+                            <div class="ROW">
+
+                                <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class=" col-xs-5  ">
+                                <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar"class="btn btn-lg bg-primary btn btn-lg btn-success">Buscar</a>
+
+
+                            </div><br><br>
+
+                            <div>
+                                <tr>
                                 <div class="textos"> Descripciòn de la Falla </div>
                                 <div> <textarea id= "textarea" name="descripion_falla" rows="10"cols="30"> </textarea><br><br></div>
-			
-			</tr>
-                        
-                    </div>
-                                <div class="textos"> Soluciòn de la Falla </div>
-				<div> <textarea id= "textarea" name="Solucion_falla" rows="10"cols="30"> </textarea><br><br></div>
-                     <div >
-        
-        
-        
-                    </div>
-        </div>
-    
-        
-   
-  
-  <div id=""></div>
 
-</div>
+                                </tr>
+
+                            </div>
+
+                            <div >
+                                <div class="textos"> Soluciòn de la Falla </div>
+                                <div> <textarea id= "textarea" name="Solucion_falla" rows="10"cols="30"> </textarea><br><br></div>
+
+                            </div>
+                </div>
+
+                            <div id=""></div>
+
+        </div>
 
 
 

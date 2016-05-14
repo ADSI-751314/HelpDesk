@@ -38,14 +38,26 @@ class base_conocimiento_class{
     public function consultar(){
         
         
-        $sql="select from detalles_servicios INNER JOIN tec_ser_det ON detalles_servicios.pk_det_codigo = tec_ser_det.fk_tsd_codigo'".$pk_det_codigo."' OR pk_tsd_codigo = '".$pk_tsd_codigo.'" OR pk_det_codigo ='".$det_descripcion.'";
+        $sql="Select from detalles_servicios INNER JOIN tec_ser_det ON detalles_servicios.pk_det_codigo = tec_ser_det.fk_tsd_codigo'".$pk_det_codigo."' OR pk_tsd_codigo = '".$pk_tsd_codigo.'" OR pk_det_codigo ='".$det_descripcion.'";
         
         $query = $this->conexion->consultarQuery($sql);
         return $query;
        
 
     }
-    
+    interpretes inner join interprete_album
+on interpretes.pk_int_codigo = interprete_album.fk_int_codigo
+inner join albumes
+on interprete_album.fk_alb_codigo = albumes.pk_alb_codigo
+inner join canciones_albumes
+on albumes.pk_alb_codigo = canciones_albumes.fk_alb_codigo
+inner join canciones
+on  canciones_albumes.fk_can_codigo = canciones.pk_can_codigo
+inner join canciones_compositores
+on canciones.pk_can_codigo = canciones_compositores.fk_can_codigo
+inner join compositores
+on canciones_compositores.fk_com_codigo = compositores.pk_com_codigo
+
 
 
     public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){

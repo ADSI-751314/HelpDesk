@@ -20,6 +20,19 @@ class licencias_class {
         
         $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_inicio','$lic_fecha_caducidad','$lic_fecha_compra','$lic_precio','$lic_cobertura')";
         $query = $this->conexion->ejecutarQuery($sql);
+        
+        
+//         if ($query == '1') {
+//        echo '<div class="alert alert-success alert-dismissable">
+//        <button type="submit" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡Bien!</strong> Dato agregado Correctamente.
+//        </div>';
+//    } else {
+//        echo '<div class="alert alert-warning alert-dismissable">
+//        <button type="submit" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡UPS!</strong> Ha ocurrido un error.
+//        </div>';
+//    }
     }
 
     public function actualizar($pk_lic_codigo, $lic_nombre, $lic_fecha_inicio,$lic_fecha_compra, $lic_fecha_caducidad, $lic_precio, $lic_cobertura) {
@@ -90,6 +103,18 @@ public function consulta() {
     {
         $sql = " DELETE FROM licencias where pk_lic_codigo= '".$pk_lic_codigo."'";
         $query = $this->conexion->ejecutarQuery($sql);
+        
+//        if ($query == 'eliminar') {
+//        echo '<div class="alert alert-danger alert-dismissable">
+//        <button type="submit" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡Bien!</strong> Registro Eliminado con exito .
+//        </div>';
+//    } else {
+//        echo '<div class="alert alert-warning alert-dismissable">
+//        <button type="submit" class="close" data-dismiss="alert">&times;</button>
+//        <strong>¡UPS!</strong> Ha ocurrido un error.
+//        </div>';
+//    }
     }
     
     public function consultar_todo()
