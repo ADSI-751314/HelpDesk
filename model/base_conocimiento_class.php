@@ -58,11 +58,7 @@ class base_conocimiento_class{
             inner join historial_cambios
             on partes_equipos.pk_pte_codigo = historial_cambios.pk_htc_codigo
 
-            where 
-
-            servicios.pk_ser_ticket like '%5%' or 
-            equipos.equ_nombre like '%com%' or 
-            partes_equipos.pte_descripcion like '%hardware%'";
+            where servicios.pk_ser_ticket like '%5%' or equipos.equ_nombre like '%com%' or partes_equipos.pte_descripcion like '%hardware%'";
 
         $query = $this->conexion->consultarQuery($sql);
         return $query;
