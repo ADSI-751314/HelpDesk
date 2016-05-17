@@ -1,167 +1,43 @@
-
-function objetoAjax() {
-        var xmlhttp = false;
-        try {
-            xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
-
-            try {
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (E) {
-                xmlhttp = false;
-            }
-        }
-
-        if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
-            xmlhttp = new XMLHttpRequest();
-        }
-        return xmlhttp;
-    }
-
-
- function mostrar() {
-        divResultado = document.getElementById('ProveedoresF');
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=1", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
-            }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ajax.send(null);
-    }
-    
-    $(function(){
-    $("document").on("ready",function(){
-        $("#btnmodificar").on("onclick",function(){
-           mostrar(); 
-        });
-        
+$(function () {
+    // funcion que se ejecuta cuando se hace submit en el form 
+    $("form").submit(function (e) {
+        //se cancela el evento del click para que no cambie de pagina.
+        e.preventDefault();
+        var controller = $("form").attr("action");
+        var method = $("form").attr("method");
+        var name = $("form").attr("name");
+        var data = $("form").serialize() + "&petition=" + name;
+        ajax(controller,data,method,respuesta);
     });
- });
+});
+var tblBody = document.createElement("tbody");
 
-     function mostrarParametro() {
-        divResultado = document.getElementById('ProveedoresF');
-        var parametro = document.getElementById('txtPro_parametro').value;
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=5", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText
-            }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        ajax.send("txtPro_parametro=" + parametro);
-    }
-          function cargarAgregar() {
-          // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('ProveedoresF');
-               
-            
-                ajax = objetoAjax();
-                ajax.open("POST", "controller/provedores_controller.php?op=7", true);
-                ajax.onreadystatechange = function () {
-                    if (ajax.readyState == 4) {
-                        divResultado.innerHTML = ajax.responseText;
-                   
-                    }
-                }
-                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send( );
-            }
-    
-    
-    
-      function cargarModificar(id) {
-          // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('ProveedoresF');
-               
-             //   var codigo = document.getElementById('txtPro_parametro').value;
-                ajax = objetoAjax();
-                ajax.open("POST", "controller/provedores_controller.php?op=6", true);
-                ajax.onreadystatechange = function () {
-                    if (ajax.readyState == 4) {
-                        divResultado.innerHTML = ajax.responseText;
-                     
-                    }
-                }
-                ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send("txtPro_parametro=" +id );
-            }
-    
-    
-    
-     function guardar() {
-        divResultado = document.getElementById('resultado');
-        var codigo = document.getElementById('txtPro_codigo').value;
-        var nombre = document.getElementById('txtPro_nombre').value;
-        var telefono = document.getElementById('txtPro_telefono').value;
-        var direccion = document.getElementById('txtPro_direccion').value;
-        var correo = document.getElementById('txtPro_correo').value;
-        var pagina_web = document.getElementById('txtpagina_web').value;
-        
-        
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=2", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                mostrar(); 
-            }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
-    
-     }
+function respuesta(data) {
+    data = JSON.parse(data);
+    var div = document.getElementById("descripcion");
+    var tabla = document.getElementById("solucion");
+    var hilera = null;
+    var celda = null;
 
-function modificar() {
-    
-        divResultado = document.getElementById('resultado');
-        var codigo = document.getElementById('txtPro_codigo').value;
-        var nombre = document.getElementById('txtPro_nombre').value;
-        var telefono = document.getElementById('txtPro_telefono').value;
-        var direccion = document.getElementById('txtPro_direccion').value;
-        var correo = document.getElementById('txtPro_correo').value;
-        var pagina_web = document.getElementById('txtpagina_web').value;
-        
-        
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=3", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                mostrar(); 
-            }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
-    }
-    
-    
-    
-    
-    function eliminar(id) {
-        
-       var del = confirm("Seguro que desea eliminar registro");
-        
-        if(del==true)
-           {
-        divResultado = document.getElementById('resultado');
-       // var codigo = document.getElementById('txtPro_codigo').value;
+    for (var i = 0; i < 1; i++) {
 
-        
-        
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=4", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                mostrar(); 
-            }
+        hilera = document.createElement("tr");
+
+        for (var fila in data) {
+
+            celda = document.createElement("td");
+            var textoCelda = document.createTextNode(data[fila]);
+            celda.appendChild(textoCelda);
+            hilera.appendChild(celda);
+
         }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + id);
-           }
-           
+        tblBody.appendChild(hilera);
+        tabla.appendChild(tblBody);
+        div.appendChild(tabla);
     }
+}
+
+function limpiarTexto()
+{
+     tblBody.innerHTML = "";
+}

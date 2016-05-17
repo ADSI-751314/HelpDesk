@@ -44,9 +44,9 @@ class base_conocimiento_class{
     public function consultar(){
         
         
-        $sql = "select servicios.pk_ser_ticket,servicios.ser_descripcion,servicios.ser_fecha,detalles_servicios.det_descripcion,detalles_servicios.det_fecha,
-            tec_serv_det.pk_tsd_codigo, tec_serv_det.fk_tec_codigo FROM 
-
+        $sql= "select servicios.pk_ser_ticket,servicios.ser_descripcion,servicios.ser_fecha,detalles_servicios.det_descripcion,detalles_servicios.det_fecha,
+            tec_serv_det.pk_tsd_codigo, tec_serv_det.fk_tec_codigo
+            FROM 
             servicios inner join tec_serv_det 
             on servicios.pk_ser_ticket = tec_serv_det.fk_ser_ticket
             inner join detalles_servicios 
@@ -58,21 +58,27 @@ class base_conocimiento_class{
             inner join historial_cambios
             on partes_equipos.pk_pte_codigo = historial_cambios.pk_htc_codigo
 
-            where servicios.pk_ser_ticket like '%5%' or equipos.equ_nombre like '%com%' or partes_equipos.pte_descripcion like '%hardware%'";
+            where 
+
+            servicios.pk_ser_ticket like '%5%' or 
+            equipos.equ_nombre like '%com%' or 
+            partes_equipos.pte_descripcion like '%hardware%' or 
+            historial_cambios.htc_descripcion like '%equi%' or 
+            historial_cambios.htc_fecha like '%realiza%'";
 
         $query = $this->conexion->consultarQuery($sql);
         return $query;
     }
 
 
-    public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){
-        
-        
-        $sql="select * from historial_cambios where pk_htc_codigo = '".$pk_htc_codigo."'";
-        $query = $this->conexion->consultarQuery($sql);
-        return $query;
-        
-    }
+//    public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){
+//        
+//        
+//        $sql="select * from historial_cambios where pk_htc_codigo = '".$pk_htc_codigo."'";
+//        $query = $this->conexion->consultarQuery($sql);
+//        return $query;
+//        
+//    }
     
 }
 
