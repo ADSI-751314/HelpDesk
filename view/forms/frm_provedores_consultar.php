@@ -4,24 +4,22 @@
     
 <div class="well">
     <nav class="navbar  ">
-        <ul class="nav navbar-nav">
+       
      
-           <li>  <h1 class="text-muted">Consultar Provedores<h1></li> 
-        
-        </ul>
-                    <ul>     
-                        <li>   <input type="text"  id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class="form-control "> </li> 
+           <h1 class="text-muted">Consultar Provedores<h1>
+      
+      
+                    <ul class="nav-justified">     
+                        <li>   <input type="text"   id="txtPro_parametro" values="Ingrese  el codigo" placeholder="Ingrese Busqueda" class="form-control"  > </li> 
+                        <li>   <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar" class="btn btn-lg btn-primary"><i class="glyphicon glyphicon-search"></i></a> </li>
                     </ul>   
                  
-                     <ul class="nav nav-justified">
-                         
-                         <li>   <a onclick="mostrarParametro();"  name="btnBuscar" value="Buscar" class="btn btn-lg btn-success">Buscar</a> </li>
+                    <ul class="nav nav-justified">
+                       
                          <li>   <a onclick="mostrar();"  name="btnconsultar" value="consultar"class="btn btn-lg btn-success" >Listar </a> </li>
                          <li>    <a onclick="cargarAgregar();"  name="btnconsultar" value="Agregar"class="btn btn-lg btn-success">Agregar</a> </li>
-                    
-                         
-                         
-                      </ul>
+                     
+                    </ul>
                   
     </nav>           
 
