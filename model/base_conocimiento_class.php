@@ -68,8 +68,32 @@ class base_conocimiento_class{
 
         $query = $this->conexion->consultarQuery($sql);
         return $query;
-    }
+        
+         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
+        foreach ($query as $fila) {
 
+           $contenido = "<tr>
+                            <td> " . $fila['pk_ser_ticket'] . " </td>
+                            <td> " . $fila['pk_det_codigo'] . " </td>
+                            <td> " . $fila['pk_htc_codigo'] . " </td>
+                            <td> " . $fila['pk_tsd_codigo'] . " </td>
+                            <td> " . $fila['pk_equ_codigo'] . " </td>
+                            <td> " . $fila['equ_nombre'] . " </td>
+                            <td> " . $fila['pte_descripcion'] . " </td>
+                            <td> " . $fila['htc_descripcion'] . " </td>
+                            <td> " . $fila['htc_fecha'] . " </td>
+                            
+                        </tr>";
+            echo $contenido;
+        }
+        //fin del ciclo
+    }
+            public function consultar_todo()
+    {
+        $sql="select * from servicios,detalles_servicio,historial_cambios,tec_serv_det";
+        $query = $this->conexion->consultarQuery($sql);
+        
+    }
 
 //    public function consulta($pk_htc_codigo,$htc_fecha,$htc_hora,$htc_descripcion){
 //        
