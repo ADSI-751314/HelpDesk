@@ -293,6 +293,12 @@
                         <span>Gestion de Proveedores</span>
                     </a>
                 </li>
+                  <li>
+                    <a href="view/forms/frm_partes.php" class="menu-item2" data-script="partes">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Gestion de Partes</span>
+                    </a>
+                </li>
                 <li>
                     <a href="view/forms/frm_reportes.php" name="Reportes" class="menu-item2" data-script="reportes">
                         <i class="fa fa-line-chart"></i>

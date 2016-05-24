@@ -24,7 +24,7 @@ class provedores_class {
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡Bien!</strong> Dato agregado Correctamente.
         </div>';
-    } else {
+    } else if($query == '-1'){
         echo '<div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡UPS!</strong> Ha ocurrido un error.
@@ -47,17 +47,17 @@ class provedores_class {
        
              echo "<h1> Up Date Proveedores</h1>";
             
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' disabled='true' id='txtPro_codigo' value=\"$row[0]\" class='form-control'> </input></div>";
+            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' class='form-control' disabled='true' id='txtPro_codigo' value=\"$row[0]\" class='form-control'> </input></div>";
               
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]." class='form-control' > </input></div>";
+            echo  "<div> <label class=''>Nombre </label> <input type='text' class='form-control' id='txtPro_nombre' value='".$row[1]."'  > </input></div>";
             
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]." class='form-control'> </input></div>";
+            echo "<div> <label class=''>Telefono</label> <input type='text' class='form-control' id='txtPro_telefono' value='".$row[2]."' > </input></div>";
        
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."  class='form-control'> </input></div>";
+            echo "<div> <label class=''>Direccion </label> <input type='text' class='form-control' id='txtPro_direccion' value='".$row[3]."'  > </input></div>";
        
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]." class='form-control'> </input></div>";
+            echo "<div> <label class=''>Correo </label> <input type='text' class='form-control' id='txtPro_correo' value='".$row[4]."' > </input></div>";
        
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]." class='form-control'> </input></div>";
+            echo "<div> <label class=''>Pagina WEb</label> <input type='text' class='form-control' id='txtpagina_web' value='".$row[5]."' > </input></div>";
             
             echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
 
@@ -219,7 +219,7 @@ class provedores_class {
                   if ($query == '1') {
         echo '<div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Registro Eliminado con exito .
+        <strong>Ups</strong> Registro Eliminado con exito  .
         </div>';
     } else {
         echo '<div class="alert alert-warning alert-dismissable">
