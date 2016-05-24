@@ -39,9 +39,9 @@ class licencias_class {
         
         $sql="UPDATE licencias SET pk_lic_codigo = '".$pk_lic_codigo."',
                                         lic_nombre ='". $lic_nombre."',
-                                        lic_fecha_inicio = '".$lic_fecha_inicio."',
-                                        lic_fecha_caducidad = '".$lic_fecha_caducidad."',
+                                        lic_fecha_inicio = '".$lic_fecha_inicio."',            
                                         lic_fecha_compra ='".$lic_fecha_compra."',
+                                        lic_fecha_caducidad = '".$lic_fecha_caducidad."',
                                         lic_precio='".$lic_precio."',
                                         lic_cobertura = '".$lic_cobertura."' 
                                         where pk_lic_codigo='" . $pk_lic_codigo ."'";
@@ -65,8 +65,8 @@ class licencias_class {
                             <td> " . $fila['pk_lic_codigo'] . " </td>
                             <td> " . $fila['lic_nombre'] . " </td>
                             <td> " . $fila['lic_fecha_inicio'] . " </td>
-                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
                             <td> " . $fila['lic_fecha_compra'] . " </td>
+                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
                             <td> " . $fila['lic_precio'] . " </td>
                             <td> " . $fila['lic_cobertura'] . " </td>
                             

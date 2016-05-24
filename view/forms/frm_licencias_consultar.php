@@ -10,7 +10,7 @@
                     <td>Nombre Licencia</td> 
                     <td><input type="text" name="txtNombre_Licencia"  id="txtNombre_Licencia" size="50" maxlength="80"></td>
                 </tr>
-                <tr> 
+<!--                <tr> 
                     <td>Seleccione en su consulta un Estado </td>
                     <td>
                         <select id="Estado" onChange="mostrarSeleccionEquipos()">
@@ -21,7 +21,7 @@
                         <input type="text" id="mensaje">
                         <font color="green" size="65"></font>
                     </td>
-                </tr>
+                </tr>-->
                 <tr align="center">
                     <td><input type="submit" name="btnConsultar" size="35" value="Consultar por codigo o nombre " class="textos btn btn-info">
                         <input type="submit" name="btnConsultarTodo" size="35" value="Consultar Todo" class="btn btn-lg btn-success"></td>
