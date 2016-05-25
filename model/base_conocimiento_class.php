@@ -41,8 +41,7 @@ class base_conocimiento_class{
            $this->conexion->conexion();
     }
     
-    public function consultar(){
-        
+    public function consultar($pk_ser_ticket,$pk_det_codigo,$pk_htc_codigo,$pk_tsd_codigo){
         
         $sql= "select servicios.pk_ser_ticket,servicios.ser_descripcion,servicios.ser_fecha,detalles_servicios.det_descripcion,detalles_servicios.det_fecha,
             tec_serv_det.pk_tsd_codigo, tec_serv_det.fk_tec_codigo
@@ -68,13 +67,26 @@ class base_conocimiento_class{
 
         $query = $this->conexion->consultarQuery($sql);
         return $query;
+    }
+    
+        public function consulta(){
+
+    //CONEXION CON LA BASE DE DATOS 
+        $sql="select * from servicios,detalles_servicio,historial_cambios,tec_serv_det"; 
+        $query = $this->conexion->consultarQuery($sql);
         
+       
+        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad 
          // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
         foreach ($query as $fila) {
 
            $contenido = "<tr>
                             <td> " . $fila['pk_ser_ticket'] . " </td>
-                            <td> " . $fila['pk_det_codigo'] . " </td>
+                            <td> " . $fila['ser_fecha'] . " </td>
+                            <td> " . $fila['ser_descripcion'] . " </td>
+                            <td> " . $fila['pk_det_codigo'] . " </td>                            
+                            <td> " . $fila['det_descripcion'] . " </td>                            
+                            <td> " . $fila['det_fecha'] . " </td>
                             <td> " . $fila['pk_htc_codigo'] . " </td>
                             <td> " . $fila['pk_tsd_codigo'] . " </td>
                             <td> " . $fila['pk_equ_codigo'] . " </td>
@@ -87,8 +99,10 @@ class base_conocimiento_class{
             echo $contenido;
         }
         //fin del ciclo
+        
     }
-            public function consultar_todo()
+ 
+ public function consultar_todo()
     {
         $sql="select * from servicios,detalles_servicio,historial_cambios,tec_serv_det";
         $query = $this->conexion->consultarQuery($sql);
