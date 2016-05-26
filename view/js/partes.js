@@ -19,9 +19,9 @@ function objetoAjax() {
 
 
 
-function cargarAgregar() {
+function cargarAdd() {
           // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('ProveedoresF');
+                divResultado = document.getElementById('PartesF');
                
             
                 ajax = objetoAjax();
@@ -37,7 +37,7 @@ function cargarAgregar() {
             }
     
     
- function guardar() {
+ function guardar1() {
         divResultado = document.getElementById('resultado');
         var serial = document.getElementById('txtSerial').value;
         var marca = document.getElementById('txtMarca').value;

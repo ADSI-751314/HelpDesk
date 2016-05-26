@@ -37,8 +37,9 @@ function objetoAjax() {
     }
 
 
+
  function mostrar() {
-        divResultado = document.getElementById('ProveedoresF');
+        divResultado = document.getElementById('Proveedores');
         ajax = objetoAjax();
         ajax.open("POST", "controller/provedores_controller.php?op=1", true);
         ajax.onreadystatechange = function () {
@@ -60,7 +61,7 @@ function objetoAjax() {
  });
 
      function mostrarParametro() {
-        divResultado = document.getElementById('ProveedoresF');
+        divResultado = document.getElementById('Proveedores');
         var parametro = document.getElementById('txtPro_parametro').value;
         ajax = objetoAjax();
         ajax.open("POST", "controller/provedores_controller.php?op=5", true);

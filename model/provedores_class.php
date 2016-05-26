@@ -59,7 +59,7 @@ class provedores_class {
        
             echo "<div> <label class=''>Pagina WEb</label> <input type='text' class='form-control' id='txtpagina_web' value='".$row[5]."' > </input></div>";
             
-            echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
+            echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar' data-dismiss='modal' class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
 
          }
     }
@@ -68,7 +68,7 @@ class provedores_class {
     
     
     function cargarAgregar() {
- 
+
        
              echo "<h1>Registro de Proveedores</h1>";
             
@@ -84,7 +84,9 @@ class provedores_class {
        
             echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' class='form-control'> </input></div>";
             
-            echo "<br><a onclick='guardar();'  name='btnAgregar' value='agregar' class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
+            echo "<br><a onclick='guardar();' id='btnagregar' name='btnAgregar' value='agregar' data-dismiss='modal'  class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
+
+
 
          }
     
@@ -143,7 +145,7 @@ class provedores_class {
                                                         <td> " . $row[3] . " </td>
                                                         <td> " . $row[4] . " </td>
                                                         <td> " . $row[5] . " </td>
-                                                        <td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
+                                                        <td> <a onclick='cargarModificar(" . $row[0] . ");' data-toggle='modal' data-target='#myModal' name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
 
                                                         </tr>";
 

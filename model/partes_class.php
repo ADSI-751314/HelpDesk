@@ -35,7 +35,7 @@ class partes_class{
        
             echo "<div> <label class=''>Codigo del Historial de cambios</label> <input type='text' id='txtFk_historial' class='form-control'> </input></div>";
             
-            echo "<br><a onclick='guardar();'  name='btnAgregar' value='agregar' class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
+            echo "<br><a onclick='guardar1();'  name='btnAgregar' value='agregar' class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
 
          }
 
