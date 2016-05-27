@@ -16,6 +16,24 @@
 //    }
 //});
 
+$(document).on("ready",function(){
+   alert('si llega'); 
+    
+});
+
+            $(document).on("ready", function () {
+                alert("si llega");
+                $(".campos").on("keyup", function () {
+
+                    $(".campos").each(function () {
+                     if ($(this).val() == "")
+                        {
+                          $(this).addClass("error");
+                        }else{$(this).removeClass("error")}
+                    });
+                });
+            });
+            
 
 function objetoAjax() {
         var xmlhttp = false;
@@ -37,6 +55,7 @@ function objetoAjax() {
     }
 
 
+            
 
  function mostrar() {
         divResultado = document.getElementById('Proveedores');
@@ -162,7 +181,7 @@ function modificar() {
     
     function eliminar(id) {
         
-       var del = confirm("Seguro que desea eliminar registro");
+       var del = confirm("Este registro se eliminara y la informacion sera irrecuperable \n\n Seguro que desea eliminar registro ???");
         
         if(del==true)
            {
