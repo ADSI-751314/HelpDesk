@@ -1,17 +1,14 @@
-.contenedorFormulario{
-    max-width: 600px;
-}
-
-.form-centered{
-   text-align: center;
-}
-
 .datepicker {
     background-color: #fff!important;
-    border: none!important;
 }
-
 .input-group-addon {
+    min-width: 100px;
+}
+.btn-custom-primary {
     background-color: #151F35;
-    color: #fff;
+    color: #ffffff;
+}
+.btn-custom-primary:hover, .btn-custom-primary:focus {
+    background-color: #010C24;
+    color: #ffffff;
 }
