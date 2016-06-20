@@ -19,4 +19,5 @@
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.es.min.js" async></script>
         <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js" async></script>
         <script type="text/javascript" src="/HelpDesk/view/js/general.js" async></script>
+        <script  type="text/javascript" src="/HelpDesk/view/js/jquery.confirm.min.js"></script>
     </head>

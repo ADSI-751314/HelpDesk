@@ -88,32 +88,32 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#inventario" class="menu-item" data-script="">
+                    <a href="#inventario" class="menu-item" data-script="inventarioTecnologico">
                         <i class="fa fa-check-square"></i>
                         <span>Inventario</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul id="inventario" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_HistorialCambios.php" class="submenu-item">
+                            <a href="view/forms/frm_HistorialCambios_Registrar.php" class="submenu-item">
                                 <i class="fa fa-plus"></i>
                                 <span>Crear</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_inventario_tecnologico.php" class="submenu-item">
+                            <a href="view/forms/frm_HistorialCambios_Consultar.php" class="submenu-item">
                                 <i class="fa fa-search"></i>
                                 <span>Consultar</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_inventario_tecnologico.php" class="submenu-item">
+                            <a href="view/forms/frm_HistorialCambios_actualizar.php" class="submenu-item">
                                 <i class="fa fa-pencil"></i>
                                 <span>Modificar</span>
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_inventario_tecnologico.php" class="submenu-item">
+                            <a href="view/forms/frm_HistorialCambios_Eliminar.php" class="submenu-item">
                                 <i class="fa fa-trash"></i>
                                 <span>Eliminar</span>
                             </a>
@@ -294,8 +294,8 @@
                     </a>
                 </li>
                   <li>
-                    <a href="view/forms/frm_partes.php" class="menu-item2" data-script="partes">
-                        <i class="fa fa-shopping-cart"></i>
+                    <a href="view/forms/frm_partesEquiposCrud.php"  class="menu-item2 " data-script="parteseEquipos">
+                        <i class="fa fa-shopping-cart "  ></i>
                         <span>Gestion de Partes</span>
                     </a>
                 </li>
