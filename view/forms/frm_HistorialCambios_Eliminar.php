@@ -23,28 +23,30 @@
 
                 </button>
                 
+                              
+                      <div class="container">
+
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="Validacion"></label></br>
+                    <label for="txt_codigofiltro">Codigo Historial :</label>                  
+                    <input type="text" class="form-control" id="txt_codigofiltro" placeholder="Ingrese codigo de Historial">
+              
+                    <div class="form-group">
+                        <label for="dte_fecha">Fecha:</label>
+                        <input type="date" class="form-control" id="dte_fecha" value="<?php echo date("Y-m-d\TH-i");?>">
+                    </div>
                 
-                   <button type="submit" class="btn btn-info btn-lg btn_inventario " 
-                        id="btn-inv-consultarEliminar">
-                    <span class="glyphicon glyphicon-filter  "  
-                          aria-hidden="true"></span> Filtar
-                </button>
-                  
-               
-                <div class="row">
-                    
-                  
-
-                    <div class="col-lg-4">
-                        <label>Codigo</label>
-                        <input  type='text' id='dte_fecha' class='form-control' required=''>
-                    </div>
-
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <label>Fecha</label>
-                        <input  type='date' id='dte_fecha' class='form-control datepicker' required=''>
-                    </div>
+                         
+                
+                    <button type="" class="btn btn-info btn_inventario " id="btn-inv-filtrarEliminar">
+                        <span class="glyphicon glyphicon-filter "  
+                              aria-hidden="true"></span> Filtrar
+                    </button>
                 </div>
+            </form>
+        </div>
+        
             </div>
 
 

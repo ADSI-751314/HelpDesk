@@ -50,9 +50,6 @@ class HistorialCambios_class {
      //metodo que me consulta la peticion enviada desde el formulario
     public function consultar() {
 
-        //CONEXION CON LA BASE DE DATOS 
-        // CONSULTA CASE DE DATOS 
-
         $consultarHisotorial = "SELECT pk_htc_codigo,htc_fecha,htc_hora,htc_descripcion FROM historial_cambios";
 
         if (!$result = $this->conexion->ejecutarQuery($consultarHisotorial)) {
@@ -314,10 +311,51 @@ function  ConsultarModificar(){
     }
      //metodo para modificar el campo seleccionado
    
-    public function consultar_todo1()
-    {
-        $sql="select * from historial_cambios";
-        $query = $this->conexion->consultarQuery($sql);
+    public function consultaFiltroEliminarModificarCrear($PkHtCodigo,$fecha) {
+
+            
+        $consultarHisotorial = "SELECT pk_htc_codigo,htc_fecha,htc_hora,htc_descripcion FROM historial_cambios where"
+                . " pk_htc_codigo ='$PkHtCodigo' or htc_fecha='$fecha' ";
+               
+               
         
-    }
+        if (!$result = $this->conexion->ejecutarQuery($consultarHisotorial)) {
+            echo $conexion->error;
+              
+        }
+             echo '<div class="panel panel-default" >
+             <div class="panel-heading">Lista de Historial</div>
+            
+
+            <table class="table">
+                             
+                                <tr>
+                                    <td class="head_table"> Codigo Historial </td>
+                                    <td class="head_table"> Fecha Historial </td>
+                                    <td class="head_table"> Hora Historial</td>
+                                    <td class="head_table"> Descripcion Historial </td>
+                                
+                            </tr>';
+       
+                
+        while ($row = mysqli_fetch_array($result)) {
+            
+
+              $contenido = "<tr>
+                                                        <td> " . $row[0] . " </td>
+                                                        <td> " . $row[1] . " </td>
+                                                        <td> " . $row[2] . " </td>
+                                                        <td> " . $row[3] . " </td>                                                 
+                                                         </tr>";
+
+            echo $contenido;
+        
+      
+            
+        }
+        
+         '</table>';
+        echo'</div>';
+        
+        }
 }

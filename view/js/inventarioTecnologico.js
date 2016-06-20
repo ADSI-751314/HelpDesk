@@ -17,6 +17,10 @@ case 'btn-inv-registrar':
         consultaXIdFecha();
         break;
         
+        case 'btn-inv-filtrarEliminar':filtroParaEliminarModificarCrear();
+            
+            break;
+        
         case 'btn-inv-consultarModificar':cargarModificar();
                 break;
        
@@ -49,6 +53,10 @@ case 'btn_modificar':
 //la cual envia cuatro parametros al servidor desde el cliente
 // codigo , fecha , hora y descripcion
         function Registrar() {
+            
+       //llamado a los campos de textos para que se limpien cada vez que se cargan 
+              
+            //llamado a los id de cada control para almcacenar datoos
         divResultado = document.getElementById('lblRespuestaServidor');
                 pkCodigo = document.getElementById('pkCodigo').value;
                 fecha = document.getElementById('fecha').value;
@@ -66,6 +74,7 @@ case 'btn_modificar':
                 if (ajax.readyState == 4) {
 
                 divResultado.innerHTML = ajax.responseText;
+                $("#modal").modal('hide');
                         showAlert(" <strong>¡Bien!</strong> Dato agregado Correctamente.");
                         mostrar();
 //    $('#Respuesta').innerHTML = ajax.responseText;
@@ -130,8 +139,33 @@ case 'btn_modificar':
 
 
 
+                        }  ;
+                        
+                        function  filtroParaEliminarModificarCrear(){
+                             divConsulta = document.getElementById('formularioElimnar');
+                                txtCodigo = document.getElementById('txt_codigofiltro').value;
+                                dteFecha = document.getElementById('dte_fecha').value;
+                            
+                                     if (txtCodigo == "") {
+//            $('.validacion').html('<p style="color:red">Por favor ingrese Codigo del Historial</p>');
+                        showAlert("<i style='color:red' class='fa fa-exclamation-circle fa-1xm'></i><strong>\n\
+                                Por favor ingrese Codigo del Historial!</strong>");
+                                $("#frmHistorialCambios").effect("shake", {times: 3, distance: 20}, 400);
+                        } else {
+                        $('.validacion').html("");
+                                ajax = objetoAjax();
+                                ajax.open("POST", "controller/HistorialCambios_controller.php?op=9", true);
+                                ajax.onreadystatechange = function () {
+                                if (ajax.readyState == 4) {
+                                //   alert("si busco");
+                                divConsulta.innerHTML = ajax.responseText;
+                                }
+                                }
+                        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                ajax.send("pkCodigo=" + txtCodigo + "&fecha=" + dteFecha );
                         }
-                ;
+                            
+                        };
                         function  cargarModificar() {
                         divResultado = document.getElementById('mostrarFormularioMoficar');
                                 ajax = objetoAjax();
@@ -151,14 +185,14 @@ case 'btn_modificar':
             title: 'CONFIRMAR ELIMINACION!',
             text: 'Esta Seguro que Desea Eliminar este Registro',
             confirm: function() {
-                lblResultado = document.getElementById('lblRespuestaServidor');
+                lblResultado = document.getElementById('lblRespuestaServidorEliminado');
                 ajax = objetoAjax();
                 ajax.open("POST", "controller/HistorialCambios_controller.php?op=8", true);
                 ajax.onreadystatechange = function() {
                     if (ajax.readyState == 4) {
 
                         lblResultado.innerHTML = ajax.responseText;
-                        cargarModificar();
+                        MostrarConsultaEliminar();
                         showAlert("<strong>¡El Registro!</strong> Fue Eliminado Correctamente.");
 
 
@@ -222,6 +256,8 @@ case 'btn_modificar':
                         ajax.send("pkCodigo=" + txtCodigo + "&fecha=" + dteFecha + "&hora=" + timHora + "&txtdescripcion=" + txtDescripcion);
                 };
                 function  MostrarConsultaEliminar(){
+                       txtCodigo = document.getElementById('txt_codigofiltro').value="";
+                                dteFecha = document.getElementById('dte_fecha').value="";
 
                 divResultado = document.getElementById('formularioElimnar');
                         ajax = objetoAjax();

@@ -81,5 +81,15 @@ if ($op == 8){
    
 }
 
+if ($op ==9){
+    
+   $PkHtCodigo = $_POST['pkCodigo'];
+   $htcFecha = $_POST['fecha'];
+ 
+  
+   $historial->consultaFiltroEliminarModificarCrear($PkHtCodigo, $htcFecha);
+
+}
+
 ?>
 
