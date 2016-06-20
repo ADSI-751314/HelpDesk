@@ -7,6 +7,7 @@
         
         <link rel="shortcut icon" href="/HelpDesk/view/img/favicon.png">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/proveedores.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/HelpDesk/view/css/general.css">
@@ -18,4 +19,5 @@
         <script type="text/javascript" src="/HelpDesk/view/js/bootstrap-datepicker.es.min.js" async></script>
         <script type="text/javascript" src="/HelpDesk/view/js/highcharts.js" async></script>
         <script type="text/javascript" src="/HelpDesk/view/js/general.js" async></script>
+        <script  type="text/javascript" src="/HelpDesk/view/js/jquery.confirm.min.js"></script>
     </head>

@@ -10,7 +10,7 @@ $controller = new base_conocimiento_controller();
 switch ($proceso){
     
     case("consulta"):
-        $controller->consultar($_REQUEST['txtPro_parametro']);
+        $controller->consultar($_REQUEST['txtBusqueda']);
         
         echo "se esta realizando la consulta";
       

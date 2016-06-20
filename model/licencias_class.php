@@ -16,9 +16,9 @@ class licencias_class {
         $this->conexion->conexion();
     }
 
-    public function crear($pk_lic_codigo, $lic_nombre,$lic_fecha_inicio,$lic_fecha_caducidad, $lic_fecha_compra, $lic_precio, $lic_cobertura) {
+    public function crear($pk_lic_codigo, $lic_nombre,$lic_fecha_inicio,$lic_fecha_compra,$lic_fecha_caducidad,$lic_precio, $lic_cobertura) {
         
-        $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_inicio','$lic_fecha_caducidad','$lic_fecha_compra','$lic_precio','$lic_cobertura')";
+        $sql = "INSERT INTO licencias values('$pk_lic_codigo','$lic_nombre','$lic_fecha_inicio','$lic_fecha_compra','$lic_fecha_caducidad','$lic_precio','$lic_cobertura')";
         $query = $this->conexion->ejecutarQuery($sql);
         
         
@@ -55,7 +55,7 @@ class licencias_class {
     public function consultar($pk_lic_codigo,$lic_nombre) {
 
         //CONEXION CON LA BASE DE DATOS 
-        $sql="select * from licencias where pk_lic_codigo = '".$pk_lic_codigo."' or lic_nombre = '".$lic_nombre."'"; 
+        $sql="select pk_lic_codigo, lic_nombre, lic_fecha_inicio, lic_fecha_caducidad, lic_fecha_compra,  lic_precio, lic_cobertura from licencias where pk_lic_codigo = '".$pk_lic_codigo."' or lic_nombre = '".$lic_nombre."'"; 
         $query = $this->conexion->consultarQuery($sql);
         
         // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
@@ -65,8 +65,8 @@ class licencias_class {
                             <td> " . $fila['pk_lic_codigo'] . " </td>
                             <td> " . $fila['lic_nombre'] . " </td>
                             <td> " . $fila['lic_fecha_inicio'] . " </td>
-                            <td> " . $fila['lic_fecha_compra'] . " </td>
                             <td> " . $fila['lic_fecha_caducidad'] . " </td>
+                            <td> " . $fila['lic_fecha_compra'] . " </td>
                             <td> " . $fila['lic_precio'] . " </td>
                             <td> " . $fila['lic_cobertura'] . " </td>
                             
@@ -89,8 +89,8 @@ public function consulta() {
                             <td> " . $fila['pk_lic_codigo'] . " </td>
                             <td> " . $fila['lic_nombre'] . " </td>
                             <td> " . $fila['lic_fecha_inicio'] . " </td>
-                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
                             <td> " . $fila['lic_fecha_compra'] . " </td>
+                            <td> " . $fila['lic_fecha_caducidad'] . " </td>
                             <td> " . $fila['lic_precio'] . " </td>
                             <td> " . $fila['lic_cobertura'] . " </td>
                         </tr>";

@@ -1,12 +1,14 @@
-.contenedorFormulario{
-    max-width: 600px;
+.datepicker {
+    background-color: #fff!important;
 }
-
-.alineacionDiv{
-   text-align: center;    
+.input-group-addon {
+    min-width: 100px;
 }
-
-/*
-.chart-box{
-    width: 20%;
-}*/
+.btn-custom-primary {
+    background-color: #151F35;
+    color: #ffffff;
+}
+.btn-custom-primary:hover, .btn-custom-primary:focus {
+    background-color: #010C24;
+    color: #ffffff;
+}
