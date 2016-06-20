@@ -33,13 +33,30 @@ class garantias_class {
      //metodo para modificar el campo seleccionado
     public function modificar ($pk_gar_codigo,$gar_tipo,$gar_fecha1,$gar_fecha2,$gar_descripcion,$fk_equ_codigo)
     {
-        $sql="UPDATE garantias SET gar_tipo = '".$gar_tipo."',
+         
+        $sql="SELECT COUNT(*) FROM garantias WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
+        $query = $this->conexion->consultarQuery($sql);
+        return $query;
+        
+        $num = (int)$query;
+        
+       
+        
+        
+        if($query===1){
+        
+        $sql1="UPDATE garantias SET gar_tipo = '".$gar_tipo."',
                                    gar_fecha_inicio= '".$gar_fecha1."',
                                    gar_fecha_fin = '".$gar_fecha2."',
                                    gar_descripcion = '".$gar_descripcion."',
                                    fk_equ_codigo = '".$fk_equ_codigo."'    
                                    WHERE pk_gar_codigo = '".$pk_gar_codigo."'";
         $this->conexion->ejecutarQuery($sql);
+        echo "Dato modificado con éxito";
+        }
+        else{
+            echo "El código ingresado no existe en la base de datos. por favor revise los valores ingresados e intente de nuevo";
+        }
                                     
     }
     public function consultar_todo1()
@@ -48,4 +65,7 @@ class garantias_class {
         $query1 = $this->conexion->consultarQuery($sql);
         return $query1;
     }
+     
+    
+    
 }

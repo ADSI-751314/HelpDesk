@@ -55,7 +55,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#garantias" class="menu-item" data-script="consultaGarantias">
+                    <a href="#garantias" class="menu-item" data-script="garantias">
                         <i class="fa fa-shield"></i>
                         <span>Garantias</span>
                         <i class="fa fa-angle-down"></i>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="view/forms/frm_garantias_eliminar.php" class="submenu-item">
+                            <a href="view/forms/frm_garantias_eliminar.php" class="submenu-item" data-script="garantias">
                                 <i class="fa fa-trash"></i>
                                 <span>Eliminar</span>
                             </a>
