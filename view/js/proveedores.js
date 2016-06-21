@@ -140,18 +140,29 @@ function objetoAjax() {
         var pagina_web = document.getElementById('txtpagina_web').value;
         
         
+         if (codigo == "") {
+
+            $('.validacion').html('<p style="color:red">debe ingresar codigo</p>');
+            $("#myModal").effect("shake", {times: 3, distance: 20}, 400);
+        } else{
+            
         ajax = objetoAjax();
         ajax.open("POST", "controller/provedores_controller.php?op=2", true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText;
+                 $('#myModal').modal('hide');
                 mostrar(); 
+                
+                 showAlert(" <button type='button' class='close' data-dismiss='alert'>&times;</button>"+
+        "<strong>¡Bien!</strong> Dato agregado Correctamente.");
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
        ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
     
      }
+ }
 
 function modificar() {
     
@@ -169,11 +180,13 @@ function modificar() {
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText;
+                showAlert("<strong>¡Bien!</strong> Dato Modificado Correctamente."+ "<button type='button' class='close' data-dismiss='alert'>&times;</button>");
+                $('#myModal').modal('hide');
                 mostrar(); 
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
+        ajax.send("txtPro_codigo=" + codigo+"&txtPro_nombre=" + nombre+"&txtPro_telefono=" + telefono+"&txtPro_direccion=" + direccion+"&txtPro_correo=" + correo+"&txtpagina_web=" + pagina_web);
     }
     
     
@@ -181,25 +194,37 @@ function modificar() {
     
     function eliminar(id) {
         
-       var del = confirm("Este registro se eliminara y la informacion sera irrecuperable \n\n Seguro que desea eliminar registro ???");
-        
-        if(del==true)
-           {
-        divResultado = document.getElementById('resultado');
-       // var codigo = document.getElementById('txtPro_codigo').value;
-
-        
-        
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/provedores_controller.php?op=4", true);
-        ajax.onreadystatechange = function () {
+     
+        $.confirm({
+ 
+       title: 'CONFIRMAR ELIMINACION!',
+       text: 'Esta Seguro que Desea Eliminar este Registro',
+         confirm:function(){
+                divResultado = document.getElementById('resultado');
+                ajax = objetoAjax();
+                ajax.open("POST", "controller/provedores_controller.php?op=4", true);
+                ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 divResultado.innerHTML = ajax.responseText;
+                    showAlert( "<button type='button' class='close' data-dismiss='alert'>&times;</button>" +
+                                "<strong>Ups</strong> Registro Eliminado con exito  .")
                 mostrar(); 
             }
         }
         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txtPro_codigo=" + id);
-           }
-           
+        ajax.send("txtPro_codigo=" + id);
+      
+          },
+            cancel: function() {}
+         });  
+    }
+    
+      function showAlert(msg, cb) {
+        $(".alerta").html(msg)
+                .fadeIn(500, function() {
+                    setTimeout(function() {
+                        $(".alerta").fadeOut(1000);
+                        cb();
+                    }, 3000);
+                });
     }

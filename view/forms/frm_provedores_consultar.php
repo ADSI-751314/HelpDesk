@@ -40,8 +40,11 @@
     
   
   <div class="modal fade" id="myModal" role="dialog">
+  
+
         <div class="modal-dialog fondo ">
- 
+                
+
              <div id="ProveedoresF" class=""></div>
    
         </div>
