@@ -45,7 +45,7 @@ class garantias_class1 {
        
          while ($row = mysqli_fetch_array($result)) {
        
-             echo "<h1> Up Date Proveedores</h1>";
+            echo "<h1> Up Date Proveedores</h1>";
             
             echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' value=\"$row[0]\"> </input></div>";
               
@@ -59,7 +59,7 @@ class garantias_class1 {
        
             echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]."> </input></div>";
             
-            echo "<a onclick='modificar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
+            echo "<a onclick='editar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
 
          }
     }
@@ -72,8 +72,8 @@ class garantias_class1 {
     
     
     
-    public function modificar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web) {
-        $sql = " UPDATE proveedores SET pro_nombre='" . $pro_nombre . "', pro_telefono='" . $pro_telefono . "',pro_direccion='" . $pro_direccion . "',pro_correo='" . $pro_correo . "',pro_pagina_web='" . $pro_pagina_web . "' where pk_pro_codigo='" . $pro_codigo . "'";
+    public function modificar($pk_gar_codigo, $gar_tipo, $gar_fecha_inicio, $gar_fecha_fin, $gar_descripcion, $fk_equ_codigo) {
+        $sql = " UPDATE garantias SET gar_tipo='" . $gar_tipo . "',gar_fecha_inicio='" . $gar_fecha_inicio . "',gar_fecha_fin='" . $gar_fecha_fin . "',gar_descripcion='" . $gar_descripcion . "',fk_equ_codigo='".$fk_equ_codigo."' where pk_gar_codigo='" . $pk_gar_codigo . "'";
 
 
         $query = $this->conexion->ejecutarQuery($sql);
@@ -108,7 +108,7 @@ class garantias_class1 {
                                     <td> FECHA INICIO GARANTÍA</td>
                                     <td> FECHA FIN GARANTÍA </td>
                                     <td> DESCRIPCION GARANTÍA</td>
-                                    <td>EQUIPO NOMBRE</td>
+                                    <td> EQUIPO NOMBRE</td>
                                     <td>OPCIONES</td>
                             </tr>';
        
@@ -124,7 +124,7 @@ class garantias_class1 {
                                                         <td> " . $row[3] . " </td>
                                                         <td> " . $row[4] . " </td>
                                                         <td> " . $row[5] . " </td>
-                                                        <td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(" . $row[0] . ");'>Eliminar</a></td>
+                                                        <td> <a onclick='editar(" . $row[0] . ");' name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(" . $row[0] . ");'>Eliminar</a></td>
 
                             </tr>";
 
@@ -138,62 +138,90 @@ class garantias_class1 {
         echo '</table>';
     }
 
-       public function consultarParametro($pro_parametro) {
+    function garantiasModificar($pk_gar_codigo) {
 
-        //CONEXION CON LA BASE DE DATOS 
-        // CONSULTA CASE DE DATOS 
-
-        $consulta_cliente = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo like '%".$pro_parametro."%' or  pro_nombre like '%".$pro_parametro."%' or   pro_telefono like '%".$pro_parametro."%' or   pro_direccion like '%".$pro_parametro."%' or pro_correo like '%".$pro_parametro."%' or pro_pagina_web like '%".$pro_parametro."%'";
-
-        if (!$result = $this->conexion->ejecutarQuery($consulta_cliente)) {
+        $sql = "SELECT pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar_descripcion, fk_equ_codigo from garantias WHERE pk_gar_codigo = $pk_gar_codigo ";
+                 
+  
+        if (!$resultado = $this->conexion->ejecutarQuery($sql)) {
             echo $conexion->error;
-              
-        } 
-        
-//            if ($result == '1') {
-//        echo '<div class="alert alert-success alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡Bien!</strong> Registro encontrado.
-//        </div>';
-//    } else {
-//        echo '<div class="alert alert-warning alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡UPS!</strong> No encontrado.
-//        </div>';
-//    }
-        
-        
-        
-        echo '  <table class="table table-striped">
-                                <tr>
-                                    <td> CODIGO PROVEEDOR</td>
-                                    <td> NOMBRE PROVEEDOR </td>
-                                    <td> TELEFONO PROVEEDOR</td>
-                                    <td> DIRECCION </td>
-                                    <td> CORREO</td>
-                                    <td>PAGINA WEB</td>
-                                     <td>OPCIONES</td>
-                                </tr>';
-        while ($row = mysqli_fetch_array($result)) {
-            $contenido = "<tr>
-							<td> " . $row[0] . " </td>
-							<td> " . $row[1] . " </td>
-							<td> " . $row[2] . " </td>
-							<td> " . $row[3] . " </td>
-							<td> " . $row[4] . " </td>
-                                                        <td> " . $row[5] . " </td>
-							<td> <a onclick='cargarModificar(" . $row[0] . ");'  name='btnmodificar' value='modificar' class=''>Modificar</a><br><a onclick='eliminar(\" $row[0]  \");'>Eliminar</a></td>
-							</tr>";
+        } else {
 
-            echo $contenido;
+                 
+            while ($row = mysqli_fetch_array($resultado) ) {
+
+                        
+
+            $sql2 = "SELECT equ_nombre FROM `equipos` where pk_equ_codigo = $row[5]";
+                 $resultado2 = $this->conexion->ejecutarQuery($sql2);
+                 $row2=mysqli_fetch_array($resultado2);
+                 
+                 
+            
+           
+            
+            
+        echo   '<div class="modal fade" id="modal2" role="dialog" tabindex="-1" aria-hidden="true">
+             <div class="modal-dialog">
+              <div class="modal-content">
+                <form role="form" action="" id="frmGarantiasM" name="frmGarantiasN" onsubmit="cargarmodificar1(); return false">
+                    <div class="col-lg-12">
+                    
+                    <div class="form-group">
+                    <p class="bg-info">Codigo de la Garantía</p>
+                    <input id="codigo" class="form-control" placeHolder="Ingrese el numero de la nueva garantía" value="'.$row[0].'" disabled></input> 
+                    </div>
+                    
+                    <div class="form-group">
+                        <p class="bg-info">Tipo de Garantía</P>
+                        <input id="tipo" class="form-control" value="'.$row[1].'" requiered></input>
+                    </div>  
+                    
+                    <div class="form-group">
+                        <p class="bg-info">Fecha de inicio de la garantía:</p>
+                        <input type="date" id="FechaInicio" class="form-control" value="'.$row[2].'" required></input>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p class="bg-info">Fecha de fin de la garantía:</p>
+                        <input type="date" id="FechaFin" class="form-control" value="'.$row[3].'" required></input>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p class="bg-info">Descripción de la garantía</p>
+                        <input id="descripcion" class="form-control" value="'.$row[4].'" placeHolder="Ingrese la descripción de la garantía" required></input>
+                    </div>
+                    
+                    <div class="form-group">
+                        <p class="bg-info">Tipo de Equipo</p>
+                       <select id="tipoEquipo" class="form-control" title="Tipo Equipo"  required>
+                        <option value="'.$row[5].'"><label>'.$row2[0].'</label></option>                          
+                        <option value="1">Samsung</option>
+                        <option value="2">Compaq portatil</option>
+                        
+                     </select>                   
+                    </div>
+                    
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Modificar</button>
+                        
+                    
+                   </div> 
+                </form>
+                
+            </div>
+        </div>
+
+</div>';
+        
+        
+            }
         }
-        echo '</table>';
     }
 
     //fin del ciclo
 
-    public function eliminar($pro_codigo) {
-        $sql = " DELETE FROM proveedores where pk_pro_codigo=" . $pro_codigo . "";
+    public function eliminar($codigo) {
+        $sql = " DELETE FROM garantias where pk_gar_codigo = $codigo";
 
 
         $query = $this->conexion->ejecutarQuery($sql);
@@ -209,5 +237,7 @@ class garantias_class1 {
         </div>';
     }
     }
+    
+   
 
 }

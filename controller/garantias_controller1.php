@@ -28,36 +28,14 @@ else if ($op == 2) {
 
            
 }
-
-
-
-if ($op==3){
-    
-            $pro_codigo = $_POST['txtPro_codigo'];
-            $pro_nombre = $_POST['txtPro_nombre'];
-            $pro_telefono = $_POST['txtPro_telefono'];
-            $pro_direccion = $_POST['txtPro_direccion'];
-            $pro_correo = $_POST['txtPro_correo'];
-            $pro_pagina_web = $_POST['txtpagina_web'];
-
-            $provedores->modificar($pro_codigo, $pro_nombre, $pro_telefono, $pro_direccion, $pro_correo, $pro_pagina_web);
-
-            echo "";
-}
-
-if ($op==4)
+if ($op==3)
 {
-     $pro_codigo = $_POST['txtPro_codigo'];
-            $provedores->eliminar($pro_codigo);
-            echo "";
+     $codigo = $_POST['codigo'];
+            $garantias->eliminar($codigo);
+            
 }
 
-if($op==5){
-    $pro_parametro = $_POST['txtPro_parametro'];
-    
-    $provedores->consultarParametro($pro_parametro);
-    echo "";
-}
+
 
 if($op==6){
      $pro_codigo = $_POST['txtPro_parametro'];
@@ -68,9 +46,24 @@ if($op==6){
 
 if($op==7){
    
-    
-    $garantias->cargarAgregar();
-    echo "";
+    echo "entraste";        
+            $codigo = $_POST['codigo'];
+            $tipo = $_POST['tipo'];
+            $FechaInicio = $_POST['FechaInicio'];
+            $FechaFin = $_POST['FechaFin'];
+            $descripcion = $_POST['descripcion'];
+            $tipoEquipo = $_POST['tipoEquipo'];
+
+            $garantias->modificar($codigo, $tipo, $FechaInicio, $FechaFin, $descripcion, $tipoEquipo);
+                
+       
 }
 
+
+if($op==8){
+   
+ $pk_gar_codigo = $_POST['codigo'];
+    $garantias->garantiasModificar($pk_gar_codigo);
+    
+}
 ?>

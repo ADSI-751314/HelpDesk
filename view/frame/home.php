@@ -62,27 +62,9 @@
                     </a>
                     <ul id="garantias" class="list-menu submenu">
                         <li>
-                            <a href="view/forms/frm_garantias_guardar.php" class="submenu-item">
-                                <i class="fa fa-plus"></i>
-                                <span>Crear</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_garantias_consultar.php" class="submenu-item">
+                        <a href="view/forms/frm_garantias.php" class="submenu-item" data-script="garantias">
                                 <i class="fa fa-search"></i>
-                                <span>Consultar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_garantias_modificar.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Modificar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_garantias_eliminar.php" class="submenu-item" data-script="garantias">
-                                <i class="fa fa-trash"></i>
-                                <span>Eliminar</span>
+                                <span>Gestión Garantías</span>
                             </a>
                         </li>
                     </ul>

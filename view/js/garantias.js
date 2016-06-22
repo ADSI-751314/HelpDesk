@@ -21,7 +21,7 @@ function objetoAjax() {
     function mostrar(){
         
         
-        divResultado = document.getElementById('garantiasF');
+        divResultado = document.getElementById('resultado');
         ajax = objetoAjax();
         ajax.open("POST", "controller/garantias_controller1.php?op=1", true);
         ajax.onreadystatechange = function(){
@@ -33,64 +33,58 @@ function objetoAjax() {
         ajax.send(null);
     }
     
-    function guardar() {
-        
-        var codigo = document.getElementById('txt_gar_codigo');
-        var tipo = document.getElementById('txt_gar_tipo');
-        var fechaI = document.getElementById('gar_fecha_inicio');
-        var fechaF = document.getElementById('gar_fecha_fin');
-        var descripcion = document.getElementById('txt_descripcion');
-        var tipoE = document.getElementById('txt_tipoE');
-        
-        
-        ajax = objetoAjax();
-        ajax.open("POST", "controller/garantias_controller1.php?op=7", true);
-        ajax.onreadystatechange = function () {
-            if (ajax.readyState == 4) {
-                divResultado.innerHTML = ajax.responseText;
-                mostrar(); 
-            }
-        }
-        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-       ajax.send("txt_gar_codigo=" + codigo +"&txt_gar_tipo=" + tipo +"&gar_fecha_inicio=" + fechaI +"&gar_fecha_fin=" + fechaF +"&txt_descripción=" + descripcion +"&txt_tipoE=" + tipoE);
     
-     }
 
-    function cargarAgregar1() {
+    function cargarmodificar1() {
           // document.getElementById('resultado').style.display = 'block';
-                divResultado = document.getElementById('garantiasM');
-               
+        divResultado = document.getElementById('resultado');
+        codigo = document.getElementById('codigo').value;
+        tipo = document.getElementById('tipo').value;
+        FechaInicio = document.getElementById('FechaInicio').value;
+        FechaFin = document.getElementById('FechaFin').value;
+        descripcion = document.getElementById('descripcion').value;
+        tipoEquipo = document.getElementById('tipoEquipo').value;
             
                 ajax = objetoAjax();
                 ajax.open("POST", "controller/garantias_controller1.php?op=7", true);
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState == 4) {
                         divResultado.innerHTML = ajax.responseText;
-                   
+                        
                     }
                 }
                 ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                ajax.send( );
+                ajax.send( "codigo=" + codigo +"&tipo=" + tipo +"&FechaInicio=" + FechaInicio +"&FechaFin=" + FechaFin +"&descripcion=" + descripcion +"&tipoEquipo=" + tipoEquipo);
             }
      
-     var accion;
+     
      function cargarAgregar(){
          
-        accion = 'N';
+        
          $('#modal').modal('show');
          
      }
      
-     function editar(){
+     function editar(id){
+         divResultado = document.getElementById('garantiasF');
+                 ajax = objetoAjax();
+         ajax.open("POST","controller/garantias_controller1.php?op=8",true);
+         ajax.onreadystatechange = function(){
+             
+             if(ajax.readyState==4){
+             divResultado.innerHTML = ajax.responseText;
+                 $('#modal2').modal('show');
+             }
+         }
+         ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+         ajax.send("codigo= "+ id );
+            
+       
+       
          
-         accion = 'E';
-         $('#modal').modal('show');         
      }
      
-     function b(){
-         
-         alert('accion '+ accion);
-     }
+     
      
      function Registrar(){
         divResultado = document.getElementById('resultado');
@@ -113,5 +107,29 @@ function objetoAjax() {
          }
          ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
          ajax.send("codigo="+ codigo +"&tipo="+ tipo +"&FechaInicio="+ FechaInicio +"&FechaFin="+ FechaFin +"&descripcion="+ descripcion +"&tipoEquipo="+ tipoEquipo);
+     }
+     
+     function eliminar(codigo){
+         
+         var del = confirm("Este registro se eliminara y la informacion sera irrecuperable \n\n Seguro que desea eliminar registro ???");
+        
+        if(del==true)
+           {
+        divResultado = document.getElementById('resultado');
+        //codigo = document.getElementById('codigo').value;
+
+        
+        
+        ajax = objetoAjax();
+        ajax.open("POST", "controller/garantias_controller1.php?op=3", true);
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                divResultado.innerHTML = ajax.responseText;
+               
+            }
+        }
+        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+       ajax.send("codigo=" + codigo);
+           }
      }
     
