@@ -14,9 +14,9 @@ class tecnicos_class
         $this->conexion->conexion();
         
   }
-    public function guardar($tec_codigo,$tec_primer_nombre,$tec_segundo_nombre,$tec_primer_apellido,$tec_segundo_apellido,$tec_numero_telefono,$tec_numero_movil,$tec_correo,$tec_especialidad)
+    public function guardar($tec_codigo,$tec_correo,$tec_especialidad,$tec_numero_movil,$tec_numero_telefono,$tec_primer_apellido,$tec_primer_nombre,$tec_segundo_apellido,$tec_segundo_nombre)
     {
-       $sql= " insert into tecnicos values ('$tec_codigo','$tec_primer_nombre','$tec_segundo_nombre','$tec_primer_apellido','$tec_segundo_apellido','$tec_numero_telefono','$tec_numero_movil','$tec_correo','$tec_especialidad')";
+       $sql= " insert into tecnicos values ('$tec_codigo','$tec_correo','$tec_especialidad','$tec_numero_movil','$tec_numero_telefono','$tec_primer_apellido','$tec_primer_nombre','$tec_segundo_apellido','$tec_segundo_nombre')";
         
         
         $query = $this->conexion->ejecutarQuery($sql);
