@@ -10,7 +10,7 @@ class garantias_class1 {
         $this->conexion = new conexion_class();
         $this->conexion->conexion();
     }
-//aqui vamos en el video en el minuto 23:30
+//Funcion para almacenar nuevo registro en nuestra BD en la tabla de garantias
     public function guardar($pk_gar_codigo, $gar_tipo, $gar_fecha_inicio, $gar_fecha_fin, $gar_descripcion, $fk_equ_codigo) {
         $sql = "INSERT INTO garantias VALUES('$pk_gar_codigo','$gar_tipo','$gar_fecha_inicio','$gar_fecha_fin','$gar_descripcion','$fk_equ_codigo')";
         
@@ -32,46 +32,7 @@ class garantias_class1 {
     }
     }
 
-    
-    function cargarModificar($id) {
-  
-  
-    $sql = "select pk_pro_codigo,pro_nombre,pro_telefono,pro_direccion,pro_correo,pro_pagina_web from proveedores where pk_pro_codigo = $id";
-   
-     $query = $this->conexion->ejecutarQuery($sql);
-    if (!$result = $this->conexion->ejecutarQuery($sql)) {
-        echo $conexion->error;
-    }else{
-       
-         while ($row = mysqli_fetch_array($result)) {
-       
-            echo "<h1> Up Date Proveedores</h1>";
-            
-            echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' value=\"$row[0]\"> </input></div>";
-              
-            echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' value=".$row[1]."> </input></div>";
-            
-            echo "<div> <label class=''>Telefono</label> <input type='text' id='txtPro_telefono' value=".$row[2]."> </input></div>";
-       
-            echo "<div> <label class=''>Direccion </label> <input type='text' id='txtPro_direccion' value=".$row[3]."> </input></div>";
-       
-            echo "<div> <label class=''>Correo </label> <input type='text' id='txtPro_correo' value=".$row[4]."> </input></div>";
-       
-            echo "<div> <label class=''>Pagina WEb</label> <input type='text' id='txtpagina_web' value=".$row[5]."> </input></div>";
-            
-            echo "<a onclick='editar();'  id='btnmodificar' value='modificar' class='btn btn-lg btn-success'>Modificar</a>"  ;   
-
-         }
-    }
-}
-    
-    
-    
-    
-
-    
-    
-    
+    //Función con la cual modificamos los campos en nuestra base de datos
     public function modificar($pk_gar_codigo, $gar_tipo, $gar_fecha_inicio, $gar_fecha_fin, $gar_descripcion, $fk_equ_codigo) {
         $sql = " UPDATE garantias SET gar_tipo='" . $gar_tipo . "',gar_fecha_inicio='" . $gar_fecha_inicio . "',gar_fecha_fin='" . $gar_fecha_fin . "',gar_descripcion='" . $gar_descripcion . "',fk_equ_codigo='".$fk_equ_codigo."' where pk_gar_codigo='" . $pk_gar_codigo . "'";
 
@@ -91,10 +52,11 @@ class garantias_class1 {
     }
     }
 
+    //funcion que nos sirve para consultar la información en nuestra BD
     public function consultar(){
 
-        //CONEXION CON LA BASE DE DATOS 
-        // CONSULTA CASE DE DATOS 
+        
+        
 
         $sql = "SELECT pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar_descripcion, equ_nombre FROM `garantias` INNER join equipos on garantias.fk_equ_codigo = equipos.pk_equ_codigo";
 
@@ -112,7 +74,7 @@ class garantias_class1 {
                                     <td>OPCIONES</td>
                             </tr>';
        
-                
+            //mostramos los datos consultados    
         while ($row = mysqli_fetch_array($result)) 
                 {
             
@@ -138,8 +100,9 @@ class garantias_class1 {
         echo '</table>';
     }
 
+        //Metodo que nos abre la ventana MODAL con los datos cargados para modificar el dato de la garant{ia que necesita el usuario
     function garantiasModificar($pk_gar_codigo) {
-
+           //consulta que me trae los datos desde la BD para ser mostrados en el formulario MODAL
         $sql = "SELECT pk_gar_codigo, gar_tipo, gar_fecha_inicio, gar_fecha_fin, gar_descripcion, fk_equ_codigo from garantias WHERE pk_gar_codigo = $pk_gar_codigo ";
                  
   
@@ -151,7 +114,7 @@ class garantias_class1 {
             while ($row = mysqli_fetch_array($resultado) ) {
 
                         
-
+              //Consulta para adquirir el nombre de la tabla foránea Equipos
             $sql2 = "SELECT equ_nombre FROM `equipos` where pk_equ_codigo = $row[5]";
                  $resultado2 = $this->conexion->ejecutarQuery($sql2);
                  $row2=mysqli_fetch_array($resultado2);
@@ -218,7 +181,7 @@ class garantias_class1 {
         }
     }
 
-    //fin del ciclo
+   //Metodo para eliminar la garantia que seleccionemos en el formulario
 
     public function eliminar($codigo) {
         $sql = " DELETE FROM garantias where pk_gar_codigo = $codigo";

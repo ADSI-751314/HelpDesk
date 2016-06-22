@@ -111,14 +111,11 @@ function objetoAjax() {
      
      function eliminar(codigo){
          
-         var del = confirm("Este registro se eliminara y la informacion sera irrecuperable \n\n Seguro que desea eliminar registro ???");
+         var del = confirm("Se eliminará el registro con código "+codigo+" \n\n Seguro desea eliminarlo?");
         
         if(del==true)
            {
         divResultado = document.getElementById('resultado');
-        //codigo = document.getElementById('codigo').value;
-
-        
         
         ajax = objetoAjax();
         ajax.open("POST", "controller/garantias_controller1.php?op=3", true);
