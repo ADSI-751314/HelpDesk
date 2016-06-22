@@ -20,15 +20,7 @@ class provedores_class {
         }
        
          if ($query == '1') {
-        echo '<div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Dato agregado Correctamente.
-        </div>';
-    } else if($query == '-1'){
-        echo '<div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡UPS!</strong> Ha ocurrido un error.
-        </div>';
+        echo '<div class="alert alert-success alert-dismissable alerta"></div>';
     }
     }
 
@@ -44,9 +36,14 @@ class provedores_class {
     }else{
        
          while ($row = mysqli_fetch_array($result)) {
-       
-             echo "<h1 class='h1_align'> Up Date Proveedores</h1>";
+             
+             
+            echo  '<div class="modal-header">';  
+            echo "<button type='button' class='close  btn-circle btn-danger' data-dismiss='modal' aria-hidden='true'><i class='fa fa-times'></i></button>";
             
+            echo "<h1 class='h1_align'> Up Date Proveedores</h1>";
+          
+            echo '</div>';
             echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' class='form-control ' disabled='true' id='txtPro_codigo' value=\"$row[0]\" class='form-control'> </input></div>";
               
             echo  "<div> <label class=''>Nombre </label> <input type='text' class='form-control ' id='txtPro_nombre' value='".$row[1]."'  > </input></div>";
@@ -59,7 +56,7 @@ class provedores_class {
        
             echo "<div> <label class=''>Pagina Web</label> <input type='text' class='form-control ' id='txtpagina_web' value='".$row[5]."' > </input></div>";
             
-            echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar' data-dismiss='modal' class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
+            echo "<br><a onclick='modificar();'  id='btnmodificar' value='modificar'  class='btn btn-lg btn-primary nav nav-justified'>Modificar</a>"  ;   
 
          }
     }
@@ -68,10 +65,12 @@ class provedores_class {
     
     
     function cargarAgregar() {
-
-       
-             echo "<h1 class='h1_align'>Registro de Proveedores</h1>";
-            
+        
+            echo  '<div class="modal-header">';  
+            echo "<button type='button' class='close  btn-circle btn-danger' data-dismiss='modal' aria-hidden='true'><i class='fa fa-times'></i></button>";
+            echo "<h1 class='h1_align'>Registro de Proveedores</h1>";
+    
+            echo '</div>';
             echo  "<div> <label class=''>Codigo Provedor</label> <input type='text' id='txtPro_codigo' class='form-control campos' > </input></div>";
               
             echo  "<div> <label class=''>Nombre </label> <input type='text' id='txtPro_nombre' class='form-control' campos> </input></div>";
@@ -84,7 +83,7 @@ class provedores_class {
        
             echo "<div> <label class=''>Pagina Web</label> <input type='text' id='txtpagina_web' class='form-control'> </input></div>";
             
-            echo "<br><a onclick='guardar();' id='btnagregar' name='btnAgregar' value='agregar' data-dismiss='modal'  class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
+            echo "<br><a onclick='guardar();' id='btnagregar' name='btnAgregar' value='agregar'   class='btn btn-lg btn-primary  nav-justified'>Agregar</a>"  ;   
 
 
 
@@ -101,9 +100,8 @@ class provedores_class {
         $query = $this->conexion->ejecutarQuery($sql);
         
          if ($query == '1') {
-        echo '<div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien!</strong> Dato Modificado Correctamente.
+        echo '<div class="alert alert-success alert-dismissable alerta">
+        
         </div>';
     } else {
         echo '<div class="alert alert-warning alert-dismissable">
@@ -171,17 +169,7 @@ class provedores_class {
               
         } 
         
-//            if ($result == '1') {
-//        echo '<div class="alert alert-success alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡Bien!</strong> Registro encontrado.
-//        </div>';
-//    } else {
-//        echo '<div class="alert alert-warning alert-dismissable">
-//        <button type="button" class="close" data-dismiss="alert">&times;</button>
-//        <strong>¡UPS!</strong> No encontrado.
-//        </div>';
-//    }
+
         
         
         
@@ -219,9 +207,8 @@ class provedores_class {
 
         $query = $this->conexion->ejecutarQuery($sql);
                   if ($query == '1') {
-        echo '<div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Ups</strong> Registro Eliminado con exito  .
+        echo '<div class="alert alert-danger alert-dismissable alerta">
+       
         </div>';
     } else {
         echo '<div class="alert alert-warning alert-dismissable">

@@ -102,52 +102,12 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                     <a href="#equipos" class="menu-item" data-script="equipos">
-                        <i class="fa fa-laptop"></i>
+
+                     <li>
+                    <a href="view/forms/frm_equipos_todo.php"  class="menu-item2 " data-script="equipos">
+                        <i class="fa fa-laptop "  ></i>
                         <span>Equipos</span>
-                        <i class="fa fa-angle-down"></i>
                     </a>
-                    <ul id="equipos" class="list-menu submenu">
-                        <li>
-                            <a href="view/forms/frm_ingresar_equipo.php" class="submenu-item">
-                                <i class="fa fa-plus"></i>
-                                <span>Equipos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_ingresar_tipo_equipo.php" class="submenu-item">
-                                <i class="fa fa-search"></i>
-                                <span>Tipo De Equipos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_ingresar_ficha_tecnica.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Ficha Tecnica</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="view/forms/frm_equipos_modificar.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Modificar</span>
-                            </a>
-                        </li>  
-                        
-                        <li>
-                            <a href="view/forms/frm_equipos_consultar.php" class="submenu-item">
-                                <i class="fa fa-pencil"></i>
-                                <span>Consultar</span>
-                            </a>
-                        </li>
-                        
-                        <li>
-                            <a href="view/forms/frm_equipos_eliminar.php" class="submenu-item">
-                                <i class="fa fa-trash"></i>
-                                <span>Eliminar</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     
