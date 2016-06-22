@@ -40,7 +40,7 @@ class politicas_class
         
        $this->conexion->ejecutarQuery($consulta_cliente);
         
-        $cantidad_cliente = mysql_num_rows($fuente_cliente);
+       // $cantidad_cliente = mysql_num_rows($fuente_cliente);
         
         
         
