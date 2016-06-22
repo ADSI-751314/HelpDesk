@@ -46,7 +46,8 @@ class equipos_class {
         $sql="select * from equipos where pk_equ_codigo = '".$pk_equ_codigo."'"; 
         $query = $this->conexion->consultarQuery($sql);
         
-        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de clientes
+        
+        // contruir un ciclo que recorra los registros que valla desde cero hasta las cantidad de equipos
         foreach ($query as $fila) {
 
            $contenido = "<tr>
