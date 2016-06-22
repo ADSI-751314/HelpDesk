@@ -48,7 +48,8 @@
                         
                         require("../../model/Conexion_equ.php");
                         $con = Conectar();
-                        $sql = "select pk_equ_codigo, equ_nombre, equ_precio, fk_dep_codigo, fk_tip_codigo from equipos ";
+                        $sql = "select pk_equ_codigo, equ_nombre, equ_precio, dep_nombre, tip_nombre, pk_tip_codigo, pk_dep_codigo from equipos e inner join tipos_equipos t on t.pk_tip_codigo = fk_tip_codigo "
+                                . "inner join dependencias d on d.pk_dep_codigo = e.fk_dep_codigo";
                         $stmt = $con->prepare($sql);
                         $result = $stmt->execute();
                         $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -60,13 +61,13 @@
                                 <td> <?php print($row->pk_equ_codigo); ?> </td>
                                 <td><?php print($row->equ_nombre); ?></td>
                                 <td><?php print($row->equ_precio); ?></td>
-                                <td><?php print($row->fk_dep_codigo); ?></td>
-                                <td><?php print($row->fk_tip_codigo); ?></td>
+                                <td><?php print($row->dep_nombre); ?></td>
+                                <td><?php print($row->tip_nombre); ?></td>
                                 <td>
                                     <div class="btn-group">
                                         <div class="starter-template">
                                         <a class="btn btn-danger"onclick="eliminar('<?php print($row->pk_equ_codigo); ?>')"><i class="glyphicon glyphicon-trash"></i></a>
-                                        <a class="btn btn-primary" onclick="Actualizar('<?php print($row->pk_equ_codigo); ?>','<?php print($row->equ_nombre); ?>','<?php print($row->equ_precio); ?>','<?php print($row->fk_dep_codigo); ?>','<?php print($row->fk_tip_codigo); ?>');"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a class="btn btn-primary" onclick="Actualizar('<?php print($row->pk_equ_codigo); ?>','<?php print($row->equ_nombre); ?>','<?php print($row->equ_precio); ?>','<?php print($row->pk_dep_codigo); ?>','<?php print($row->pk_tip_codigo); ?>');"><i class="glyphicon glyphicon-edit"></i></a>
                                         </div>
                                     </div>
                                 </td>
