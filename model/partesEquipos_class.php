@@ -29,8 +29,9 @@ class partesEquipos_class {
     public function MostrarPartesEquipos() {
 
 
-        $sql = "select pk_pte_codigo,pte_serial,pte_marca,pte_descripcion,pte_estado,fk_equ_codigo,fk_htc_codigo"
-                . " from partes_equipos";
+        $sql = "select pk_pte_codigo, pte_serial , pte_marca,pte_descripcion ,pte_estado ,equ_nombre ,fk_htc_codigo from partes_equipos pe inner join equipos eq on eq.pk_equ_codigo = pe.fk_equ_codigo";
+//                . "inner join  historial_cambios h on h.pk_htc_codigo = p.fk_htc_codigo  ";
+              
 
         if (!$resultado = $this->conexion->ejecutarQuery($sql)) {
             echo $conexion->error;
@@ -46,7 +47,7 @@ class partesEquipos_class {
               <th class="head_table">Marca</th>
               <th class="head_table">Descripcion</th>
               <th class="head_table">Estado</th>
-              <th class="head_table">Codigo Equipo</th>
+              <th class="head_table">Nombre Equipo</th>
               <th class="head_table">Codigo Historial</th>
               <th class="head_table">Acciones</th>
               </tr>
@@ -79,6 +80,11 @@ class partesEquipos_class {
         $sql = "select pk_pte_codigo,pte_serial,pte_marca,pte_descripcion,pte_estado,fk_equ_codigo,fk_htc_codigo"
                 . " from partes_equipos where pk_pte_codigo = $pk_pte_codigo ";
 
+        $sql2 = "SELECT pk_equ_codigo, equ_nombre FROM equipos order by equ_nombre asc";
+        $sql3 = "SELECT pk_htc_codigo, htc_descripcion FROM historial_cambios order by htc_descripcion asc";
+        $result2 = $this->conexion->ejecutarQuery($sql2);
+        $result3 = $this->conexion->ejecutarQuery($sql3);
+
         if (!$resultado = $this->conexion->ejecutarQuery($sql)) {
             echo $conexion->error;
         } else {
@@ -108,6 +114,7 @@ class partesEquipos_class {
                                     <label for="comment">Descripcion:</label>
                                     <textarea class="form-control" rows="5" id="txtDescripcionModal"
                                      value="' . $row[3] . '" ></textarea>
+                                         
                                 </div>';
 
 
@@ -118,73 +125,80 @@ class partesEquipos_class {
                                 </div>';
 
 
-                echo '<div class="form-group">
-                                    <label>EQUIPO </label></br>
-                               <label class="Validacion"></label>  
-                                    <select id="sltEquipoModal" class="form-control" required="" title="Debe ingresar"
-                                    >
-                                        <option disabled="disabled" selected="selected"  >SELECCIONE---></option>
-                                        <option value="1">PC-SAMSUNG</option>
-                                        <option value="2">PC-ARGOM</option>
-                                        <option value="3">PC-INTEL</option>
+                $option = "";
+                while ($row = mysqli_fetch_array($result2)) {
+
+                    $option .= "<option value='" . $row['0'] . "'>" . $row['1'] . "</option>";
+                }
+                $contenido = "<div class='form-group'>
+                                    <label>Equipo </label></br>                              
+                                    <select id='sltEquipoModal' class='form-control' >
+                                     <option disabled='disabled'  selected='selected'  >SELECCIONE---></option>";
+                $contenido.=$option;
+                $contenido .=" </select>
+                   </div>";
+                echo $contenido;
 
 
-                                    </select>
-                                    </div>';
 
 
-                echo '  <div class="form-group">
-                                    <label>CODIGO HISTORIAL DE CAMBIO </label>
-                                    <select class="form-control" id="sltHistorialModal">
-                                        <option disabled="disabled" selected="selected">SELECCIONE---></option>
-                                        <option value="1">cambio de parte</option>
-                                        <option value="2">cambio de equipo</option>
-                                        <option value="3">cambio por daño</option>
+                  $optionHistorial = "";
+                while ($row = mysqli_fetch_array($result3)) {
 
-                                    </select>
-                                </div>';
-                              
+                    $optionHistorial .= "<option value='" . $row['0'] . "'>" . $row['1'] . "</option>";
+                }
+                $contenido = "<div class='form-group'>
+                                    <label>Codigo Historial: </label></br>                              
+                                    <select id='sltHistorialModal' class='form-control' >
+                                     <option disabled='disabled'  selected='selected'  >SELECCIONE---></option>";
+                $contenido.=$optionHistorial;
+                $contenido .=" </select>
+                   </div>";
+                echo $contenido;
+
                 echo '     <button type="submit" class="btn btn-info btn-lg btn_partesEquipos " 
                                         id="btn-pte-modificarPartes">
                                     <span class="glyphicon glyphicon-star "  
                                           aria-hidden="true"></span> Modificar
                                     
                                 </button>';
+                
+                echo " <label class='Validacion'></label>  ";
             }
         }
     }
+
     public function ModifcarPartes($pk_pte_codigo, $pte_seria, $pte_marca, $pte_descripcion, $pte_Estado, $fk_equ_codigo, $fk_htc_codigo) {
-        
-         $sql="UPDATE partes_equipos SET pte_serial = '".$pte_seria."',
-                                   pte_marca = '".$pte_marca."',
-                                   pte_descripcion = '".$pte_descripcion."'
-                                   ,pte_estado='".$pte_Estado."',fk_equ_codigo='".$fk_equ_codigo."'
-                                   ,fk_htc_codigo='".$fk_htc_codigo."'                                       
-                                   WHERE pk_pte_codigo = '".$pk_pte_codigo."'";
-       
-    $query = $this->conexion->ejecutarQuery($sql);
-    
-       if ($query == '1') {
-        echo '<p class="alert alert-success alert-dismissable alerta">
+
+        $sql = "UPDATE partes_equipos SET pte_serial = '" . $pte_seria . "',
+                                   pte_marca = '" . $pte_marca . "',
+                                   pte_descripcion = '" . $pte_descripcion . "'
+                                   ,pte_estado='" . $pte_Estado . "',fk_equ_codigo='" . $fk_equ_codigo . "'
+                                   ,fk_htc_codigo='" . $fk_htc_codigo . "'                                       
+                                   WHERE pk_pte_codigo = '" . $pk_pte_codigo . "'";
+
+        $query = $this->conexion->ejecutarQuery($sql);
+
+        if ($query == '1') {
+            echo '<p class="alert alert-success alert-dismissable alerta">
                 <strong>¡Bien!</strong> Registro Modificado Correctamente.
         </p>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable alerta">
+        } else {
+            echo '<div class="alert alert-warning alert-dismissable alerta">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡UPS!</strong> Ha ocurrido un error.
         </div>';
+        }
     }
-        
-    }
-    
-    public function  ConsultaFiltro($pk_pte_codigo,$pte_serial){
-        
-        
+
+    public function ConsultaFiltro($pk_pte_codigo, $pte_serial) {
+
+
         $sql = "SELECT pk_pte_codigo,pte_serial,pte_marca,pte_descripcion,pte_estado "
                 . ",fk_equ_codigo,fk_htc_codigo FROM partes_equipos WHERE pk_pte_codigo ='$pk_pte_codigo' or pte_serial ='$pte_serial'  ";
-              
-        
-         if (!$resultado = $this->conexion->ejecutarQuery($sql)) {
+
+
+        if (!$resultado = $this->conexion->ejecutarQuery($sql)) {
             echo $conexion->error;
         }
 
@@ -224,27 +238,24 @@ class partesEquipos_class {
         }
         '</table>';
         echo'</div>';
-        
-        
-        
-        
     }
-    
-    public function  EliminarPartes($pk_pte_codigo){
-        
+
+    public function EliminarPartes($pk_pte_codigo) {
+
         $sql = "DELETE FROM partes_equipos WHERE pk_pte_codigo='$pk_pte_codigo'";
         $query = $this->conexion->ejecutarQuery($sql);
-        
-        if ($query == '1'){
-        echo '<div class="alert alert-success alert-dismissable alerta" >
+
+        if ($query == '1') {
+            echo '<div class="alert alert-success alert-dismissable alerta" >
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡El Registro!</strong> Fue Eliminado Correctamente.
         </div>';
-    } else {
-        echo '<div class="alert alert-warning alert-dismissable alerta" >
+        } else {
+            echo '<div class="alert alert-warning alert-dismissable alerta" >
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>¡UPS!</strong> Ha ocurrido un error .
         </div>';
+        }
     }
-    }
+
 }

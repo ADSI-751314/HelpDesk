@@ -32,11 +32,11 @@ function objetoAjax() {
         ajax = objetoAjax();
 
         if (accion == 'n') {
-            ajax.open("POST", "model/Insertar_equipos.php", true);
+            ajax.open("POST", "model/equiposCrud_class.php?op=1", true);
 
         } else if (accion == 'a') {
 
-            ajax.open("POST", "model/Actualizar_equipos.php", true);
+            ajax.open("POST", "model/equiposCrud_class.php?op=2", true);
         }
 
         ajax.onreadystatechange = function () {
@@ -100,7 +100,7 @@ function objetoAjax() {
         if (confirm("en realidad desea eliminarlo")) {
             resultado = document.getElementById("lblRespuesta");
             ajax = objetoAjax();
-            ajax.open("POST", "model/Eliminar_equipos.php", true);
+            ajax.open("POST", "model/equiposCrud_class.php?op=0", true);
             ajax.onreadystatechange = function () {
                 if (ajax.readyState == 4) {
                     alert('Dato Eliminado');

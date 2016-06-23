@@ -54,7 +54,7 @@
             </form>
         </div>
         
-        
+      
 
         <!--        div para mostar el formulario y respuesta desde el servidor-->
 

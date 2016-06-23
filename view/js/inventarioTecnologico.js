@@ -2,6 +2,14 @@ app.inventarioTecnologico = function () {
 
 $("#form-container").on('click', '.btn_inventario', function (e) {
 e.preventDefault(); //se cancela el evento del click para que no cambie de pagina.
+var datePickerConfig = {
+        todayBtn: "linked",
+        language: "es",
+        autoclose: true,
+        todayHighlight: true
+    };
+
+    $('.datepicker').datepicker(datePickerConfig);
 
 
         var btnId = this.id;
@@ -49,6 +57,9 @@ case 'btn_modificar':
         default:
         break;
 }});
+
+
+
 //funcion que permite registrar el historial de cambios 
 //la cual envia cuatro parametros al servidor desde el cliente
 // codigo , fecha , hora y descripcion
@@ -281,7 +292,16 @@ case 'btn_modificar':
                                 cb();
                         }, 5000);
                         });
-                }
+                };
+                
+                var datePickerConfig = {
+               todayBtn: "linked",
+               language: "es",
+                autoclose: true,
+                todayHighlight: true
+    };
+
+    $('.datepicker').datepicker(datePickerConfig);
 
 
 

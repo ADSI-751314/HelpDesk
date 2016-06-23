@@ -127,6 +127,13 @@
                         <span>Equipos</span>
                     </a>
                 </li>
+                
+                  <li>
+                    <a href="view/forms/frm_ingresar_tipo_equipo.php"  class="menu-item2 " data-script="tipoEquipo">
+                        <i class="fa fa-laptop "  ></i>
+                        <span>Tipo de Equipos</span>
+                    </a>
+                </li>
                 <li>
                     
                     <a href="#base" class="menu-item" data-script="">

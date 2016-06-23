@@ -44,7 +44,7 @@
 
                 <div class="form-group">
                   <label>fecha</label>
-                  <input  type="date" id="fecha" class="form-control datepicker" required="">
+                  <input  type="text" id="fecha" class="form-control datepicker" required="">
                 </div>
 
                 <div class="form-group">

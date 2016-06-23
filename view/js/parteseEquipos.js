@@ -1,4 +1,7 @@
 app.parteseEquipos = function() {
+    
+    mostrarPartesEquipos();
+
 
     $("#form-container").on('click', '.btn_partesEquipos', function(e) {
         e.preventDefault();//se cancela el evento del click para que no cambie de pagina.
@@ -103,10 +106,10 @@ app.parteseEquipos = function() {
                 if (ajax.readyState == 4) {
 
                     divResultado.innerHTML = ajax.responseText;
-                    $('#modal').modal('hide');
-                    mostrarPartesEquipos();
+                    $('#modal').modal('hide');                    
                     showAlert(" <strong>¡Bien!</strong> El Registro " + "<strong>'" + pkCodigo + "'\n\
                     </strong>" + " fue agregado Correctamente.");
+                    mostrarPartesEquipos();
                     
 
                 }
@@ -159,7 +162,7 @@ app.parteseEquipos = function() {
                 });
 
 
-            $("#body").effect("shake", {times: 3, distance: 20}, 400);
+            $("#contenedor").effect("shake", {times: 3, distance: 20}, 400);
 
         } 
          
@@ -179,8 +182,7 @@ app.parteseEquipos = function() {
             ajax.send("pkCodigo=" + txtCodigo + "&serial=" + txtSerial);
 
         }
-    }
-    ;
+    };
 
     function  cargarModalModificar(pkPteCodigo) {
         divResultado = document.getElementById('FormularioModificar');
@@ -212,9 +214,11 @@ app.parteseEquipos = function() {
         fkCodigoEquipo = document.getElementById('sltEquipoModal').value;
         fkCodigoHistorial = document.getElementById('sltHistorialModal').value;
 
-        if (fkCodigoEquipo == "SELECCIONE--->") {
+        if (fkCodigoEquipo == "SELECCIONE--->" || fkCodigoHistorial ==  "") {
 
-            $(".Validacion").html("<i style='color:red' class='fa fa-exclamation-circle fa-1xm'></i><strong>Por favor ingrese nombre del equipo!</strong>"
+            $(".Validacion").html("<i style='color:red' class='fa fa-exclamation-circle fa-1xm'></i><strong> Nombre equipo\n\
+             y Historial Cambios!</strong><br>\n\
+            Son campos obligatorios "
                     ).fadeIn(500, function() {
                 setTimeout(function() {
                     $(".Validacion").fadeOut(1000);
@@ -222,7 +226,7 @@ app.parteseEquipos = function() {
             });
 
 
-            $("#modalModificar").effect("shake", {times: 3, distance: 20}, 400);
+            $("#modalModificar").effect("shake", {times: 2, distance: 20}, 400);
 
         } else {
 
@@ -233,7 +237,7 @@ app.parteseEquipos = function() {
                     divResultado.innerHTML = ajax.responseText;
                     $('#modalModificar').modal('hide');
                     mostrarPartesEquipos();
-                    showAlert(" <strong>¡Bien!</strong> Se a  Modificado el resgitro " + "<strong>'" + pkCodigo + "'</strong>" +
+                    showAlert(" <strong>¡Bien!</strong> Se a  Modificado el Registro " + "<strong>'" + pkCodigo + "'</strong>" +
                             " Correctamente ");
 
                 }
@@ -267,7 +271,7 @@ app.parteseEquipos = function() {
 
                         lblResultado.innerHTML = ajax.responseText;
                         mostrarPartesEquipos();
-                        showAlert("<strong>¡El Registro!</strong> Fue Eliminado Correctamente.");
+                        showAlert("<strong>¡El Registro! </strong>"+ "'"+ pkCodigo+ "'"+"  Fue Eliminado Correctamente.");
 
 
                     }

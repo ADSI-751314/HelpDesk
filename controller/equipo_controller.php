@@ -20,11 +20,22 @@ switch ($_GET['op']) {
     case 6:
         cargarModificar();
         break;
-     case 7:
-         modificar();
+    case 7:
+        modificar();
         break;
     case 8:
-         Eliminar();
+        Eliminar();
+        break;
+    case 9:
+        cargarFormTipo();
+        break;
+
+    case 10:
+        modificarTipo();
+        break;
+
+    case 11:
+        eliminarTipo();
         break;
 
     default:
@@ -64,7 +75,7 @@ function mostrarTipo() {
             echo '<tr>
             <th>' . $i . '</th>
             <td>' . $row[1] . '</td>
-            <td><a href="">Modificar</a><br><a href="">Eliminar</a></td>
+            <td><a href="#!" onclick="modificar(' . $row[0] . ')">Modificar</a><br><a  href="#!" onclick="deleteT(' . $row[0] . ')">Eliminar</a></td>
             </tr>';
             $i++;
         }
@@ -100,6 +111,51 @@ function cargarOpsEquipo() {
             echo '<option value="' . $row[0] . '">' . $row[1] . '</option>';
         }
         echo '</div></select></div>';
+    }
+}
+
+function cargarFormTipo() {
+    $id = $_POST['id'];
+    $conexion = new conexion_class();
+    $conexion->conexion();
+    $sql = "select * from tipos_equipos where pk_tip_codigo = $id";
+    if (!$result = $conexion->ejecutarQuery($sql)) {
+        echo $conexion->error;
+    } else {
+        echo ' 
+            <div class="col-lg-12 text-center">
+                <h1>HelpDesk | Modificar Tipo de equipo</h1>
+                <p class="lead">Modifique un Equipo para asociar a un próximo equipo. </p>
+            </div> ';
+        while ($row = mysqli_fetch_array($result)) {
+            echo '<form id="modTip"><div class="form-group">';
+            echo '<label class="col-lg-2 control-label" for="dep">Dependencia</label>';
+            echo '<div class="col-lg-4">';
+            echo '<input type="text" class="form-control" name="tipo" id="tipoE" value="' . $row[1] . '">';
+            echo '<input type="hidden" name="idTipo" id="idTipoE" value="' . $row[0] . '">';
+            echo '</div><div class="col-lg-4"><button onclick="modTipo(); return false;" class="btn btn-info">Modificar</button></div></div></form>';
+        }
+    }
+}
+
+function modificarTipo() {
+    $conexion = new conexion_class();
+    $conexion->conexion();
+    $id = $_POST["id"];
+    $nombre = $_POST["nombre"];
+    $sql = "update tipos_equipos set tip_nombre = '$nombre' where pk_tip_codigo = $id ";
+    $insert = $conexion->ejecutarQuery($sql);
+
+    if ($insert == '1') {
+        echo '<div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien!</strong> Dato Modificado Correctamente.
+        </div>';
+    } else {
+        echo '<div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡UPS!</strong> Ha ocurrido un error.
+        </div>';
     }
 }
 
@@ -155,24 +211,25 @@ function mostrarEquipo() {
 
 function cargarModificar() {
     $id = $_POST['id'];
-     $conexion = new conexion_class();
+    $conexion = new conexion_class();
     $conexion->conexion();
     $sql = "select equ_nombre, equ_precio, pk_equ_codigo from equipos where pk_equ_codigo = $id";
     if (!$result = $conexion->ejecutarQuery($sql)) {
         echo $conexion->error;
-    }else{
+    } else {
         echo '<table class="table table-hover table-resposive">';
-         echo '<tr><th>Nombre</th><th>Precio</th><th>Dependencia</th><th>Tipo de Equipo</th></tr>';
-         while ($row = mysqli_fetch_array($result)) {
-             echo '<tr><td><input type="text" value="'.$row[0].'" id="nombreM"></td>
-                   <td><input type="text" value="'.$row[1].'" id="precioM"></td>';
-             cargarOpsEquipo2();
-             echo '</tr>';
-             echo '<tr><td colspan="4"><a onclick="modificar();" class="btn btn-default">Modificar</a></td></tr>';
-             echo '<input type="hidden" value="'.$id.'" id="idM">';
-         }
+        echo '<tr><th>Nombre</th><th>Precio</th><th>Dependencia</th><th>Tipo de Equipo</th></tr>';
+        while ($row = mysqli_fetch_array($result)) {
+            echo '<tr><td><input type="text" value="' . $row[0] . '" id="nombreM"></td>
+                   <td><input type="text" value="' . $row[1] . '" id="precioM"></td>';
+            cargarOpsEquipo2();
+            echo '</tr>';
+            echo '<tr><td colspan="4"><a onclick="modificar();" class="btn btn-default">Modificar</a></td></tr>';
+            echo '<input type="hidden" value="' . $id . '" id="idM">';
+        }
     }
 }
+
 function cargarOpsEquipo2() {
     $conexion = new conexion_class();
     $conexion->conexion();
@@ -197,6 +254,7 @@ function cargarOpsEquipo2() {
         echo '</select></td>';
     }
 }
+
 function modificar() {
     $conexion = new conexion_class();
     $conexion->conexion();
@@ -208,8 +266,8 @@ function modificar() {
     $tipo = $_POST["tipo"];
     $sql = "update equipos set equ_nombre = '$nombre', equ_precio = '$precio', fk_dep_codigo = $dep, fk_tip_codigo = $tipo where pk_equ_codigo = $id ";
     $insert = $conexion->ejecutarQuery($sql);
-    
-    
+
+
     if ($insert == '1') {
         echo '<div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -222,11 +280,31 @@ function modificar() {
         </div>';
     }
 }
+
 function eliminar() {
-     $conexion = new conexion_class();
+    $conexion = new conexion_class();
     $conexion->conexion();
     $id = $_POST["id"];
     $sql = "update equipos set activo = 1 where pk_equ_codigo = $id ";
+    $insert = $conexion->ejecutarQuery($sql);
+    if ($insert == '1') {
+        echo '<div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien!</strong> Dato Eliminado Correctamente.
+        </div>';
+    } else {
+        echo '<div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡UPS!</strong> Ha ocurrido un error.
+        </div>';
+    }
+}
+
+function eliminarTipo() {
+    $id = $_POST['id'];
+    $conexion = new conexion_class();
+    $conexion->conexion();
+    $sql = "delete from tipos_equipos where pk_tip_codigo = $id ";
     $insert = $conexion->ejecutarQuery($sql);
     if ($insert == '1') {
         echo '<div class="alert alert-success alert-dismissable">
