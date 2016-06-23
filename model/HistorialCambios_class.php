@@ -238,7 +238,7 @@ function  ConsultarModificar(){
                             <td> ". $row[3] . "</td>
                               <td> <a class='btn btn-primary btn-lg btn_modificar_eliminar col-xs-12' 
                                                        id='btn_modificar' "."data-value='".$row[0]."' class=''>
-                                                           <i class='glyphicon glyphicon-edit'></i>Modificar<a/></td>
+                                                           <i class='glyphicon glyphicon-edit'></i><a/></td>
                    </tr>";
              echo $contenido;
            
@@ -275,9 +275,10 @@ function  ConsultarModificar(){
                             <td> ". $row[1] . "</td>
                             <td> ". $row[2] . "</td>
                             <td> ". $row[3] . "</td>
-                              <td> <a class='btn btn-primary btn-lg btn_modificar_eliminar col-xs-12'data-target='#confirm-submit' 
+                              <td> <a class='btn btn-danger glyphicon glyphicon-trash
+                              btn-lg btn_modificar_eliminar col-xs-12'data-target='#confirm-submit' 
                                   data-toggle='dropdown' aria-expanded='false' 
-                                                       id='btn-inv-eliminar' "."data-value='".$row[0]."' class=''>Eliminar</td>
+                                                       id='btn-inv-eliminar' "."data-value='".$row[0]."' class=''></td>
                    </tr>";
              echo $contenido;
            
@@ -317,6 +318,53 @@ function  ConsultarModificar(){
         $consultarHisotorial = "SELECT pk_htc_codigo,htc_fecha,htc_hora,htc_descripcion FROM historial_cambios where"
                 . " pk_htc_codigo ='$PkHtCodigo' or htc_fecha='$fecha' ";
                
+               
+        
+        if (!$result = $this->conexion->ejecutarQuery($consultarHisotorial)) {
+            echo $conexion->error;
+              
+        }
+           echo ' <div class="panel panel-default">
+        <div class="panel-heading">Lista de Historial de Cambios</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="head_table">Codigo</th>
+              <th class="head_table">Fecha</th>
+              <th class="head_table">Hora</th>
+              <th class="head_table">Descripcion</th>
+              <th class="head_table">Acciones</th>
+              </tr>
+          </thead>';
+       while ($row = mysqli_fetch_array($result)) {
+           
+             $contenido = "<tr >
+                             <td > ". $row[0] . "</td>
+                            <td> ". $row[1] . "</td>
+                            <td> ". $row[2] . "</td>
+                            <td> ". $row[3] . "</td>
+                              <td> <a class='btn btn-danger glyphicon glyphicon-trash
+                              btn-lg btn_modificar_eliminar col-xs-12'data-target='#confirm-submit' 
+                                  data-toggle='dropdown' aria-expanded='false' 
+                                                       id='btn-inv-eliminar' "."data-value='".$row[0]."' class=''></td>
+                   </tr>";
+             echo $contenido;
+           
+       }
+           '</table>';
+        echo'</div>';
+       }        
+        
+        
+        
+        public function consultaFiltroEliminar($PkHtCodigo,$fecha) {
+
+        //CONEXION CON LA BASE DE DATOS 
+        // CONSULTA CASE DE DATOS 
+       
+        $consultarHisotorial = "SELECT pk_htc_codigo,htc_fecha,htc_hora,htc_descripcion FROM historial_cambios where"
+                . " pk_htc_codigo ='$PkHtCodigo' or htc_fecha='$fecha' or htc_hora='$htcHora'";
+              
                
         
         if (!$result = $this->conexion->ejecutarQuery($consultarHisotorial)) {

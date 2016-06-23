@@ -91,5 +91,14 @@ if ($op ==9){
 
 }
 
+if ($op == 10){
+    
+   $PkHtCodigo = $_POST['pkCodigo'];
+   $htcFecha = $_POST['fecha'];
+   $historial->consultaFiltroEliminar($PkHtCodigo, $htcFecha);
+    
+    
+}
+
 ?>
 

@@ -261,7 +261,8 @@ app.parteseEquipos = function() {
 
         $.confirm({
             title: 'CONFIRMAR ELIMINACION!',
-            text: 'Esta Seguro que Desea Eliminar este Registro',
+            text: 'Esta Seguro que Desea Eliminar el  Codigo de Registro '+ '<strong>"'+ pkCodigo+'"</s\n\
+                trong>'+'',
             confirm: function() {
                 lblResultado = document.getElementById('lblRespuestaServidor');
                 ajax = objetoAjax();
