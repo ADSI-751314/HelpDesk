@@ -1,14 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php
-     require("../../model/PDOConexionPrueba_class.php");
-
-       $sql = "SELECT pk_equ_codigo, equ_nombre FROM equipos order by equ_nombre asc";
-       $sql2 = "SELECT pk_htc_codigo, htc_descripcion FROM historial_cambios order by htc_descripcion asc";
-     $result = mysql_query($sql);
-     $result2 = mysql_query($sql2);
-       
-     ?>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +27,7 @@
 
                 <form class="form-inline">
                     <div class="form-group">
-                        <label class="Validacion"></label></br>
+                         <label class="Validacion"></label></br>
                         <label for="txt_codigofiltro">Codigo Parte Equipo:</label>                  
                         <input type="text" class="form-control" id="txt_codigofiltro" placeholder="Ingrese codigo de parte de Equipo">
                         <div class="form-group">
@@ -47,10 +38,10 @@
                             <span class="glyphicon glyphicon-filter "  
                                   aria-hidden="true"></span> Filtrar
                         </button>
-                    </div>
+                         </div>
                 </form>
             </div>
-
+           
             <!--        div para mostar el formulario-->
             <label id="lblRespuestaServidor" class=""></label>
 
@@ -66,24 +57,24 @@
                         <div class="modal-header">
                             <button type="button" class="close  btn-circle btn-danger" data-dismiss="modal" aria-hidden="true">
                                 <i class="fa fa-times"></i></button>
-                            <h4 class="modal-title">Nuevo Historial</h4>
+                            <h4 class="modal-title">Nueva parte de Equipo</h4>
                         </div>
                         <form role="form" action="" name="frmInventario" class="btn-inventario" id="frmPArtesEquipos"  >
 
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label>Codigo Partes:</label>
+                                    <label>Codigo Partes</label>
                                     <span class="validacion"></span>
                                     <input id="txtPkCodigo" class="form-control" required="" >
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Serial:</label>
+                                    <label>Serial</label>
                                     <input  type="text" id="txtSerial" class="form-control datepicker" required="">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Marca:</label>
+                                    <label>Marca</label>
                                     <input id="txtMarca" type="text" class="form-control" required="">
                                 </div>
 
@@ -94,34 +85,30 @@
 
 
                                 <div class="form-group">
-                                    <label>Estado: </label>
+                                    <label>Estado </label>
                                     <input id="txtEstado" class="form-control" required="" title="Debe ingresar">
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Nombre de Equipo: </label>
+                                    <label>EQUIPO </label>
                                     <select id="sltEquipó" class="form-control" required="" title="Debe ingresar">
                                         <option disabled="disabled" selected="selected">SELECCIONE---></option>
-                                        <?php
-                                      while ($row = mysql_fetch_array($result)) {
-                                          echo "<option value='".$row['0']."'>".$row['1']."</option>";
-                                        }
-                                        ?>
+                                        <option value="1">PC-SAMSUNG</option>
+                                        <option value="2">PC-ARGOM</option>
+                                        <option value="3">PC-INTEL</option>
 
 
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Codigo de Historial: </label>
+                                    <label>CODIGO HISTORIAL DE CAMBIO </label>
                                     <select class="form-control" id="sltHistorial">
-                                         <option disabled="disabled" selected="selected">SELECCIONE---></option>
-                                          <?php
-                                      while ($row = mysql_fetch_array($result2)) {
-                                          echo "<option value='".$row['0']."'>".$row[0]."</option>";
-                                        }
-                                        ?>
+                                        <option disabled="disabled" selected="selected">SELECCIONE---></option>
+                                        <option value="1">cambio de parte</option>
+                                        <option value="2">cambio de equipo</option>
+                                        <option value="3">cambio por daño</option>
 
                                     </select>
                                 </div>
@@ -145,19 +132,19 @@
 
 
             <!--Modal para modificar Partes-->
-            <div class="modal fade" id="modalModificar"   class="btn-inventario" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal fade" id="modalModificar"   class="btn-inventario" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close  btn-circle btn-danger" data-dismiss="modal" aria-hidden="true">
                                 <i class="fa fa-times"></i></button>
-                            <h4 class="modal-title">Modifcar Historial</h4>
+                            <h4 class="modal-title">Modifcar Parte de Equipos</h4>
                         </div>
                         <form role="form" action="" name="frmInventario" class="btn-inventario" id="FormularioModificar"  >
 
                             <div class="col-lg-12">             
 
-
+,l kjbjjbkkbjk
 
 
                                 <button type="submit" class="btn btn-info btn-lg btn_inventario " 
