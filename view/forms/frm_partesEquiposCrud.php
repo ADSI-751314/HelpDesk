@@ -17,7 +17,7 @@
 
     </head>
     <body id="body">
-        <div class="container">
+        <div class="container" id="contenedor">
             <div class="starter-template">
                 <h1>PARTES  DE EQUIPOS</h1>
                 <p class="lead">Aplicación de Control de Partes de Equipos</p>
@@ -114,7 +114,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Codigo de Hisotorial: </label>
+                                    <label>Codigo de Historial: </label>
                                     <select class="form-control" id="sltHistorial">
                                          <option disabled="disabled" selected="selected">SELECCIONE---></option>
                                           <?php

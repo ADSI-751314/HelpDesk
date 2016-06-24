@@ -7,7 +7,7 @@
         <title>EQUIPOS</title>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse"  >
             <div class="container">
                 
                 <h3 style="color:white; position:absolute; right:350px ">EQUIPOS TECNOLOGICOS</h3>
@@ -17,16 +17,11 @@
             <div class="starter-template">
                 <h1>CRUD EQUIPOS</h1>
                 <p class="lead">CONTENIDO DE EQUIPOS</p>
-                <input type="text" required placeholder="codigo" class="input-sm" name="txtcodigo" id="buscar" size="12" maxlength="12">
-                <br>
-                <br>
+                
                 <button type="button" onclick="Nuevo()" class="btn btn-primary btn-lg" >
                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Nuevo
                 </button> 
-                
-                <button type="button" onclick="" class="btn btn-info btn-lg">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
-                </button>
+               
                 
             </div>
 
@@ -113,8 +108,8 @@
                                 <select id="Tipo_Dependencia" class="form-control input-sm">
                                                 <option disabled="disabled" selected="selected">SELECCIONE---></option>
                                                 <option value="1">Administrador</option>
-                                                <option value="2">Empleado</option>
-                                                <option value="3">usuario</option>
+                                                <option value="2">Gerencia</option>
+                                                <option value="3">Empleado</option>
                                 </select>
                                 </div>
                                 

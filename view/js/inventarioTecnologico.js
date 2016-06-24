@@ -110,10 +110,10 @@ app.inventarioTecnologico = function() {
 //function que permite consultar todas los regsitros ingresado en 
 // la tabla Historial_cambios
     function mostrar() {
-        txtCodigo = document.getElementById('txt_codigofiltro').value = "";
-        dteFecha = document.getElementById('dte_fecha').value = "";
-        timHora = document.getElementById('tim_Hora').value = "";
-        txtDescripcion = document.getElementById('text_descripcion').value = "";
+//        txtCodigo = document.getElementById('txt_codigofiltro').value = "";
+//        dteFecha = document.getElementById('dte_fecha').value = "";
+//        timHora = document.getElementById('tim_Hora').value = "";
+//        txtDescripcion = document.getElementById('text_descripcion').value = "";
 
 
         divConsulta = document.getElementById('mostrarFormulario');
